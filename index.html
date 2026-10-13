@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDUMIN Playlist</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+      :root {
+        --borde: 2.5px solid #000000;
+        --radio: 25px;
+        --color-tema: #000000;
+        --color-resaltado: #ffffff;
+      }
+      html {
+        scroll-behavior: auto;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Google Sans", sans-serif;
+        background-color: #f9f9f9;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+        margin: 0 auto;
+      }
+      .envoltura-tarjeta {
+        padding: 30px 40px 42px 40px;
+        width: 95%;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        animation: fadeInUp 0.8s ease-out both;
+        will-change: transform;
+        overflow-x: hidden;
+      }
+      .contenido-encabezado {
+        width: 100%;
+        padding-bottom: 25px;
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+      }
+      .logo-principal {
+        max-width: 150px;
+        height: auto;
+        margin-bottom: 5px;
+      }
+      .contenedor-svg-color {
+        max-width: 170px;
+        height: auto;
+        aspect-ratio: 2.6 / 1;
+        margin: 0 auto 25px auto;
+        background-color: var(--color-tema);
+        -webkit-mask-image: url("https://videoconferenciasdiplomado-alt.github.io/imagenes/playlist.svg");
+        mask-image: url("https://videoconferenciasdiplomado-alt.github.io/imagenes/playlist.svg");
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-position: center;
+        mask-position: center;
+      }
+      .frase-inicial {
+        font-size: 1.4rem;
+        font-weight: 700;
+        max-width: 525px;
+        margin: 0 auto;
+        line-height: 1.3;
+        color: #000000;
+        text-wrap: balance;
+        position: relative;
+        display: inline-block;
+      }
+      .contenedor-tarjeta {
+        background-color: #fdfdfd;
+        border: var(--borde);
+        border-radius: var(--radio);
+        padding: 25px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        box-shadow: 12px 12px 0px var(--color-tema);
+        z-index: 1;
+      }
+      .fila-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+      .punto-color {
+        background-color: var(--color-tema);
+        width: 15px;
+        height: 15px;
+        border: var(--borde);
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .texto-info {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #000000;
+        line-height: 1.3;
+        margin: 0;
+        text-align: left;
+      }
+      .texto-info b {
+        background-color: var(--color-resaltado);
+        padding: 0px 2px;
+        border-radius: 5px;
+        font-weight: inherit;
+        display: inline-block;
+        line-height: 1.2;
+      }
+      .caja-video {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: var(--radio);
+        margin-bottom: 25px;
+      }
+      .caja-video::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: var(--radio);
+        border: var(--borde);
+        pointer-events: none;
+        z-index: 10;
+      }
+      .caja-video iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--radio);
+        border: none;
+        display: block;
+        z-index: 1;
+      }
+      .fila-botones {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+      }
+      .botones {
+        padding: 12px 24px;
+        border-radius: var(--radio);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: var(--borde);
+        color: #000000;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        will-change: transform;
+        line-height: 1.1;
+      }
+      .botones-colorido {
+        background-color: var(--color-tema);
+        border-color: var(--color-tema);
+      }
+      .pegatina {
+        position: absolute;
+        font-size: 3.8rem;
+        z-index: 15;
+        user-select: none;
+        pointer-events: none;
+        filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.4));
+        animation: float 4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+        animation-delay: calc(var(--delay, 0) * 1s);
+        will-change: transform;
+      }
+      .pegatina-1 {
+        top: -16%;
+        left: -71%;
+        --rotacion-base: 5deg;
+        transform: rotate(var(--rotacion-base));
+        font-size: 2.5rem;
+      }
+      .pegatina-2 {
+        top: 55%;
+        right: -120%;
+        --rotacion-base: -8deg;
+        transform: rotate(var(--rotacion-base));
+        font-size: 3rem;
+      }
+      .pegatina-3 {
+        top: 153%;
+        left: -187%;
+        --rotacion-base: -12deg;
+        transform: rotate(var(--rotacion-base));
+      }
+      .pegatina-4 {
+        top: -7%;
+        right: -7%;
+        --rotacion-base: 10deg;
+        transform: rotate(var(--rotacion-base));
+      }
+      .pegatina-5 {
+        bottom: -9%;
+        left: -7%;
+        --rotacion-base: 6deg;
+        transform: rotate(var(--rotacion-base));
+      }
+      .pegatina-6 {
+        bottom: -40%;
+        right: -10%;
+        --rotacion-base: -8deg;
+        transform: rotate(var(--rotacion-base));
+        font-size: 2.2rem;
+      }
+      .pegatina-6-movil {
+        display: none;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .botones:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        filter: brightness(1.1);
+      }
+      .botones:active {
+        transform: translateY(0);
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(var(--rotacion-base, 0deg));
+        }
+        50% {
+          transform: translateY(-10px) rotate(calc(var(--rotacion-base, 0deg) + (6deg * var(--direccion, 1))));
+        }
+        100% {
+          transform: translateY(0px) rotate(var(--rotacion-base, 0deg));
+        }
+      }
+      @media (max-width: 768px) {
+        .envoltura-tarjeta {
+          padding: 30px 20px 38px 20px;
+        }
+        .logo-principal {
+          max-width: calc(150px * 0.8);
+        }
+        .contenedor-svg-color {
+          max-width: calc(170px * 0.8);
+          margin-bottom: 15px;
+        }
+        .frase-inicial {
+          font-size: 1.1rem;
+        }
+        .contenedor-tarjeta {
+          padding: 15px;
+          box-shadow: 8px 8px 0px var(--color-tema);
+          overflow: hidden;
+        }
+        .contenido-encabezado {
+          padding-bottom: 15px;
+        }
+        .fila-info {
+          display: block;
+          text-align: left;
+          margin-bottom: 15px;
+        }
+        .punto-color {
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 5px;
+          margin-top: -3px;
+          width: 10px !important;
+          height: 10px !important;
+        }
+        .texto-info {
+          font-size: 1rem;
+          display: inline;
+        }
+        .caja-video {
+          margin-left: -17.5px;
+          margin-right: -17.5px;
+          width: calc(100% + 35px);
+          margin-bottom: 15px;
+        }
+        .caja-video::after {
+          border-left: none;
+          border-right: none;
+          border-radius: 0;
+        }
+        .caja-video iframe {
+          border-radius: 0;
+        }
+        .fila-botones {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .botones {
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .pegatina {
+          font-size: 2.3rem;
+        }
+        .pegatina-1 {
+          top: -23%;
+          left: -28%;
+          font-size: 1.7rem;
+        }
+        .pegatina-2 {
+          right: -60%;
+          font-size: 2.1rem;
+        }
+        .pegatina-3 {
+          top: 109%;
+          left: -65%;
+        }
+        .pegatina-4 {
+          top: -8%;
+          right: 1%;
+        }
+        .pegatina-5 {
+          bottom: -10%;
+          left: 2%;
+        }
+        .pegatina-6 {
+          display: none;
+        }
+        .pegatina-6-movil {
+          display: block;
+          bottom: 4%;
+          right: 12%;
+          --rotacion-base: -8deg;
+          transform: rotate(var(--rotacion-base));
+          font-size: 2rem;
+        }
+      }
+      @media (max-width: 280px) {
+        .pegatina-1,
+        .pegatina-2,
+        .pegatina-3 {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="envoltura-tarjeta">
+      <span class="pegatina pegatina-6-movil"></span>
+      <div class="contenido-encabezado">
+        <a href="https://www.edumin.pe/" target="_blank" style="position: relative; display: inline-block">
+          <img src="https://videoconferenciasdiplomado-alt.github.io/imagenes/logo%20negro%20edumin.png" alt="EDUMIN Logo" class="logo-principal" />
+          <span class="pegatina pegatina-1"></span>
+          <span class="pegatina pegatina-2"></span>
+          <span class="pegatina pegatina-3"></span>
+        </a>
+        <div class="contenedor-svg-color"></div>
+        <div class="frase-inicial">Encuentra lo más importante de tu clase en este video resumen: la forma más fácil y práctica de repasar lo esencial en pocos minutos.</div>
+      </div>
+      <div class="contenedor-tarjeta">
+        <div class="fila-info">
+          <div class="punto-color"></div>
+          <p class="texto-info">Repasa a tu manera: mira el resumen <b>aquí</b>, ábrelo en <b>YouTube</b> o revisa la <b>lista completa</b>. ¡Elige la opción que prefieras y listo!</p>
+        </div>
+        <div class="caja-video">
+          <span class="pegatina pegatina-4"></span>
+          <span class="pegatina pegatina-5"></span>
+          <iframe id="iframe-video" src="" loading="lazy" title="Reproductor de YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="fila-botones">
+          <a href="#" id="btn-reproducir" target="_blank" class="botones botones-colorido">
+            <span class="material-symbols-rounded">play_circle</span>
+            Ver en YouTube
+          </a>
+          <div style="position: relative; display: inline-block">
+            <a href="#" id="btn-lista" target="_blank" class="botones">
+              <span class="material-symbols-rounded">video_library</span>
+              Ver lista completa
+            </a>
+            <span class="pegatina pegatina-6"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+      const colores = ["#005dff", "#fe8c00", "#fea4fd", "#fdd644", "#00d1b1"];
+      const colorAlAzar = colores[Math.floor(Math.random() * colores.length)];
+      const mapaResaltados = {
+        "#005dff": "#fdd644",
+        "#fe8c00": "#feeeb4",
+        "#fea4fd": "#fdd644",
+        "#fdd644": "#cadefe",
+        "#00d1b1": "#f2d302",
+      };
+      const bancoEmoji = ["🏗️", "🚀", "✅", "📚", "⭐", "🎓", "📈", "📝", "🎯", "🔍", "📖", "💻", "🎬", "🚛", "💎", "🦺", "✍️"];
+      const emojiMezclados = bancoEmoji.sort(() => 0.5 - Math.random());
+      const root = document.documentElement;
+      root.style.setProperty("--color-tema", colorAlAzar);
+      root.style.setProperty("--color-resaltado", mapaResaltados[colorAlAzar]);
+      window.onload = function () {
+        const elementosPegatinas = document.querySelectorAll(".pegatina");
+        elementosPegatinas.forEach((span, index) => {
+          if (emojiMezclados[index]) {
+            span.innerText = emojiMezclados[index];
+            span.style.setProperty("--delay", (index - 1) * 0.5);
+            const direccionAzar = Math.random() > 0.5 ? 1 : -1;
+            span.style.setProperty("--direccion", direccionAzar);
+          }
+        });
+        const p6Original = document.querySelector(".pegatina-6");
+        const p6Movil = document.querySelector(".pegatina-6-movil");
+        if (p6Original && p6Movil) {
+          p6Movil.innerText = p6Original.innerText;
+          p6Movil.style.setProperty("--delay", p6Original.style.getPropertyValue("--delay"));
+          p6Movil.style.setProperty("--direccion", p6Original.style.getPropertyValue("--direccion"));
+        }
+        if (colorAlAzar === "#005dff") {
+          const btnColorido = document.querySelector(".botones-colorido");
+          if (btnColorido) btnColorido.style.color = "#ffffff";
+        }
+
+        // Lógica dinámica de lectura de URL y JSON
+        const params = new URLSearchParams(window.location.search);
+        const diplomado = params.get("diplomado") || "derecho-minero";
+        const numVideo = parseInt(params.get("video") || "1", 10);
+
+        const btnPrincipal = document.getElementById("btn-reproducir");
+        const btnLista = document.getElementById("btn-lista");
+        const iframeVideo = document.getElementById("iframe-video");
+
+        function extraerIdVideo(url) {
+          if (!url) return null;
+          const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+          const match = url.match(regExp);
+          return match && match[2].length === 11 ? match[2] : null;
+        }
+
+        fetch(`./${diplomado}.json`)
+          .then((res) => {
+            if (!res.ok) throw new Error("No se pudo cargar el archivo " + diplomado + ".json");
+            return res.json();
+          })
+          .then((data) => {
+            const index = Math.max(0, numVideo - 1);
+            const videoItem = (data.videos && data.videos[index]) || (data.videos && data.videos[0]);
+
+            if (!videoItem) {
+              console.error("No se encontró el video en el índice:", index);
+              return;
+            }
+
+            const videoId = extraerIdVideo(videoItem.url);
+
+            // Asignar iframe sólo al video individual, sin parámetros de lista
+            if (iframeVideo && videoId) {
+              iframeVideo.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
+            }
+
+            // Asignar botón principal sólo al video individual
+            if (btnPrincipal && videoId) {
+              btnPrincipal.href = `https://www.youtube.com/watch?v=${videoId}`;
+            }
+
+            // Asignar botón de lista completa a la playlist general
+            if (btnLista && data.playlist_url) {
+              btnLista.href = data.playlist_url;
+            }
+          })
+          .catch((err) => {
+            console.error("Error al cargar la información del diplomado:", err);
+          });
+      };
+    </script>
+  </body>
+</html>
