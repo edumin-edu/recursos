@@ -250,6 +250,40 @@
       .botones:active {
         transform: translateY(0);
       }
+      .caja-error {
+        display: none;
+        text-align: center;
+        padding: 40px 0;
+      }
+      .icono-error {
+        display: inline-block;
+        font-size: 3.8rem;
+        line-height: 1;
+        margin-bottom: 25px;
+        user-select: none;
+        pointer-events: none;
+        filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.4));
+        animation: float 4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+        will-change: transform;
+      }
+      .titulo-error {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #000000;
+        text-wrap: balance;
+        line-height: 1.3;
+      }
+      .descripcion-error {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #000000;
+        line-height: 1.3;
+        margin: 0 auto;
+        text-align: center;
+        text-wrap: balance;
+        max-width: 440px;
+      }
       @keyframes float {
         0% {
           transform: translateY(0px) rotate(var(--rotacion-base, 0deg));
@@ -275,6 +309,12 @@
         .frase-inicial {
           font-size: 1.1rem;
         }
+
+        .titulo-error {
+          font-size: 1.1rem;
+          margin-bottom: 5px;
+        }
+
         .contenedor-tarjeta {
           padding: 15px;
           box-shadow: 8px 8px 0px var(--color-tema);
@@ -299,6 +339,13 @@
         .texto-info {
           font-size: 1rem;
           display: inline;
+        }
+        .descripcion-error {
+          font-size: 1rem;
+        }
+        .icono-error {
+          font-size: 2.3rem;
+          margin-bottom: 15px;
         }
         .caja-video {
           margin-left: -17.5px;
@@ -381,27 +428,34 @@
         <div class="frase-inicial">Encuentra lo más importante de tu clase en este video resumen: la forma más fácil y práctica de repasar lo esencial en pocos minutos.</div>
       </div>
       <div class="contenedor-tarjeta">
-        <div class="fila-info">
-          <div class="punto-color"></div>
-          <p class="texto-info">Repasa a tu manera: mira el resumen <b>aquí</b>, ábrelo en <b>YouTube</b> o revisa la <b>lista completa</b>. ¡Elige la opción que prefieras y listo!</p>
-        </div>
-        <div class="caja-video">
-          <span class="pegatina pegatina-4"></span>
-          <span class="pegatina pegatina-5"></span>
-          <iframe id="iframe-video" src="" loading="lazy" title="Reproductor de YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="fila-botones">
-          <a href="#" id="btn-reproducir" target="_blank" class="botones botones-colorido">
-            <span class="material-symbols-rounded">play_circle</span>
-            Ver en YouTube
-          </a>
-          <div style="position: relative; display: inline-block">
-            <a href="#" id="btn-lista" target="_blank" class="botones">
-              <span class="material-symbols-rounded">video_library</span>
-              Ver lista completa
-            </a>
-            <span class="pegatina pegatina-6"></span>
+        <div id="contenido-normal">
+          <div class="fila-info">
+            <div class="punto-color"></div>
+            <p class="texto-info">Repasa a tu manera: mira el resumen <b>aquí</b>, ábrelo en <b>YouTube</b> o revisa la <b>lista completa</b>. ¡Elige la opción que prefieras y listo!</p>
           </div>
+          <div class="caja-video">
+            <span class="pegatina pegatina-4"></span>
+            <span class="pegatina pegatina-5"></span>
+            <iframe id="iframe-video" src="" loading="lazy" title="Reproductor de YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="fila-botones">
+            <a href="#" id="btn-reproducir" target="_blank" class="botones botones-colorido">
+              <span class="material-symbols-rounded">play_circle</span>
+              Ver en YouTube
+            </a>
+            <div style="position: relative; display: inline-block">
+              <a href="#" id="btn-lista" target="_blank" class="botones">
+                <span class="material-symbols-rounded">video_library</span>
+                Ver lista completa
+              </a>
+              <span class="pegatina pegatina-6"></span>
+            </div>
+          </div>
+        </div>
+        <div id="contenido-error" class="caja-error">
+          <div class="icono-error">⚠️</div>
+          <div class="titulo-error">Contenido no disponible</div>
+          <div class="descripcion-error">El diplomado o la clase solicitada no existe. Verifica que el enlace sea correcto.</div>
         </div>
       </div>
     </div>
@@ -447,12 +501,28 @@
 
         // Lógica dinámica de lectura de URL y JSON
         const params = new URLSearchParams(window.location.search);
-        const diplomado = params.get("diplomado") || "derecho-minero";
-        const numVideo = parseInt(params.get("video") || "1", 10);
+        const diplomado = params.get("diplomado");
+        const videoParam = params.get("video");
 
         const btnPrincipal = document.getElementById("btn-reproducir");
         const btnLista = document.getElementById("btn-lista");
         const iframeVideo = document.getElementById("iframe-video");
+        const contenidoNormal = document.getElementById("contenido-normal");
+        const contenidoError = document.getElementById("contenido-error");
+
+        function mostrarError() {
+          if (contenidoNormal) contenidoNormal.style.display = "none";
+          if (contenidoError) contenidoError.style.display = "block";
+          const p6Movil = document.querySelector(".pegatina-6-movil");
+          if (p6Movil) p6Movil.style.display = "none";
+        }
+
+        // Si no se especifica diplomado o el número de video es inválido (menor a 1 o no numérico)
+        const numVideo = parseInt(videoParam || "1", 10);
+        if (!diplomado || isNaN(numVideo) || numVideo < 1) {
+          mostrarError();
+          return;
+        }
 
         function extraerIdVideo(url) {
           if (!url) return null;
@@ -463,27 +533,35 @@
 
         fetch(`./${diplomado}.json`)
           .then((res) => {
-            if (!res.ok) throw new Error("No se pudo cargar el archivo " + diplomado + ".json");
+            if (!res.ok) throw new Error("Archivo no encontrado");
             return res.json();
           })
           .then((data) => {
-            const index = Math.max(0, numVideo - 1);
-            const videoItem = (data.videos && data.videos[index]) || (data.videos && data.videos[0]);
+            if (!data.videos || !Array.isArray(data.videos) || numVideo > data.videos.length) {
+              mostrarError();
+              return;
+            }
 
-            if (!videoItem) {
-              console.error("No se encontró el video en el índice:", index);
+            const index = numVideo - 1;
+            const videoItem = data.videos[index];
+            if (!videoItem || !videoItem.url) {
+              mostrarError();
               return;
             }
 
             const videoId = extraerIdVideo(videoItem.url);
+            if (!videoId) {
+              mostrarError();
+              return;
+            }
 
-            // Asignar iframe sólo al video individual, sin parámetros de lista
-            if (iframeVideo && videoId) {
+            // Asignar iframe sólo al video individual
+            if (iframeVideo) {
               iframeVideo.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
             }
 
             // Asignar botón principal sólo al video individual
-            if (btnPrincipal && videoId) {
+            if (btnPrincipal) {
               btnPrincipal.href = `https://www.youtube.com/watch?v=${videoId}`;
             }
 
@@ -492,8 +570,8 @@
               btnLista.href = data.playlist_url;
             }
           })
-          .catch((err) => {
-            console.error("Error al cargar la información del diplomado:", err);
+          .catch(() => {
+            mostrarError();
           });
       };
     </script>

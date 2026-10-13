@@ -1,0 +1,78 @@
+{
+  "nombre_diplomado": "GEOMETALURGIA",
+  "playlist_url": "https://www.youtube.com/playlist?list=PLLq0zV2goR_BrgaLftDLp3OafZmwb6XgL",
+  "videos": [
+    {
+      "titulo": "TEMA 01 - PARTE 01",
+      "url": "https://www.youtube.com/watch?v=U9sBcqQVzqI"
+    },
+    {
+      "titulo": "TEMA 01 - PARTE 02",
+      "url": "https://www.youtube.com/watch?v=3cvDb2Boz90"
+    },
+    {
+      "titulo": "TEMA 02 - PARTE 01",
+      "url": "https://www.youtube.com/watch?v=L67jde5mIV8"
+    },
+    {
+      "titulo": "TEMA 02 - PARTE 02",
+      "url": "https://www.youtube.com/watch?v=iOwHevdfVx0"
+    },
+    {
+      "titulo": "TEMA 03 - PARTE 01",
+      "url": "https://www.youtube.com/watch?v=5eKJuGb3XL4"
+    },
+    {
+      "titulo": "TEMA 03 - PARTE 02",
+      "url": "https://www.youtube.com/watch?v=6Acyf6Vg2nw"
+    },
+    {
+      "titulo": "TEMA 04 - PARTE 01",
+      "url": "https://www.youtube.com/watch?v=xl9k1e0wQuo"
+    },
+    {
+      "titulo": "TEMA 04 - PARTE 02",
+      "url": "https://www.youtube.com/watch?v=zGset0iSvUs"
+    },
+    {
+      "titulo": "TEMA 05 - PARTE 01",
+      "url": "https://www.youtube.com/watch?v=4TcrzvWHlKI"
+    },
+    {
+      "titulo": "TEMA 05 - PARTE 02",
+      "url": "https://www.youtube.com/watch?v=N0HrcWCoiAM"
+    },
+    {
+      "titulo": "TEMA 06 - PARTE 01",
+      "url": "https://www.youtube.com/watch?v=GQZafUhZdbo"
+    },
+    {
+      "titulo": "TEMA 06 - PARTE 02",
+      "url": "https://www.youtube.com/watch?v=A5n_yDBSF0c"
+    },
+    {
+      "titulo": "TEMA 07 - PARTE 01",
+      "url": "https://www.youtube.com/watch?v=SBALd8Kak7o"
+    },
+    {
+      "titulo": "TEMA 07 - PARTE 02",
+      "url": "https://www.youtube.com/watch?v=H43Wo3U3K28"
+    },
+    {
+      "titulo": "TEMA 08 - PARTE 01",
+      "url": "https://www.youtube.com/watch?v=HNrvR1KB-eQ"
+    },
+    {
+      "titulo": "TEMA 08 - PARTE 02",
+      "url": "https://www.youtube.com/watch?v=CkvsAc6NicA"
+    },
+    {
+      "titulo": "TEMA 09 - PARTE 01",
+      "url": "https://www.youtube.com/watch?v=eliQH79GaXM"
+    },
+    {
+      "titulo": "TEMA 09 - PARTE 02",
+      "url": "https://www.youtube.com/watch?v=ipVEAaE-yuA"
+    }
+  ]
+}
