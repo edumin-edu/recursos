@@ -1,563 +1,625 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resumen en Audio - EDUMIN</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    body {
-      background-color: #000000;
-      color: #ffffff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .background-wrapper {
-      --color-principal: #585158;
-      width: 100%;
-      background-color: #000000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-weight: normal;
-      padding: 35px 20px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .superior-logos {
-      text-align: center;
-      touch-action: manipulation;
-      position: relative;
-      z-index: 1;
-    }
-
-    .logo-edumin {
-      max-width: 140px;
-      margin-bottom: 5px;
-    }
-
-    .img-pod {
-      max-width: 120px;
-      aspect-ratio: 1107.3 / 400;
-      margin-bottom: 10px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      background-color: #1ed760;
-      -webkit-mask-image: url("https://videoconferenciasdiplomado-alt.github.io/imagenes/podcast.svg");
-      mask-image: url("https://videoconferenciasdiplomado-alt.github.io/imagenes/podcast.svg");
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      -webkit-mask-size: contain;
-      mask-size: contain;
-      -webkit-mask-position: center;
-      mask-position: center;
-    }
-
-    .present-amigable {
-      color: #ffffff;
-      font-size: 1.125rem;
-      font-weight: 700;
-      line-height: 1.25;
-      text-wrap: balance;
-      max-width: 600px;
-      margin: 25px 0;
-      position: relative;
-    }
-
-    .contenedor {
-      max-width: 800px;
-      width: 100%;
-      position: relative;
-      background: linear-gradient(var(--color-principal) -12.5%, #121212 20%);
-      align-items: center;
-      border-radius: 8px;
-      touch-action: manipulation;
-      z-index: 1;
-    }
-
-    .caja-titulo {
-      padding: 15px;
-      margin: 15px;
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .caja-texto {
-      position: relative;
-      align-items: center;
-      text-align: center;
-      color: #ffffff;
-      font-weight: 700;
-      text-wrap: balance;
-      line-height: 1.15;
-      font-size: 1.375rem;
-      z-index: 1;
-      width: fit-content;
-    }
-
-    .caja-opcion-full {
-      position: relative;
-      max-width: 800px;
-      border-radius: 8px;
-      padding: 15px;
-      margin: 15px;
-      text-align: left;
-      transition: background-color 0.3s ease;
-      touch-action: manipulation;
-      z-index: 1;
-    }
-
-    .caja-opcion-full:hover {
-      background-color: #1f1f1f;
-    }
-
-    .pestana {
-      color: #ffffff;
-      border-bottom: 2px solid #ffffff1a;
-      padding-top: 5px;
-      padding-bottom: 10px;
-      padding-right: 40px;
-      font-weight: 700;
-      font-size: 1.25rem;
-      line-height: 1.15;
-      text-wrap: balance;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      position: relative;
-      z-index: 3;
-    }
-
-    .pestana-texto {
-      font-size: 1rem;
-      line-height: 1.25;
-      color: #b3b3b3;
-      padding-top: 15px;
-    }
-
-    /* Spotify Option */
-    .contenedor-reproductor-spotify {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      width: 100%;
-      margin-top: 15px;
-    }
-
-    .--link-podcast {
-      text-decoration: none !important;
-      color: inherit;
-      display: inline-block;
-      outline: none;
-    }
-
-    .--link-podcast:hover,
-    .--link-podcast:focus,
-    .--link-podcast:visited,
-    .--link-podcast:active {
-      text-decoration: none !important;
-      color: inherit;
-    }
-
-    .btn-lista {
-      display: flex;
-      width: fit-content;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      background-color: #1ed760;
-      color: #000000 !important;
-      text-decoration: none !important;
-      padding: 15px 25px;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      margin: 20px auto;
-      text-align: center;
-      transition:
-        background-color 0.3s cubic-bezier(0.3, 0, 0, 1),
-        transform 0.3s cubic-bezier(0.3, 0, 0, 1);
-      will-change: transform;
-      font-weight: 700;
-      font-size: 1rem;
-      line-height: 1.05;
-      text-wrap: balance;
-    }
-
-    .btn-lista:hover {
-      background-color: #3be477;
-      transform: scale(1.04);
-      text-decoration: none !important;
-      color: #000000 !important;
-    }
-
-    .btn-lista:active {
-      background-color: #1abc54;
-      transform: scale(1);
-      text-decoration: none !important;
-    }
-
-    .btn-texto {
-      text-decoration: none !important;
-      color: inherit;
-    }
-
-    .spotify-iframe-wrapper {
-      width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      background-color: #282828;
-    }
-
-    .spotify-iframe-wrapper iframe {
-      display: block;
-      width: 100%;
-      height: 152px;
-      transition: height 0.3s ease;
-    }
-
-    @media (max-width: 768px) {
-      .spotify-iframe-wrapper iframe {
-        height: 352px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resumen en Audio - EDUMIN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Figtree",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
       }
-    }
 
-    /* Pasos */
-    .pasos-caja {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-      gap: 15px;
-      margin-top: 15px;
-    }
+      body {
+        background-color: #000000;
+        color: #ffffff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-    .paso-item {
-      border: 1px solid #7c7c7c;
-      padding: 15px;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-start;
-      transition:
-        border-color 0.3s cubic-bezier(0.3, 0, 0, 1),
-        transform 0.3s cubic-bezier(0.3, 0, 0, 1);
-      will-change: transform;
-      width: 100%;
-      justify-content: space-between;
-      touch-action: manipulation;
-    }
+      .background-wrapper {
+        --color-principal: #585158;
+        width: 100%;
+        background-color: #000000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-weight: normal;
+        padding: 30px 40px;
+        overflow: hidden;
+        position: relative;
+        animation: fadeInUp 0.8s ease-out both;
+        will-change: transform, opacity;
+      }
 
-    .paso-item:hover {
-      border: 1px solid #ffffff;
-      transform: scale(1.02);
-    }
+      .superior-logos {
+        text-align: center;
+        touch-action: manipulation;
+        position: relative;
+        z-index: 1;
+      }
 
-    .paso-header {
-      flex-direction: column;
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      align-items: flex-start;
-      gap: 10px;
-    }
+      .logo-edumin {
+        max-width: 150px;
+        margin-bottom: 5px;
+      }
 
-    .paso-numero-circular {
-      background-color: #1ed760;
-      color: #000000;
-      width: 30px;
-      height: 30px;
-      min-width: 30px;
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.875rem;
-      line-height: 1;
-    }
+      .img-pod {
+        max-width: 120px;
+        aspect-ratio: 1107.3 / 400;
+        margin-bottom: 25px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #1ed760;
+        -webkit-mask-image: url("https://videoconferenciasdiplomado-alt.github.io/imagenes/podcast.svg");
+        mask-image: url("https://videoconferenciasdiplomado-alt.github.io/imagenes/podcast.svg");
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-position: center;
+        mask-position: center;
+      }
 
-    .paso-titulo {
-      font-weight: 700;
-      font-size: 1rem;
-      line-height: 1.2;
-      color: #ffffff;
-      word-break: break-word;
-      overflow-wrap: break-word;
-      text-wrap: balance;
-    }
+      .present-amigable {
+        color: #ffffff;
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 1.3;
+        text-wrap: balance;
+        max-width: 600px;
+        margin-bottom: 25px;
+        position: relative;
+      }
 
-    .paso-texto {
-      font-size: 0.9375rem;
-      line-height: 1.25;
-      color: #b3b3b3;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
+      .contenedor {
+        max-width: 800px;
+        width: 100%;
+        position: relative;
+        background: linear-gradient(var(--color-principal) -12.5%, #121212 20%);
+        align-items: center;
+        border-radius: 8px;
+        touch-action: manipulation;
+        z-index: 1;
+      }
 
-    /* Drive Audio Container */
-    .drive-audio-container {
-      margin-top: 25px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      width: 100%;
-      background-color: #181818;
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid #282828;
-    }
+      .caja-titulo {
+        padding: 15px;
+        margin: 15px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+      }
 
-    .drive-audio-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
+      .caja-texto {
+        position: relative;
+        align-items: center;
+        text-align: center;
+        color: #ffffff;
+        font-weight: 700;
+        text-wrap: balance;
+        line-height: 1.15;
+        font-size: 1.375rem;
+        z-index: 1;
+        width: fit-content;
+      }
 
-    .reproductor-nativo {
-      width: 100%;
-      height: 48px;
-      border-radius: 50px;
-      outline: none;
-      filter: invert(0.9) hue-rotate(180deg);
-    }
+      .caja-opcion-full {
+        position: relative;
+        max-width: 800px;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 15px;
+        text-align: left;
+        transition: background-color 0.3s ease;
+        touch-action: manipulation;
+        z-index: 1;
+      }
 
-    .drive-acciones {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
+      .caja-opcion-full:hover {
+        background-color: #1f1f1f;
+      }
 
-    .btn-descarga {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background-color: transparent;
-      color: #ffffff;
-      border: 2px solid #1ed760;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.9375rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.3, 0, 0, 1);
-    }
+      .pestana {
+        color: #ffffff;
+        border-bottom: 2px solid #ffffff1a;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        padding-right: 40px;
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 1.3;
+        text-wrap: balance;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        z-index: 3;
+      }
 
-    .btn-descarga:hover {
-      background-color: #1ed760;
-      color: #000000;
-      transform: scale(1.03);
-      box-shadow: 0 4px 15px rgba(30, 215, 96, 0.3);
-    }
+      .pestana-texto {
+        font-size: 1.1rem;
+        line-height: 1.3;
+        color: #b3b3b3;
+        padding-top: 15px;
+      }
 
-    .btn-descarga:active {
-      transform: scale(0.98);
-    }
+      /* Spotify Option */
+      .contenedor-reproductor-spotify {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+        margin-top: 15px;
+      }
 
-    .icono-descarga {
-      fill: currentColor;
-      flex-shrink: 0;
-    }
+      .--link-podcast {
+        text-decoration: none !important;
+        color: inherit;
+        display: inline-block;
+        outline: none;
+      }
 
-    /* Emojis decorativos */
-    .sticker-emoji {
-      position: absolute;
-      user-select: none;
-      filter: drop-shadow(0 0 4px rgb(0, 0, 0));
-      transition:
-        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        opacity 0.4s ease,
-        filter 0.4s ease;
-      font-size: 2.5rem;
-      z-index: 0;
-    }
+      .--link-podcast:hover,
+      .--link-podcast:focus,
+      .--link-podcast:visited,
+      .--link-podcast:active {
+        text-decoration: none !important;
+        color: inherit;
+      }
 
-    .pos-0 {
-      top: clamp(20%, 15vw - 2%, 60%);
-      left: -2%;
-      transform: scale(0.9) rotate(-20deg);
-      z-index: -1 !important;
-      opacity: 0.4;
-    }
+      .btn-lista {
+        display: flex;
+        width: fit-content;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background-color: #1ed760;
+        color: #000000 !important;
+        text-decoration: none !important;
+        padding: 15px 25px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        margin: 20px auto;
+        text-align: center;
+        transition:
+          background-color 0.3s cubic-bezier(0.3, 0, 0, 1),
+          transform 0.3s cubic-bezier(0.3, 0, 0, 1);
+        will-change: transform;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.05;
+        text-wrap: balance;
+      }
 
-    .superior-logos:hover .pos-0,
-    .superior-logos:active .pos-0 {
-      transform: scale(1.15) rotate(10deg) translateY(-15px);
-      opacity: 0.65;
-    }
+      .btn-lista:hover {
+        background-color: #3be477;
+        transform: scale(1.04);
+        text-decoration: none !important;
+        color: #000000 !important;
+      }
 
-    .pos-1 {
-      top: -55px;
-      right: 4%;
-      transform: scale(1.1) rotate(15deg);
-      z-index: -1 !important;
-      opacity: 0.75;
-    }
+      .btn-lista:active {
+        background-color: #1abc54;
+        transform: scale(1);
+        text-decoration: none !important;
+      }
 
-    .superior-logos:hover .pos-1,
-    .superior-logos:active .pos-1 {
-      transform: scale(1) rotate(-10deg) translateY(-10px);
-      opacity: 1;
-    }
+      .btn-texto {
+        text-decoration: none !important;
+        color: inherit;
+      }
 
-    .pos-2 {
-      top: 50%;
-      left: clamp(-19%, -10vw + 6%, -6%);
-      transform: translateY(-50%) scale(1) rotate(5deg);
-      z-index: -1 !important;
-      opacity: 0.3;
-    }
+      .spotify-iframe-wrapper {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        background-color: #282828;
+        display: flex;
+        justify-content: center;
+      }
 
-    .contenedor:hover .pos-2,
-    .contenedor:active .pos-2 {
-      transform: translateY(-50%) scale(1.2) rotate(-5deg);
-      opacity: 0.55;
-    }
+      .spotify-iframe-wrapper iframe {
+        display: block;
+        width: 100%;
+        min-width: 280px;
+        height: 152px;
+        transition: height 0.3s ease;
+        border: 0;
+      }
 
-    .pos-3 {
-      top: 10%;
-      right: -15px;
-      transform-origin: bottom left;
-      transform: translateY(-50%) scale(0.95) rotate(12deg);
-      z-index: -1;
-      opacity: 0.4;
-    }
+      /* Pasos */
+      .pasos-caja {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+        gap: 15px;
+        margin-top: 15px;
+      }
 
-    .caja-opcion-full:hover .pos-3,
-    .caja-opcion-full:active .pos-3 {
-      transform: translateY(-50%) scale(1.4) rotate(12deg);
-      opacity: 0.65;
-    }
+      .paso-item {
+        border: 1px solid #7c7c7c;
+        padding: 15px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+        transition:
+          border-color 0.3s cubic-bezier(0.3, 0, 0, 1),
+          transform 0.3s cubic-bezier(0.3, 0, 0, 1);
+        will-change: transform;
+        width: 100%;
+        justify-content: space-between;
+        touch-action: manipulation;
+      }
 
-    .pos-5 {
-      bottom: 15px;
-      left: -1%;
-      transform: scale(1.4) rotate(-5deg);
-      z-index: 10 !important;
-      opacity: 0.75;
-    }
+      .paso-item:hover {
+        border: 1px solid #ffffff;
+        transform: scale(1.02);
+      }
 
-    .contenedor:hover .pos-5,
-    .contenedor:active .pos-5 {
-      transform: scale(1.6) rotate(-365deg) translateY(15px);
-      opacity: 1;
-    }
-  </style>
-</head>
-<body>
-  <div class="background-wrapper">
-    <div class="superior-logos">
-      <div class="sticker-emoji pos-0">🎙️</div>
-      <a href="https://www.edumin.pe/" target="_blank" rel="noopener noreferrer">
-        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO%20BLANCO%20CANVA-mIKMypQ452RzmXVMUadb6mnvPaejXD.png" alt="EDUMIN logo" class="logo-edumin">
-      </a>
-      <div class="img-pod"></div>
-      <div class="present-amigable">
-        <div class="sticker-emoji pos-1">✨</div>
-        Sabemos que tu tiempo es valioso. Por eso, resumimos lo esencial de cada clase en audios de hasta 18 minutos. Repasa los puntos clave mientras sigues con tu día.
-      </div>
-    </div>
+      .paso-header {
+        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: flex-start;
+        gap: 10px;
+      }
 
-    <div class="contenedor">
-      <div class="caja-titulo">
-        <div class="caja-texto">
-          <div class="sticker-emoji pos-2">💻</div>
-          Elige dónde prefieres escuchar:
+      .paso-numero-circular {
+        background-color: #1ed760;
+        color: #000000;
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.875rem;
+        line-height: 1;
+      }
+
+      .paso-titulo {
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.2;
+        color: #ffffff;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        text-wrap: balance;
+      }
+
+      .paso-texto {
+        font-size: 0.9375rem;
+        line-height: 1.25;
+        color: #b3b3b3;
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+
+      /* Drive Audio Container */
+      .drive-audio-container {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        background-color: #181818;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid #282828;
+      }
+
+      .drive-iframe-wrapper {
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .drive-iframe-wrapper iframe {
+        display: block;
+        width: 100%;
+        border: 0;
+      }
+
+      .drive-acciones {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .btn-descarga {
+        display: flex;
+        width: fit-content;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        background-color: #1ed760;
+        color: #000000 !important;
+        text-decoration: none !important;
+        padding: 15px 25px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        margin: 10px auto 0 auto;
+        text-align: center;
+        transition:
+          background-color 0.3s cubic-bezier(0.3, 0, 0, 1),
+          transform 0.3s cubic-bezier(0.3, 0, 0, 1);
+        will-change: transform;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.05;
+        text-wrap: balance;
+      }
+
+      .btn-descarga:hover {
+        background-color: #3be477;
+        transform: scale(1.04);
+        text-decoration: none !important;
+        color: #000000 !important;
+      }
+
+      .btn-descarga:active {
+        background-color: #1abc54;
+        transform: scale(1);
+        text-decoration: none !important;
+      }
+
+      .icono-descarga {
+        fill: currentColor;
+        flex-shrink: 0;
+      }
+
+      /* Emojis decorativos */
+      .sticker-emoji {
+        position: absolute;
+        user-select: none;
+        filter: drop-shadow(0 0 4px rgb(0, 0, 0));
+        transition:
+          transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.4s ease,
+          filter 0.4s ease;
+        font-size: 2.5rem;
+        z-index: 0;
+      }
+
+      .pos-0 {
+        top: clamp(20%, 15vw - 2%, 60%);
+        left: -2%;
+        transform: scale(0.9) rotate(-20deg);
+        z-index: -1 !important;
+        opacity: 0.4;
+      }
+
+      .superior-logos:hover .pos-0,
+      .superior-logos:active .pos-0 {
+        transform: scale(1.15) rotate(10deg) translateY(-15px);
+        opacity: 0.65;
+      }
+
+      .pos-1 {
+        top: -55px;
+        right: 4%;
+        transform: scale(1.1) rotate(15deg);
+        z-index: -1 !important;
+        opacity: 0.75;
+      }
+
+      .superior-logos:hover .pos-1,
+      .superior-logos:active .pos-1 {
+        transform: scale(1) rotate(-10deg) translateY(-10px);
+        opacity: 1;
+      }
+
+      .pos-2 {
+        top: 50%;
+        left: clamp(-19%, -10vw + 6%, -6%);
+        transform: translateY(-50%) scale(1) rotate(5deg);
+        z-index: -1 !important;
+        opacity: 0.3;
+      }
+
+      .contenedor:hover .pos-2,
+      .contenedor:active .pos-2 {
+        transform: translateY(-50%) scale(1.2) rotate(-5deg);
+        opacity: 0.55;
+      }
+
+      .pos-3 {
+        top: 10%;
+        right: -15px;
+        transform-origin: bottom left;
+        transform: translateY(-50%) scale(0.95) rotate(12deg);
+        z-index: -1;
+        opacity: 0.4;
+      }
+
+      .caja-opcion-full:hover .pos-3,
+      .caja-opcion-full:active .pos-3 {
+        transform: translateY(-50%) scale(1.4) rotate(12deg);
+        opacity: 0.65;
+      }
+
+      .pos-5 {
+        bottom: 15px;
+        left: -1%;
+        transform: scale(1.4) rotate(-5deg);
+        z-index: 10 !important;
+        opacity: 0.75;
+      }
+
+      .contenedor:hover .pos-5,
+      .contenedor:active .pos-5 {
+        transform: scale(1.6) rotate(-365deg) translateY(15px);
+        opacity: 1;
+      }
+
+      @media (max-width: 768px) {
+        .background-wrapper {
+          padding: 30px 20px;
+        }
+        .logo-edumin {
+          max-width: calc(150px * 0.8);
+        }
+        .img-pod {
+          max-width: calc(120px * 0.8);
+          margin-bottom: 15px;
+        }
+
+        .present-amigable {
+          font-size: 1.1rem;
+          margin-bottom: 15px;
+        }
+        .pestana {
+          font-size: 1.05rem;
+        }
+        .pestana-texto {
+          font-size: 1rem;
+        }
+        .spotify-iframe-wrapper iframe {
+          height: 352px;
+        }
+      }
+
+      /* Evitar scroll interno de Spotify en pantallas muy angostas (< 360px) */
+      @media (max-width: 360px) {
+        .spotify-iframe-wrapper {
+          overflow: hidden;
+        }
+        .spotify-iframe-wrapper iframe {
+          width: 320px;
+          transform: scale(0.92);
+          transform-origin: top center;
+          margin-bottom: -28px;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-wrapper">
+      <div class="superior-logos">
+        <div class="sticker-emoji pos-0">🎙️</div>
+        <a href="https://www.edumin.pe/" target="_blank" rel="noopener noreferrer">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO%20BLANCO%20CANVA-mIKMypQ452RzmXVMUadb6mnvPaejXD.png" alt="EDUMIN logo" class="logo-edumin" />
+        </a>
+        <div class="img-pod"></div>
+        <div class="present-amigable">
+          <div class="sticker-emoji pos-1">✨</div>
+          Sabemos que tu tiempo es valioso. Por eso, resumimos lo esencial de cada clase en audios de hasta 18 minutos. Repasa los puntos clave mientras sigues con tu día.
         </div>
       </div>
 
-      <!-- OPCIÓN 1: SPOTIFY -->
-      <div class="caja-opcion-full">
-        <div class="pestana">
-          En Spotify
-          <div class="sticker-emoji pos-3">🔊</div>
-        </div>
-        <div class="pestana-texto">Lleva el aprendizaje contigo. Escucha este episodio aquí mismo o accede a la lista completa en Spotify desde tu celular o computadora.</div>
-        <div class="contenedor-reproductor-spotify">
-          <a class="--link-podcast" href="https://open.spotify.com/show/41Rs6RzdXpd8I1gMztgg2Z?si=9bcc9296ea264bfc" target="_blank" rel="noopener noreferrer">
-            <div class="btn-lista">
-              <span class="btn-texto">Escuchar la lista completa en Spotify</span>
-            </div>
-          </a>
-          <div class="spotify-iframe-wrapper">
-            <iframe style="border-radius: 12px" src="https://open.spotify.com/embed/episode/2vqYIAoCu8a2Hrb3KhFgCu?utm_source=generator&theme=1" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-        </div>
-      </div>
-
-      <!-- OPCIÓN 2: REPRODUCTOR LOCAL / DRIVE -->
-      <div class="caja-opcion-full">
-        <div class="pestana">
-          Escuchar localmente o Descargar
-          <div class="sticker-emoji pos-3">🎧</div>
-        </div>
-        <div class="pestana-texto">¿No tienes cuenta de Spotify? Escucha el audio directamente aquí o descárgalo para escucharlo sin conexión:</div>
-
-        <!-- Pasos adaptados al flujo -->
-        <div class="pasos-caja">
-          <div class="paso-item">
-            <div class="paso-header">
-              <span class="paso-numero-circular">1</span>
-              <span class="paso-titulo">Reproducción en línea</span>
-              <span class="paso-texto">Dale play directamente en el reproductor de audio integrado abajo.</span>
-            </div>
-          </div>
-          <div class="paso-item">
-            <div class="paso-header">
-              <span class="paso-numero-circular">2</span>
-              <span class="paso-titulo">Descarga directa</span>
-              <span class="paso-texto">Usa el botón de descarga si prefieres guardarlo en tu dispositivo.</span>
-            </div>
-          </div>
-          <div class="paso-item">
-            <div class="paso-header">
-              <span class="paso-numero-circular">3</span>
-              <span class="paso-titulo">Sin conexión</span>
-              <span class="paso-texto">Disfruta tu clase en cualquier reproductor de audio, sin consumir datos.</span>
-            </div>
+      <div class="contenedor">
+        <div class="caja-titulo">
+          <div class="caja-texto">
+            <div class="sticker-emoji pos-2">💻</div>
+            Elige dónde prefieres escuchar:
           </div>
         </div>
 
-        <!-- Reproductor Nativo de Drive y botón de descarga -->
-        <div class="drive-audio-container">
-          <div class="drive-audio-wrapper">
-            <audio controls preload="metadata" class="reproductor-nativo">
-              <source src="https://www.googleapis.com/drive/v3/files/16X-_2lwwKUcqor5jlbI8Mv1zBjjDAUGE?alt=media&key=AIzaSyBc1GvVKZ3bVzJfPnvPj0fK1WXlzU0yllM" type="audio/mp3">
-              Tu navegador no soporta el elemento de audio.
-            </audio>
+        <!-- OPCIÓN 1: SPOTIFY -->
+        <div class="caja-opcion-full">
+          <div class="pestana">
+            En Spotify
+            <div class="sticker-emoji pos-3">🔊</div>
           </div>
-          <div class="drive-acciones">
-            <a class="btn-descarga" href="https://drive.google.com/uc?export=download&id=16X-_2lwwKUcqor5jlbI8Mv1zBjjDAUGE" target="_blank" rel="noopener noreferrer">
-              <svg class="icono-descarga" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z" />
-              </svg>
-              <span class="btn-texto">Descargar audio en MP3</span>
+          <div class="pestana-texto">Lleva el aprendizaje contigo. Escucha este episodio aquí mismo o accede a la lista completa en Spotify desde tu celular o computadora.</div>
+          <div class="contenedor-reproductor-spotify">
+            <a class="--link-podcast" href="https://open.spotify.com/show/41Rs6RzdXpd8I1gMztgg2Z?si=9bcc9296ea264bfc" target="_blank" rel="noopener noreferrer">
+              <div class="btn-lista">
+                <span class="btn-texto">Escuchar la lista completa en Spotify</span>
+              </div>
             </a>
+            <div class="spotify-iframe-wrapper">
+              <iframe style="border-radius: 12px" src="https://open.spotify.com/embed/episode/2vqYIAoCu8a2Hrb3KhFgCu?utm_source=generator&theme=1" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="sticker-emoji pos-5">🎯</div>
+        <!-- OPCIÓN 2: REPRODUCTOR LOCAL / DRIVE -->
+        <div class="caja-opcion-full">
+          <div class="pestana">
+            Escuchar localmente o Descargar
+            <div class="sticker-emoji pos-3">🎧</div>
+          </div>
+          <div class="pestana-texto">¿No tienes cuenta de Spotify? Escucha el audio directamente aquí o descárgalo para escucharlo sin conexión:</div>
+
+          <!-- Pasos adaptados al flujo -->
+          <div class="pasos-caja">
+            <div class="paso-item">
+              <div class="paso-header">
+                <span class="paso-numero-circular">1</span>
+                <span class="paso-titulo">Reproducción en línea</span>
+                <span class="paso-texto">Dale play directamente en el reproductor de audio integrado abajo.</span>
+              </div>
+            </div>
+            <div class="paso-item">
+              <div class="paso-header">
+                <span class="paso-numero-circular">2</span>
+                <span class="paso-titulo">Descarga directa</span>
+                <span class="paso-texto">Usa el botón de descarga si prefieres guardarlo en tu dispositivo.</span>
+              </div>
+            </div>
+            <div class="paso-item">
+              <div class="paso-header">
+                <span class="paso-numero-circular">3</span>
+                <span class="paso-titulo">Sin conexión</span>
+                <span class="paso-texto">Disfruta tu clase en cualquier reproductor de audio, sin consumir datos.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reproductor Integrado de Drive (Preview) y botón de descarga -->
+          <div class="drive-audio-container">
+            <div class="drive-iframe-wrapper">
+              <iframe src="https://drive.google.com/file/d/16X-_2lwwKUcqor5jlbI8Mv1zBjjDAUGE/preview" width="100%" height="90" frameborder="0" allow="autoplay"></iframe>
+            </div>
+            <div class="drive-acciones">
+              <a class="btn-descarga" href="https://drive.google.com/uc?export=download&id=16X-_2lwwKUcqor5jlbI8Mv1zBjjDAUGE" target="_blank" rel="noopener noreferrer">
+                <span class="btn-texto">Descargar audio en MP3</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="sticker-emoji pos-5">🎯</div>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
