@@ -1,0 +1,145 @@
+{
+  "nombre_diplomado": "ESPECIALISTA EN COMERCIO INTERNACIONAL GESTIÓN ADUANERA Y LOGÍSTICA",
+  "slug": "especialista-en-comercio-internacional-gestion-aduanera-y-logistica",
+  "total_clases": 23,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "PERSPECTIVAS Y DINÁMICAS DEL COMERCIO EXTERIOR  IMPORTACIONES Y EXPORTACIONES - 1RA PARTE",
+      "archivo": "CLASE 01_ PERSPECTIVAS Y DINÁMICAS DEL COMERCIO EXTERIOR_ IMPORTACIONES Y EXPORTACIONES - 1RA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2001_%20PERSPECTIVAS%20Y%20DIN%C3%81MICAS%20DEL%20COMERCIO%20EXTERIOR_%20IMPORTACIONES%20Y%20EXPORTACIONES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "PERSPECTIVAS Y DINÁMICAS DEL COMERCIO EXTERIOR  IMPORTACIONES Y EXPORTACIONES - 2DA PARTE",
+      "archivo": "CLASE 02_ PERSPECTIVAS Y DINÁMICAS DEL COMERCIO EXTERIOR_ IMPORTACIONES Y EXPORTACIONES - 2DA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2002_%20PERSPECTIVAS%20Y%20DIN%C3%81MICAS%20DEL%20COMERCIO%20EXTERIOR_%20IMPORTACIONES%20Y%20EXPORTACIONES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "NORMATIVAS DEL COMERCIO INTERNACIONAL  PERSPECTIVAS DE EEUU Y CHINA - 1RA PARTE",
+      "archivo": "CLASE 03_ NORMATIVAS DEL COMERCIO INTERNACIONAL_ PERSPECTIVAS DE EEUU Y CHINA - 1RA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2003_%20NORMATIVAS%20DEL%20COMERCIO%20INTERNACIONAL_%20PERSPECTIVAS%20DE%20EEUU%20Y%20CHINA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "NORMATIVAS DEL COMERCIO INTERNACIONAL  PERSPECTIVAS DE EEUU Y CHINA - 2DA PARTE",
+      "archivo": "CLASE 04_ NORMATIVAS DEL COMERCIO INTERNACIONAL_ PERSPECTIVAS DE EEUU Y CHINA - 2DA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2004_%20NORMATIVAS%20DEL%20COMERCIO%20INTERNACIONAL_%20PERSPECTIVAS%20DE%20EEUU%20Y%20CHINA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "REGULACIÓN, NORMAS Y PROCEDIMIENTOS EN EL COMERCIO EXTERIOR - 1RA PARTE",
+      "archivo": "CLASE 05_ REGULACIÓN, NORMAS Y PROCEDIMIENTOS EN EL COMERCIO EXTERIOR - 1RA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2005_%20REGULACI%C3%93N%2C%20NORMAS%20Y%20PROCEDIMIENTOS%20EN%20EL%20COMERCIO%20EXTERIOR%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "REGULACIÓN, NORMAS Y PROCEDIMIENTOS EN EL COMERCIO EXTERIOR - 2DA PARTE",
+      "archivo": "CLASE 06_ REGULACIÓN, NORMAS Y PROCEDIMIENTOS EN EL COMERCIO EXTERIOR - 2DA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2006_%20REGULACI%C3%93N%2C%20NORMAS%20Y%20PROCEDIMIENTOS%20EN%20EL%20COMERCIO%20EXTERIOR%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "GESTIÓN ADUANERA  PROCEDIMIENTOS EN ESTADOS UNIDOS Y CHINA - 1RA PARTE",
+      "archivo": "CLASE 07_ GESTIÓN ADUANERA_ PROCEDIMIENTOS EN ESTADOS UNIDOS Y CHINA - 1RA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2007_%20GESTI%C3%93N%20ADUANERA_%20PROCEDIMIENTOS%20EN%20ESTADOS%20UNIDOS%20Y%20CHINA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "GESTIÓN ADUANERA  PROCEDIMIENTOS EN ESTADOS UNIDOS Y CHINA - 2DA PARTE",
+      "archivo": "CLASE 08_ GESTIÓN ADUANERA_ PROCEDIMIENTOS EN ESTADOS UNIDOS Y CHINA - 2DA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2008_%20GESTI%C3%93N%20ADUANERA_%20PROCEDIMIENTOS%20EN%20ESTADOS%20UNIDOS%20Y%20CHINA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "CLASIFICACIÓN Y TRAMITACIÓN ADUANERA - 1RA PARTE",
+      "archivo": "CLASE 09_ CLASIFICACIÓN Y TRAMITACIÓN ADUANERA - 1RA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2009_%20CLASIFICACI%C3%93N%20Y%20TRAMITACI%C3%93N%20ADUANERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "CLASIFICACIÓN Y TRAMITACIÓN ADUANERA - 2DA PARTE",
+      "archivo": "CLASE 10_ CLASIFICACIÓN Y TRAMITACIÓN ADUANERA - 2DA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2010_%20CLASIFICACI%C3%93N%20Y%20TRAMITACI%C3%93N%20ADUANERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "OPTIMIZACIÓN DE LA CLASIFICACIÓN Y TRAMITACIÓN ADUANERA - 1RA PARTE",
+      "archivo": "CLASE 11_ OPTIMIZACIÓN DE LA CLASIFICACIÓN Y TRAMITACIÓN ADUANERA - 1RA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2011_%20OPTIMIZACI%C3%93N%20DE%20LA%20CLASIFICACI%C3%93N%20Y%20TRAMITACI%C3%93N%20ADUANERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "OPTIMIZACIÓN DE LA CLASIFICACIÓN Y TRAMITACIÓN ADUANERA - 2DA PARTE",
+      "archivo": "CLASE 12_ OPTIMIZACIÓN DE LA CLASIFICACIÓN Y TRAMITACIÓN ADUANERA - 2DA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2012_%20OPTIMIZACI%C3%93N%20DE%20LA%20CLASIFICACI%C3%93N%20Y%20TRAMITACI%C3%93N%20ADUANERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "APLICACIÓN DE PLATAFORMAS Y HERRAMIENTAS UTILIZADAS EN EL COMERCIO EXTERIOR - 1RA PARTE",
+      "archivo": "CLASE 13_ APLICACIÓN DE PLATAFORMAS Y HERRAMIENTAS UTILIZADAS EN EL COMERCIO EXTERIOR - 1RA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2013_%20APLICACI%C3%93N%20DE%20PLATAFORMAS%20Y%20HERRAMIENTAS%20UTILIZADAS%20EN%20EL%20COMERCIO%20EXTERIOR%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "APLICACIÓN DE PLATAFORMAS Y HERRAMIENTAS UTILIZADAS EN EL COMERCIO EXTERIOR - 2DA PARTE",
+      "archivo": "CLASE 14_ APLICACIÓN DE PLATAFORMAS Y HERRAMIENTAS UTILIZADAS EN EL COMERCIO EXTERIOR - 2DA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2014_%20APLICACI%C3%93N%20DE%20PLATAFORMAS%20Y%20HERRAMIENTAS%20UTILIZADAS%20EN%20EL%20COMERCIO%20EXTERIOR%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "OPERACIONES INTERNACIONALES DE IMPORTACIÓN Y EXPORTACIÓN - 1RA PARTE",
+      "archivo": "CLASE 15_ OPERACIONES INTERNACIONALES DE IMPORTACIÓN Y EXPORTACIÓN - 1RA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2015_%20OPERACIONES%20INTERNACIONALES%20DE%20IMPORTACI%C3%93N%20Y%20EXPORTACI%C3%93N%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "OPERACIONES INTERNACIONALES DE IMPORTACIÓN Y EXPORTACIÓN - 2DA PARTE",
+      "archivo": "CLASE 16_ OPERACIONES INTERNACIONALES DE IMPORTACIÓN Y EXPORTACIÓN - 2DA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2016_%20OPERACIONES%20INTERNACIONALES%20DE%20IMPORTACI%C3%93N%20Y%20EXPORTACI%C3%93N%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "GESTIÓN LOGÍSTICA DE LAS IMPORTACIONES - 1RA PARTE",
+      "archivo": "CLASE 17_ GESTIÓN LOGÍSTICA DE LAS IMPORTACIONES - 1RA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2017_%20GESTI%C3%93N%20LOG%C3%8DSTICA%20DE%20LAS%20IMPORTACIONES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "GESTIÓN LOGÍSTICA DE LAS IMPORTACIONES - 2DA PARTE",
+      "archivo": "CLASE 18_ GESTIÓN LOGÍSTICA DE LAS IMPORTACIONES - 2DA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2018_%20GESTI%C3%93N%20LOG%C3%8DSTICA%20DE%20LAS%20IMPORTACIONES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 19,
+      "titulo": "GESTIÓN DE COSTOS, PRECIOS Y FINANCIAMIENTO - 1RA PARTE",
+      "archivo": "CLASE 19_ GESTIÓN DE COSTOS, PRECIOS Y FINANCIAMIENTO - 1RA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2019_%20GESTI%C3%93N%20DE%20COSTOS%2C%20PRECIOS%20Y%20FINANCIAMIENTO%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 20,
+      "titulo": "GESTIÓN DE COSTOS, PRECIOS Y FINANCIAMIENTO - 2DA PARTE",
+      "archivo": "CLASE 20_ GESTIÓN DE COSTOS, PRECIOS Y FINANCIAMIENTO - 2DA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2020_%20GESTI%C3%93N%20DE%20COSTOS%2C%20PRECIOS%20Y%20FINANCIAMIENTO%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 21,
+      "titulo": "ESTRATEGIAS AVANZADAS EN IMPORTACIONES, EXPORTACIONES E INCOTERMS - 1RA PARTE",
+      "archivo": "CLASE 21_ ESTRATEGIAS AVANZADAS EN IMPORTACIONES, EXPORTACIONES E INCOTERMS - 1RA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2021_%20ESTRATEGIAS%20AVANZADAS%20EN%20IMPORTACIONES%2C%20EXPORTACIONES%20E%20INCOTERMS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 22,
+      "titulo": "ESTRATEGIAS AVANZADAS EN IMPORTACIONES, EXPORTACIONES E INCOTERMS - 2DA PARTE",
+      "archivo": "CLASE 22 - ESTRATEGIAS AVANZADAS EN IMPORTACIONES, EXPORTACIONES E INCOTERMS - 2DA PARTE.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%2022%20-%20ESTRATEGIAS%20AVANZADAS%20EN%20IMPORTACIONES%2C%20EXPORTACIONES%20E%20INCOTERMS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 901,
+      "titulo": "CLASE ADICIONAL  APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS",
+      "archivo": "CLASE ADICIONAL_ APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS.pdf",
+      "ruta": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica/CLASE%20ADICIONAL_%20APLICACI%C3%93N%20PR%C3%81CTICA%20Y%20ZONA%20DE%20PREGUNTAS.pdf"
+    }
+  ]
+}
