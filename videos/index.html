@@ -30,7 +30,7 @@
         margin: 0 auto;
       }
       .envoltura-tarjeta {
-        padding: 30px 40px 42px 40px;
+        padding: 30px 40px 42px;
         width: 95%;
         max-width: 800px;
         display: flex;
@@ -58,7 +58,7 @@
         max-width: 170px;
         height: auto;
         aspect-ratio: 2.6 / 1;
-        margin: 0 auto 25px auto;
+        margin: 0 auto 25px;
         background-color: var(--color-tema);
         -webkit-mask-image: url("https://videoconferenciasdiplomado-alt.github.io/imagenes/playlist.svg");
         mask-image: url("https://videoconferenciasdiplomado-alt.github.io/imagenes/playlist.svg");
@@ -88,7 +88,7 @@
         position: relative;
         width: 100%;
         box-sizing: border-box;
-        box-shadow: 12px 12px 0px var(--color-tema);
+        box-shadow: 12px 12px 0 var(--color-tema);
         z-index: 1;
       }
       .fila-info {
@@ -116,7 +116,7 @@
       }
       .texto-info b {
         background-color: var(--color-resaltado);
-        padding: 0px 2px;
+        padding: 0 2px;
         border-radius: 5px;
         font-weight: inherit;
         display: inline-block;
@@ -132,10 +132,7 @@
       .caja-video::after {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         border-radius: var(--radio);
         border: var(--borde);
         pointer-events: none;
@@ -185,7 +182,7 @@
         z-index: 15;
         user-select: none;
         pointer-events: none;
-        filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.4));
+        filter: drop-shadow(0 0 3px rgb(0, 0, 0, 40%));
         animation: float 4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
         animation-delay: calc(var(--delay, 0) * 1s);
         will-change: transform;
@@ -193,6 +190,7 @@
       .pegatina-1 {
         top: -16%;
         left: -71%;
+
         --rotacion-base: 5deg;
         transform: rotate(var(--rotacion-base));
         font-size: 2.5rem;
@@ -200,6 +198,7 @@
       .pegatina-2 {
         top: 55%;
         right: -120%;
+
         --rotacion-base: -8deg;
         transform: rotate(var(--rotacion-base));
         font-size: 3rem;
@@ -207,24 +206,28 @@
       .pegatina-3 {
         top: 153%;
         left: -187%;
+
         --rotacion-base: -12deg;
         transform: rotate(var(--rotacion-base));
       }
       .pegatina-4 {
         top: -7%;
         right: -7%;
+
         --rotacion-base: 10deg;
         transform: rotate(var(--rotacion-base));
       }
       .pegatina-5 {
         bottom: -9%;
         left: -7%;
+
         --rotacion-base: 6deg;
         transform: rotate(var(--rotacion-base));
       }
       .pegatina-6 {
         bottom: -40%;
         right: -10%;
+
         --rotacion-base: -8deg;
         transform: rotate(var(--rotacion-base));
         font-size: 2.2rem;
@@ -232,6 +235,7 @@
       .pegatina-6-movil {
         display: none;
       }
+
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -244,7 +248,7 @@
       }
       .botones:hover {
         transform: translateY(-3px);
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 5px 15px rgb(0, 0, 0, 10%);
         filter: brightness(1.1);
       }
       .botones:active {
@@ -262,7 +266,7 @@
         margin-bottom: 25px;
         user-select: none;
         pointer-events: none;
-        filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.4));
+        filter: drop-shadow(0 0 3px rgb(0, 0, 0, 40%));
         animation: float 4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
         will-change: transform;
       }
@@ -284,20 +288,22 @@
         text-wrap: balance;
         max-width: 440px;
       }
+
       @keyframes float {
         0% {
-          transform: translateY(0px) rotate(var(--rotacion-base, 0deg));
+          transform: translateY(0) rotate(var(--rotacion-base, 0deg));
         }
         50% {
           transform: translateY(-10px) rotate(calc(var(--rotacion-base, 0deg) + (6deg * var(--direccion, 1))));
         }
         100% {
-          transform: translateY(0px) rotate(var(--rotacion-base, 0deg));
+          transform: translateY(0) rotate(var(--rotacion-base, 0deg));
         }
       }
+
       @media (max-width: 768px) {
         .envoltura-tarjeta {
-          padding: 30px 20px 38px 20px;
+          padding: 30px 20px 38px;
         }
         .logo-principal {
           max-width: calc(150px * 0.8);
@@ -312,12 +318,12 @@
 
         .titulo-error {
           font-size: 1.1rem;
-          margin-bottom: 5px;
+          margin-bottom: 10px;
         }
 
         .contenedor-tarjeta {
           padding: 15px;
-          box-shadow: 8px 8px 0px var(--color-tema);
+          box-shadow: 8px 8px 0 var(--color-tema);
           overflow: hidden;
         }
         .contenido-encabezado {
@@ -400,11 +406,13 @@
           display: block;
           bottom: 4%;
           right: 12%;
+
           --rotacion-base: -8deg;
           transform: rotate(var(--rotacion-base));
           font-size: 2rem;
         }
       }
+
       @media (max-width: 280px) {
         .pegatina-1,
         .pegatina-2,
@@ -436,7 +444,7 @@
           <div class="caja-video">
             <span class="pegatina pegatina-4"></span>
             <span class="pegatina pegatina-5"></span>
-            <iframe id="iframe-video" src="" loading="lazy" title="Reproductor de YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe id="iframe-video" src="about:blank" loading="lazy" title="Reproductor de YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
           <div class="fila-botones">
             <a href="#" id="btn-reproducir" target="_blank" class="botones botones-colorido">
@@ -501,8 +509,6 @@
 
         // Lógica dinámica de lectura de URL y JSON
         const params = new URLSearchParams(window.location.search);
-        const diplomado = params.get("diplomado");
-        const videoParam = params.get("video");
 
         const btnPrincipal = document.getElementById("btn-reproducir");
         const btnLista = document.getElementById("btn-lista");
@@ -517,9 +523,27 @@
           if (p6Movil) p6Movil.style.display = "none";
         }
 
-        // Si no se especifica diplomado o el número de video es inválido (menor a 1 o no numérico)
-        const numVideo = parseInt(videoParam || "1", 10);
-        if (!diplomado || isNaN(numVideo) || numVideo < 1) {
+        // Validación estricta de parámetros:
+        // Deben existir únicamente y de forma exacta 'diplomado' y 'video'
+        const paramKeys = Array.from(params.keys());
+        const tieneParametrosExactos = paramKeys.length === 2 && params.has("diplomado") && params.has("video");
+
+        if (!tieneParametrosExactos) {
+          mostrarError();
+          return;
+        }
+
+        const diplomado = params.get("diplomado") ? params.get("diplomado").trim() : "";
+        const videoParam = params.get("video") ? params.get("video").trim() : "";
+
+        // El diplomado no debe estar vacío y el video debe ser un entero positivo válido
+        if (!diplomado || !/^\d+$/.test(videoParam)) {
+          mostrarError();
+          return;
+        }
+
+        const numVideo = parseInt(videoParam, 10);
+        if (numVideo < 1) {
           mostrarError();
           return;
         }
@@ -531,7 +555,9 @@
           return match && match[2].length === 11 ? match[2] : null;
         }
 
-        fetch(`./${diplomado}.json`)
+        const diplomadoClean = diplomado.replace(/\.json$/, "");
+
+        fetch(`./${diplomadoClean}.json`)
           .then((res) => {
             if (!res.ok) throw new Error("Archivo no encontrado");
             return res.json();
