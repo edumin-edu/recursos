@@ -1,0 +1,115 @@
+{
+  "nombre_diplomado": "GEOLOGÍA MINERA",
+  "slug": "geologia-minera",
+  "total_clases": 18,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "MINERALOGÍA Y PETROLOGÍA - 1RA PARTE",
+      "archivo": "CLASE 01_ MINERALOGÍA Y PETROLOGÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2001_%20MINERALOG%C3%8DA%20Y%20PETROLOG%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "MINERALOGÍA Y PETROLOGÍA - 2DA PARTE",
+      "archivo": "CLASE 02_ MINERALOGÍA Y PETROLOGÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2002_%20MINERALOG%C3%8DA%20Y%20PETROLOG%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "PROCESOS GEOLÓGICOS EN DEPÓSITOS MINERALES - 1RA PARTE",
+      "archivo": "CLASE 03_ PROCESOS GEOLÓGICOS EN DEPÓSITOS MINERALES - 1RA PARTE_.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2003_%20PROCESOS%20GEOL%C3%93GICOS%20EN%20DEP%C3%93SITOS%20MINERALES%20-%201RA%20PARTE_.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "PROCESOS GEOLÓGICOS EN DEPÓSITOS MINERALES - 2DA PARTE",
+      "archivo": "CLASE 04_ PROCESOS GEOLÓGICOS EN DEPÓSITOS MINERALES - 2DA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2004_%20PROCESOS%20GEOL%C3%93GICOS%20EN%20DEP%C3%93SITOS%20MINERALES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "GEOLOGÍA DE YACIMIENTOS MINERALES - 1RA PARTE",
+      "archivo": "CLASE 05_ GEOLOGÍA DE YACIMIENTOS MINERALES - 1RA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2005_%20GEOLOG%C3%8DA%20DE%20YACIMIENTOS%20MINERALES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "GEOLOGÍA DE YACIMIENTOS MINERALES - 2DA PARTE",
+      "archivo": "CLASE 06_ GEOLOGÍA DE YACIMIENTOS MINERALES - 2DA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2006_%20GEOLOG%C3%8DA%20DE%20YACIMIENTOS%20MINERALES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "MÉTODOS DE EXPLORACIÓN GEOLÓGICA - 1RA PARTE",
+      "archivo": "CLASE 07_ MÉTODOS DE EXPLORACIÓN GEOLÓGICA - 1RA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2007_%20M%C3%89TODOS%20DE%20EXPLORACI%C3%93N%20GEOL%C3%93GICA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "MÉTODOS DE EXPLORACIÓN GEOLÓGICA - 2DA PARTE",
+      "archivo": "CLASE 08_ MÉTODOS DE EXPLORACIÓN GEOLÓGICA - 2DA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2008_%20M%C3%89TODOS%20DE%20EXPLORACI%C3%93N%20GEOL%C3%93GICA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "MUESTREO Y ANÁLISIS DE MUESTRAS INTERPRETACIÓN DE DATOS GEOLÓGICOS - 1RA PARTE",
+      "archivo": "CLASE 09_ MUESTREO Y ANÁLISIS DE MUESTRAS INTERPRETACIÓN DE DATOS GEOLÓGICOS - 1RA PARTE_.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2009_%20MUESTREO%20Y%20AN%C3%81LISIS%20DE%20MUESTRAS%20INTERPRETACI%C3%93N%20DE%20DATOS%20GEOL%C3%93GICOS%20-%201RA%20PARTE_.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "MUESTREO Y ANÁLISIS DE MUESTRAS  INTERPRETACIÓN DE DATOS GEOLÓGICOS - 2DA PARTE",
+      "archivo": "CLASE 10_ MUESTREO Y ANÁLISIS DE MUESTRAS_ INTERPRETACIÓN DE DATOS GEOLÓGICOS - 2DA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2010_%20MUESTREO%20Y%20AN%C3%81LISIS%20DE%20MUESTRAS_%20INTERPRETACI%C3%93N%20DE%20DATOS%20GEOL%C3%93GICOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "MODELADO DE RECURSOS MINERALES - 1RA PARTE",
+      "archivo": "CLASE 11_ MODELADO DE RECURSOS MINERALES - 1RA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2011_%20MODELADO%20DE%20RECURSOS%20MINERALES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "MODELADO DE RECURSOS MINERALES - 2DA PARTE",
+      "archivo": "CLASE 12_ MODELADO DE RECURSOS MINERALES - 2DA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2012_%20MODELADO%20DE%20RECURSOS%20MINERALES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "MÉTODOS DE EXPLOTACIÓN MINERA - 1RA PARTE",
+      "archivo": "CLASE 13_ MÉTODOS DE EXPLOTACIÓN MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2013_%20M%C3%89TODOS%20DE%20EXPLOTACI%C3%93N%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "MÉTODOS DE EXPLOTACIÓN MINERA - 2DA PARTE",
+      "archivo": "CLASE 14_ MÉTODOS DE EXPLOTACIÓN MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2014_%20M%C3%89TODOS%20DE%20EXPLOTACI%C3%93N%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "TECNOLOGÍA Y MAQUINARIA MINERA - 1RA PARTE",
+      "archivo": "CLASE 15_ TECNOLOGÍA Y MAQUINARIA MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2015_%20TECNOLOG%C3%8DA%20Y%20MAQUINARIA%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "TECNOLOGÍA Y MAQUINARIA MINERA - 2DA PARTE",
+      "archivo": "CLASE 16_ TECNOLOGÍA Y MAQUINARIA MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2016_%20TECNOLOG%C3%8DA%20Y%20MAQUINARIA%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "SEGURIDAD EN OPERACIONES MINERAS - 1RA PARTE",
+      "archivo": "CLASE 17_ SEGURIDAD EN OPERACIONES MINERAS - 1RA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2017_%20SEGURIDAD%20EN%20OPERACIONES%20MINERAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "SEGURIDAD EN OPERACIONES MINERAS - 2DA PARTE",
+      "archivo": "CLASE 18_ SEGURIDAD EN OPERACIONES MINERAS - 2DA PARTE.pdf",
+      "ruta": "mapas/geologia-minera/CLASE%2018_%20SEGURIDAD%20EN%20OPERACIONES%20MINERAS%20-%202DA%20PARTE.pdf"
+    }
+  ]
+}
