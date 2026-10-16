@@ -1,0 +1,115 @@
+{
+  "nombre_diplomado": "GESTIÓN LOGÍSTICA Y ALMACENES EN MINERÍA",
+  "slug": "gestion-logistica-y-almacenes-en-mineria",
+  "total_clases": 18,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "FUNDAMENTOS DE LA LOGÍSTICA MINERA - 1RA PARTE",
+      "archivo": "CLASE 01_ FUNDAMENTOS DE LA LOGÍSTICA MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2001_%20FUNDAMENTOS%20DE%20LA%20LOG%C3%8DSTICA%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "FUNDAMENTOS DE LA LOGÍSTICA MINERA - 2DA PARTE",
+      "archivo": "CLASE 02_ FUNDAMENTOS DE LA LOGÍSTICA MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2002_%20FUNDAMENTOS%20DE%20LA%20LOG%C3%8DSTICA%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "PLANIFICACIÓN Y CONTROL DE OPERACIONES LOGÍSTICAS - 1RA PARTE",
+      "archivo": "CLASE 03_ PLANIFICACIÓN Y CONTROL DE OPERACIONES LOGÍSTICAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2003_%20PLANIFICACI%C3%93N%20Y%20CONTROL%20DE%20OPERACIONES%20LOG%C3%8DSTICAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "PLANIFICACIÓN Y CONTROL DE OPERACIONES LOGÍSTICAS - 2DA PARTE",
+      "archivo": "CLASE 04_ PLANIFICACIÓN Y CONTROL DE OPERACIONES LOGÍSTICAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2004_%20PLANIFICACI%C3%93N%20Y%20CONTROL%20DE%20OPERACIONES%20LOG%C3%8DSTICAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "TRANSPORTE Y DISTRIBUCIÓN MINERA - 1RA PARTE",
+      "archivo": "CLASE 05_ TRANSPORTE Y DISTRIBUCIÓN MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2005_%20TRANSPORTE%20Y%20DISTRIBUCI%C3%93N%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "TRANSPORTE Y DISTRIBUCIÓN MINERA - 2DA PARTE",
+      "archivo": "CLASE 06_ TRANSPORTE Y DISTRIBUCIÓN MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2006_%20TRANSPORTE%20Y%20DISTRIBUCI%C3%93N%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "DISEÑO Y OPERACIÓN DE ALMACENES EN MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 07_ DISEÑO Y OPERACIÓN DE ALMACENES EN MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2007_%20DISE%C3%91O%20Y%20OPERACI%C3%93N%20DE%20ALMACENES%20EN%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "DISEÑO Y OPERACIÓN DE ALMACENES EN MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 08_ DISEÑO Y OPERACIÓN DE ALMACENES EN MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2008_%20DISE%C3%91O%20Y%20OPERACI%C3%93N%20DE%20ALMACENES%20EN%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "CONTROL DE INVENTARIOS Y SISTEMAS DE GESTIÓN - 1RA PARTE",
+      "archivo": "CLASE 09_ CONTROL DE INVENTARIOS Y SISTEMAS DE GESTIÓN - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2009_%20CONTROL%20DE%20INVENTARIOS%20Y%20SISTEMAS%20DE%20GESTI%C3%93N%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "CONTROL DE INVENTARIOS Y SISTEMAS DE GESTIÓN - 2DA PARTE",
+      "archivo": "CLASE 10_ CONTROL DE INVENTARIOS Y SISTEMAS DE GESTIÓN - 2DA PARTE_.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2010_%20CONTROL%20DE%20INVENTARIOS%20Y%20SISTEMAS%20DE%20GESTI%C3%93N%20-%202DA%20PARTE_.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "SEGURIDAD, SOSTENIBILIDAD Y CUMPLIMIENTO - 1RA PARTE",
+      "archivo": "CLASE 11_ SEGURIDAD, SOSTENIBILIDAD Y CUMPLIMIENTO - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2011_%20SEGURIDAD%2C%20SOSTENIBILIDAD%20Y%20CUMPLIMIENTO%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "SEGURIDAD, SOSTENIBILIDAD Y CUMPLIMIENTO - 2DA PARTE",
+      "archivo": "CLASE 12_ SEGURIDAD, SOSTENIBILIDAD Y CUMPLIMIENTO - 2DA PARTE_.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2012_%20SEGURIDAD%2C%20SOSTENIBILIDAD%20Y%20CUMPLIMIENTO%20-%202DA%20PARTE_.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "TRANSFORMACIÓN DIGITAL EN LA CADENA LOGÍSTICA MINERA - 1RA PARTE",
+      "archivo": "CLASE 13_ TRANSFORMACIÓN DIGITAL EN LA CADENA LOGÍSTICA MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2013_%20TRANSFORMACI%C3%93N%20DIGITAL%20EN%20LA%20CADENA%20LOG%C3%8DSTICA%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "TRANSFORMACIÓN DIGITAL EN LA CADENA LOGÍSTICA MINERA - 2DA PARTE",
+      "archivo": "CLASE 14_ TRANSFORMACIÓN DIGITAL EN LA CADENA LOGÍSTICA MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2014_%20TRANSFORMACI%C3%93N%20DIGITAL%20EN%20LA%20CADENA%20LOG%C3%8DSTICA%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "GESTIÓN DEL RIESGO Y CONTINUIDAD OPERATIVA - 1RA PARTE",
+      "archivo": "CLASE 15_ GESTIÓN DEL RIESGO Y CONTINUIDAD OPERATIVA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2015_%20GESTI%C3%93N%20DEL%20RIESGO%20Y%20CONTINUIDAD%20OPERATIVA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "GESTIÓN DEL RIESGO Y CONTINUIDAD OPERATIVA - 2DA PARTE",
+      "archivo": "CLASE 16_ GESTIÓN DEL RIESGO Y CONTINUIDAD OPERATIVA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2016_%20GESTI%C3%93N%20DEL%20RIESGO%20Y%20CONTINUIDAD%20OPERATIVA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "ESTRATEGIAS SOSTENIBLES Y RESPONSABILIDAD SOCIAL - 1RA PARTE",
+      "archivo": "CLASE 17_ ESTRATEGIAS SOSTENIBLES Y RESPONSABILIDAD SOCIAL - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2017_%20ESTRATEGIAS%20SOSTENIBLES%20Y%20RESPONSABILIDAD%20SOCIAL%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "ESTRATEGIAS SOSTENIBLES Y RESPONSABILIDAD SOCIAL - 2DA PARTE",
+      "archivo": "CLASE 18_ ESTRATEGIAS SOSTENIBLES Y RESPONSABILIDAD SOCIAL - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-almacenes-en-mineria/CLASE%2018_%20ESTRATEGIAS%20SOSTENIBLES%20Y%20RESPONSABILIDAD%20SOCIAL%20-%202DA%20PARTE.pdf"
+    }
+  ]
+}
