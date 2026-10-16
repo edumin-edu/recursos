@@ -1,0 +1,145 @@
+{
+  "nombre_diplomado": "GESTIÓN LOGÍSTICA Y PROVEEDORES EN INDUSTRIA Y MINERÍA",
+  "slug": "gestion-logistica-y-proveedores-en-la-industria-y-mineria",
+  "total_clases": 23,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "ESTRATEGIAS DE COSTOS EN ALMACENAMIENTO PARA LA INDUSTRIA Y MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 01_ ESTRATEGIAS DE COSTOS EN ALMACENAMIENTO PARA LA INDUSTRIA Y MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2001_%20ESTRATEGIAS%20DE%20COSTOS%20EN%20ALMACENAMIENTO%20PARA%20LA%20INDUSTRIA%20Y%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "ESTRATEGIAS DE COSTOS EN ALMACENAMIENTO PARA LA INDUSTRIA Y MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 02_ ESTRATEGIAS DE COSTOS EN ALMACENAMIENTO PARA LA INDUSTRIA Y MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2002_%20ESTRATEGIAS%20DE%20COSTOS%20EN%20ALMACENAMIENTO%20PARA%20LA%20INDUSTRIA%20Y%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "HERRAMIENTAS AVANZADAS PARA LA GESTIÓN DE COSTOS Y PRESUPUESTOS - 1RA PARTE",
+      "archivo": "CLASE 03_ HERRAMIENTAS AVANZADAS PARA LA GESTIÓN DE COSTOS Y PRESUPUESTOS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2003_%20HERRAMIENTAS%20AVANZADAS%20PARA%20LA%20GESTI%C3%93N%20DE%20COSTOS%20Y%20PRESUPUESTOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "HERRAMIENTAS AVANZADAS PARA LA GESTIÓN DE COSTOS Y PRESUPUESTOS - 2DA PARTE",
+      "archivo": "CLASE 04_ HERRAMIENTAS AVANZADAS PARA LA GESTIÓN DE COSTOS Y PRESUPUESTOS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2004_%20HERRAMIENTAS%20AVANZADAS%20PARA%20LA%20GESTI%C3%93N%20DE%20COSTOS%20Y%20PRESUPUESTOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "IMPACTO ESTRATÉGICO DE LA GESTIÓN DE COSTOS EN ALMACENES - 1RA PARTE",
+      "archivo": "CLASE 05_ IMPACTO ESTRATÉGICO DE LA GESTIÓN DE COSTOS EN ALMACENES - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2005_%20IMPACTO%20ESTRAT%C3%89GICO%20DE%20LA%20GESTI%C3%93N%20DE%20COSTOS%20EN%20ALMACENES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "IMPACTO ESTRATÉGICO DE LA GESTIÓN DE COSTOS EN ALMACENES - 2DA PARTE",
+      "archivo": "CLASE 06_ IMPACTO ESTRATÉGICO DE LA GESTIÓN DE COSTOS EN ALMACENES - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2006_%20IMPACTO%20ESTRAT%C3%89GICO%20DE%20LA%20GESTI%C3%93N%20DE%20COSTOS%20EN%20ALMACENES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "SESIÓN PRÁCTICA",
+      "archivo": "CLASE 07_ SESIÓN PRÁCTICA.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2007_%20SESI%C3%93N%20PR%C3%81CTICA.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "ESTRATEGIAS AVANZADAS EN IMPORTACIONES, EXPORTACIONES E INCOTERMS PARA EL SECTOR MINERO - 1RA PARTE",
+      "archivo": "CLASE 08_ ESTRATEGIAS AVANZADAS EN IMPORTACIONES, EXPORTACIONES E INCOTERMS PARA EL SECTOR MINERO - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2008_%20ESTRATEGIAS%20AVANZADAS%20EN%20IMPORTACIONES%2C%20EXPORTACIONES%20E%20INCOTERMS%20PARA%20EL%20SECTOR%20MINERO%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "ESTRATEGIAS AVANZADAS EN IMPORTACIONES, EXPORTACIONES E INCOTERMS PARA EL SECTOR MINERO - 2DA PARTE",
+      "archivo": "CLASE 09_ ESTRATEGIAS AVANZADAS EN IMPORTACIONES, EXPORTACIONES E INCOTERMS PARA EL SECTOR MINERO - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2009_%20ESTRATEGIAS%20AVANZADAS%20EN%20IMPORTACIONES%2C%20EXPORTACIONES%20E%20INCOTERMS%20PARA%20EL%20SECTOR%20MINERO%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "DECISIONES ESTRATÉGICAS EN LOGÍSTICA MINERA  LICITACIONES CAPEX - 1RA PARTE",
+      "archivo": "CLASE 10_ DECISIONES ESTRATÉGICAS EN LOGÍSTICA MINERA_ LICITACIONES CAPEX - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2010_%20DECISIONES%20ESTRAT%C3%89GICAS%20EN%20LOG%C3%8DSTICA%20MINERA_%20LICITACIONES%20CAPEX%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "DECISIONES ESTRATÉGICAS EN LOGÍSTICA MINERA  LICITACIONES CAPEX - 2DA PARTE",
+      "archivo": "CLASE 11_ DECISIONES ESTRATÉGICAS EN LOGÍSTICA MINERA_ LICITACIONES CAPEX - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2011_%20DECISIONES%20ESTRAT%C3%89GICAS%20EN%20LOG%C3%8DSTICA%20MINERA_%20LICITACIONES%20CAPEX%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "TOMA DE DECISIONES DE ALTO IMPACTO  LICITACIONES OPEX EN LOGÍSTICA MINERA - 1RA PARTE",
+      "archivo": "CLASE 12_ TOMA DE DECISIONES DE ALTO IMPACTO_ LICITACIONES OPEX EN LOGÍSTICA MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2012_%20TOMA%20DE%20DECISIONES%20DE%20ALTO%20IMPACTO_%20LICITACIONES%20OPEX%20EN%20LOG%C3%8DSTICA%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "TOMA DE DECISIONES DE ALTO IMPACTO  LICITACIONES OPEX EN LOGÍSTICA MINERA - 2DA PARTE",
+      "archivo": "CLASE 13_ TOMA DE DECISIONES DE ALTO IMPACTO_ LICITACIONES OPEX EN LOGÍSTICA MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2013_%20TOMA%20DE%20DECISIONES%20DE%20ALTO%20IMPACTO_%20LICITACIONES%20OPEX%20EN%20LOG%C3%8DSTICA%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "SESIÓN PRÁCTICA - 1RA PARTE",
+      "archivo": "CLASE 14_ SESIÓN PRÁCTICA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2014_%20SESI%C3%93N%20PR%C3%81CTICA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "SESIÓN PRÁCTICA - 2DA PARTE",
+      "archivo": "CLASE 15_ SESIÓN PRÁCTICA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2015_%20SESI%C3%93N%20PR%C3%81CTICA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "IDENTIFICACIÓN Y MITIGACIÓN DE RIESGOS EN LA CADENA DE SUMINISTRO MINERA - 1RA PARTE",
+      "archivo": "CLASE 16_ IDENTIFICACIÓN Y MITIGACIÓN DE RIESGOS EN LA CADENA DE SUMINISTRO MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2016_%20IDENTIFICACI%C3%93N%20Y%20MITIGACI%C3%93N%20DE%20RIESGOS%20EN%20LA%20CADENA%20DE%20SUMINISTRO%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "IDENTIFICACIÓN Y MITIGACIÓN DE RIESGOS EN LA CADENA DE SUMINISTRO MINERA - 2DA PARTE",
+      "archivo": "CLASE 17_ IDENTIFICACIÓN Y MITIGACIÓN DE RIESGOS EN LA CADENA DE SUMINISTRO MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2017_%20IDENTIFICACI%C3%93N%20Y%20MITIGACI%C3%93N%20DE%20RIESGOS%20EN%20LA%20CADENA%20DE%20SUMINISTRO%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "SISTEMAS AVANZADOS DE GESTIÓN DE ALMACENES (WMS) APLICADOS A LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 18_ SISTEMAS AVANZADOS DE GESTIÓN DE ALMACENES (WMS) APLICADOS A LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2018_%20SISTEMAS%20AVANZADOS%20DE%20GESTI%C3%93N%20DE%20ALMACENES%20(WMS)%20APLICADOS%20A%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 19,
+      "titulo": "SISTEMAS AVANZADOS DE GESTIÓN DE ALMACENES (WMS) APLICADOS A LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 19_ SISTEMAS AVANZADOS DE GESTIÓN DE ALMACENES (WMS) APLICADOS A LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2019_%20SISTEMAS%20AVANZADOS%20DE%20GESTI%C3%93N%20DE%20ALMACENES%20(WMS)%20APLICADOS%20A%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 20,
+      "titulo": "SEGURIDAD Y NORMATIVA EN EL CONTROL DE INVENTARIOS Y LOGÍSTICA MINERA - 1RA PARTE",
+      "archivo": "CLASE 20_ SEGURIDAD Y NORMATIVA EN EL CONTROL DE INVENTARIOS Y LOGÍSTICA MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2020_%20SEGURIDAD%20Y%20NORMATIVA%20EN%20EL%20CONTROL%20DE%20INVENTARIOS%20Y%20LOG%C3%8DSTICA%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 21,
+      "titulo": "SEGURIDAD Y NORMATIVA EN EL CONTROL DE INVENTARIOS Y LOGÍSTICA MINERA - 2DA PARTE",
+      "archivo": "CLASE 21_ SEGURIDAD Y NORMATIVA EN EL CONTROL DE INVENTARIOS Y LOGÍSTICA MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2021_%20SEGURIDAD%20Y%20NORMATIVA%20EN%20EL%20CONTROL%20DE%20INVENTARIOS%20Y%20LOG%C3%8DSTICA%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 22,
+      "titulo": "SESIÓN PRÁCTICA - 1RA PARTE",
+      "archivo": "CLASE 22_ SESIÓN PRÁCTICA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2022_%20SESI%C3%93N%20PR%C3%81CTICA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 23,
+      "titulo": "SESIÓN PRÁCTICA - 2DA PARTE",
+      "archivo": "CLASE 23_ SESIÓN PRÁCTICA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria/CLASE%2023_%20SESI%C3%93N%20PR%C3%81CTICA%20-%202DA%20PARTE.pdf"
+    }
+  ]
+}
