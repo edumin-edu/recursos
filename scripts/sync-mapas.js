@@ -141,8 +141,13 @@ function syncDiplomado(dip) {
     }
   }
 
-  // Ordenar clases numéricamente
+  // Ordenar clases numéricamente por orden natural
   clasesList.sort((a, b) => a.numero - b.numero);
+
+  // Reasignar numeración secuencial entera continua (1, 2, 3 ... N)
+  clasesList.forEach((item, index) => {
+    item.numero = index + 1;
+  });
 
   // Generar JSON del diplomado
   const jsonPath = path.join(MAPAS_DIR, `${dip.slug}.json`);

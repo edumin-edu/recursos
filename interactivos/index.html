@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDUMIN - Resumen interactivo</title>
+
+    <meta id="link-resumen" content="" />
+    <meta id="link-biblioteca" content="" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  </head>
+  <body>
+    <div class="contenedor-principal">
+      <div class="wrapper-encabezado">
+        <div class="encabezado">
+          <div class="contenido-encabezado animacion-aparecer">
+            <a href="https://www.edumin.pe/" target="_blank" rel="noopener noreferrer">
+              <img src="https://videoconferenciasdiplomado-alt.github.io/imagenes/logo%20negro%20edumin.png" alt="EDUMIN Logo" class="logo" />
+            </a>
+            <div class="texto-encabezado">
+              <h1>Resumen interactivo</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="descripcion-encabezado animacion-deslizar-arriba retraso-0">
+        <div class="texto-encabezado">
+          <p>Repasa lo aprendido con nuestras tarjetas dinámicas. Ábrelas para descubrir los puntos más importantes de la clase y mira la explicación con un solo toque.</p>
+        </div>
+      </div>
+      <div class="contenedor">
+        <div id="contenido-normal">
+          <div class="seccion-destacada">
+            <div class="tarjeta-destacada primaria animacion-deslizar-arriba retraso-1">
+              <div class="icono-destacado">🚀</div>
+              <h2>Resumen de esta clase</h2>
+              <p>Accede aquí al contenido interactivo de esta sesión y conecta al instante con la explicación del video.</p>
+              <a class="boton-principal boton-primario" target="_blank" rel="noopener noreferrer" href="#" id="lnk-resumen">
+                <span class="material-symbols-outlined">ads_click</span>
+                Ir al resumen de esta clase</a
+              >
+            </div>
+            <div class="tarjeta-destacada secundaria animacion-deslizar-arriba retraso-2">
+              <div class="icono-destacado">📚</div>
+              <h2>Biblioteca de resúmenes</h2>
+              <p>Explora nuestra biblioteca completa para buscar y repasar cualquier clase anterior del diplomado.</p>
+              <a class="boton-principal boton-secundario" target="_blank" rel="noopener noreferrer" href="#" id="lnk-biblioteca">
+                <span class="material-symbols-outlined">list_alt</span>
+                Ver todos los resúmenes</a
+              >
+            </div>
+          </div>
+          <div class="detalles-guia animacion-deslizar-arriba retraso-3">
+            <div class="icono-destacado">💡</div>
+            <h2>Guía de uso rápido</h2>
+            <p>Aprovecha al máximo tu resumen interactivo descubriendo todas sus funcionalidades en pocos pasos.</p>
+            <details>
+              <summary class="separador">
+                <span class="material-symbols-outlined">menu_book</span>
+                Aprende a usar el resumen
+                <span class="material-symbols-outlined flecha-toggle">expand_more</span>
+              </summary>
+              <div class="mind-map" isolated>
+                <div class="icono-destacado">💡</div>
+                <div class="section active" isolated>
+                  <div class="section-header" onclick="toggleSection(this)" isolated>
+                    <div style="display: flex; align-items: center" isolated>
+                      <span class="section-number" isolated>1</span>
+                      <span class="section-title" isolated>Despliega los temas y subtemas</span>
+                    </div>
+                    <span class="toggle-icon" isolated>▼</span>
+                  </div>
+                  <div class="section-content" isolated>
+                    <div class="content-item" isolated>
+                      <div class="content-text" isolated>Los temas inician cerrados para mantener tu pantalla ordenada.</div>
+                      <div class="content-text" isolated>Selecciona cualquier título para desplegarlo y leer su contenido.</div>
+                      <div class="subsection" isolated>
+                        <div class="subsection-header" onclick="toggleSubsection(this)" isolated>
+                          <div style="display: flex; align-items: center" isolated>
+                            <span class="subsection-number" isolated>1.1</span>
+                            <span class="subsection-title" isolated>Inicio de la sesión y presentación breve del docente y monitora</span>
+                          </div>
+                          <span class="toggle-icon" isolated>▼</span>
+                        </div>
+                        <div class="subsection-content" isolated>
+                          <div class="content-item" isolated>
+                            <div class="content-text" isolated>Saludo inicial de la monitora académica Macarena Alba y confirmación de la presencia del profesor Manuel Aucapuri, dando apertura formal a la primera clase del diplomado.</div>
+                            <div class="content-text" isolated>Breve reseña profesional del profesor, indicando su experiencia de más de 34 años en diseño y operación de plantas de procesamiento, especialidades y trabajos en BHP Billiton Tintaya S.A.</div>
+                            <div class="content-text" isolated>Indicaciones sobre participación: uso de levantar la mano y chat para preguntas, y disponibilidad de la monitora para apoyar en dudas logísticas.</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="subsection" isolated>
+                        <div class="subsection-header" onclick="toggleSubsection(this)" isolated>
+                          <div style="display: flex; align-items: center" isolated>
+                            <span class="subsection-number" isolated>1.2</span>
+                            <span class="subsection-title" isolated>Objetivos generales del módulo y contenidos principales anunciados</span>
+                          </div>
+                          <span class="toggle-icon" isolated>▼</span>
+                        </div>
+                        <div class="subsection-content" isolated>
+                          <div class="content-item" isolated>
+                            <div class="content-text" isolated>Presentación de la temática del módulo uno: métodos de separación y concentración, smart mining, caracterización de yacimientos y planeamiento geometalúrgico.</div>
+                            <div class="content-text" isolated>Enumeración de temas a desarrollar: aplicación de minería 4.0, implementación de inteligencia artificial, técnicas de muestreo y análisis de minerales.</div>
+                            <div class="content-text" isolated>Enfoque metodológico propuesto: estructurar los temas para que la conversación sea ordenada y aplicable al desarrollo del diplomado.</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="section" isolated>
+                  <div class="section-header" onclick="toggleSection(this)" isolated>
+                    <div style="display: flex; align-items: center" isolated>
+                      <span class="section-number" isolated>2</span>
+                      <span class="section-title" isolated>Busca palabras clave al instante</span>
+                    </div>
+                    <span class="toggle-icon" isolated>▼</span>
+                  </div>
+                  <div class="section-content" isolated>
+                    <div class="content-item" isolated>
+                      <div class="content-text" isolated>Ingresa en el buscador la palabra clave que quieres encontrar.</div>
+                      <div class="content-text" isolated>Verás todas las coincidencias resaltadas en color <span class="highlight" isolated>verde</span>.</div>
+                      <div class="search-bar" isolated>
+                        <div class="search-bar-input" isolated>Buscar en el resumen interactivo…</div>
+                        <div class="search-actions" isolated>
+                          <div class="action-button" isolated>Buscar</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="section" isolated>
+                  <div class="section-header" onclick="toggleSection(this)" isolated>
+                    <div style="display: flex; align-items: center" isolated>
+                      <span class="section-number" isolated>3</span>
+                      <span class="section-title" isolated>Controla la vista de lectura</span>
+                    </div>
+                    <span class="toggle-icon" isolated>▼</span>
+                  </div>
+                  <div class="section-content" isolated>
+                    <div class="content-item" isolated>
+                      <div class="content-text" isolated>Controla la cantidad de información visible en tu pantalla con un solo toque.</div>
+                      <div class="content-text" isolated>Selecciona <strong isolated>“Mostrar todo”</strong> para desplegar el contenido completo o <strong isolated>“Colapsar todo”</strong> para simplificar la vista.</div>
+                      <div class="controls" isolated>
+                        <div class="action-button" isolated>Mostrar todo</div>
+                        <div class="action-button" isolated>Colapsar todo</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="section" isolated>
+                  <div class="section-header" onclick="toggleSection(this)" isolated>
+                    <div style="display: flex; align-items: center" isolated>
+                      <span class="section-number" isolated>4</span>
+                      <span class="section-title" isolated>Ve al momento exacto en el video</span>
+                    </div>
+                    <span class="toggle-icon" isolated>▼</span>
+                  </div>
+                  <div class="section-content" isolated>
+                    <div class="content-item" isolated>
+                      <div class="content-text" isolated>Resuelve tus dudas escuchando la explicación directamente del docente o la docente.</div>
+                      <div class="content-text" isolated>El botón <strong isolated>“Ver en YouTube”</strong> te llevará al minuto exacto de la clase.</div>
+                      <div class="youtube" isolated>
+                        <div class="youtube-button" isolated>
+                          Ver en YouTube
+                          <span class="timestamp" isolated>(00:08:52)</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+        <div id="contenido-error" class="caja-error animacion-deslizar-arriba">
+          <div class="tarjeta-destacada tarjeta-error">
+            <div class="icono-error">⚠️</div>
+            <h2>Contenido no disponible</h2>
+            <p>El diplomado o la clase solicitada no existe. Verifica que el enlace sea correcto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      :root {
+        --color-bg-body: #f1f5f9; /* Gris azulado muy suave */
+        --color-text-dark: #1d293d; /* Slate 800 - Casi negro */
+        --color-text-light: #62748e; /* Slate 500 - Gris medio */
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-family: Inter, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        box-sizing: border-box;
+      }
+
+      @keyframes deslizarArriba {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes aparecer {
+        0% {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        70% {
+          transform: scale(1.05);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes menearIconoConstante {
+        0% {
+          transform: rotate(-6deg) scale(0.95);
+        }
+        50% {
+          transform: rotate(6deg) scale(1.15);
+        }
+        100% {
+          transform: rotate(-6deg) scale(0.95);
+        }
+      }
+
+      @keyframes gradienteDinamico {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      .animacion-deslizar-arriba {
+        animation: deslizarArriba 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        backface-visibility: hidden;
+      }
+      .animacion-aparecer {
+        animation: aparecer 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        backface-visibility: hidden;
+      }
+      .retraso-0 {
+        animation-delay: 0.2s;
+      }
+      .retraso-1 {
+        animation-delay: 0.4s;
+      }
+      .retraso-2 {
+        animation-delay: 0.6s;
+      }
+      .retraso-3 {
+        animation-delay: 0.8s;
+      }
+      .material-symbols-outlined {
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+      .contenedor-principal {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 25%, #f1f5f9 50%, #f8fafc 75%, #ffffff 100%);
+        background-size: 400% 400%;
+        animation: gradienteDinamico 15s ease infinite;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: clip;
+      }
+      .wrapper-encabezado {
+        width: 100%;
+        background: transparent;
+        margin-bottom: 30px;
+      }
+      .encabezado {
+        padding: 20px 20px 0;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .contenido-encabezado {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 5px;
+        width: 100%;
+      }
+      .logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 5px;
+      }
+      .texto-encabezado {
+        text-align: center;
+        max-width: 800px;
+        text-wrap: balance;
+      }
+      .texto-encabezado h1 {
+        font-family: "Gochi Hand", cursive;
+        font-size: 2.3rem;
+        color: #ff8c00;
+        font-weight: 400;
+        margin: 0;
+        line-height: 1.1;
+      }
+      .texto-encabezado p {
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: center;
+        font-size: 1.15rem;
+        color: var(--color-text-dark);
+        line-height: 1.25;
+        font-weight: 600;
+        padding: 0;
+      }
+      .contenedor {
+        max-width: 800px;
+        width: 90%;
+        margin: 40px auto;
+      }
+      .seccion-destacada {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+      .tarjeta-destacada {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .tarjeta-destacada,
+      .detalles-guia {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 30px;
+        position: relative;
+        box-shadow:
+          0 2px 4px rgb(0, 0, 0, 2%),
+          0 10px 20px rgb(0, 0, 0, 6%);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .tarjeta-destacada:hover,
+      .detalles-guia:hover {
+        box-shadow:
+          0 4px 6px -1px rgb(0, 0, 0, 10%),
+          0 2px 4px -1px rgb(0, 0, 0, 6%),
+          0 0 0 1px rgb(0, 0, 0, 5%);
+      }
+      .icono-destacado {
+        position: absolute;
+        top: -30px;
+        font-size: 2.75rem;
+        display: block;
+        filter: drop-shadow(0 4px 4px rgb(0, 0, 0, 20%));
+        user-select: none;
+        pointer-events: none;
+        animation: menearIconoConstante 3s ease-in-out infinite;
+        transform-origin: center;
+        will-change: transform;
+      }
+      .tarjeta-destacada .icono-destacado,
+      .detalles-guia .icono-destacado {
+        right: -20px;
+      }
+      .mind-map[isolated] .icono-destacado {
+        right: auto;
+        left: -20px;
+      }
+      .tarjeta-destacada h2,
+      .detalles-guia h2 {
+        color: var(--color-text-dark);
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin: 10px 0;
+        line-height: 1.25;
+        text-wrap: balance;
+        text-align: center;
+        transform: translateZ(0);
+      }
+      .tarjeta-destacada p,
+      .detalles-guia p {
+        font-size: 1rem;
+        color: var(--color-text-light);
+        line-height: 1.25;
+        margin: 0 0 20px;
+        flex-grow: 1;
+        text-wrap: balance;
+        text-align: center;
+        transform: translateZ(0);
+      }
+      .boton-principal,
+      .separador {
+        justify-content: center;
+        font-size: 1rem;
+        border-radius: 50px;
+        padding: 15px 20px;
+        gap: 10px;
+        line-height: 1.1;
+        will-change: transform;
+        text-wrap: balance;
+        transition: all 0.2s ease;
+        box-sizing: border-box;
+        align-items: center;
+        text-align: center;
+        border: 2px solid transparent;
+      }
+      .boton-principal {
+        display: flex;
+        text-decoration: none;
+        font-weight: 700;
+        width: 100%;
+      }
+      .boton-primario {
+        background: #ff8c00;
+        color: white;
+      }
+      .boton-secundario {
+        background: transparent;
+        border: 2px solid #ff8c00;
+        color: #ff8c00;
+        box-shadow: none;
+      }
+      .boton-principal:hover,
+      .separador:hover {
+        transform: scale(1.03);
+      }
+      .boton-secundario:hover {
+        background: #fffaf5;
+      }
+      .boton-principal:active,
+      .separador:active {
+        transform: scale(0.95);
+      }
+      .separador {
+        display: flex;
+        position: relative;
+        background: #f1f5f9;
+        color: #0f172b;
+        font-weight: 600;
+        cursor: pointer;
+        margin: 0 auto;
+      }
+      .separador:hover {
+        background: #e2e8f0;
+      }
+      details[open] .separador {
+        background: #0f172b;
+        color: #ffffff;
+        margin-bottom: 25px;
+      }
+      .flecha-toggle {
+        position: absolute;
+        transition: transform 0.3s;
+        transform: translateY(-50%);
+        top: 50%;
+        right: 20px;
+      }
+      details[open] .flecha-toggle {
+        transform: translateY(-50%) rotate(180deg);
+      }
+      .mind-map[isolated] {
+        position: relative;
+        margin: 25px 0 0;
+        padding: 20px;
+        background: linear-gradient(135deg, #99e5ff 0%, #a5b9eb 100%);
+        line-height: 1.2;
+        scroll-behavior: smooth;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-radius: 12px;
+        font-size: 0.85rem;
+        user-select: none;
+      }
+      .section[isolated] {
+        background-color: #002a52;
+        border-radius: 12px;
+        border: 2px solid #003366;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgb(0, 0, 0, 25%);
+        transition: border-color 0.3s ease;
+      }
+      .section-header[isolated] {
+        padding: 20px;
+        background-color: #003366;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        will-change: background-color;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+      .section-title[isolated] {
+        font-size: 1.4em;
+        font-weight: 700;
+        color: #e6e6e6;
+        margin-right: 10px;
+        text-wrap: balance;
+      }
+      .section-number[isolated] {
+        background: linear-gradient(135deg, #00beff 0%, #1e50cd 100%);
+        color: #ffffff;
+        padding: 5px 12px;
+        border-radius: 30px;
+        font-size: 0.9375em;
+        font-weight: 700;
+        margin-right: 15px;
+      }
+      .section-content[isolated] {
+        max-height: 0;
+        overflow: hidden;
+        background-color: #002a52;
+        opacity: 0;
+        transition:
+          max-height 0.5s ease-out,
+          opacity 0.3s ease-in;
+      }
+      .section.active[isolated] .section-content[isolated] {
+        max-height: fit-content;
+        padding: 15px;
+        opacity: 1;
+      }
+      .subsection[isolated] {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        background-color: #003366;
+        border-radius: 12px;
+        border: 2px solid #004080;
+        overflow: hidden;
+        transition: border-color 0.3s ease;
+      }
+      .subsection-header[isolated] {
+        padding: 15px;
+        background-color: #004080;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        will-change: background-color;
+        cursor: pointer;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+      .toggle-icon {
+        font-size: 1.2em;
+        color: #e6e6e6;
+        will-change: transform;
+        transition: transform 0.3s ease;
+      }
+      .section.active > .section-header .toggle-icon {
+        transform: rotate(180deg);
+      }
+      .subsection-title[isolated] {
+        font-size: 1.2em;
+        font-weight: 700;
+        color: #e6e6e6;
+        margin-right: 10px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        line-clamp: 1;
+        -webkit-line-clamp: 1;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        overflow-wrap: anywhere;
+      }
+      .subsection-number[isolated] {
+        background: linear-gradient(135deg, #00beff 0%, #1e50cd 100%);
+        color: #ffffff;
+        padding: 4px 10px;
+        border-radius: 30px;
+        font-size: 0.9375em;
+        font-weight: 700;
+        margin-right: 12px;
+        white-space: nowrap;
+      }
+      .subsection-content[isolated] {
+        max-height: 0;
+        overflow: hidden;
+        background-color: #002a52;
+        opacity: 0;
+        transition:
+          max-height 0.5s ease-out,
+          opacity 0.3s ease-in;
+      }
+      .content-item[isolated] {
+        margin-bottom: 10px;
+        padding: 15px;
+        background-color: #003366;
+        border-radius: 12px;
+        border-left: 4px solid #00beff;
+        box-shadow: 0 1px 5px rgb(0, 0, 0, 25%);
+        overflow: hidden;
+      }
+      .content-text[isolated] {
+        color: #cccccc;
+        margin-bottom: 5px;
+        line-height: 1.4;
+        font-size: 1em;
+        font-weight: 500;
+        position: relative;
+        padding-left: 15px;
+      }
+      .content-text[isolated] strong {
+        font-weight: 700;
+      }
+      .content-text[isolated]::before {
+        content: "\2022";
+        color: #00beff;
+        font-weight: 700;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+      }
+      .subsection-content[isolated] .content-item[isolated] {
+        margin-bottom: 0;
+      }
+      .subsection-content[isolated] .content-text[isolated] {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        line-clamp: 1;
+        -webkit-line-clamp: 1;
+        text-overflow: ellipsis;
+      }
+      .youtube[isolated] {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        user-select: none;
+      }
+      .youtube-button[isolated] {
+        display: inline-flex;
+        flex-wrap: wrap;
+        background: linear-gradient(135deg, #e60000 0%, #a30000 100%);
+        padding: 10px 18px;
+        border-radius: 30px;
+        box-shadow: 0 2px 5px rgb(230, 0, 0, 40%);
+        border: none;
+        color: #ffffff;
+        font-size: 0.9em;
+        font-weight: 500;
+        line-height: 1rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: left;
+      }
+      .timestamp[isolated] {
+        color: #ffcccc;
+        font-size: 0.85em;
+        margin-left: 10px;
+        font-weight: 400;
+      }
+      .search-bar[isolated] {
+        position: relative;
+        display: flex;
+        align-items: center;
+        max-width: 450px;
+        background-color: #004080;
+        border: 2px solid #0050a0;
+        border-radius: 30px;
+        box-shadow: 0 4px 10px rgb(0, 0, 0, 25%);
+        margin-top: 15px;
+        margin-bottom: 5px;
+        transition:
+          border-color 0.3s ease,
+          box-shadow 0.3s ease,
+          background-color 0.3s ease;
+      }
+      .highlight[isolated] {
+        background-color: #00c339;
+        color: #ffffff;
+        font-weight: 700;
+        padding: 4px;
+        border-radius: 6px;
+      }
+      .search-bar-input[isolated] {
+        flex-grow: 1;
+        padding: 10px 18px;
+        font-weight: 400;
+        font-size: 1em;
+        color: #757575;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        user-select: none;
+        word-break: break-all;
+        overflow-wrap: anywhere;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+      }
+      .search-actions[isolated] {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .search-bar .action-button[isolated] {
+        margin: 5px;
+      }
+      .action-button[isolated] {
+        background: linear-gradient(135deg, #00beff 0%, #1e50cd 100%);
+        border: none;
+        color: #ffffff;
+        padding: 8px 18px;
+        border-radius: 30px;
+        font-size: 1em;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgb(0, 190, 255, 40%);
+        white-space: normal;
+        text-align: center;
+      }
+      .controls[isolated] {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        max-width: fit-content;
+      }
+      .controls[isolated] .action-button[isolated] {
+        flex: 1 0 auto;
+        align-self: center;
+      }
+      .section[isolated]:hover {
+        border-color: #004080;
+      }
+      .section[isolated]:hover .section-header[isolated] {
+        background-color: #004080;
+      }
+      .subsection[isolated]:hover .subsection-header[isolated] {
+        background-color: #0050a0;
+      }
+      .subsection[isolated]:hover {
+        border-color: #0050a0;
+      }
+      .subsection.active .subsection-content {
+        max-height: fit-content;
+        padding: 15px;
+        opacity: 1;
+      }
+      .subsection.active .toggle-icon {
+        transform: rotate(180deg);
+      }
+      .caja-error {
+        display: none;
+        width: 100%;
+        text-align: center;
+      }
+      .tarjeta-error {
+        align-items: center;
+        justify-content: center;
+        padding: 40px 25px;
+      }
+      .icono-error {
+        font-size: 3.5rem;
+        margin-bottom: 15px;
+        line-height: 1;
+        user-select: none;
+        animation: aparecer 0.6s ease-out both;
+      }
+      .tarjeta-error h2 {
+        color: var(--color-text-dark);
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin: 0 0 10px;
+      }
+      .tarjeta-error p {
+        font-size: 1.05rem;
+        color: var(--color-text-light);
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 768px) {
+        .wrapper-encabezado {
+          margin-bottom: 25px;
+          width: 85%;
+        }
+        .contenido-encabezado {
+          flex-direction: column;
+        }
+        .logo {
+          width: calc(150px * 0.8);
+        }
+        .texto-encabezado h1 {
+          font-size: 1.85rem;
+        }
+        .texto-encabezado p {
+          font-size: 1.05rem;
+          width: 82.5%;
+        }
+        .seccion-destacada {
+          grid-template-columns: 1fr;
+          gap: 25px;
+          margin-bottom: 25px;
+        }
+        .tarjeta-destacada,
+        .detalles-guia {
+          padding: 20px;
+        }
+        .icono-destacado {
+          font-size: 2.25rem;
+          top: -20px;
+        }
+        .tarjeta-destacada .icono-destacado,
+        .detalles-guia .icono-destacado {
+          right: -15px;
+        }
+        .tarjeta-destacada:nth-child(2) .icono-destacado,
+        .mind-map[isolated] .icono-destacado {
+          right: auto;
+          left: -15px;
+        }
+        .tarjeta-destacada h2,
+        .detalles-guia h2 {
+          font-size: 1.1rem;
+        }
+        .tarjeta-destacada p,
+        .detalles-guia p {
+          font-size: 0.9rem;
+        }
+        .boton-principal,
+        .separador {
+          font-size: 0.9rem;
+          padding: 12px 15px;
+          width: 100%;
+        }
+        .contenedor {
+          width: 85%;
+          margin: 30px auto;
+        }
+        .flecha-toggle {
+          position: static;
+          transform: none;
+        }
+        details[open] .flecha-toggle {
+          transform: rotate(180deg);
+        }
+        .section-header[isolated] {
+          padding: 15px;
+        }
+        .subsection-header[isolated] {
+          padding: 10px;
+        }
+        .section-title[isolated] {
+          font-size: 1.1em;
+        }
+        .subsection-title[isolated] {
+          font-size: 1em;
+        }
+        .section-number[isolated],
+        .subsection-number[isolated] {
+          font-size: 0.8125em;
+        }
+        .content-text[isolated] {
+          font-size: 0.9em;
+        }
+        .youtube-button[isolated] {
+          font-size: 0.8em;
+        }
+        .timestamp[isolated] {
+          font-size: 0.75em;
+        }
+        .action-button[isolated],
+        .search-bar-input[isolated] {
+          font-size: 0.9em;
+        }
+        .mind-map[isolated] {
+          padding: 20px 10px;
+          margin-left: -20px;
+          margin-right: -20px;
+          border-radius: 0;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .section-header[isolated] > div,
+        .subsection-header[isolated] > div {
+          flex-direction: column;
+          align-items: flex-start !important;
+          gap: 10px;
+        }
+      }
+    </style>
+    <script>
+      function toggleSection(element) {
+        const section = element.closest(".section");
+        const wasActive = section.classList.contains("active");
+        section.classList.toggle("active");
+        if (wasActive) {
+          const subsections = section.querySelectorAll(".subsection");
+          subsections.forEach((subsection) => {
+            subsection.classList.remove("active");
+          });
+        }
+      }
+      function toggleSubsection(element) {
+        const subsection = element.closest(".subsection");
+        subsection.classList.toggle("active");
+      }
+      window.toggleSection = toggleSection;
+      window.toggleSubsection = toggleSubsection;
+
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+      window.scrollTo(0, 0);
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const poolEmojis = ["📖", "💻", "🏭", "🏫", "💎", "🎓", "📚", "📝", "🧰", "🚜", "📊"];
+        const iconos = document.querySelectorAll(".icono-destacado");
+        const poolBarajado = [...poolEmojis].sort(() => Math.random() - 0.5);
+        iconos.forEach((el, index) => {
+          if (poolBarajado[index]) {
+            el.textContent = poolBarajado[index];
+          }
+          const duracionAleatoria = (Math.random() * (5 - 2.5) + 2.5).toFixed(2);
+          el.style.animationDuration = `${duracionAleatoria}s`;
+          el.style.animationDelay = "0s";
+        });
+
+        const btnResumen = document.getElementById("lnk-resumen");
+        const btnBiblioteca = document.getElementById("lnk-biblioteca");
+        const contenidoNormal = document.getElementById("contenido-normal");
+        const contenidoError = document.getElementById("contenido-error");
+        const descripcionEncabezado = document.querySelector(".descripcion-encabezado");
+
+        function mostrarError() {
+          if (contenidoNormal) contenidoNormal.style.display = "none";
+          if (contenidoError) contenidoError.style.display = "block";
+          if (descripcionEncabezado) descripcionEncabezado.style.display = "none";
+        }
+
+        // Lectura y validación de parámetros de URL
+        const params = new URLSearchParams(window.location.search);
+
+        // Validación estricta de parámetros:
+        // Deben existir únicamente y de forma exacta 'diplomado' e 'interactivo'
+        const paramKeys = Array.from(params.keys());
+        const tieneParametrosExactos = paramKeys.length === 2 && params.has("diplomado") && params.has("interactivo");
+
+        if (!tieneParametrosExactos) {
+          mostrarError();
+          return;
+        }
+
+        const diplomado = params.get("diplomado") ? params.get("diplomado").trim() : "";
+        const interactivoParam = params.get("interactivo") ? params.get("interactivo").trim() : "";
+
+        // El diplomado no debe estar vacío y el interactivo debe ser un entero positivo válido
+        if (!diplomado || !/^\d+$/.test(interactivoParam)) {
+          mostrarError();
+          return;
+        }
+
+        const numInteractivo = parseInt(interactivoParam, 10);
+        if (numInteractivo < 1) {
+          mostrarError();
+          return;
+        }
+
+        const diplomadoClean = diplomado.replace(/\.json$/, "");
+
+        fetch(`./${diplomadoClean}.json`)
+          .then((res) => {
+            if (!res.ok) throw new Error("Archivo no encontrado");
+            return res.json();
+          })
+          .then((data) => {
+            if (!data.resumenes || !Array.isArray(data.resumenes) || numInteractivo > data.resumenes.length) {
+              mostrarError();
+              return;
+            }
+
+            const index = numInteractivo - 1;
+            const resumenItem = data.resumenes[index];
+            if (!resumenItem || !resumenItem.url) {
+              mostrarError();
+              return;
+            }
+
+            // Asignar enlace individual al resumen de la clase
+            if (btnResumen) {
+              btnResumen.href = resumenItem.url;
+            }
+            const metaResumen = document.getElementById("link-resumen");
+            if (metaResumen) {
+              metaResumen.setAttribute("content", resumenItem.url);
+            }
+
+            // Asignar enlace de biblioteca completa al índice general
+            if (btnBiblioteca && data.enlace_general) {
+              btnBiblioteca.href = data.enlace_general;
+            }
+            const metaBiblioteca = document.getElementById("link-biblioteca");
+            if (metaBiblioteca && data.enlace_general) {
+              metaBiblioteca.setAttribute("content", data.enlace_general);
+            }
+          })
+          .catch(() => {
+            mostrarError();
+          });
+      });
+    </script>
+  </body>
+</html>
