@@ -1,0 +1,127 @@
+{
+  "nombre_diplomado": "PREVENCIÓN DE LA CONFLICTIVIDAD, RIESGOS SOCIALES Y RESPONSABILIDAD",
+  "slug": "prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera",
+  "total_clases": 20,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "TEORÍA DEL CONFLICTO E IDENTIFICACIÓN Y EVALUACIÓN DE RIESGOS SOCIALES - 1RA PARTE",
+      "archivo": "CLASE 01_ TEORÍA DEL CONFLICTO E IDENTIFICACIÓN Y EVALUACIÓN DE RIESGOS SOCIALES - 1RA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2001_%20TEOR%C3%8DA%20DEL%20CONFLICTO%20E%20IDENTIFICACI%C3%93N%20Y%20EVALUACI%C3%93N%20DE%20RIESGOS%20SOCIALES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "TEORÍA DEL CONFLICTO E IDENTIFICACIÓN Y EVALUACIÓN DE RIESGOS SOCIALES - 2DA PARTE",
+      "archivo": "CLASE 02_ TEORÍA DEL CONFLICTO E IDENTIFICACIÓN Y EVALUACIÓN DE RIESGOS SOCIALES - 2DA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2002_%20TEOR%C3%8DA%20DEL%20CONFLICTO%20E%20IDENTIFICACI%C3%93N%20Y%20EVALUACI%C3%93N%20DE%20RIESGOS%20SOCIALES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "DIÁLOGO Y PRINCIPALES MECANISMOS DE RESOLUCIÓN DE CONFLICTOS - 1RA PARTE",
+      "archivo": "CLASE 03_ DIÁLOGO Y PRINCIPALES MECANISMOS DE RESOLUCIÓN DE CONFLICTOS - 1RA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2003_%20DI%C3%81LOGO%20Y%20PRINCIPALES%20MECANISMOS%20DE%20RESOLUCI%C3%93N%20DE%20CONFLICTOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "DIÁLOGO Y PRINCIPALES MECANISMOS DE RESOLUCIÓN DE CONFLICTOS - 2DA PARTE",
+      "archivo": "CLASE 04_ DIÁLOGO Y PRINCIPALES MECANISMOS DE RESOLUCIÓN DE CONFLICTOS - 2DA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2004_%20DI%C3%81LOGO%20Y%20PRINCIPALES%20MECANISMOS%20DE%20RESOLUCI%C3%93N%20DE%20CONFLICTOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "LA COMUNICACIÓN EFICAZ - 1RA PARTE",
+      "archivo": "CLASE 05_ LA COMUNICACIÓN EFICAZ - 1RA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2005_%20LA%20COMUNICACI%C3%93N%20EFICAZ%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "LA COMUNICACIÓN EFICAZ - 2DA PARTE",
+      "archivo": "CLASE 06_ LA COMUNICACIÓN EFICAZ - 2DA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2006_%20LA%20COMUNICACI%C3%93N%20EFICAZ%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "BARRERAS DE LA COMUNICACIÓN EFICAZ - 1RA PARTE",
+      "archivo": "CLASE 07_ BARRERAS DE LA COMUNICACIÓN EFICAZ - 1RA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2007_%20BARRERAS%20DE%20LA%20COMUNICACI%C3%93N%20EFICAZ%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "BARRERAS DE LA COMUNICACIÓN EFICAZ - 2DA PARTE",
+      "archivo": "CLASE 08_ BARRERAS DE LA COMUNICACIÓN EFICAZ - 2DA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2008_%20BARRERAS%20DE%20LA%20COMUNICACI%C3%93N%20EFICAZ%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "BARRERAS CULTURALES Y LENGUAJE UTILIZADO - 1RA PARTE",
+      "archivo": "CLASE 09_ BARRERAS CULTURALES Y LENGUAJE UTILIZADO - 1RA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2009_%20BARRERAS%20CULTURALES%20Y%20LENGUAJE%20UTILIZADO%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "BARRERAS CULTURALES Y LENGUAJE UTILIZADO - 2DA PARTE",
+      "archivo": "CLASE 10_ BARRERAS CULTURALES Y LENGUAJE UTILIZADO - 2DA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2010_%20BARRERAS%20CULTURALES%20Y%20LENGUAJE%20UTILIZADO%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "LA COMUNICACIÓN EFICAZ  TÉCNICAS - 1RA PARTE",
+      "archivo": "CLASE 11_ LA COMUNICACIÓN EFICAZ_ TÉCNICAS - 1RA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2011_%20LA%20COMUNICACI%C3%93N%20EFICAZ_%20T%C3%89CNICAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "LA COMUNICACIÓN EFICAZ  TÉCNICAS - 2DA PARTE",
+      "archivo": "CLASE 12_ LA COMUNICACIÓN EFICAZ_ TÉCNICAS - 2DA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2012_%20LA%20COMUNICACI%C3%93N%20EFICAZ_%20T%C3%89CNICAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "GESTIÓN DE LAS RELACIONES COMUNITARIAS DESDE EL ENFOQUE DE LA RESPONSABILIDAD SOCIAL - 1RA PARTE",
+      "archivo": "CLASE 13_ GESTIÓN DE LAS RELACIONES COMUNITARIAS DESDE EL ENFOQUE DE LA RESPONSABILIDAD SOCIAL - 1RA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2013_%20GESTI%C3%93N%20DE%20LAS%20RELACIONES%20COMUNITARIAS%20DESDE%20EL%20ENFOQUE%20DE%20LA%20RESPONSABILIDAD%20SOCIAL%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "GESTIÓN DE LAS RELACIONES COMUNITARIAS DESDE EL ENFOQUE DE LA RESPONSABILIDAD SOCIAL - 2DA PARTE",
+      "archivo": "CLASE 14_ GESTIÓN DE LAS RELACIONES COMUNITARIAS DESDE EL ENFOQUE DE LA RESPONSABILIDAD SOCIAL - 2DA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2014_%20GESTI%C3%93N%20DE%20LAS%20RELACIONES%20COMUNITARIAS%20DESDE%20EL%20ENFOQUE%20DE%20LA%20RESPONSABILIDAD%20SOCIAL%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "RELACIONES COMUNITARIAS Y GRUPOS DE INTERÉS - 1RA PARTE",
+      "archivo": "CLASE 15_ RELACIONES COMUNITARIAS Y GRUPOS DE INTERÉS - 1RA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2015_%20RELACIONES%20COMUNITARIAS%20Y%20GRUPOS%20DE%20INTER%C3%89S%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "RELACIONES COMUNITARIAS Y GRUPOS DE INTERÉS - 2DA PARTE",
+      "archivo": "CLASE 16_ RELACIONES COMUNITARIAS Y GRUPOS DE INTERÉS - 2DA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2016_%20RELACIONES%20COMUNITARIAS%20Y%20GRUPOS%20DE%20INTER%C3%89S%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "DISEÑO Y EJECUCIÓN DE PROYECTOS DE DESARROLLO COMUNITARIO SOSTENIBLE - 1RA PARTE",
+      "archivo": "CLASE 17_ DISEÑO Y EJECUCIÓN DE PROYECTOS DE DESARROLLO COMUNITARIO SOSTENIBLE - 1RA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2017_%20DISE%C3%91O%20Y%20EJECUCI%C3%93N%20DE%20PROYECTOS%20DE%20DESARROLLO%20COMUNITARIO%20SOSTENIBLE%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "DISEÑO Y EJECUCIÓN DE PROYECTOS DE DESARROLLO COMUNITARIO SOSTENIBLE - 2DA PARTE",
+      "archivo": "CLASE 18_ DISEÑO Y EJECUCIÓN DE PROYECTOS DE DESARROLLO COMUNITARIO SOSTENIBLE - 2DA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2018_%20DISE%C3%91O%20Y%20EJECUCI%C3%93N%20DE%20PROYECTOS%20DE%20DESARROLLO%20COMUNITARIO%20SOSTENIBLE%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 19,
+      "titulo": "NEGOCIACIÓN, GESTIÓN SOCIAL Y RESOLUCIÓN DE CONFLICTOS EN ENTORNOS MINEROS - 1RA PARTE",
+      "archivo": "CLASE 19_ NEGOCIACIÓN, GESTIÓN SOCIAL Y RESOLUCIÓN DE CONFLICTOS EN ENTORNOS MINEROS - 1RA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2019_%20NEGOCIACI%C3%93N%2C%20GESTI%C3%93N%20SOCIAL%20Y%20RESOLUCI%C3%93N%20DE%20CONFLICTOS%20EN%20ENTORNOS%20MINEROS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 20,
+      "titulo": "NEGOCIACIÓN, GESTIÓN SOCIAL Y RESOLUCIÓN DE CONFLICTOS EN ENTORNOS MINEROS - 2DA PARTE",
+      "archivo": "CLASE 20_ NEGOCIACIÓN, GESTIÓN SOCIAL Y RESOLUCIÓN DE CONFLICTOS EN ENTORNOS MINEROS - 2DA PARTE.pdf",
+      "ruta": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera/CLASE%2020_%20NEGOCIACI%C3%93N%2C%20GESTI%C3%93N%20SOCIAL%20Y%20RESOLUCI%C3%93N%20DE%20CONFLICTOS%20EN%20ENTORNOS%20MINEROS%20-%202DA%20PARTE.pdf"
+    }
+  ]
+}
