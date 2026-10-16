@@ -274,7 +274,7 @@ function runQuickSync() {
   const status = runGit('git status --porcelain');
   if (status) {
     console.log('\n-> Cambios detectados en Git. Subiendo a GitHub...');
-    runGit('git add mapas/');
+    runGit('git add -A mapas/');
     const timestamp = new Date().toLocaleString('es-PE', { timeZone: 'America/Lima' });
     try {
       runGit(`git commit -m "sync(mapas): actualizar mapas mentales [${timestamp}]"`);
