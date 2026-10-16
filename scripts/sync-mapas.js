@@ -58,11 +58,16 @@ function parseClassInfo(filename) {
   let numero = matchNum ? parseInt(matchNum[1], 10) : 999;
   
   if (baseName.toUpperCase().includes('ADICIONAL')) {
-    numero = 900 + (matchNum ? parseInt(matchNum[1], 10) : 1);
+    if (matchNum) {
+      numero = parseInt(matchNum[1], 10) + 0.5;
+    } else {
+      numero = 999;
+    }
   }
 
   let titulo = baseName
-    .replace(/^CLASE\s+\d+_\s*/i, '')
+    .replace(/^CLASE\s+\d+(_ADICIONAL)?_?\s*/i, '')
+    .replace(/^CLASE\s+ADICIONAL_?\s*/i, '')
     .replace(/^CLASE\s+\d+\s*-\s*/i, '')
     .replace(/_+/g, ' ')
     .trim();
@@ -107,11 +112,13 @@ function syncDiplomado(dip) {
     }
 
     if (needCopy) {
+      process.stdout.write(`       [Copiando] ${file}... `);
       fs.copyFileSync(srcFile, destFile);
       // Preservar timestamps para comparaciones futuras
       try {
         fs.utimesSync(destFile, srcStat.atime, srcStat.mtime);
       } catch (_) {}
+      console.log('OK');
       copiedCount++;
     }
 
@@ -122,6 +129,16 @@ function syncDiplomado(dip) {
       archivo: file,
       ruta: `mapas/${dip.slug}/${encodeURIComponent(file)}`
     });
+  }
+
+  // Limpiar archivos huérfanos que ya no existan en Drive (por renombramiento o eliminación)
+  const currentDestFiles = fs.readdirSync(targetDir).filter((f) => f.toLowerCase().endsWith('.pdf'));
+  for (const destF of currentDestFiles) {
+    if (!files.includes(destF)) {
+      console.log(`       [Eliminando archivo viejo/renombrado] ${destF}`);
+      fs.unlinkSync(path.join(targetDir, destF));
+      copiedCount++;
+    }
   }
 
   // Ordenar clases numéricamente
@@ -209,15 +226,15 @@ function runBatchInitialSync() {
     // Comprobar si hay cambios pendientes para git
     const status = runGit('git status --porcelain');
     if (status) {
-      console.log(`       -> Haciendo commit y push a GitHub para diplomado #${dip.id}...`);
+      console.log(`       -> Creando commit para diplomado #${dip.id}...`);
       runGit(`git add mapas/${dip.slug}/ mapas/${dip.slug}.json mapas/index.json`);
       try {
         runGit(`git commit -m "feat(mapas): agregar mapas mentales de ${dip.name}"`);
-        console.log(`       -> Subiendo cambios a GitHub...`);
+        console.log(`       -> Intentando subir a GitHub...`);
         runGit('git push origin main');
         console.log(`       -> [OK] Subido correctamente a GitHub.`);
       } catch (err) {
-        console.error(`       -> [!] Error en git push: ${err.message}`);
+        console.log(`       -> [AVISO] Commit local guardado. (El push a GitHub se completará cuando autorices la cuenta).`);
       }
     } else {
       console.log(`       -> [OK] Ya estaba al día en Git.`);
@@ -259,9 +276,14 @@ function runQuickSync() {
     console.log('\n-> Cambios detectados en Git. Subiendo a GitHub...');
     runGit('git add mapas/');
     const timestamp = new Date().toLocaleString('es-PE', { timeZone: 'America/Lima' });
-    runGit(`git commit -m "sync(mapas): actualizar mapas mentales [${timestamp}]"`);
-    runGit('git push origin main');
-    console.log('-> [OK] Sincronización con GitHub completada con éxito.');
+    try {
+      runGit(`git commit -m "sync(mapas): actualizar mapas mentales [${timestamp}]"`);
+      runGit('git push origin main');
+      console.log('-> [OK] Sincronización con GitHub completada con éxito.');
+    } catch (err) {
+      console.warn(`-> [AVISO GIT] Los archivos se copiaron e indexaron, pero git push no pudo completarse:`);
+      console.warn(`   ${err.message}`);
+    }
   } else {
     console.log('-> [OK] Todo está al día. No hay cambios pendientes por subir.');
   }
@@ -298,11 +320,42 @@ function runWatcher() {
   }
 }
 
+function runCopyAll() {
+  console.log('===============================================================');
+  console.log('   COPIANDO Y ESTRUCTURANDO TODOS LOS DIPLOMADOS               ');
+  console.log('===============================================================\n');
+
+  fs.mkdirSync(MAPAS_DIR, { recursive: true });
+
+  let totalArchivos = 0;
+  let totalCopiados = 0;
+
+  for (let i = 0; i < DIPLOMADOS.length; i++) {
+    const dip = DIPLOMADOS[i];
+    console.log(`[${i + 1}/${DIPLOMADOS.length}] Procesando: ${dip.name}...`);
+    const res = syncDiplomado(dip);
+    totalArchivos += res.total;
+    totalCopiados += res.copied;
+    console.log(`       -> ${res.total} PDFs listos (${res.copied} copiados en esta pasada).`);
+    console.log(`       -> Catálogo generado: mapas/${dip.slug}.json\n`);
+  }
+
+  generateMasterIndex();
+  console.log('===============================================================');
+  console.log(`   PROCESO LOCAL COMPLETADO AL 100%                           `);
+  console.log(`   Total de PDFs listos: ${totalArchivos}                     `);
+  console.log(`   Nuevos copiados: ${totalCopiados}                          `);
+  console.log(`   Catálogo maestro: mapas/index.json                         `);
+  console.log('===============================================================\n');
+}
+
 const arg = process.argv[2];
 if (arg === '--initial' || arg === '--batch') {
   runBatchInitialSync();
 } else if (arg === '--watch') {
   runWatcher();
+} else if (arg === '--local' || arg === '--copy') {
+  runCopyAll();
 } else {
   runQuickSync();
 }

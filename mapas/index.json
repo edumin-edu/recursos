@@ -11,147 +11,147 @@
       "id": 2,
       "slug": "especialista-en-comercio-internacional-gestion-aduanera-y-logistica",
       "nombre": "ESPECIALISTA EN COMERCIO INTERNACIONAL GESTIÓN ADUANERA Y LOGÍSTICA",
-      "total_clases": 0,
+      "total_clases": 23,
       "json": "mapas/especialista-en-comercio-internacional-gestion-aduanera-y-logistica.json"
     },
     {
       "id": 3,
       "slug": "geologia-minera",
       "nombre": "GEOLOGÍA MINERA",
-      "total_clases": 0,
+      "total_clases": 18,
       "json": "mapas/geologia-minera.json"
     },
     {
       "id": 4,
       "slug": "geometalurgia",
       "nombre": "GEOMETALURGIA",
-      "total_clases": 0,
+      "total_clases": 18,
       "json": "mapas/geometalurgia.json"
     },
     {
       "id": 5,
       "slug": "geomecanica-subterranea-y-superficial",
       "nombre": "GEOMECÁNICA SUBTERRÁNEA Y SUPERFICIAL",
-      "total_clases": 0,
+      "total_clases": 22,
       "json": "mapas/geomecanica-subterranea-y-superficial.json"
     },
     {
       "id": 6,
       "slug": "geotecnia-minera",
       "nombre": "GEOTECNIA MINERA",
-      "total_clases": 0,
+      "total_clases": 24,
       "json": "mapas/geotecnia-minera.json"
     },
     {
       "id": 7,
       "slug": "gerencia-de-sistemas-integrados-de-gestion-hseq",
       "nombre": "GERENCIA DE SISTEMAS INTEGRADOS DE GESTIÓN HSEQ",
-      "total_clases": 0,
+      "total_clases": 24,
       "json": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq.json"
     },
     {
       "id": 8,
       "slug": "gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria",
       "nombre": "GERENCIA ESTRATÉGICA Y LIDERAZGO DE EQUIPOS EN LA MINERÍA",
-      "total_clases": 0,
+      "total_clases": 45,
       "json": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria.json"
     },
     {
       "id": 9,
       "slug": "gestion-ambiental-para-el-sector-minero-e-industrial",
       "nombre": "GESTIÓN AMBIENTAL PARA EL SECTOR MINERO E INDUSTRIAL",
-      "total_clases": 0,
+      "total_clases": 23,
       "json": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial.json"
     },
     {
       "id": 10,
       "slug": "gestion-de-control-operativo-en-procesos-mineros",
       "nombre": "GESTIÓN DE CONTROL OPERATIVO EN PROCESOS MINEROS",
-      "total_clases": 0,
+      "total_clases": 22,
       "json": "mapas/gestion-de-control-operativo-en-procesos-mineros.json"
     },
     {
       "id": 11,
       "slug": "gestion-de-operaciones-industriales",
       "nombre": "GESTIÓN DE OPERACIONES INDUSTRIALES",
-      "total_clases": 0,
+      "total_clases": 22,
       "json": "mapas/gestion-de-operaciones-industriales.json"
     },
     {
       "id": 12,
       "slug": "gestion-estrategica-utilizando-big-data-y-analisis-predictivo",
       "nombre": "GESTIÓN ESTRATÉGICA PARA EMPRESAS",
-      "total_clases": 0,
+      "total_clases": 23,
       "json": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo.json"
     },
     {
       "id": 13,
       "slug": "gestion-logistica-compras-inventarios-y-manejo-de-proveedores",
       "nombre": "GESTIÓN LOGÍSTICA: COMPRAS, INVENTARIOS Y MANEJO DE PROVEEDORES",
-      "total_clases": 0,
+      "total_clases": 50,
       "json": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores.json"
     },
     {
       "id": 14,
       "slug": "gestion-logistica-y-almacenes-en-mineria",
       "nombre": "GESTIÓN LOGÍSTICA Y ALMACENES EN MINERÍA",
-      "total_clases": 0,
+      "total_clases": 18,
       "json": "mapas/gestion-logistica-y-almacenes-en-mineria.json"
     },
     {
       "id": 15,
       "slug": "gestion-logistica-y-proveedores-en-la-industria-y-mineria",
       "nombre": "GESTIÓN LOGÍSTICA Y PROVEEDORES EN INDUSTRIA Y MINERÍA",
-      "total_clases": 0,
+      "total_clases": 23,
       "json": "mapas/gestion-logistica-y-proveedores-en-la-industria-y-mineria.json"
     },
     {
       "id": 16,
       "slug": "gestion-minera",
       "nombre": "GESTIÓN MINERA",
-      "total_clases": 0,
+      "total_clases": 24,
       "json": "mapas/gestion-minera.json"
     },
     {
       "id": 17,
       "slug": "legislacion-laboral-y-elaboracion-de-planillas",
       "nombre": "LEGISLACIÓN LABORAL Y ELABORACIÓN DE PLANILLAS",
-      "total_clases": 0,
+      "total_clases": 48,
       "json": "mapas/legislacion-laboral-y-elaboracion-de-planillas.json"
     },
     {
       "id": 18,
       "slug": "mineria-4-0-y-digitalizacion-minera",
       "nombre": "MINERÍA 4.0 Y DIGITALIZACIÓN MINERA",
-      "total_clases": 0,
+      "total_clases": 18,
       "json": "mapas/mineria-4-0-y-digitalizacion-minera.json"
     },
     {
       "id": 19,
       "slug": "prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera",
       "nombre": "PREVENCIÓN DE LA CONFLICTIVIDAD, RIESGOS SOCIALES Y RESPONSABILIDAD",
-      "total_clases": 0,
+      "total_clases": 20,
       "json": "mapas/prevencion-de-la-conflictividad-riesgos-sociales-y-responsabilidad-social-minera.json"
     },
     {
       "id": 20,
       "slug": "seguridad-industrial",
       "nombre": "SEGURIDAD INDUSTRIAL",
-      "total_clases": 0,
+      "total_clases": 28,
       "json": "mapas/seguridad-industrial.json"
     },
     {
       "id": 21,
       "slug": "seguridad-y-salud-ocupacional-en-la-industria-y-mineria",
       "nombre": "SEGURIDAD Y SALUD OCUPACIONAL EN LA INDUSTRIA Y MINERÍA",
-      "total_clases": 0,
+      "total_clases": 23,
       "json": "mapas/seguridad-y-salud-ocupacional-en-la-industria-y-mineria.json"
     },
     {
       "id": 22,
       "slug": "supply-chain-management-en-industria-y-mineria",
       "nombre": "SUPPLY CHAIN MANAGEMENT EN INDUSTRIA Y MINERÍA",
-      "total_clases": 0,
+      "total_clases": 22,
       "json": "mapas/supply-chain-management-en-industria-y-mineria.json"
     }
   ]
