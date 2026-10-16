@@ -1,0 +1,145 @@
+{
+  "nombre_diplomado": "GESTIÓN ESTRATÉGICA PARA EMPRESAS",
+  "slug": "gestion-estrategica-utilizando-big-data-y-analisis-predictivo",
+  "total_clases": 23,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "ESTRATEGIAS AVANZADAS DE RECOLECCIÓN Y CAPTURA DE DATOS - 1RA PARTE",
+      "archivo": "CLASE 01_ ESTRATEGIAS AVANZADAS DE RECOLECCIÓN Y CAPTURA DE DATOS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2001_%20ESTRATEGIAS%20AVANZADAS%20DE%20RECOLECCI%C3%93N%20Y%20CAPTURA%20DE%20DATOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "ESTRATEGIAS AVANZADAS DE RECOLECCIÓN Y CAPTURA DE DATOS - 2DA PARTE",
+      "archivo": "CLASE 02_ ESTRATEGIAS AVANZADAS DE RECOLECCIÓN Y CAPTURA DE DATOS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2002_%20ESTRATEGIAS%20AVANZADAS%20DE%20RECOLECCI%C3%93N%20Y%20CAPTURA%20DE%20DATOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "ALMACENAMIENTO INTELIGENTE Y ARQUITECTURA DE DATOS MODERNA - 1RA PARTE",
+      "archivo": "CLASE 03_ ALMACENAMIENTO INTELIGENTE Y ARQUITECTURA DE DATOS MODERNA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2003_%20ALMACENAMIENTO%20INTELIGENTE%20Y%20ARQUITECTURA%20DE%20DATOS%20MODERNA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "ALMACENAMIENTO INTELIGENTE Y ARQUITECTURA DE DATOS MODERNA - 2DA PARTE",
+      "archivo": "CLASE 04_ ALMACENAMIENTO INTELIGENTE Y ARQUITECTURA DE DATOS MODERNA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2004_%20ALMACENAMIENTO%20INTELIGENTE%20Y%20ARQUITECTURA%20DE%20DATOS%20MODERNA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "ANÁLISIS DE DATOS PARA LA TOMA DE DECISIONES ESTRATÉGICAS - 1RA PARTE",
+      "archivo": "CLASE 05_ ANÁLISIS DE DATOS PARA LA TOMA DE DECISIONES ESTRATÉGICAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2005_%20AN%C3%81LISIS%20DE%20DATOS%20PARA%20LA%20TOMA%20DE%20DECISIONES%20ESTRAT%C3%89GICAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "ANÁLISIS DE DATOS PARA LA TOMA DE DECISIONES ESTRATÉGICAS - 2DA PARTE",
+      "archivo": "CLASE 06_ ANÁLISIS DE DATOS PARA LA TOMA DE DECISIONES ESTRATÉGICAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2006_%20AN%C3%81LISIS%20DE%20DATOS%20PARA%20LA%20TOMA%20DE%20DECISIONES%20ESTRAT%C3%89GICAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS - 1RA PARTE",
+      "archivo": "CLASE 07_ APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2007_%20APLICACI%C3%93N%20PR%C3%81CTICA%20Y%20ZONA%20DE%20PREGUNTAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS - 2DA PARTE",
+      "archivo": "CLASE 08_ APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2008_%20APLICACI%C3%93N%20PR%C3%81CTICA%20Y%20ZONA%20DE%20PREGUNTAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "DOMINANDO EL ANÁLISIS PREDICTIVO PARA DECISIONES INTELIGENTES - 1RA PARTE",
+      "archivo": "CLASE 09_ DOMINANDO EL ANÁLISIS PREDICTIVO PARA DECISIONES INTELIGENTES - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2009_%20DOMINANDO%20EL%20AN%C3%81LISIS%20PREDICTIVO%20PARA%20DECISIONES%20INTELIGENTES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "DOMINANDO EL ANÁLISIS PREDICTIVO PARA DECISIONES INTELIGENTES - 2DA PARTE",
+      "archivo": "CLASE 10_ DOMINANDO EL ANÁLISIS PREDICTIVO PARA DECISIONES INTELIGENTES - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2010_%20DOMINANDO%20EL%20AN%C3%81LISIS%20PREDICTIVO%20PARA%20DECISIONES%20INTELIGENTES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "MACHINE LEARNING ESTRATÉGICO PARA EMPRESAS - 1RA PARTE",
+      "archivo": "CLASE 11_ MACHINE LEARNING ESTRATÉGICO PARA EMPRESAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2011_%20MACHINE%20LEARNING%20ESTRAT%C3%89GICO%20PARA%20EMPRESAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "MACHINE LEARNING ESTRATÉGICO PARA EMPRESAS - 2DA PARTE",
+      "archivo": "CLASE 12_ MACHINE LEARNING ESTRATÉGICO PARA EMPRESAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2012_%20MACHINE%20LEARNING%20ESTRAT%C3%89GICO%20PARA%20EMPRESAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "OPTIMIZACIÓN DE PROCESOS EMPRESARIALES - 1RA PARTE",
+      "archivo": "CLASE 13_ OPTIMIZACIÓN DE PROCESOS EMPRESARIALES - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2013_%20OPTIMIZACI%C3%93N%20DE%20PROCESOS%20EMPRESARIALES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "OPTIMIZACIÓN DE PROCESOS EMPRESARIALES - 2DA PARTE",
+      "archivo": "CLASE 14_ OPTIMIZACIÓN DE PROCESOS EMPRESARIALES - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2014_%20OPTIMIZACI%C3%93N%20DE%20PROCESOS%20EMPRESARIALES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "FUNDAMENTOS AVANZADOS DE REDES NEURONALES - 1RA PARTE",
+      "archivo": "CLASE 15_ FUNDAMENTOS AVANZADOS DE REDES NEURONALES - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2015_%20FUNDAMENTOS%20AVANZADOS%20DE%20REDES%20NEURONALES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "FUNDAMENTOS AVANZADOS DE REDES NEURONALES - 2DA PARTE",
+      "archivo": "CLASE 16_ FUNDAMENTOS AVANZADOS DE REDES NEURONALES - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2016_%20FUNDAMENTOS%20AVANZADOS%20DE%20REDES%20NEURONALES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "CIENCIA DE DATOS PARA LA TOMA DE DECISIONES ESTRATÉGICAS - 1RA PARTE",
+      "archivo": "CLASE 17_ CIENCIA DE DATOS PARA LA TOMA DE DECISIONES ESTRATÉGICAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2017_%20CIENCIA%20DE%20DATOS%20PARA%20LA%20TOMA%20DE%20DECISIONES%20ESTRAT%C3%89GICAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "CIENCIA DE DATOS PARA LA TOMA DE DECISIONES ESTRATÉGICAS - 2DA PARTE",
+      "archivo": "CLASE 18_ CIENCIA DE DATOS PARA LA TOMA DE DECISIONES ESTRATÉGICAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2018_%20CIENCIA%20DE%20DATOS%20PARA%20LA%20TOMA%20DE%20DECISIONES%20ESTRAT%C3%89GICAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 19,
+      "titulo": "MACHINE LEARNING APLICADO A SECTORES EMPRESARIALES CLAVE - 1RA PARTE",
+      "archivo": "CLASE 19_ MACHINE LEARNING APLICADO A SECTORES EMPRESARIALES CLAVE - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2019_%20MACHINE%20LEARNING%20APLICADO%20A%20SECTORES%20EMPRESARIALES%20CLAVE%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 20,
+      "titulo": "MACHINE LEARNING APLICADO A SECTORES EMPRESARIALES CLAVE - 2DA PARTE",
+      "archivo": "CLASE 20_ MACHINE LEARNING APLICADO A SECTORES EMPRESARIALES CLAVE - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2020_%20MACHINE%20LEARNING%20APLICADO%20A%20SECTORES%20EMPRESARIALES%20CLAVE%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 21,
+      "titulo": "APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS - 1RA PARTE",
+      "archivo": "CLASE 21_ APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2021_%20APLICACI%C3%93N%20PR%C3%81CTICA%20Y%20ZONA%20DE%20PREGUNTAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 22,
+      "titulo": "APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS - 2DA PARTE",
+      "archivo": "CLASE 22_ APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%2022_%20APLICACI%C3%93N%20PR%C3%81CTICA%20Y%20ZONA%20DE%20PREGUNTAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 901,
+      "titulo": "CLASE ADICIONAL  APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS",
+      "archivo": "CLASE ADICIONAL_ APLICACIÓN PRÁCTICA Y ZONA DE PREGUNTAS.pdf",
+      "ruta": "mapas/gestion-estrategica-utilizando-big-data-y-analisis-predictivo/CLASE%20ADICIONAL_%20APLICACI%C3%93N%20PR%C3%81CTICA%20Y%20ZONA%20DE%20PREGUNTAS.pdf"
+    }
+  ]
+}
