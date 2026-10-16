@@ -1,0 +1,307 @@
+{
+  "nombre_diplomado": "GESTIÓN LOGÍSTICA: COMPRAS, INVENTARIOS Y MANEJO DE PROVEEDORES",
+  "slug": "gestion-logistica-compras-inventarios-y-manejo-de-proveedores",
+  "total_clases": 50,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "IMPORTANCIA DE LA GESTIÓN DE COMPRAS EN LA INDUSTRIA MINERA - 1RA PARTE",
+      "archivo": "CLASE 01_ IMPORTANCIA DE LA GESTIÓN DE COMPRAS EN LA INDUSTRIA MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2001_%20IMPORTANCIA%20DE%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20EN%20LA%20INDUSTRIA%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "IMPORTANCIA DE LA GESTIÓN DE COMPRAS EN LA INDUSTRIA MINERA - 2DA PARTE",
+      "archivo": "CLASE 02_ IMPORTANCIA DE LA GESTIÓN DE COMPRAS EN LA INDUSTRIA MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2002_%20IMPORTANCIA%20DE%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20EN%20LA%20INDUSTRIA%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "PROCESOS DE ADQUISICIÓN Y APROVISIONAMIENTO EN MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 03_ PROCESOS DE ADQUISICIÓN Y APROVISIONAMIENTO EN MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2003_%20PROCESOS%20DE%20ADQUISICI%C3%93N%20Y%20APROVISIONAMIENTO%20EN%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "PROCESOS DE ADQUISICIÓN Y APROVISIONAMIENTO EN MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 04_ PROCESOS DE ADQUISICIÓN Y APROVISIONAMIENTO EN MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2004_%20PROCESOS%20DE%20ADQUISICI%C3%93N%20Y%20APROVISIONAMIENTO%20EN%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "PROCESOS DE ADQUISICIÓN Y APROVISIONAMIENTO EN MINERÍA - 3RA PARTE",
+      "archivo": "CLASE 05_ PROCESOS DE ADQUISICIÓN Y APROVISIONAMIENTO EN MINERÍA - 3RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2005_%20PROCESOS%20DE%20ADQUISICI%C3%93N%20Y%20APROVISIONAMIENTO%20EN%20MINER%C3%8DA%20-%203RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "PROCESOS DE ADQUISICIÓN Y APROVISIONAMIENTO EN MINERÍA - 4TA PARTE",
+      "archivo": "CLASE 06_ PROCESOS DE ADQUISICIÓN Y APROVISIONAMIENTO EN MINERÍA - 4TA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2006_%20PROCESOS%20DE%20ADQUISICI%C3%93N%20Y%20APROVISIONAMIENTO%20EN%20MINER%C3%8DA%20-%204TA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "NORMATIVAS Y REGULACIONES EN COMPRAS PARA LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 07_ NORMATIVAS Y REGULACIONES EN COMPRAS PARA LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2007_%20NORMATIVAS%20Y%20REGULACIONES%20EN%20COMPRAS%20PARA%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "NORMATIVAS Y REGULACIONES EN COMPRAS PARA LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 08_ NORMATIVAS Y REGULACIONES EN COMPRAS PARA LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2008_%20NORMATIVAS%20Y%20REGULACIONES%20EN%20COMPRAS%20PARA%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "SELECCIÓN DE PROVEEDORES Y EVALUACIÓN DE RIESGOS - 1RA PARTE",
+      "archivo": "CLASE 09_ SELECCIÓN DE PROVEEDORES Y EVALUACIÓN DE RIESGOS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2009_%20SELECCI%C3%93N%20DE%20PROVEEDORES%20Y%20EVALUACI%C3%93N%20DE%20RIESGOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "SELECCIÓN DE PROVEEDORES Y EVALUACIÓN DE RIESGOS - 2DA PARTE",
+      "archivo": "CLASE 10_ SELECCIÓN DE PROVEEDORES Y EVALUACIÓN DE RIESGOS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2010_%20SELECCI%C3%93N%20DE%20PROVEEDORES%20Y%20EVALUACI%C3%93N%20DE%20RIESGOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "DESARROLLO DE ESTRATEGIAS DE COMPRAS EN MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 11_ DESARROLLO DE ESTRATEGIAS DE COMPRAS EN MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2011_%20DESARROLLO%20DE%20ESTRATEGIAS%20DE%20COMPRAS%20EN%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "DESARROLLO DE ESTRATEGIAS DE COMPRAS EN MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 12_ DESARROLLO DE ESTRATEGIAS DE COMPRAS EN MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2012_%20DESARROLLO%20DE%20ESTRATEGIAS%20DE%20COMPRAS%20EN%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "TÉCNICAS DE NEGOCIACIÓN Y GESTIÓN DE CONTRATOS - 1RA PARTE",
+      "archivo": "CLASE 13_ TÉCNICAS DE NEGOCIACIÓN Y GESTIÓN DE CONTRATOS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2013_%20T%C3%89CNICAS%20DE%20NEGOCIACI%C3%93N%20Y%20GESTI%C3%93N%20DE%20CONTRATOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "TÉCNICAS DE NEGOCIACIÓN Y GESTIÓN DE CONTRATOS - 2DA PARTE",
+      "archivo": "CLASE 14_ TÉCNICAS DE NEGOCIACIÓN Y GESTIÓN DE CONTRATOS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2014_%20T%C3%89CNICAS%20DE%20NEGOCIACI%C3%93N%20Y%20GESTI%C3%93N%20DE%20CONTRATOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "COMPRAS ESTRATÉGICAS Y GESTIÓN DE COSTOS - 1RA PARTE",
+      "archivo": "CLASE 15_ COMPRAS ESTRATÉGICAS Y GESTIÓN DE COSTOS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2015_%20COMPRAS%20ESTRAT%C3%89GICAS%20Y%20GESTI%C3%93N%20DE%20COSTOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "COMPRAS ESTRATÉGICAS Y GESTIÓN DE COSTOS - 2DA PARTE",
+      "archivo": "CLASE 16_ COMPRAS ESTRATÉGICAS Y GESTIÓN DE COSTOS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2016_%20COMPRAS%20ESTRAT%C3%89GICAS%20Y%20GESTI%C3%93N%20DE%20COSTOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "EVALUACIÓN Y HOMOLOGACIÓN DE PROVEEDORES - 1RA PARTE",
+      "archivo": "CLASE 17_ EVALUACIÓN Y HOMOLOGACIÓN DE PROVEEDORES - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2017_%20EVALUACI%C3%93N%20Y%20HOMOLOGACI%C3%93N%20DE%20PROVEEDORES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "EVALUACIÓN Y HOMOLOGACIÓN DE PROVEEDORES - 2DA PARTE",
+      "archivo": "CLASE 18_ EVALUACIÓN Y HOMOLOGACIÓN DE PROVEEDORES - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2018_%20EVALUACI%C3%93N%20Y%20HOMOLOGACI%C3%93N%20DE%20PROVEEDORES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 19,
+      "titulo": "GESTIÓN DE PROVEEDORES GLOBALES Y LOCALES - 1RA PARTE",
+      "archivo": "CLASE 19_ GESTIÓN DE PROVEEDORES GLOBALES Y LOCALES - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2019_%20GESTI%C3%93N%20DE%20PROVEEDORES%20GLOBALES%20Y%20LOCALES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 20,
+      "titulo": "GESTIÓN DE PROVEEDORES GLOBALES Y LOCALES - 2DA PARTE",
+      "archivo": "CLASE 20_ GESTIÓN DE PROVEEDORES GLOBALES Y LOCALES - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2020_%20GESTI%C3%93N%20DE%20PROVEEDORES%20GLOBALES%20Y%20LOCALES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 21,
+      "titulo": "PRESUPUESTO Y CONTROL DE COSTOS EN LA LOGÍSTICA MINERA - 1RA PARTE",
+      "archivo": "CLASE 21_ PRESUPUESTO Y CONTROL DE COSTOS EN LA LOGÍSTICA MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2021_%20PRESUPUESTO%20Y%20CONTROL%20DE%20COSTOS%20EN%20LA%20LOG%C3%8DSTICA%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 22,
+      "titulo": "PRESUPUESTO Y CONTROL DE COSTOS EN LA LOGÍSTICA MINERA - 2DA PARTE",
+      "archivo": "CLASE 22_ PRESUPUESTO Y CONTROL DE COSTOS EN LA LOGÍSTICA MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2022_%20PRESUPUESTO%20Y%20CONTROL%20DE%20COSTOS%20EN%20LA%20LOG%C3%8DSTICA%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 23,
+      "titulo": "INDICADORES CLAVE DE DESEMPEÑO (KPIS) PARA PROVEEDORES LOGÍSTICOS Y PARA EL ÁREA DE ABASTECIMIENTO - 1RA PARTE",
+      "archivo": "CLASE 23_ INDICADORES CLAVE DE DESEMPEÑO (KPIS) PARA PROVEEDORES LOGÍSTICOS Y PARA EL ÁREA DE ABASTECIMIENTO - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2023_%20INDICADORES%20CLAVE%20DE%20DESEMPE%C3%91O%20(KPIS)%20PARA%20PROVEEDORES%20LOG%C3%8DSTICOS%20Y%20PARA%20EL%20%C3%81REA%20DE%20ABASTECIMIENTO%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 24,
+      "titulo": "INDICADORES CLAVE DE DESEMPEÑO (KPIS) PARA PROVEEDORES LOGÍSTICOS Y PARA EL ÁREA DE ABASTECIMIENTO - 2DA PARTE",
+      "archivo": "CLASE 24_ INDICADORES CLAVE DE DESEMPEÑO (KPIS) PARA PROVEEDORES LOGÍSTICOS Y PARA EL ÁREA DE ABASTECIMIENTO - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2024_%20INDICADORES%20CLAVE%20DE%20DESEMPE%C3%91O%20(KPIS)%20PARA%20PROVEEDORES%20LOG%C3%8DSTICOS%20Y%20PARA%20EL%20%C3%81REA%20DE%20ABASTECIMIENTO%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 25,
+      "titulo": "ANÁLISIS DE COSTOS EN LA CADENA DE SUMINISTRO MINERA - 1RA PARTE",
+      "archivo": "CLASE 25_ ANÁLISIS DE COSTOS EN LA CADENA DE SUMINISTRO MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2025_%20AN%C3%81LISIS%20DE%20COSTOS%20EN%20LA%20CADENA%20DE%20SUMINISTRO%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 26,
+      "titulo": "ANÁLISIS DE COSTOS EN LA CADENA DE SUMINISTRO MINERA - 2DA PARTE (1)",
+      "archivo": "CLASE 26_ ANÁLISIS DE COSTOS EN LA CADENA DE SUMINISTRO MINERA - 2DA PARTE (1).pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2026_%20AN%C3%81LISIS%20DE%20COSTOS%20EN%20LA%20CADENA%20DE%20SUMINISTRO%20MINERA%20-%202DA%20PARTE%20(1).pdf"
+    },
+    {
+      "numero": 27,
+      "titulo": "LICITACIONES CAPEX Y OPEX EN LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 27_ LICITACIONES CAPEX Y OPEX EN LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2027_%20LICITACIONES%20CAPEX%20Y%20OPEX%20EN%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 28,
+      "titulo": "LICITACIONES CAPEX Y OPEX EN LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 28_ LICITACIONES CAPEX Y OPEX EN LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2028_%20LICITACIONES%20CAPEX%20Y%20OPEX%20EN%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 29,
+      "titulo": "IMPORTACIONES, EXPORTACIONES, IMPUESTOS E INCOTERMS - 1RA PARTE",
+      "archivo": "CLASE 29_ IMPORTACIONES, EXPORTACIONES, IMPUESTOS E INCOTERMS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2029_%20IMPORTACIONES%2C%20EXPORTACIONES%2C%20IMPUESTOS%20E%20INCOTERMS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 30,
+      "titulo": "IMPORTACIONES, EXPORTACIONES, IMPUESTOS E INCOTERMS - 2DA PARTE",
+      "archivo": "CLASE 30_ IMPORTACIONES, EXPORTACIONES, IMPUESTOS E INCOTERMS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2030_%20IMPORTACIONES%2C%20EXPORTACIONES%2C%20IMPUESTOS%20E%20INCOTERMS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 31,
+      "titulo": "GESTIÓN DE LA DEMANDA, PLANIFICACIÓN Y OPTIMIZACIÓN DE LA CADENA DE SUMINISTRO EN MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 31_ GESTIÓN DE LA DEMANDA, PLANIFICACIÓN Y OPTIMIZACIÓN DE LA CADENA DE SUMINISTRO EN MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2031_%20GESTI%C3%93N%20DE%20LA%20DEMANDA%2C%20PLANIFICACI%C3%93N%20Y%20OPTIMIZACI%C3%93N%20DE%20LA%20CADENA%20DE%20SUMINISTRO%20EN%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 32,
+      "titulo": "GESTIÓN DE LA DEMANDA, PLANIFICACIÓN Y OPTIMIZACIÓN DE LA CADENA DE SUMINISTRO EN MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 32_ GESTIÓN DE LA DEMANDA, PLANIFICACIÓN Y OPTIMIZACIÓN DE LA CADENA DE SUMINISTRO EN MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2032_%20GESTI%C3%93N%20DE%20LA%20DEMANDA%2C%20PLANIFICACI%C3%93N%20Y%20OPTIMIZACI%C3%93N%20DE%20LA%20CADENA%20DE%20SUMINISTRO%20EN%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 33,
+      "titulo": "GESTIÓN DE INVENTARIOS - 1RA PARTE",
+      "archivo": "CLASE 33_ GESTIÓN DE INVENTARIOS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2033_%20GESTI%C3%93N%20DE%20INVENTARIOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 34,
+      "titulo": "GESTIÓN DE INVENTARIOS - 2DA PARTE",
+      "archivo": "CLASE 34_ GESTIÓN DE INVENTARIOS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2034_%20GESTI%C3%93N%20DE%20INVENTARIOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 35,
+      "titulo": "GESTIÓN DE ALMACÉN Y MANEJO DE INVENTARIOS EN OPERACIONES MINERAS - 1RA PARTE",
+      "archivo": "CLASE 35_ GESTIÓN DE ALMACÉN Y MANEJO DE INVENTARIOS EN OPERACIONES MINERAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2035_%20GESTI%C3%93N%20DE%20ALMAC%C3%89N%20Y%20MANEJO%20DE%20INVENTARIOS%20EN%20OPERACIONES%20MINERAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 36,
+      "titulo": "GESTIÓN DE ALMACÉN Y MANEJO DE INVENTARIOS EN OPERACIONES MINERAS - 2DA PARTE",
+      "archivo": "CLASE 36_ GESTIÓN DE ALMACÉN Y MANEJO DE INVENTARIOS EN OPERACIONES MINERAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2036_%20GESTI%C3%93N%20DE%20ALMAC%C3%89N%20Y%20MANEJO%20DE%20INVENTARIOS%20EN%20OPERACIONES%20MINERAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 37,
+      "titulo": "GESTIÓN DE LA DISTRIBUCIÓN - 1RA PARTE",
+      "archivo": "CLASE 37_ GESTIÓN DE LA DISTRIBUCIÓN - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2037_%20GESTI%C3%93N%20DE%20LA%20DISTRIBUCI%C3%93N%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 38,
+      "titulo": "GESTIÓN DE LA DISTRIBUCIÓN - 2DA PARTE",
+      "archivo": "CLASE 38_ GESTIÓN DE LA DISTRIBUCIÓN - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2038_%20GESTI%C3%93N%20DE%20LA%20DISTRIBUCI%C3%93N%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 39,
+      "titulo": "CASOS PRÁCTICOS - 1RA PARTE",
+      "archivo": "CLASE 39_ CASOS PRÁCTICOS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2039_%20CASOS%20PR%C3%81CTICOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 40,
+      "titulo": "CASOS PRÁCTICOS - 2DA PARTE",
+      "archivo": "CLASE 40_ CASOS PRÁCTICOS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2040_%20CASOS%20PR%C3%81CTICOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 41,
+      "titulo": "CONSIDERACIONES ÉTICAS Y SOCIALES EN LA GESTIÓN DE COMPRAS - 1RA PARTE",
+      "archivo": "CLASE 41_ CONSIDERACIONES ÉTICAS Y SOCIALES EN LA GESTIÓN DE COMPRAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2041_%20CONSIDERACIONES%20%C3%89TICAS%20Y%20SOCIALES%20EN%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 42,
+      "titulo": "CONSIDERACIONES ÉTICAS Y SOCIALES EN LA GESTIÓN DE COMPRAS - 2DA PARTE",
+      "archivo": "CLASE 42_ CONSIDERACIONES ÉTICAS Y SOCIALES EN LA GESTIÓN DE COMPRAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2042_%20CONSIDERACIONES%20%C3%89TICAS%20Y%20SOCIALES%20EN%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 43,
+      "titulo": "EVALUACIÓN DEL IMPACTO AMBIENTAL Y SOCIAL DE PROVEEDORES - 1RA PARTE",
+      "archivo": "CLASE 43_ EVALUACIÓN DEL IMPACTO AMBIENTAL Y SOCIAL DE PROVEEDORES - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2043_%20EVALUACI%C3%93N%20DEL%20IMPACTO%20AMBIENTAL%20Y%20SOCIAL%20DE%20PROVEEDORES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 44,
+      "titulo": "EVALUACIÓN DEL IMPACTO AMBIENTAL Y SOCIAL DE PROVEEDORES - 2DA PARTE",
+      "archivo": "CLASE 44_ EVALUACIÓN DEL IMPACTO AMBIENTAL Y SOCIAL DE PROVEEDORES - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2044_%20EVALUACI%C3%93N%20DEL%20IMPACTO%20AMBIENTAL%20Y%20SOCIAL%20DE%20PROVEEDORES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 45,
+      "titulo": "PRÁCTICAS DE COMPRAS SOSTENIBLES EN LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 45_ PRÁCTICAS DE COMPRAS SOSTENIBLES EN LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2045_%20PR%C3%81CTICAS%20DE%20COMPRAS%20SOSTENIBLES%20EN%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 46,
+      "titulo": "PRÁCTICAS DE COMPRAS SOSTENIBLES EN LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 46_ PRÁCTICAS DE COMPRAS SOSTENIBLES EN LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2046_%20PR%C3%81CTICAS%20DE%20COMPRAS%20SOSTENIBLES%20EN%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 47,
+      "titulo": "AUDITORÍA Y REPORTE DE SOSTENIBILIDAD EN COMPRAS - 1RA PARTE",
+      "archivo": "CLASE 47_ AUDITORÍA Y REPORTE DE SOSTENIBILIDAD EN COMPRAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2047_%20AUDITOR%C3%8DA%20Y%20REPORTE%20DE%20SOSTENIBILIDAD%20EN%20COMPRAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 48,
+      "titulo": "AUDITORÍA Y REPORTE DE SOSTENIBILIDAD EN COMPRAS - 2DA PARTE",
+      "archivo": "CLASE 48_ AUDITORÍA Y REPORTE DE SOSTENIBILIDAD EN COMPRAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2048_%20AUDITOR%C3%8DA%20Y%20REPORTE%20DE%20SOSTENIBILIDAD%20EN%20COMPRAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 49,
+      "titulo": "TENDENCIAS FUTURAS EN LA GESTIÓN DE COMPRAS EN LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 49_ TENDENCIAS FUTURAS EN LA GESTIÓN DE COMPRAS EN LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2049_%20TENDENCIAS%20FUTURAS%20EN%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20EN%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 50,
+      "titulo": "TENDENCIAS FUTURAS EN LA GESTIÓN DE COMPRAS EN LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 50_ TENDENCIAS FUTURAS EN LA GESTIÓN DE COMPRAS EN LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-logistica-compras-inventarios-y-manejo-de-proveedores/CLASE%2050_%20TENDENCIAS%20FUTURAS%20EN%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20EN%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    }
+  ]
+}
