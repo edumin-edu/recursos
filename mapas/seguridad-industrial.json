@@ -1,0 +1,175 @@
+{
+  "nombre_diplomado": "SEGURIDAD INDUSTRIAL",
+  "slug": "seguridad-industrial",
+  "total_clases": 28,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "PLANIFICACIÓN Y PROGRAMACIÓN DE LA PRODUCCIÓN - 1RA PARTE",
+      "archivo": "CLASE 01_ PLANIFICACIÓN Y PROGRAMACIÓN DE LA PRODUCCIÓN - 1RA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2001_%20PLANIFICACI%C3%93N%20Y%20PROGRAMACI%C3%93N%20DE%20LA%20PRODUCCI%C3%93N%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "PLANIFICACIÓN Y PROGRAMACIÓN DE LA PRODUCCIÓN - 2DA PARTE",
+      "archivo": "CLASE 02_ PLANIFICACIÓN Y PROGRAMACIÓN DE LA PRODUCCIÓN - 2DA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2002_%20PLANIFICACI%C3%93N%20Y%20PROGRAMACI%C3%93N%20DE%20LA%20PRODUCCI%C3%93N%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "CONTROL DE LA PRODUCCIÓN Y GESTIÓN DE CALIDAD EN TIEMPO REAL - 1RA PARTE",
+      "archivo": "CLASE 03_ CONTROL DE LA PRODUCCIÓN Y GESTIÓN DE CALIDAD EN TIEMPO REAL - 1RA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2003_%20CONTROL%20DE%20LA%20PRODUCCI%C3%93N%20Y%20GESTI%C3%93N%20DE%20CALIDAD%20EN%20TIEMPO%20REAL%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "CONTROL DE LA PRODUCCIÓN Y GESTIÓN DE CALIDAD EN TIEMPO REAL - 2DA PARTE",
+      "archivo": "CLASE 04_ CONTROL DE LA PRODUCCIÓN Y GESTIÓN DE CALIDAD EN TIEMPO REAL - 2DA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2004_%20CONTROL%20DE%20LA%20PRODUCCI%C3%93N%20Y%20GESTI%C3%93N%20DE%20CALIDAD%20EN%20TIEMPO%20REAL%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "MANTENIMIENTO INDUSTRIAL - 1RA PARTE",
+      "archivo": "CLASE 05_ MANTENIMIENTO INDUSTRIAL - 1RA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2005_%20MANTENIMIENTO%20INDUSTRIAL%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "MANTENIMIENTO INDUSTRIAL - 2DA PARTE",
+      "archivo": "CLASE 06_ MANTENIMIENTO INDUSTRIAL - 2DA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2006_%20MANTENIMIENTO%20INDUSTRIAL%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "GESTIÓN DE RESIDUOS INDUSTRIALES Y SOSTENIBILIDAD - 1RA PARTE",
+      "archivo": "CLASE 07_ GESTIÓN DE RESIDUOS INDUSTRIALES Y SOSTENIBILIDAD - 1RA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2007_%20GESTI%C3%93N%20DE%20RESIDUOS%20INDUSTRIALES%20Y%20SOSTENIBILIDAD%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "GESTIÓN DE RESIDUOS INDUSTRIALES Y SOSTENIBILIDAD - 2DA PARTE",
+      "archivo": "CLASE 08_ GESTIÓN DE RESIDUOS INDUSTRIALES Y SOSTENIBILIDAD - 2DA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2008_%20GESTI%C3%93N%20DE%20RESIDUOS%20INDUSTRIALES%20Y%20SOSTENIBILIDAD%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "CLASE MAGISTRAL",
+      "archivo": "CLASE 09_ CLASE MAGISTRAL.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2009_%20CLASE%20MAGISTRAL.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "LEY DE SEGURIDAD Y SALUD EN EL TRABAJO (LEY N.º 29783) Y SU REGLAMENTO (DS N.º 005-2012-TR)",
+      "archivo": "CLASE 10_ LEY DE SEGURIDAD Y SALUD EN EL TRABAJO (LEY N.º 29783) Y SU REGLAMENTO (DS N.º 005-2012-TR).pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2010_%20LEY%20DE%20SEGURIDAD%20Y%20SALUD%20EN%20EL%20TRABAJO%20(LEY%20N.%C2%BA%2029783)%20Y%20SU%20REGLAMENTO%20(DS%20N.%C2%BA%20005-2012-TR).pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "NORMA INTERNACIONAL ISO 45001 2018",
+      "archivo": "CLASE 11_ NORMA INTERNACIONAL ISO 45001_2018.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2011_%20NORMA%20INTERNACIONAL%20ISO%2045001_2018.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "IDENTIFICACIÓN DE PELIGROS Y EVALUACIÓN DE RIESGOS",
+      "archivo": "CLASE 12_ IDENTIFICACIÓN DE PELIGROS Y EVALUACIÓN DE RIESGOS.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2012_%20IDENTIFICACI%C3%93N%20DE%20PELIGROS%20Y%20EVALUACI%C3%93N%20DE%20RIESGOS.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "INVESTIGACIÓN DE ACCIDENTES, INCIDENTES Y ENFERMEDADES OCUPACIONALES",
+      "archivo": "CLASE 13_ INVESTIGACIÓN DE ACCIDENTES, INCIDENTES Y ENFERMEDADES OCUPACIONALES.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2013_%20INVESTIGACI%C3%93N%20DE%20ACCIDENTES%2C%20INCIDENTES%20Y%20ENFERMEDADES%20OCUPACIONALES.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "MATERIALES PELIGROSOS",
+      "archivo": "CLASE 14_ MATERIALES PELIGROSOS.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2014_%20MATERIALES%20PELIGROSOS.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "TRABAJOS CRÍTICOS",
+      "archivo": "CLASE 15_ TRABAJOS CRÍTICOS.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2015_%20TRABAJOS%20CR%C3%8DTICOS.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "IMPLEMENTACIÓN DE LA ISO 18001 - 1RA PARTE",
+      "archivo": "CLASE 16_ IMPLEMENTACIÓN DE LA ISO 18001 - 1RA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2016_%20IMPLEMENTACI%C3%93N%20DE%20LA%20ISO%2018001%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "IMPLEMENTACIÓN DE LA ISO 18001 - 2DA PARTE",
+      "archivo": "CLASE 17_ IMPLEMENTACIÓN DE LA ISO 18001 - 2DA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2017_%20IMPLEMENTACI%C3%93N%20DE%20LA%20ISO%2018001%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "ERGONOMÍA APLICADA EN LA ORGANIZACIÓN",
+      "archivo": "CLASE 18_ ERGONOMÍA APLICADA EN LA ORGANIZACIÓN.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2018_%20ERGONOM%C3%8DA%20APLICADA%20EN%20LA%20ORGANIZACI%C3%93N.pdf"
+    },
+    {
+      "numero": 19,
+      "titulo": "CLASE MAGISTRAL",
+      "archivo": "CLASE 19_ CLASE MAGISTRAL.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2019_%20CLASE%20MAGISTRAL.pdf"
+    },
+    {
+      "numero": 20,
+      "titulo": "LEGISLACIÓN AMBIENTAL Y COMPETENCIAS DEL OEFA - 1RA PARTE",
+      "archivo": "CLASE 20_ LEGISLACIÓN AMBIENTAL Y COMPETENCIAS DEL OEFA - 1RA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2020_%20LEGISLACI%C3%93N%20AMBIENTAL%20Y%20COMPETENCIAS%20DEL%20OEFA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 21,
+      "titulo": "LEGISLACIÓN AMBIENTAL Y COMPETENCIAS DEL OEFA - 2DA PARTE",
+      "archivo": "CLASE 21_ LEGISLACIÓN AMBIENTAL Y COMPETENCIAS DEL OEFA - 2DA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2021_%20LEGISLACI%C3%93N%20AMBIENTAL%20Y%20COMPETENCIAS%20DEL%20OEFA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 22,
+      "titulo": "NORMATIVIDAD SOBRE LA PROTECCIÓN Y CALIDAD AMBIENTAL DEL AGUA, EL AIRE, EL SUELO, EL RUIDO Y LA CONTAMINACIÓN LUMÍNICA - 1RA PARTE",
+      "archivo": "CLASE 22_ NORMATIVIDAD SOBRE LA PROTECCIÓN Y CALIDAD AMBIENTAL DEL AGUA, EL AIRE, EL SUELO, EL RUIDO Y LA CONTAMINACIÓN LUMÍNICA - 1RA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2022_%20NORMATIVIDAD%20SOBRE%20LA%20PROTECCI%C3%93N%20Y%20CALIDAD%20AMBIENTAL%20DEL%20AGUA%2C%20EL%20AIRE%2C%20EL%20SUELO%2C%20EL%20RUIDO%20Y%20LA%20CONTAMINACI%C3%93N%20LUM%C3%8DNICA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 23,
+      "titulo": "NORMATIVIDAD SOBRE LA PROTECCIÓN Y CALIDAD AMBIENTAL DEL AGUA, EL AIRE, EL SUELO, EL RUIDO Y LA CONTAMINACIÓN LUMÍNICA - 2DA PARTE",
+      "archivo": "CLASE 23_ NORMATIVIDAD SOBRE LA PROTECCIÓN Y CALIDAD AMBIENTAL DEL AGUA, EL AIRE, EL SUELO, EL RUIDO Y LA CONTAMINACIÓN LUMÍNICA - 2DA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2023_%20NORMATIVIDAD%20SOBRE%20LA%20PROTECCI%C3%93N%20Y%20CALIDAD%20AMBIENTAL%20DEL%20AGUA%2C%20EL%20AIRE%2C%20EL%20SUELO%2C%20EL%20RUIDO%20Y%20LA%20CONTAMINACI%C3%93N%20LUM%C3%8DNICA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 24,
+      "titulo": "REGLAMENTO DEL SISTEMA DE EVALUACIÓN DE IMPACTO AMBIENTAL - 1RA PARTE",
+      "archivo": "CLASE 24_ REGLAMENTO DEL SISTEMA DE EVALUACIÓN DE IMPACTO AMBIENTAL - 1RA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2024_%20REGLAMENTO%20DEL%20SISTEMA%20DE%20EVALUACI%C3%93N%20DE%20IMPACTO%20AMBIENTAL%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 25,
+      "titulo": "REGLAMENTO DEL SISTEMA DE EVALUACIÓN DE IMPACTO AMBIENTAL - 2DA PARTE",
+      "archivo": "CLASE 25_ REGLAMENTO DEL SISTEMA DE EVALUACIÓN DE IMPACTO AMBIENTAL - 2DA PARTE.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2025_%20REGLAMENTO%20DEL%20SISTEMA%20DE%20EVALUACI%C3%93N%20DE%20IMPACTO%20AMBIENTAL%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 26,
+      "titulo": "ISO 14001 EN LA IDENTIFICACIÓN DE REQUISITOS LEGALES",
+      "archivo": "CLASE 26_ ISO 14001 EN LA IDENTIFICACIÓN DE REQUISITOS LEGALES.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2026_%20ISO%2014001%20EN%20LA%20IDENTIFICACI%C3%93N%20DE%20REQUISITOS%20LEGALES.pdf"
+    },
+    {
+      "numero": 27,
+      "titulo": "TRAIN THE TRAINERS",
+      "archivo": "CLASE 27_ TRAIN THE TRAINERS.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2027_%20TRAIN%20THE%20TRAINERS.pdf"
+    },
+    {
+      "numero": 28,
+      "titulo": "CLASE MAGISTRAL",
+      "archivo": "CLASE 28_ CLASE MAGISTRAL.pdf",
+      "ruta": "mapas/seguridad-industrial/CLASE%2028_%20CLASE%20MAGISTRAL.pdf"
+    }
+  ]
+}
