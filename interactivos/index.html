@@ -8,6 +8,8 @@
     <meta id="link-resumen" content="" />
     <meta id="link-biblioteca" content="" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
@@ -20,17 +22,13 @@
               <img src="https://videoconferenciasdiplomado-alt.github.io/imagenes/logo%20negro%20edumin.png" alt="EDUMIN Logo" class="logo" />
             </a>
             <div class="texto-encabezado">
-              <h1 id="titulo-interactivo" class="fondo-resaltador-amarillo">
-                <span class="texto-titulo">Resumen interactivo</span>
-              </h1>
+              <h1>Resumen interactivo</h1>
             </div>
           </div>
         </div>
       </div>
       <div class="descripcion-encabezado animacion-deslizar-arriba retraso-0">
-        <div class="texto-encabezado">
-          <p>Repasa lo aprendido con nuestras tarjetas dinámicas. Ábrelas para descubrir los puntos más importantes de la clase y mira la explicación con un solo toque.</p>
-        </div>
+        <p>Repasa lo aprendido con nuestras tarjetas dinámicas. Ábrelas para descubrir los puntos más importantes de la clase y mira la explicación con un solo toque.</p>
       </div>
       <div class="contenedor">
         <div id="contenido-normal">
@@ -178,8 +176,8 @@
             </details>
           </div>
         </div>
-        <div id="contenido-error" class="caja-error animacion-deslizar-arriba">
-          <div class="tarjeta-destacada tarjeta-error">
+        <div id="contenido-error" class="caja-error">
+          <div class="tarjeta-destacada tarjeta-error animacion-deslizar-arriba retraso-1">
             <div class="icono-error">⚠️</div>
             <h2>Contenido no disponible</h2>
             <p>El diplomado o la clase solicitada no existe. Verifica que el enlace sea correcto.</p>
@@ -187,20 +185,6 @@
         </div>
       </div>
     </div>
-    <aside id="selector-preview" class="barra-selector" aria-label="Selector de estilo de fondo">
-      <div class="selector-titulo">
-        <span class="material-symbols-outlined icono-paleta">palette</span>
-        <span>Opciones oblicuas sin borde:</span>
-      </div>
-      <div class="selector-botones">
-        <button type="button" class="btn-opcion activo" onclick="cambiarFondo('fondo-resaltador-amarillo', this)">1. Resaltador Amarillo (-2.5°)</button>
-        <button type="button" class="btn-opcion" onclick="cambiarFondo('fondo-papel-postit', this)">2. Papel Post-it (+2.2°)</button>
-        <button type="button" class="btn-opcion" onclick="cambiarFondo('fondo-resaltador-melocoton', this)">3. Resaltador Melocotón (-2°)</button>
-        <button type="button" class="btn-opcion" onclick="cambiarFondo('fondo-papel-kraft', this)">4. Bloc Kraft Marfil (-2°)</button>
-        <button type="button" class="btn-opcion" onclick="cambiarFondo('fondo-marcador-ancho', this)">5. Marcador Rápido (-3.5°)</button>
-        <button type="button" class="btn-opcion" onclick="cambiarFondo('fondo-ninguno', this)">Sin fondo</button>
-      </div>
-    </aside>
     <style>
       :root {
         --color-bg-body: #f1f5f9; /* Gris azulado muy suave */
@@ -293,21 +277,26 @@
         background-size: 400% 400%;
         animation: gradienteDinamico 15s ease infinite;
         width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 40px;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow: clip;
+        overflow-x: hidden;
       }
       .wrapper-encabezado {
         width: 100%;
+        max-width: 900px;
         background: transparent;
         margin-bottom: 30px;
       }
       .encabezado {
-        padding: 20px 20px 0;
+        padding: 0;
         max-width: 900px;
         margin: 0 auto;
+        width: 100%;
       }
       .contenido-encabezado {
         display: flex;
@@ -315,7 +304,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        gap: 5px;
+
         width: 100%;
       }
       .logo {
@@ -326,125 +315,29 @@
       .texto-encabezado {
         text-align: center;
         max-width: 800px;
+        margin: 0 auto;
         text-wrap: balance;
+        user-select: none;
+        -webkit-user-select: none;
       }
       .texto-encabezado h1 {
-        font-family: "Gochi Hand", cursive;
-        font-size: 2.3rem;
+        --font-size: 2.3rem;
+        font-family: "Gochi Hand", Inter, sans-serif;
+        font-size: var(--font-size);
         color: #ff8c00;
         font-weight: 400;
-        margin: 5px auto 0;
-        line-height: 1.2;
-        display: inline-block;
-        position: relative;
-        padding: 6px 24px;
-        transition: color 0.25s ease;
+        margin: 0;
+        line-height: 0.9;
+        user-select: none;
+        -webkit-user-select: none;
       }
-      .texto-encabezado h1::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        border: none;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        pointer-events: none;
+      .descripcion-encabezado {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto 40px;
+        text-align: center;
       }
-      .fondo-resaltador-amarillo::before {
-        background: linear-gradient(105deg, rgb(254 240 138 / 95%) 0%, rgb(253 224 71 / 85%) 100%);
-        border-radius: 4px 14px 6px 12px;
-        transform: rotate(-2.5deg);
-        box-shadow: 0 4px 14px rgb(253 224 71 / 30%);
-      }
-      .fondo-papel-postit::before {
-        background: rgb(254 243 199 / 95%);
-        border-radius: 3px;
-        transform: rotate(2.2deg);
-        box-shadow: 0 4px 14px rgb(0 0 0 / 7%);
-      }
-      .fondo-resaltador-melocoton::before {
-        background: linear-gradient(105deg, rgb(255 237 213 / 95%) 0%, rgb(254 215 170 / 85%) 100%);
-        border-radius: 6px 12px 4px 14px;
-        transform: rotate(-2deg);
-        box-shadow: 0 4px 14px rgb(251 146 60 / 25%);
-      }
-      .fondo-papel-kraft::before {
-        background: #fbf6ea;
-        border-radius: 4px;
-        transform: rotate(-2deg);
-        box-shadow: 0 5px 15px rgb(0 0 0 / 6%);
-      }
-      .fondo-marcador-ancho::before {
-        background: linear-gradient(98deg, rgb(254 240 138 / 90%) 0%, rgb(250 204 21 / 80%) 100%);
-        border-radius: 5px;
-        transform: rotate(-3.5deg) scaleX(1.05);
-        box-shadow: 0 4px 12px rgb(253 224 71 / 25%);
-      }
-      .fondo-ninguno::before {
-        display: none;
-      }
-      .barra-selector {
-        position: fixed;
-        bottom: 18px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgb(15 23 42 / 92%);
-        backdrop-filter: blur(10px);
-        color: #ffffff;
-        padding: 8px 16px;
-        border-radius: 40px;
-        box-shadow: 0 10px 25px rgb(0 0 0 / 25%);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        z-index: 1000;
-        max-width: 94%;
-        flex-wrap: wrap;
-        justify-content: center;
-        border: 1px solid rgb(255 255 255 / 15%);
-        font-family: Inter, sans-serif;
-      }
-      .selector-titulo {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #cbd5e1;
-        white-space: nowrap;
-      }
-      .icono-paleta {
-        font-size: 18px;
-        color: #ff8c00;
-      }
-      .selector-botones {
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .btn-opcion {
-        background: rgb(255 255 255 / 12%);
-        color: #f1f5f9;
-        border: 1px solid rgb(255 255 255 / 20%);
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        font-family: inherit;
-      }
-      .btn-opcion:hover {
-        background: rgb(255 255 255 / 25%);
-        transform: translateY(-1px);
-      }
-      .btn-opcion.activo {
-        background: #ff8c00;
-        color: #ffffff;
-        border-color: #ff8c00;
-        box-shadow: 0 2px 8px rgb(255 140 0 / 40%);
-      }
-      .texto-encabezado p {
+      .descripcion-encabezado p {
         margin: 0 auto;
         max-width: 600px;
         text-align: center;
@@ -453,11 +346,12 @@
         line-height: 1.25;
         font-weight: 600;
         padding: 0;
+        text-wrap: balance;
       }
       .contenedor {
         max-width: 800px;
-        width: 90%;
-        margin: 40px auto;
+        width: 100%;
+        margin: 0 auto;
       }
       .seccion-destacada {
         display: grid;
@@ -512,7 +406,8 @@
         left: -20px;
       }
       .tarjeta-destacada h2,
-      .detalles-guia h2 {
+      .detalles-guia h2,
+      .tarjeta-error h2 {
         color: var(--color-text-dark);
         font-size: 1.3rem;
         font-weight: bold;
@@ -523,7 +418,8 @@
         transform: translateZ(0);
       }
       .tarjeta-destacada p,
-      .detalles-guia p {
+      .detalles-guia p,
+      .tarjeta-error p {
         font-size: 1rem;
         color: var(--color-text-light);
         line-height: 1.25;
@@ -532,6 +428,10 @@
         text-wrap: balance;
         text-align: center;
         transform: translateZ(0);
+      }
+      .tarjeta-error p {
+        margin: 0 auto;
+        max-width: 480px;
       }
       .boton-principal,
       .separador {
@@ -904,32 +804,32 @@
       .tarjeta-error {
         align-items: center;
         justify-content: center;
-        padding: 40px 25px;
+        padding: 40px 30px;
       }
       .icono-error {
         font-size: 3.5rem;
-        margin-bottom: 15px;
+        display: inline-block;
+        margin: 0 auto 20px;
         line-height: 1;
+        filter: drop-shadow(0 4px 4px rgb(0, 0, 0, 20%));
         user-select: none;
-        animation: aparecer 0.6s ease-out both;
-      }
-      .tarjeta-error h2 {
-        color: var(--color-text-dark);
-        font-size: 1.35rem;
-        font-weight: 700;
-        margin: 0 0 10px;
-      }
-      .tarjeta-error p {
-        font-size: 1.05rem;
-        color: var(--color-text-light);
-        max-width: 480px;
-        margin: 0 auto;
+        pointer-events: none;
+        animation: menearIconoConstante 3s ease-in-out infinite;
+        transform-origin: center;
+        will-change: transform;
       }
 
       @media (max-width: 768px) {
+        .contenedor-principal {
+          padding: 30px;
+        }
         .wrapper-encabezado {
           margin-bottom: 25px;
-          width: 85%;
+          width: 100%;
+        }
+        .descripcion-encabezado {
+          margin-bottom: 30px;
+          width: 100%;
         }
         .contenido-encabezado {
           flex-direction: column;
@@ -938,11 +838,11 @@
           width: calc(150px * 0.8);
         }
         .texto-encabezado h1 {
-          font-size: 1.85rem;
+          font-size: calc(var(--font-size) * 0.8);
         }
-        .texto-encabezado p {
+        .descripcion-encabezado p {
           font-size: 1.05rem;
-          width: 82.5%;
+          width: 100%;
         }
         .seccion-destacada {
           grid-template-columns: 1fr;
@@ -967,12 +867,20 @@
           left: -15px;
         }
         .tarjeta-destacada h2,
-        .detalles-guia h2 {
+        .detalles-guia h2,
+        .tarjeta-error h2 {
           font-size: 1.1rem;
         }
         .tarjeta-destacada p,
-        .detalles-guia p {
+        .detalles-guia p,
+        .tarjeta-error p {
           font-size: 0.9rem;
+        }
+        .tarjeta-error {
+          padding: 30px 20px;
+        }
+        .icono-error {
+          font-size: 3rem;
         }
         .boton-principal,
         .separador {
@@ -981,8 +889,8 @@
           width: 100%;
         }
         .contenedor {
-          width: 85%;
-          margin: 30px auto;
+          width: 100%;
+          margin: 0 auto;
         }
         .flecha-toggle {
           position: static;
@@ -1026,15 +934,6 @@
           margin-right: -20px;
           border-radius: 0;
         }
-        .barra-selector {
-          bottom: 12px;
-          padding: 6px 12px;
-          gap: 6px;
-        }
-        .btn-opcion {
-          padding: 4px 10px;
-          font-size: 0.72rem;
-        }
       }
 
       @media (max-width: 360px) {
@@ -1065,16 +964,6 @@
       window.toggleSection = toggleSection;
       window.toggleSubsection = toggleSubsection;
 
-      function cambiarFondo(nombreClase, btn) {
-        const h1 = document.getElementById("titulo-interactivo");
-        if (!h1) return;
-        h1.className = nombreClase;
-        const botones = document.querySelectorAll(".btn-opcion");
-        botones.forEach((b) => b.classList.remove("activo"));
-        if (btn) btn.classList.add("activo");
-      }
-      window.cambiarFondo = cambiarFondo;
-
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
       }
@@ -1097,12 +986,9 @@
         const btnBiblioteca = document.getElementById("lnk-biblioteca");
         const contenidoNormal = document.getElementById("contenido-normal");
         const contenidoError = document.getElementById("contenido-error");
-        const descripcionEncabezado = document.querySelector(".descripcion-encabezado");
-
         function mostrarError() {
           if (contenidoNormal) contenidoNormal.style.display = "none";
           if (contenidoError) contenidoError.style.display = "block";
-          if (descripcionEncabezado) descripcionEncabezado.style.display = "none";
         }
 
         // Lectura y validación de parámetros de URL

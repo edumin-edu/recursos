@@ -84,7 +84,7 @@
       will-change: transform;
     }
 
-    /* Vínculos / Enlaces interactivos del PDF con hover visible y reconocible */
+    /* Vínculos / Enlaces interactivos del PDF universales y visibles sobre cualquier fondo de mapa */
     .pdf-link-annot {
       position: absolute;
       cursor: pointer !important;
@@ -92,14 +92,18 @@
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 25;
       pointer-events: auto !important;
-      background-color: rgba(37, 99, 235, 0.04);
-      border: 1.5px solid rgba(37, 99, 235, 0.2);
+      background-color: rgba(255, 255, 255, 0.14);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.38), 0 2px 6px rgba(0, 0, 0, 0.16);
+      backdrop-filter: blur(1px);
+      box-sizing: border-box;
     }
     .pdf-link-annot:hover {
-      background-color: rgba(37, 99, 235, 0.22) !important;
-      border-color: rgba(37, 99, 235, 0.8) !important;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important;
-      transform: translateY(-1px);
+      background-color: rgba(255, 214, 10, 0.42) !important;
+      border-color: #ffd60a !important;
+      outline: 2px solid #000814 !important;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.95), 0 4px 16px rgba(255, 214, 10, 0.65) !important;
+      transform: translateY(-1.5px) scale(1.02);
     }
 
     /* Barras flotantes con efecto vidrio esmerilado translúcido real (Glassmorphism) */
@@ -155,18 +159,34 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Galería modal con auto-fill responsive y separación vertical/horizontal garantizada */
+    /* Galería modal responsive garantizada sin scroll horizontal */
     .gallery-grid {
       display: grid !important;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
-      gap: 28px !important;
-      padding-bottom: 90px !important;
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 8px 2px 80px !important;
+      box-sizing: border-box !important;
+    }
+    @media (min-width: 560px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+        gap: 20px !important;
+      }
+    }
+    @media (min-width: 860px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+        gap: 24px !important;
+      }
     }
 
     /* Tarjeta con proporción A4 horizontal estricta e inviolable (210 / 297 = 70.71%) */
     .gallery-card {
       position: relative !important;
       width: 100% !important;
+      max-width: 100% !important;
       height: 0 !important;
       padding-bottom: 70.71% !important;
       border-radius: 12px !important;
@@ -175,6 +195,7 @@
       border: 2px solid #cbd5e1 !important;
       cursor: pointer !important;
       transition: border-color 0.15s ease !important;
+      box-sizing: border-box !important;
     }
     .gallery-card:hover {
       border-color: #334155 !important;
@@ -262,10 +283,10 @@
         <span class="material-symbols-outlined text-[20px]">lightbulb</span>
       </button>
 
-      <!-- Botón Descargar PDF original -->
-      <a id="download-btn" href="#" target="_blank" download class="p-1.5 rounded-xl hover:bg-slate-900/5 text-slate-600 transition flex items-center" title="Descargar PDF">
+      <!-- Botón Descargar PDF original directo a la computadora -->
+      <button id="download-btn" type="button" class="p-1.5 rounded-xl hover:bg-slate-900/5 text-slate-600 transition flex items-center" title="Descargar PDF">
         <span class="material-symbols-outlined text-[20px]">download</span>
-      </a>
+      </button>
 
     </div>
   </aside>
@@ -275,9 +296,10 @@
   <!-- ======================================================== -->
   <main id="viewport" class="flex-1 w-full h-full overflow-auto flex items-center justify-center p-2 sm:p-5 cursor-grab active:cursor-grabbing no-scrollbar relative">
     
-    <!-- CARGADOR EN ÍCONO CENTRAL (SOLO ÍCONO LIMPIO) -->
-    <div id="loading-state" class="flex items-center justify-center pointer-events-none">
-      <div class="w-12 h-12 border-[3.5px] border-slate-300 border-t-blue-600 rounded-full animate-spin"></div>
+    <!-- CARGADOR EN ÍCONO CENTRAL CON MENSAJE BREVE SEGÚN UI/UX -->
+    <div id="loading-state" class="flex flex-col items-center justify-center gap-3.5 pointer-events-none select-none">
+      <div class="w-11 h-11 border-[3.5px] border-slate-300/70 border-t-blue-600 rounded-full animate-spin"></div>
+      <p class="text-xs font-semibold text-slate-500 tracking-wide">Cargando mapa mental...</p>
     </div>
 
     <!-- ESTADO DE ERROR (UNIFICADO CON LOS DEMÁS ÍNDICES) -->
@@ -377,10 +399,10 @@
           </div>
         </li>
         <li class="flex items-start gap-2.5">
-          <span class="material-symbols-outlined text-blue-600 text-lg mt-0.5">link</span>
+          <span class="material-symbols-outlined text-amber-500 text-lg mt-0.5">link</span>
           <div>
             <strong class="text-slate-800 block text-xs">Enlaces interactivos:</strong>
-            Los nodos con enlaces y vídeos de YouTube son clickables y se resaltan al pasar el cursor.
+            Los nodos con enlaces y vídeos son clickables y se resaltan con brillo dorado al pasar el cursor.
           </div>
         </li>
         <li class="flex items-start gap-2.5">
@@ -410,8 +432,8 @@
   <!-- ======================================================== -->
   <!-- MODAL: GALERÍA DE TODAS LAS HOJAS (EN FORMATO A4 LANDSCAPE) -->
   <!-- ======================================================== -->
-  <div id="grid-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-30 hidden flex flex-col p-4 sm:p-8">
-    <div class="flex items-center justify-between mb-4 max-w-5xl mx-auto w-full">
+  <div id="grid-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-30 hidden flex flex-col p-2.5 sm:p-6 overflow-x-hidden">
+    <div class="flex items-center justify-between mb-3 max-w-5xl mx-auto w-full px-2">
       <div>
         <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
           <span class="material-symbols-outlined text-white">grid_view</span> Galería de hojas
@@ -423,8 +445,8 @@
       </button>
     </div>
     
-    <!-- Cuadrícula con proporción exacta A4 Horizontal (297 / 210) y auto-fill responsive -->
-    <div id="grid-items" class="gallery-grid custom-scrollbar max-w-5xl mx-auto w-full flex-1 min-h-0 overflow-y-auto p-4 pb-20">
+    <!-- Cuadrícula con proporción exacta A4 Horizontal y 100% responsive en móviles -->
+    <div id="grid-items" class="gallery-grid custom-scrollbar max-w-5xl mx-auto w-full flex-1 min-h-0 overflow-y-auto overflow-x-hidden">
       <!-- Se genera dinámicamente -->
     </div>
   </div>
@@ -448,7 +470,8 @@
     let pageRendering = false;
     let pageNumPending = null;
 
-    // Escala base renderizada y escala visual fluida
+    // Escala base ajustada a pantalla (100% de referencia del visor) y escala visual
+    let baseFitScale = 1.0;
     let renderedScale = 1.0;
     let targetScale = 1.0;
     let userCustomZoom = false;
@@ -499,6 +522,13 @@
       }
     }
 
+    // Actualizar indicador de zoom: La vista ajustada es siempre el 100% por defecto
+    function actualizarTextoZoom() {
+      if (!zoomVal) return;
+      const pct = Math.round((targetScale / (baseFitScale || 1.0)) * 100);
+      zoomVal.textContent = pct + '%';
+    }
+
     // 2. CARGA DEL DOCUMENTO PDF
     function loadPdf(targetUrl) {
       if (!targetUrl) return;
@@ -516,11 +546,11 @@
         counterTotal.textContent = (doc.numPages < 10 ? '0' + doc.numPages : doc.numPages);
         counterInput.value = (pageNum < 10 ? '0' + pageNum : pageNum);
 
-        // Autoajuste inicial que llena la pantalla en desktop
+        // Autoajuste inicial inteligente (100% de referencia)
         autoFitScreen();
       }).catch(err => {
         console.warn('Error al cargar PDF desde:', targetUrl, err);
-        // Si falló el enlace principal de GitHub Pages y tenemos enlace relativo local de fallback
+        // Fallback local por si GitHub Pages está offline o restringido
         if (fallbackPdfUrl && targetUrl !== fallbackPdfUrl) {
           console.log('Intentando fallback local:', fallbackPdfUrl);
           loadPdf(fallbackPdfUrl);
@@ -544,7 +574,7 @@
       canvasCard.style.transform = `translate(${panX}px, ${panY}px) scale(${visualScale})`;
     }
 
-    // Autoajuste con márgenes mínimos para que la hoja salga mucho más grande desde el inicio
+    // Autoajuste inteligente a la pantalla: define el 100% base
     function autoFitScreen() {
       if (!pdfDoc) return;
       panX = 0;
@@ -552,17 +582,25 @@
       pdfDoc.getPage(pageNum).then(page => {
         const unscaled = page.getViewport({ scale: 1.0 });
         
-        // Espacio disponible con márgenes reducidos para maximizar tamaño
-        const availWidth = viewportEl.clientWidth - (window.innerWidth < 768 ? 16 : 48);
-        const availHeight = viewportEl.clientHeight - (window.innerWidth < 768 ? 64 : 64);
+        const isMobile = window.innerWidth < 768;
+        const availWidth = viewportEl.clientWidth - (isMobile ? 12 : 48);
+        const availHeight = viewportEl.clientHeight - (isMobile ? 48 : 64);
 
         const scaleW = availWidth / unscaled.width;
         const scaleH = availHeight / unscaled.height;
         
-        targetScale = Math.min(scaleW, scaleH);
+        // En desktop ajusta para que quepa completa; en móviles ajusta al ancho completo disponible
+        if (isMobile && viewportEl.clientHeight > viewportEl.clientWidth) {
+          targetScale = Math.max(scaleW, 0.45);
+        } else {
+          targetScale = Math.min(scaleW, scaleH);
+        }
+
+        baseFitScale = targetScale;
         renderedScale = targetScale;
         userCustomZoom = false;
 
+        actualizarTextoZoom();
         updateCanvasTransform(1);
         renderPage(pageNum);
       });
@@ -578,7 +616,7 @@
         const targetW = Math.floor(pageViewport.width * outputScale);
         const targetH = Math.floor(pageViewport.height * outputScale);
 
-        // Renderizar en un canvas en memoria (Off-screen) para evitar parpadeos en blanco
+        // Renderizar en offscreen canvas para evitar parpadeos
         const offCanvas = document.createElement('canvas');
         offCanvas.width = targetW;
         offCanvas.height = targetH;
@@ -601,7 +639,7 @@
           canvas.style.height = Math.floor(pageViewport.height) + "px";
           ctx.drawImage(offCanvas, 0, 0);
 
-          // Dimensionar capa de anotaciones para que coincida exactamente
+          // Dimensionar capa de anotaciones
           annotationLayer.style.width = Math.floor(pageViewport.width) + "px";
           annotationLayer.style.height = Math.floor(pageViewport.height) + "px";
 
@@ -624,65 +662,112 @@
           }
         });
 
-        // RENDERIZAR ENLACES E HIPERVÍNCULOS DE LA HOJA
+        // RENDERIZAR ENLACES E HIPERVÍNCULOS (Tanto anotaciones PDF como URLs en texto)
         renderAnnotations(page, pageViewport);
       });
 
       // Actualizar contadores y barra de progreso
       counterInput.value = (num < 10 ? '0' + num : num);
       progressBar.style.width = `${(num / pdfDoc.numPages) * 100}%`;
-      zoomVal.textContent = Math.round(renderedScale * 100) + '%';
+      actualizarTextoZoom();
       prevBtn.disabled = (num <= 1);
       nextBtn.disabled = (num >= pdfDoc.numPages);
     }
 
-    // Extraer y activar todos los vínculos insertados en el PDF
+    // Extraer y activar TODOS los vínculos (Anotaciones PDF nativas + URLs en el texto vectorial)
     function renderAnnotations(page, pageViewport) {
       annotationLayer.innerHTML = '';
-      page.getAnnotations({ intent: 'display' }).then(annotations => {
+      const addedRects = [];
+
+      function checkOverlap(left, top, width, height) {
+        return addedRects.some(r => {
+          return !(left + width < r.left || left > r.left + r.width || top + height < r.top || top > r.top + r.height);
+        });
+      }
+
+      function crearElementoEnlace(left, top, width, height, url, title, dest) {
+        const a = document.createElement('a');
+        a.className = 'pdf-link-annot';
+        a.style.left = left + 'px';
+        a.style.top = top + 'px';
+        a.style.width = width + 'px';
+        a.style.height = height + 'px';
+
+        if (url) {
+          a.href = url;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.title = title || ('Abrir enlace: ' + url);
+        } else if (dest) {
+          a.title = 'Ir a sección interna';
+          a.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            pdfDoc.getPageIndex(dest[0]).then(idx => {
+              pageNum = idx + 1;
+              renderPage(pageNum);
+            });
+          };
+        }
+
+        // Evitar que el mousedown sobre el enlace inicie panning del viewport
+        a.addEventListener('mousedown', (e) => {
+          e.stopPropagation();
+        });
+
+        annotationLayer.appendChild(a);
+        addedRects.push({ left, top, width, height });
+      }
+
+      // 1. Extraer anotaciones estándar de PDF
+      const pAnnotations = page.getAnnotations({ intent: 'display' }).then(annotations => {
         annotations.forEach(annot => {
           if (annot.subtype === 'Link') {
             const rect = pageViewport.convertToViewportRectangle(annot.rect);
             const left = Math.min(rect[0], rect[2]);
             const top = Math.min(rect[1], rect[3]);
-            // Área táctil/clickeable cómoda
-            const width = Math.max(Math.abs(rect[0] - rect[2]), 14);
-            const height = Math.max(Math.abs(rect[1] - rect[3]), 14);
-
-            const a = document.createElement('a');
-            a.className = 'pdf-link-annot';
-            a.style.left = left + 'px';
-            a.style.top = top + 'px';
-            a.style.width = width + 'px';
-            a.style.height = height + 'px';
-
+            const width = Math.max(Math.abs(rect[0] - rect[2]), 16);
+            const height = Math.max(Math.abs(rect[1] - rect[3]), 16);
             const linkUrl = annot.url || annot.unsafeUrl;
-            if (linkUrl) {
-              a.href = linkUrl;
-              a.target = '_blank';
-              a.rel = 'noopener noreferrer';
-              a.title = 'Abrir enlace: ' + linkUrl;
-            } else if (annot.dest) {
-              a.title = 'Ir a sección interna';
-              a.onclick = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                pdfDoc.getPageIndex(annot.dest[0]).then(idx => {
-                  pageNum = idx + 1;
-                  renderPage(pageNum);
-                });
-              };
-            }
 
-            // Evitar que el mousedown sobre el enlace inicie panning
-            a.addEventListener('mousedown', (e) => {
-              e.stopPropagation();
-            });
-
-            annotationLayer.appendChild(a);
+            crearElementoEnlace(left, top, width, height, linkUrl, null, annot.dest);
           }
         });
-      });
+      }).catch(() => {});
+
+      // 2. Extraer URLs incrustadas en texto (para diplomados como Geometalurgia)
+      const pText = page.getTextContent().then(textContent => {
+        const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+|youtube\.com\/[^\s]+|youtu\.be\/[^\s]+)/i;
+        
+        textContent.items.forEach(item => {
+          if (!item.str) return;
+          const match = item.str.match(urlRegex);
+          if (match) {
+            let fullUrl = match[0].trim();
+            if (!/^https?:\/\//i.test(fullUrl)) {
+              fullUrl = 'https://' + fullUrl;
+            }
+
+            const tx = item.transform[4];
+            const ty = item.transform[5];
+            const fontHeight = Math.max(item.height || 0, Math.abs(item.transform[0]), Math.abs(item.transform[3]), 9);
+            
+            // Convertir coordenadas del texto PDF al viewport
+            const pdfRect = [tx, ty - 2, tx + item.width, ty + fontHeight + 3];
+            const vpRect = pageViewport.convertToViewportRectangle(pdfRect);
+            const left = Math.min(vpRect[0], vpRect[2]) - 2;
+            const top = Math.min(vpRect[1], vpRect[3]) - 2;
+            const width = Math.max(Math.abs(vpRect[0] - vpRect[2]) + 4, 22);
+            const height = Math.max(Math.abs(vpRect[1] - vpRect[3]) + 4, 18);
+
+            if (!checkOverlap(left, top, width, height)) {
+              crearElementoEnlace(left, top, width, height, fullUrl, 'Abrir enlace: ' + fullUrl, null);
+            }
+          }
+        });
+      }).catch(() => {});
+
+      Promise.all([pAnnotations, pText]);
     }
 
     function queueRender(num) {
@@ -746,7 +831,9 @@
 
     // 4. SISTEMA DE ZOOM FLUIDO A 60 FPS SIN PARPADEO
     function applySmoothZoom(newScale, focalX = null, focalY = null) {
-      newScale = Math.min(Math.max(newScale, 0.35), 4.5);
+      const minScale = (baseFitScale || 1.0) * 0.35;
+      const maxScale = (baseFitScale || 1.0) * 4.5;
+      newScale = Math.min(Math.max(newScale, minScale), maxScale);
       
       // Zoom focal hacia el cursor
       if (focalX !== null && focalY !== null) {
@@ -761,7 +848,7 @@
       const visualScale = targetScale / renderedScale;
       updateCanvasTransform(visualScale);
 
-      zoomVal.textContent = Math.round(targetScale * 100) + '%';
+      actualizarTextoZoom();
 
       clearTimeout(zoomDebounceTimer);
       zoomDebounceTimer = setTimeout(() => {
@@ -876,7 +963,7 @@
       }
     });
 
-    // 7. GALERÍA MODAL: PROPORCIÓN A4 HORIZONTAL
+    // 7. GALERÍA MODAL: PROPORCIÓN A4 HORIZONTAL 100% RESPONSIVE EN MÓVILES
     function openGallery() {
       if (!pdfDoc) return;
       gridItems.innerHTML = '';
@@ -982,7 +1069,47 @@
       if (!userCustomZoom) autoFitScreen();
     });
 
-    // 11. INICIALIZACIÓN Y GESTIÓN DE PARÁMETROS URL (?diplomado=...&mapa=...)
+    // 11. DESCARGA DIRECTA REAL AL DISCO DURO (BLOB STREAMING)
+    downloadBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      if (!activePdfUrl) return;
+
+      const fileName = downloadBtn.getAttribute('download') || 'mapa_mental.pdf';
+      const iconSpan = downloadBtn.querySelector('.material-symbols-outlined');
+      const originalText = iconSpan ? iconSpan.textContent : 'download';
+
+      try {
+        if (iconSpan) iconSpan.textContent = 'hourglass_empty';
+        downloadBtn.disabled = true;
+
+        const response = await fetch(activePdfUrl);
+        if (!response.ok) throw new Error('No se pudo obtener el archivo');
+        
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const tempLink = document.createElement('a');
+        tempLink.href = blobUrl;
+        tempLink.download = fileName;
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
+
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
+      } catch (err) {
+        console.warn('Fallback para descarga:', err);
+        // Fallback estándar en caso de restricción extrema
+        const tempLink = document.createElement('a');
+        tempLink.href = activePdfUrl;
+        tempLink.target = '_blank';
+        tempLink.download = fileName;
+        tempLink.click();
+      } finally {
+        if (iconSpan) iconSpan.textContent = originalText;
+        downloadBtn.disabled = false;
+      }
+    });
+
+    // 12. INICIALIZACIÓN Y GESTIÓN DE PARÁMETROS URL (?diplomado=...&mapa=...)
     function inicializarVisor() {
       const params = new URLSearchParams(window.location.search);
       const diplomado = params.get('diplomado') ? params.get('diplomado').trim() : '';
@@ -1033,9 +1160,8 @@
           // Fallback relativo para entornos locales
           fallbackPdfUrl = `./${diplomadoClean}/${encodeURIComponent(mapaItem.archivo)}`;
 
-          // Asignar enlace y nombre al botón de descarga
+          // Asignar nombre sugerido al botón de descarga directa
           if (downloadBtn) {
-            downloadBtn.href = activePdfUrl;
             downloadBtn.setAttribute('download', mapaItem.archivo || `mapa_${numMapa}.pdf`);
           }
 
