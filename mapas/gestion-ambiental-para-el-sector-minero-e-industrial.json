@@ -1,0 +1,145 @@
+{
+  "nombre_diplomado": "GESTIÓN AMBIENTAL PARA EL SECTOR MINERO E INDUSTRIAL",
+  "slug": "gestion-ambiental-para-el-sector-minero-e-industrial",
+  "total_clases": 23,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "FUNDAMENTOS ESTRATÉGICOS DE LA GESTIÓN AMBIENTAL INDUSTRIAL Y MINERA - 1RA PARTE",
+      "archivo": "CLASE 01_ FUNDAMENTOS ESTRATÉGICOS DE LA GESTIÓN AMBIENTAL INDUSTRIAL Y MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2001_%20FUNDAMENTOS%20ESTRAT%C3%89GICOS%20DE%20LA%20GESTI%C3%93N%20AMBIENTAL%20INDUSTRIAL%20Y%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "FUNDAMENTOS ESTRATÉGICOS DE LA GESTIÓN AMBIENTAL INDUSTRIAL Y MINERA - 2DA PARTE",
+      "archivo": "CLASE 02_ FUNDAMENTOS ESTRATÉGICOS DE LA GESTIÓN AMBIENTAL INDUSTRIAL Y MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2002_%20FUNDAMENTOS%20ESTRAT%C3%89GICOS%20DE%20LA%20GESTI%C3%93N%20AMBIENTAL%20INDUSTRIAL%20Y%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "NORMATIVA Y LEGISLACIÓN AMBIENTAL VIGENTE - 1RA PARTE",
+      "archivo": "CLASE 03_ NORMATIVA Y LEGISLACIÓN AMBIENTAL VIGENTE - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2003_%20NORMATIVA%20Y%20LEGISLACI%C3%93N%20AMBIENTAL%20VIGENTE%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "NORMATIVA Y LEGISLACIÓN AMBIENTAL VIGENTE - 2DA PARTE",
+      "archivo": "CLASE 04_ NORMATIVA Y LEGISLACIÓN AMBIENTAL VIGENTE - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2004_%20NORMATIVA%20Y%20LEGISLACI%C3%93N%20AMBIENTAL%20VIGENTE%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "SISTEMAS DE GESTIÓN AMBIENTAL (ISO 14001 Y OTROS ESTÁNDARES) - 1RA PARTE",
+      "archivo": "CLASE 05_ SISTEMAS DE GESTIÓN AMBIENTAL (ISO 14001 Y OTROS ESTÁNDARES) - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2005_%20SISTEMAS%20DE%20GESTI%C3%93N%20AMBIENTAL%20(ISO%2014001%20Y%20OTROS%20EST%C3%81NDARES)%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "SISTEMAS DE GESTIÓN AMBIENTAL (ISO 14001 Y OTROS ESTÁNDARES) - 2DA PARTE",
+      "archivo": "CLASE 06_ SISTEMAS DE GESTIÓN AMBIENTAL (ISO 14001 Y OTROS ESTÁNDARES) - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2006_%20SISTEMAS%20DE%20GESTI%C3%93N%20AMBIENTAL%20(ISO%2014001%20Y%20OTROS%20EST%C3%81NDARES)%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "EVALUACIÓN DE IMPACTO AMBIENTAL (EIA)",
+      "archivo": "CLASE 07_ EVALUACIÓN DE IMPACTO AMBIENTAL (EIA).pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2007_%20EVALUACI%C3%93N%20DE%20IMPACTO%20AMBIENTAL%20(EIA).pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "MANEJO INTEGRAL DE RESIDUOS SÓLIDOS Y RESIDUOS PELIGROSOS - 1RA PARTE",
+      "archivo": "CLASE 08_ MANEJO INTEGRAL DE RESIDUOS SÓLIDOS Y RESIDUOS PELIGROSOS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2008_%20MANEJO%20INTEGRAL%20DE%20RESIDUOS%20S%C3%93LIDOS%20Y%20RESIDUOS%20PELIGROSOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "MANEJO INTEGRAL DE RESIDUOS SÓLIDOS Y RESIDUOS PELIGROSOS - 2DA PARTE",
+      "archivo": "CLASE 09_ MANEJO INTEGRAL DE RESIDUOS SÓLIDOS Y RESIDUOS PELIGROSOS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2009_%20MANEJO%20INTEGRAL%20DE%20RESIDUOS%20S%C3%93LIDOS%20Y%20RESIDUOS%20PELIGROSOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "GESTIÓN SOSTENIBLE DEL AGUA Y CONTROL DE EFLUENTES - 1RA PARTE",
+      "archivo": "CLASE 10_ GESTIÓN SOSTENIBLE DEL AGUA Y CONTROL DE EFLUENTES - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2010_%20GESTI%C3%93N%20SOSTENIBLE%20DEL%20AGUA%20Y%20CONTROL%20DE%20EFLUENTES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "GESTIÓN SOSTENIBLE DEL AGUA Y CONTROL DE EFLUENTES - 2DA PARTE",
+      "archivo": "CLASE 11_ GESTIÓN SOSTENIBLE DEL AGUA Y CONTROL DE EFLUENTES - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2011_%20GESTI%C3%93N%20SOSTENIBLE%20DEL%20AGUA%20Y%20CONTROL%20DE%20EFLUENTES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "CONTROL DE EMISIONES ATMOSFÉRICAS Y CALIDAD DEL AIRE - 1RA PARTE",
+      "archivo": "CLASE 12_ CONTROL DE EMISIONES ATMOSFÉRICAS Y CALIDAD DEL AIRE - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2012_%20CONTROL%20DE%20EMISIONES%20ATMOSF%C3%89RICAS%20Y%20CALIDAD%20DEL%20AIRE%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "CONTROL DE EMISIONES ATMOSFÉRICAS Y CALIDAD DEL AIRE - 2DA PARTE",
+      "archivo": "CLASE 13_ CONTROL DE EMISIONES ATMOSFÉRICAS Y CALIDAD DEL AIRE - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2013_%20CONTROL%20DE%20EMISIONES%20ATMOSF%C3%89RICAS%20Y%20CALIDAD%20DEL%20AIRE%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "REHABILITACIÓN AMBIENTAL Y CIERRE DE PASIVOS - 1RA PARTE",
+      "archivo": "CLASE 14_ REHABILITACIÓN AMBIENTAL Y CIERRE DE PASIVOS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2014_%20REHABILITACI%C3%93N%20AMBIENTAL%20Y%20CIERRE%20DE%20PASIVOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "REHABILITACIÓN AMBIENTAL Y CIERRE DE PASIVOS - 2DA PARTE",
+      "archivo": "CLASE 15_ REHABILITACIÓN AMBIENTAL Y CIERRE DE PASIVOS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2015_%20REHABILITACI%C3%93N%20AMBIENTAL%20Y%20CIERRE%20DE%20PASIVOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "ECONOMÍA CIRCULAR Y PRODUCCIÓN MÁS LIMPIA - 1RA PARTE",
+      "archivo": "CLASE 16_ ECONOMÍA CIRCULAR Y PRODUCCIÓN MÁS LIMPIA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2016_%20ECONOM%C3%8DA%20CIRCULAR%20Y%20PRODUCCI%C3%93N%20M%C3%81S%20LIMPIA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "ECONOMÍA CIRCULAR Y PRODUCCIÓN MÁS LIMPIA - 2DA PARTE",
+      "archivo": "CLASE 17_ ECONOMÍA CIRCULAR Y PRODUCCIÓN MÁS LIMPIA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2017_%20ECONOM%C3%8DA%20CIRCULAR%20Y%20PRODUCCI%C3%93N%20M%C3%81S%20LIMPIA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "CAMBIO CLIMÁTICO, ADAPTACIÓN Y HUELLA DE CARBONO - 1RA PARTE",
+      "archivo": "CLASE 18_ CAMBIO CLIMÁTICO, ADAPTACIÓN Y HUELLA DE CARBONO - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2018_%20CAMBIO%20CLIM%C3%81TICO%2C%20ADAPTACI%C3%93N%20Y%20HUELLA%20DE%20CARBONO%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 19,
+      "titulo": "CAMBIO CLIMÁTICO, ADAPTACIÓN Y HUELLA DE CARBONO - 2DA PARTE",
+      "archivo": "CLASE 19_ CAMBIO CLIMÁTICO, ADAPTACIÓN Y HUELLA DE CARBONO - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2019_%20CAMBIO%20CLIM%C3%81TICO%2C%20ADAPTACI%C3%93N%20Y%20HUELLA%20DE%20CARBONO%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 20,
+      "titulo": "RELACIÓN COMUNITARIA, GESTIÓN SOCIAL Y LICENCIA SOCIAL PARA OPERAR - 1RA PARTE",
+      "archivo": "CLASE 20_ RELACIÓN COMUNITARIA, GESTIÓN SOCIAL Y LICENCIA SOCIAL PARA OPERAR - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2020_%20RELACI%C3%93N%20COMUNITARIA%2C%20GESTI%C3%93N%20SOCIAL%20Y%20LICENCIA%20SOCIAL%20PARA%20OPERAR%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 21,
+      "titulo": "RELACIÓN COMUNITARIA, GESTIÓN SOCIAL Y LICENCIA SOCIAL PARA OPERAR - 2DA PARTE",
+      "archivo": "CLASE 21_ RELACIÓN COMUNITARIA, GESTIÓN SOCIAL Y LICENCIA SOCIAL PARA OPERAR - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2021_%20RELACI%C3%93N%20COMUNITARIA%2C%20GESTI%C3%93N%20SOCIAL%20Y%20LICENCIA%20SOCIAL%20PARA%20OPERAR%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 22,
+      "titulo": "AUDITORÍA AMBIENTAL Y MONITOREO PARA LA MEJORA CONTINUA - 1RA PARTE",
+      "archivo": "CLASE 22_ AUDITORÍA AMBIENTAL Y MONITOREO PARA LA MEJORA CONTINUA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2022_%20AUDITOR%C3%8DA%20AMBIENTAL%20Y%20MONITOREO%20PARA%20LA%20MEJORA%20CONTINUA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 23,
+      "titulo": "AUDITORÍA AMBIENTAL Y MONITOREO PARA LA MEJORA CONTINUA - 2DA PARTE",
+      "archivo": "CLASE 23_ AUDITORÍA AMBIENTAL Y MONITOREO PARA LA MEJORA CONTINUA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-ambiental-para-el-sector-minero-e-industrial/CLASE%2023_%20AUDITOR%C3%8DA%20AMBIENTAL%20Y%20MONITOREO%20PARA%20LA%20MEJORA%20CONTINUA%20-%202DA%20PARTE.pdf"
+    }
+  ]
+}
