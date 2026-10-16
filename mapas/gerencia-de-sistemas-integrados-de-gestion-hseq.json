@@ -1,0 +1,151 @@
+{
+  "nombre_diplomado": "GERENCIA DE SISTEMAS INTEGRADOS DE GESTIÓN HSEQ",
+  "slug": "gerencia-de-sistemas-integrados-de-gestion-hseq",
+  "total_clases": 24,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "CICLO PHVA  EL CORAZÓN DE LA MEJORA CONTINUA - 1RA PARTE",
+      "archivo": "CLASE 01_ CICLO PHVA_ EL CORAZÓN DE LA MEJORA CONTINUA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2001_%20CICLO%20PHVA_%20EL%20CORAZ%C3%93N%20DE%20LA%20MEJORA%20CONTINUA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "CICLO PHVA  EL CORAZÓN DE LA MEJORA CONTINUA - 2DA PARTE",
+      "archivo": "CLASE 02_ CICLO PHVA_ EL CORAZÓN DE LA MEJORA CONTINUA - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2002_%20CICLO%20PHVA_%20EL%20CORAZ%C3%93N%20DE%20LA%20MEJORA%20CONTINUA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "GESTIÓN POR PROCESOS  EFICIENCIA, CONTROL Y TRAZABILIDAD - 1RA PARTE",
+      "archivo": "CLASE 03_ GESTIÓN POR PROCESOS_ EFICIENCIA, CONTROL Y TRAZABILIDAD - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2003_%20GESTI%C3%93N%20POR%20PROCESOS_%20EFICIENCIA%2C%20CONTROL%20Y%20TRAZABILIDAD%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "GESTIÓN POR PROCESOS  EFICIENCIA, CONTROL Y TRAZABILIDAD - 2DA PARTE",
+      "archivo": "CLASE 04_ GESTIÓN POR PROCESOS_ EFICIENCIA, CONTROL Y TRAZABILIDAD - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2004_%20GESTI%C3%93N%20POR%20PROCESOS_%20EFICIENCIA%2C%20CONTROL%20Y%20TRAZABILIDAD%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "HERRAMIENTAS DE ANÁLISIS Y MEJORA CONTINUA - 1RA PARTE",
+      "archivo": "CLASE 05_ HERRAMIENTAS DE ANÁLISIS Y MEJORA CONTINUA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2005_%20HERRAMIENTAS%20DE%20AN%C3%81LISIS%20Y%20MEJORA%20CONTINUA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "HERRAMIENTAS DE ANÁLISIS Y MEJORA CONTINUA - 2DA PARTE",
+      "archivo": "CLASE 06_ HERRAMIENTAS DE ANÁLISIS Y MEJORA CONTINUA - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2006_%20HERRAMIENTAS%20DE%20AN%C3%81LISIS%20Y%20MEJORA%20CONTINUA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "LIDERAZGO, CULTURA ORGANIZACIONAL Y SOSTENIBILIDAD - 1RA PARTE",
+      "archivo": "CLASE 07_ LIDERAZGO, CULTURA ORGANIZACIONAL Y SOSTENIBILIDAD - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2007_%20LIDERAZGO%2C%20CULTURA%20ORGANIZACIONAL%20Y%20SOSTENIBILIDAD%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "LIDERAZGO, CULTURA ORGANIZACIONAL Y SOSTENIBILIDAD - 2DA PARTE",
+      "archivo": "CLASE 08_ LIDERAZGO, CULTURA ORGANIZACIONAL Y SOSTENIBILIDAD - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2008_%20LIDERAZGO%2C%20CULTURA%20ORGANIZACIONAL%20Y%20SOSTENIBILIDAD%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "SISTEMA DE GESTIÓN DE CALIDAD ISO 9001 2015 - 1RA PARTE",
+      "archivo": "CLASE 09_ SISTEMA DE GESTIÓN DE CALIDAD ISO 9001_2015 - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2009_%20SISTEMA%20DE%20GESTI%C3%93N%20DE%20CALIDAD%20ISO%209001_2015%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "SISTEMA DE GESTIÓN DE CALIDAD ISO 9001 2015 - 2DA PARTE",
+      "archivo": "CLASE 10_ SISTEMA DE GESTIÓN DE CALIDAD ISO 9001_2015 - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2010_%20SISTEMA%20DE%20GESTI%C3%93N%20DE%20CALIDAD%20ISO%209001_2015%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "SISTEMA DE GESTIÓN DE SEGURIDAD Y SALUD EN EL TRABAJO (ISO 45001 2018) - 1RA PARTE",
+      "archivo": "CLASE 11_ SISTEMA DE GESTIÓN DE SEGURIDAD Y SALUD EN EL TRABAJO (ISO 45001_2018) - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2011_%20SISTEMA%20DE%20GESTI%C3%93N%20DE%20SEGURIDAD%20Y%20SALUD%20EN%20EL%20TRABAJO%20(ISO%2045001_2018)%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "SISTEMA DE GESTIÓN DE SEGURIDAD Y SALUD EN EL TRABAJO (ISO 45001 2018) - 2DA PARTE",
+      "archivo": "CLASE 12_ SISTEMA DE GESTIÓN DE SEGURIDAD Y SALUD EN EL TRABAJO (ISO 45001_2018) - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2012_%20SISTEMA%20DE%20GESTI%C3%93N%20DE%20SEGURIDAD%20Y%20SALUD%20EN%20EL%20TRABAJO%20(ISO%2045001_2018)%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "SISTEMA DE GESTIÓN AMBIENTAL (ISO 14001 2015) - 1RA PARTE",
+      "archivo": "CLASE 13_ SISTEMA DE GESTIÓN AMBIENTAL (ISO 14001_2015) - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2013_%20SISTEMA%20DE%20GESTI%C3%93N%20AMBIENTAL%20(ISO%2014001_2015)%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "SISTEMA DE GESTIÓN AMBIENTAL (ISO 14001 2015) - 2DA PARTE",
+      "archivo": "CLASE 14_ SISTEMA DE GESTIÓN AMBIENTAL (ISO 14001_2015) - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2014_%20SISTEMA%20DE%20GESTI%C3%93N%20AMBIENTAL%20(ISO%2014001_2015)%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "TALLERES PRÁCTICOS DE AUDITORÍAS INTERNAS HSEQ - 1RA PARTE",
+      "archivo": "CLASE 15_ TALLERES PRÁCTICOS DE AUDITORÍAS INTERNAS HSEQ - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2015_%20TALLERES%20PR%C3%81CTICOS%20DE%20AUDITOR%C3%8DAS%20INTERNAS%20HSEQ%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "TALLERES PRÁCTICOS DE AUDITORÍAS INTERNAS HSEQ - 2DA PARTE",
+      "archivo": "CLASE 16_ TALLERES PRÁCTICOS DE AUDITORÍAS INTERNAS HSEQ - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2016_%20TALLERES%20PR%C3%81CTICOS%20DE%20AUDITOR%C3%8DAS%20INTERNAS%20HSEQ%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "CONCEPTOS Y NORMAS DE REFERENCIA HSEQ - 1RA PARTE",
+      "archivo": "CLASE 17_ CONCEPTOS Y NORMAS DE REFERENCIA HSEQ - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2017_%20CONCEPTOS%20Y%20NORMAS%20DE%20REFERENCIA%20HSEQ%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "CONCEPTOS Y NORMAS DE REFERENCIA HSEQ - 2DA PARTE",
+      "archivo": "CLASE 18_ CONCEPTOS Y NORMAS DE REFERENCIA HSEQ - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2018_%20CONCEPTOS%20Y%20NORMAS%20DE%20REFERENCIA%20HSEQ%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 19,
+      "titulo": "MÉTODOS PARA LA INTEGRACIÓN DE SISTEMAS DE GESTIÓN - 1RA PARTE",
+      "archivo": "CLASE 19_ MÉTODOS PARA LA INTEGRACIÓN DE SISTEMAS DE GESTIÓN - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2019_%20M%C3%89TODOS%20PARA%20LA%20INTEGRACI%C3%93N%20DE%20SISTEMAS%20DE%20GESTI%C3%93N%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 20,
+      "titulo": "MÉTODOS PARA LA INTEGRACIÓN DE SISTEMAS DE GESTIÓN - 2DA PARTE",
+      "archivo": "CLASE 20_ MÉTODOS PARA LA INTEGRACIÓN DE SISTEMAS DE GESTIÓN - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2020_%20M%C3%89TODOS%20PARA%20LA%20INTEGRACI%C3%93N%20DE%20SISTEMAS%20DE%20GESTI%C3%93N%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 21,
+      "titulo": "ALINEACIÓN DE REQUISITOS DEL SISTEMA HSEQ - 1RA PARTE",
+      "archivo": "CLASE 21_ ALINEACIÓN DE REQUISITOS DEL SISTEMA HSEQ - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2021_%20ALINEACI%C3%93N%20DE%20REQUISITOS%20DEL%20SISTEMA%20HSEQ%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 22,
+      "titulo": "ALINEACIÓN DE REQUISITOS DEL SISTEMA HSEQ - 2DA PARTE",
+      "archivo": "CLASE 22_ ALINEACIÓN DE REQUISITOS DEL SISTEMA HSEQ - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2022_%20ALINEACI%C3%93N%20DE%20REQUISITOS%20DEL%20SISTEMA%20HSEQ%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 23,
+      "titulo": "CASO DE ESTUDIO INTEGRAL Y PREGUNTAS FRECUENTES - 1RA PARTE",
+      "archivo": "CLASE 23_ CASO DE ESTUDIO INTEGRAL Y PREGUNTAS FRECUENTES - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2023_%20CASO%20DE%20ESTUDIO%20INTEGRAL%20Y%20PREGUNTAS%20FRECUENTES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 24,
+      "titulo": "CASO DE ESTUDIO INTEGRAL Y PREGUNTAS FRECUENTES - 2DA PARTE",
+      "archivo": "CLASE 24_ CASO DE ESTUDIO INTEGRAL Y PREGUNTAS FRECUENTES - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-de-sistemas-integrados-de-gestion-hseq/CLASE%2024_%20CASO%20DE%20ESTUDIO%20INTEGRAL%20Y%20PREGUNTAS%20FRECUENTES%20-%202DA%20PARTE.pdf"
+    }
+  ]
+}
