@@ -1,0 +1,139 @@
+{
+  "nombre_diplomado": "GESTIÓN DE CONTROL OPERATIVO EN PROCESOS MINEROS",
+  "slug": "gestion-de-control-operativo-en-procesos-mineros",
+  "total_clases": 22,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "ASPECTOS CLAVE EN LA GESTIÓN DE OPERACIONES MINERAS - 1RA PARTE",
+      "archivo": "CLASE 01_ ASPECTOS CLAVE EN LA GESTIÓN DE OPERACIONES MINERAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2001_%20ASPECTOS%20CLAVE%20EN%20LA%20GESTI%C3%93N%20DE%20OPERACIONES%20MINERAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "ASPECTOS CLAVE EN LA GESTIÓN DE OPERACIONES MINERAS - 2DA PARTE",
+      "archivo": "CLASE 02_ ASPECTOS CLAVE EN LA GESTIÓN DE OPERACIONES MINERAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2002_%20ASPECTOS%20CLAVE%20EN%20LA%20GESTI%C3%93N%20DE%20OPERACIONES%20MINERAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "GESTIÓN EFICIENTE DE LA PRODUCCIÓN EN TIEMPO REAL - 1RA PARTE",
+      "archivo": "CLASE 03_ GESTIÓN EFICIENTE DE LA PRODUCCIÓN EN TIEMPO REAL - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2003_%20GESTI%C3%93N%20EFICIENTE%20DE%20LA%20PRODUCCI%C3%93N%20EN%20TIEMPO%20REAL%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "GESTIÓN EFICIENTE DE LA PRODUCCIÓN EN TIEMPO REAL - 2DA PARTE",
+      "archivo": "CLASE 04_ GESTIÓN EFICIENTE DE LA PRODUCCIÓN EN TIEMPO REAL - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2004_%20GESTI%C3%93N%20EFICIENTE%20DE%20LA%20PRODUCCI%C3%93N%20EN%20TIEMPO%20REAL%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "OPTIMIZACIÓN DE MONITOREO Y ANALÍTICA EN MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 05_ OPTIMIZACIÓN DE MONITOREO Y ANALÍTICA EN MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2005_%20OPTIMIZACI%C3%93N%20DE%20MONITOREO%20Y%20ANAL%C3%8DTICA%20EN%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "OPTIMIZACIÓN DE MONITOREO Y ANALÍTICA EN MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 06_ OPTIMIZACIÓN DE MONITOREO Y ANALÍTICA EN MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2006_%20OPTIMIZACI%C3%93N%20DE%20MONITOREO%20Y%20ANAL%C3%8DTICA%20EN%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "METODOLOGÍAS DE OPTIMIZACIÓN DE PROCESOS MINEROS - 1RA PARTE",
+      "archivo": "CLASE 07_ METODOLOGÍAS DE OPTIMIZACIÓN DE PROCESOS MINEROS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2007_%20METODOLOG%C3%8DAS%20DE%20OPTIMIZACI%C3%93N%20DE%20PROCESOS%20MINEROS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "METODOLOGÍAS DE OPTIMIZACIÓN DE PROCESOS MINEROS - 2DA PARTE",
+      "archivo": "CLASE 08_ METODOLOGÍAS DE OPTIMIZACIÓN DE PROCESOS MINEROS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2008_%20METODOLOG%C3%8DAS%20DE%20OPTIMIZACI%C3%93N%20DE%20PROCESOS%20MINEROS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "HERRAMIENTAS DE MEJORA CONTINUA - 1RA PARTE",
+      "archivo": "CLASE 09_ HERRAMIENTAS DE MEJORA CONTINUA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2009_%20HERRAMIENTAS%20DE%20MEJORA%20CONTINUA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "HERRAMIENTAS DE MEJORA CONTINUA - 2DA PARTE",
+      "archivo": "CLASE 10_ HERRAMIENTAS DE MEJORA CONTINUA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2010_%20HERRAMIENTAS%20DE%20MEJORA%20CONTINUA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "INNOVACIÓN Y TÉCNICAS AVANZADAS PARA LA EFICIENCIA OPERATIVA - 1RA PARTE",
+      "archivo": "CLASE 11_ INNOVACIÓN Y TÉCNICAS AVANZADAS PARA LA EFICIENCIA OPERATIVA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2011_%20INNOVACI%C3%93N%20Y%20T%C3%89CNICAS%20AVANZADAS%20PARA%20LA%20EFICIENCIA%20OPERATIVA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "INNOVACIÓN Y TÉCNICAS AVANZADAS PARA LA EFICIENCIA OPERATIVA - 2DA PARTE",
+      "archivo": "CLASE 12_ INNOVACIÓN Y TÉCNICAS AVANZADAS PARA LA EFICIENCIA OPERATIVA - 2DA PARTE_.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2012_%20INNOVACI%C3%93N%20Y%20T%C3%89CNICAS%20AVANZADAS%20PARA%20LA%20EFICIENCIA%20OPERATIVA%20-%202DA%20PARTE_.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "TECNOLOGÍAS EMERGENTES, AUTOMATIZACIÓN E INTELIGENCIA ARTIFICIAL EN LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 13_ TECNOLOGÍAS EMERGENTES, AUTOMATIZACIÓN E INTELIGENCIA ARTIFICIAL EN LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2013_%20TECNOLOG%C3%8DAS%20EMERGENTES%2C%20AUTOMATIZACI%C3%93N%20E%20INTELIGENCIA%20ARTIFICIAL%20EN%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "TECNOLOGÍAS EMERGENTES, AUTOMATIZACIÓN E INTELIGENCIA ARTIFICIAL EN LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 14_ TECNOLOGÍAS EMERGENTES, AUTOMATIZACIÓN E INTELIGENCIA ARTIFICIAL EN LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2014_%20TECNOLOG%C3%8DAS%20EMERGENTES%2C%20AUTOMATIZACI%C3%93N%20E%20INTELIGENCIA%20ARTIFICIAL%20EN%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "IMPLEMENTACIÓN Y GESTIÓN DE PROYECTOS DE AUTOMATIZACIÓN - 1RA PARTE",
+      "archivo": "CLASE 15_ IMPLEMENTACIÓN Y GESTIÓN DE PROYECTOS DE AUTOMATIZACIÓN - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2015_%20IMPLEMENTACI%C3%93N%20Y%20GESTI%C3%93N%20DE%20PROYECTOS%20DE%20AUTOMATIZACI%C3%93N%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "IMPLEMENTACIÓN Y GESTIÓN DE PROYECTOS DE AUTOMATIZACIÓN - 2DA PARTE",
+      "archivo": "CLASE 16_ IMPLEMENTACIÓN Y GESTIÓN DE PROYECTOS DE AUTOMATIZACIÓN - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2016_%20IMPLEMENTACI%C3%93N%20Y%20GESTI%C3%93N%20DE%20PROYECTOS%20DE%20AUTOMATIZACI%C3%93N%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "MODIFICACIÓN DE PROYECTOS - 1RA PARTE",
+      "archivo": "CLASE 17_ MODIFICACIÓN DE PROYECTOS - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2017_%20MODIFICACI%C3%93N%20DE%20PROYECTOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "MODIFICACIÓN DE PROYECTOS - 2DA PARTE",
+      "archivo": "CLASE 18_ MODIFICACIÓN DE PROYECTOS - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2018_%20MODIFICACI%C3%93N%20DE%20PROYECTOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 19,
+      "titulo": "GESTIÓN DE RIESGOS EN PROYECTOS DE AUTOMATIZACIÓN - 1RA PARTE",
+      "archivo": "CLASE 19_ GESTIÓN DE RIESGOS EN PROYECTOS DE AUTOMATIZACIÓN - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2019_%20GESTI%C3%93N%20DE%20RIESGOS%20EN%20PROYECTOS%20DE%20AUTOMATIZACI%C3%93N%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 20,
+      "titulo": "GESTIÓN DE RIESGOS EN PROYECTOS DE AUTOMATIZACIÓN - 2DA PARTE",
+      "archivo": "CLASE 20_ GESTIÓN DE RIESGOS EN PROYECTOS DE AUTOMATIZACIÓN - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2020_%20GESTI%C3%93N%20DE%20RIESGOS%20EN%20PROYECTOS%20DE%20AUTOMATIZACI%C3%93N%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 21,
+      "titulo": "REDES NEURONALES Y DEEP LEARNING - 1RA PARTE",
+      "archivo": "CLASE 21_ REDES NEURONALES Y DEEP LEARNING - 1RA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2021_%20REDES%20NEURONALES%20Y%20DEEP%20LEARNING%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 22,
+      "titulo": "REDES NEURONALES Y DEEP LEARNING - 2DA PARTE",
+      "archivo": "CLASE 22_ REDES NEURONALES Y DEEP LEARNING - 2DA PARTE.pdf",
+      "ruta": "mapas/gestion-de-control-operativo-en-procesos-mineros/CLASE%2022_%20REDES%20NEURONALES%20Y%20DEEP%20LEARNING%20-%202DA%20PARTE.pdf"
+    }
+  ]
+}
