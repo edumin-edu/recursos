@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>EDUMIN - Mapa mental</title>
+  
+  <!-- Tipografía Oficial NeverMind de XMind con soporte OpenType tabular-nums -->
+  <style>
+    @font-face {
+      font-family: 'NeverMind';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('./NeverMind-Regular.ttf') format('truetype'),
+           url('https://raw.githubusercontent.com/xmindltd/nevermind/master/fonts/NeverMind/NeverMind-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'NeverMind';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('./NeverMind-Medium.ttf') format('truetype'),
+           url('https://raw.githubusercontent.com/xmindltd/nevermind/master/fonts/NeverMind/NeverMind-Medium.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'NeverMind';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('./NeverMind-Bold.ttf') format('truetype'),
+           url('https://raw.githubusercontent.com/xmindltd/nevermind/master/fonts/NeverMind/NeverMind-Bold.ttf') format('truetype');
+    }
+
+    body {
+      font-family: 'NeverMind', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Estilo tipográfico para que los números tengan exactamente el mismo ancho (Tabular Numbers) */
+    .num-tabular {
+      font-variant-numeric: tabular-nums;
+      -webkit-font-feature-settings: 'tnum' 1;
+      font-feature-settings: 'tnum' 1;
+      display: inline-block;
+    }
+
+    /* Fondo del espacio de trabajo limpio y suave */
+    .bg-canvas-workspace {
+      background-color: #e5e9f0;
+    }
+
+    input {
+      font-family: inherit;
+    }
+
+    /* Iconos de Google Material Symbols */
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined' !important;
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      vertical-align: middle;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hoja del mapa mental con sombra suave de elevación */
+    .pdf-sheet {
+      background-color: #f5f7fa;
+      box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.14), 0 0 0 1px rgba(15, 23, 42, 0.05);
+      border-radius: 12px;
+    }
+
+    /* Contenedor del canvas para zoom fluido por hardware sin parpadeo */
+    #canvas-card {
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    /* Vínculos / Enlaces interactivos del PDF con hover visible y reconocible */
+    .pdf-link-annot {
+      position: absolute;
+      cursor: pointer !important;
+      border-radius: 6px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 25;
+      pointer-events: auto !important;
+      background-color: rgba(37, 99, 235, 0.04);
+      border: 1.5px solid rgba(37, 99, 235, 0.2);
+    }
+    .pdf-link-annot:hover {
+      background-color: rgba(37, 99, 235, 0.22) !important;
+      border-color: rgba(37, 99, 235, 0.8) !important;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important;
+      transform: translateY(-1px);
+    }
+
+    /* Barras flotantes con efecto vidrio esmerilado translúcido real (Glassmorphism) */
+    .glass-dock {
+      background-color: rgba(255, 255, 255, 0.58) !important;
+      backdrop-filter: blur(20px) saturate(190%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.75) !important;
+      box-shadow: 0 12px 36px -6px rgba(15, 23, 42, 0.12), 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    }
+
+    /* Caja de error estándar unificada con los demás índices */
+    .caja-error {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 36px 32px;
+      max-width: 440px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 24px;
+      box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.12);
+      z-index: 30;
+      animation: fadeIn 0.3s ease-out both;
+    }
+    .icono-error {
+      font-size: 3.4rem;
+      line-height: 1;
+      margin-bottom: 18px;
+      user-select: none;
+    }
+    .titulo-error {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .descripcion-error {
+      font-size: 0.95rem;
+      color: #64748b;
+      line-height: 1.45;
+      text-wrap: balance;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Galería modal con auto-fill responsive y separación vertical/horizontal garantizada */
+    .gallery-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+      gap: 28px !important;
+      padding-bottom: 90px !important;
+    }
+
+    /* Tarjeta con proporción A4 horizontal estricta e inviolable (210 / 297 = 70.71%) */
+    .gallery-card {
+      position: relative !important;
+      width: 100% !important;
+      height: 0 !important;
+      padding-bottom: 70.71% !important;
+      border-radius: 12px !important;
+      overflow: hidden !important;
+      background-color: #f5f7fa !important;
+      border: 2px solid #cbd5e1 !important;
+      cursor: pointer !important;
+      transition: border-color 0.15s ease !important;
+    }
+    .gallery-card:hover {
+      border-color: #334155 !important;
+    }
+    .gallery-card.active,
+    .gallery-card.active:hover {
+      border-color: #2563eb !important;
+      box-shadow: none !important;
+    }
+    .gallery-card canvas {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      display: block !important;
+    }
+
+    /* Scrollbar personalizada para la galería de hojas */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 7px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.06);
+      border-radius: 9999px;
+      margin: 8px 0;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(15, 23, 42, 0.25);
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(15, 23, 42, 0.45);
+    }
+    .custom-scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(15, 23, 42, 0.25) transparent;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+
+  <!-- Google Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- PDF.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body class="h-full bg-canvas-workspace text-slate-800 flex flex-col select-none overflow-hidden relative">
+
+  <!-- ======================================================== -->
+  <!-- BARRA 1: SUPERIOR DERECHA FLOTANTE                       -->
+  <!-- ======================================================== -->
+  <aside id="top-bar" style="display: none;" class="fixed top-3 sm:top-4 right-3 sm:right-5 z-20 items-center">
+    <div class="glass-dock flex items-center gap-1 px-2 py-1.5 rounded-2xl">
+      
+      <!-- Alejar zoom -->
+      <button id="zoom-out-btn" class="p-1.5 rounded-xl hover:bg-slate-900/5 text-slate-600 transition" title="Alejar zoom">
+        <span class="material-symbols-outlined text-[19px]">remove</span>
+      </button>
+
+      <!-- Indicador de Zoom con número tabular fijo (no vibra) -->
+      <span id="zoom-val" class="px-1 text-xs font-semibold text-slate-700 min-w-[42px] text-center select-none num-tabular">
+        100%
+      </span>
+
+      <!-- Acercar zoom -->
+      <button id="zoom-in-btn" class="p-1.5 rounded-xl hover:bg-slate-900/5 text-slate-600 transition" title="Acercar zoom">
+        <span class="material-symbols-outlined text-[19px]">add</span>
+      </button>
+
+      <!-- Ajustar al espacio máximo de pantalla -->
+      <button id="fit-screen-btn" class="p-1.5 rounded-xl hover:bg-slate-900/5 text-slate-600 transition" title="Ajustar hoja a la pantalla">
+        <span class="material-symbols-outlined text-[19px]">fit_screen</span>
+      </button>
+
+      <div class="w-px h-4 bg-slate-300/60 mx-1"></div>
+
+      <!-- Botón Indicaciones -->
+      <button id="help-btn" class="p-1.5 rounded-xl hover:bg-slate-900/5 text-amber-500 hover:text-amber-600 transition flex items-center gap-1" title="Instrucciones de uso">
+        <span class="material-symbols-outlined text-[20px]">lightbulb</span>
+      </button>
+
+      <!-- Botón Descargar PDF original -->
+      <a id="download-btn" href="#" target="_blank" download class="p-1.5 rounded-xl hover:bg-slate-900/5 text-slate-600 transition flex items-center" title="Descargar PDF">
+        <span class="material-symbols-outlined text-[20px]">download</span>
+      </a>
+
+    </div>
+  </aside>
+
+  <!-- ======================================================== -->
+  <!-- LIENZO PRINCIPAL DEL VISOR                               -->
+  <!-- ======================================================== -->
+  <main id="viewport" class="flex-1 w-full h-full overflow-auto flex items-center justify-center p-2 sm:p-5 cursor-grab active:cursor-grabbing no-scrollbar relative">
+    
+    <!-- CARGADOR EN ÍCONO CENTRAL (SOLO ÍCONO LIMPIO) -->
+    <div id="loading-state" class="flex items-center justify-center pointer-events-none">
+      <div class="w-12 h-12 border-[3.5px] border-slate-300 border-t-blue-600 rounded-full animate-spin"></div>
+    </div>
+
+    <!-- ESTADO DE ERROR (UNIFICADO CON LOS DEMÁS ÍNDICES) -->
+    <div id="contenido-error" class="caja-error">
+      <div class="icono-error">⚠️</div>
+      <div class="titulo-error">Contenido no disponible</div>
+      <div class="descripcion-error">El diplomado o la clase solicitada no existe. Verifica que el enlace sea correcto.</div>
+    </div>
+
+    <!-- TARJETA DEL LIENZO: OCULTA HASTA QUE SE RENDERICE COMPLETAMENTE -->
+    <div id="canvas-card" style="display: none;" class="relative inline-block">
+      <canvas id="pdf-canvas" class="pdf-sheet"></canvas>
+      <!-- Capa de enlaces clickables (URL / YouTube / Documentos) -->
+      <div id="annotation-layer" class="absolute top-0 left-0 pointer-events-none rounded-xl"></div>
+    </div>
+
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- BARRA 2: INFERIOR FLOTANTE AL CENTRO                     -->
+  <!-- ======================================================== -->
+  <footer id="bottom-bar" style="display: none;" class="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+    <div class="glass-dock pointer-events-auto flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-2 rounded-2xl">
+      
+      <!-- Anterior -->
+      <button id="prev-btn" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 disabled:opacity-25 disabled:pointer-events-none transition" title="Hoja anterior (←)">
+        <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+      </button>
+
+      <!-- Contador de Hojas de 3 elementos con ancho fijo y salto directo -->
+      <div class="flex items-center select-none text-xs sm:text-sm font-bold text-slate-800">
+        <!-- Elemento 1: Input / Número actual con ancho fijo y alineado a la derecha -->
+        <input 
+          id="counter-input" 
+          type="text" 
+          inputmode="numeric"
+          pattern="[0-9]*"
+          maxlength="2" 
+          value="01" 
+          class="w-[28px] sm:w-[32px] text-right font-bold text-slate-800 bg-transparent hover:bg-slate-200/50 focus:bg-white focus:ring-1 focus:ring-slate-400 focus:outline-none rounded py-0.5 px-0.5 transition cursor-text"
+          title="Escribe un número de hoja y presiona Enter para saltar"
+        />
+        
+        <!-- Elemento 2: Slash en el centro exacto con espaciado uniforme -->
+        <span class="w-[14px] text-center text-slate-400 font-normal select-none">/</span>
+        
+        <!-- Elemento 3: Total de páginas con el mismo ancho fijo y alineado a la izquierda -->
+        <span id="counter-total" class="w-[28px] sm:w-[32px] text-left text-slate-500 font-medium py-0.5 px-0.5 select-none">...</span>
+      </div>
+
+      <!-- Barra de progreso visual según las páginas -->
+      <div class="w-16 sm:w-28 h-1.5 bg-slate-200/60 rounded-full overflow-hidden border border-slate-300/40 hidden sm:block">
+        <div id="progress-bar" class="h-full bg-slate-700 rounded-full transition-all duration-300" style="width: 10%;"></div>
+      </div>
+
+      <!-- Siguiente -->
+      <button id="next-btn" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 disabled:opacity-25 disabled:pointer-events-none transition" title="Siguiente hoja (→)">
+        <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+      </button>
+
+      <div class="w-px h-5 bg-slate-300/60 mx-0.5 sm:mx-1"></div>
+
+      <!-- Botón Galería -->
+      <button id="grid-toggle-btn" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 transition" title="Galería de hojas">
+        <span class="material-symbols-outlined text-[19px]">grid_view</span>
+      </button>
+
+      <!-- Botón Pantalla Completa -->
+      <button id="fullscreen-btn" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 transition" title="Pantalla Completa (F)">
+        <span class="material-symbols-outlined text-[19px]">fullscreen</span>
+      </button>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: INDICACIONES                                      -->
+  <!-- ======================================================== -->
+  <div id="help-modal" class="fixed inset-0 bg-slate-900/35 backdrop-blur-sm z-30 hidden flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-sm w-full p-6 shadow-2xl relative">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-amber-500 text-2xl">lightbulb</span>
+          <h3 class="text-base font-bold text-slate-800">Indicaciones de navegación</h3>
+        </div>
+        <button id="close-help-btn" class="p-1 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <ul class="flex flex-col gap-3 text-xs text-slate-600">
+        <li class="flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-slate-700 text-lg mt-0.5">mouse</span>
+          <div>
+            <strong class="text-slate-800 block text-xs">Zoom suave con la rueda:</strong>
+            Gira la rueda del mouse arriba o abajo para acercar o alejar el mapa sin parpadeos.
+          </div>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-blue-600 text-lg mt-0.5">link</span>
+          <div>
+            <strong class="text-slate-800 block text-xs">Enlaces interactivos:</strong>
+            Los nodos con enlaces y vídeos de YouTube son clickables y se resaltan al pasar el cursor.
+          </div>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-slate-700 text-lg mt-0.5">pan_tool</span>
+          <div>
+            <strong class="text-slate-800 block text-xs">Arrastrar libremente:</strong>
+            Haz clic sostenido con el ratón (o desliza con un dedo) para recorrer el lienzo.
+          </div>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-slate-700 text-lg mt-0.5">keyboard</span>
+          <div>
+            <strong class="text-slate-800 block text-xs">Atajos de teclado:</strong>
+            Usa las flechas <kbd class="px-1 py-0.5 bg-slate-100 border border-slate-200 rounded text-slate-700 font-semibold">←</kbd> y <kbd class="px-1 py-0.5 bg-slate-100 border border-slate-200 rounded text-slate-700 font-semibold">→</kbd> para cambiar de hoja, y <kbd class="px-1 py-0.5 bg-slate-100 border border-slate-200 rounded text-slate-700 font-semibold">F</kbd> para pantalla completa.
+          </div>
+        </li>
+      </ul>
+
+      <div class="mt-5 pt-3 border-t border-slate-100 flex justify-end">
+        <button id="understand-help-btn" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold shadow-sm transition">
+          Entendido
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL: GALERÍA DE TODAS LAS HOJAS (EN FORMATO A4 LANDSCAPE) -->
+  <!-- ======================================================== -->
+  <div id="grid-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-30 hidden flex flex-col p-4 sm:p-8">
+    <div class="flex items-center justify-between mb-4 max-w-5xl mx-auto w-full">
+      <div>
+        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <span class="material-symbols-outlined text-white">grid_view</span> Galería de hojas
+        </h3>
+        <p class="text-xs text-slate-300">Selecciona cualquier hoja para saltar de inmediato</p>
+      </div>
+      <button id="close-grid-btn" class="p-2 rounded-xl bg-white/90 hover:bg-white text-slate-700 shadow-sm transition">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    
+    <!-- Cuadrícula con proporción exacta A4 Horizontal (297 / 210) y auto-fill responsive -->
+    <div id="grid-items" class="gallery-grid custom-scrollbar max-w-5xl mx-auto w-full flex-1 min-h-0 overflow-y-auto p-4 pb-20">
+      <!-- Se genera dinámicamente -->
+    </div>
+  </div>
+
+  <script>
+    /* global pdfjsLib */
+
+    // Configurar worker de PDF.js
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    // Base de GitHub Pages del repositorio
+    const GITHUB_PAGES_BASE = 'https://edumin-edu.github.io/recursos/';
+
+    let activePdfUrl = '';
+    let fallbackPdfUrl = '';
+    let isFirstRenderDone = false;
+
+    // Estado del visor
+    let pdfDoc = null;
+    let pageNum = 1;
+    let pageRendering = false;
+    let pageNumPending = null;
+
+    // Escala base renderizada y escala visual fluida
+    let renderedScale = 1.0;
+    let targetScale = 1.0;
+    let userCustomZoom = false;
+    let zoomDebounceTimer = null;
+
+    // Elementos DOM
+    const viewportEl = document.getElementById('viewport');
+    const canvasCard = document.getElementById('canvas-card');
+    const canvas = document.getElementById('pdf-canvas');
+    const ctx = canvas.getContext('2d');
+    const annotationLayer = document.getElementById('annotation-layer');
+    const loadingState = document.getElementById('loading-state');
+    const contenidoError = document.getElementById('contenido-error');
+    const downloadBtn = document.getElementById('download-btn');
+    const topBar = document.getElementById('top-bar');
+    const bottomBar = document.getElementById('bottom-bar');
+    
+    const counterInput = document.getElementById('counter-input');
+    const counterTotal = document.getElementById('counter-total');
+    const progressBar = document.getElementById('progress-bar');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    const zoomVal = document.getElementById('zoom-val');
+    const zoomInBtn = document.getElementById('zoom-in-btn');
+    const zoomOutBtn = document.getElementById('zoom-out-btn');
+    const fitScreenBtn = document.getElementById('fit-screen-btn');
+
+    const gridToggleBtn = document.getElementById('grid-toggle-btn');
+    const closeGridBtn = document.getElementById('close-grid-btn');
+    const gridModal = document.getElementById('grid-modal');
+    const gridItems = document.getElementById('grid-items');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+    const helpBtn = document.getElementById('help-btn');
+    const helpModal = document.getElementById('help-modal');
+    const closeHelpBtn = document.getElementById('close-help-btn');
+    const understandHelpBtn = document.getElementById('understand-help-btn');
+
+    // Despliegue de estado de error unificado
+    function mostrarError() {
+      if (loadingState) loadingState.style.display = 'none';
+      if (canvasCard) canvasCard.style.display = 'none';
+      if (topBar) topBar.style.display = 'none';
+      if (bottomBar) bottomBar.style.display = 'none';
+      if (contenidoError) {
+        contenidoError.style.display = 'flex';
+      }
+    }
+
+    // 2. CARGA DEL DOCUMENTO PDF
+    function loadPdf(targetUrl) {
+      if (!targetUrl) return;
+      loadingState.style.display = 'flex';
+      contenidoError.style.display = 'none';
+      canvasCard.style.display = 'none';
+      topBar.style.display = 'none';
+      bottomBar.style.display = 'none';
+      annotationLayer.innerHTML = '';
+      isFirstRenderDone = false;
+
+      const loadingTask = pdfjsLib.getDocument(targetUrl);
+      loadingTask.promise.then(doc => {
+        pdfDoc = doc;
+        counterTotal.textContent = (doc.numPages < 10 ? '0' + doc.numPages : doc.numPages);
+        counterInput.value = (pageNum < 10 ? '0' + pageNum : pageNum);
+
+        // Autoajuste inicial que llena la pantalla en desktop
+        autoFitScreen();
+      }).catch(err => {
+        console.warn('Error al cargar PDF desde:', targetUrl, err);
+        // Si falló el enlace principal de GitHub Pages y tenemos enlace relativo local de fallback
+        if (fallbackPdfUrl && targetUrl !== fallbackPdfUrl) {
+          console.log('Intentando fallback local:', fallbackPdfUrl);
+          loadPdf(fallbackPdfUrl);
+        } else {
+          mostrarError();
+        }
+      });
+    }
+
+    // Variables de desplazamiento espacial (Pan)
+    let panX = 0;
+    let panY = 0;
+    let isPanning = false;
+    let startMouseX = 0;
+    let startMouseY = 0;
+    let startPanX = 0;
+    let startPanY = 0;
+
+    // Actualiza la posición y escala de la lámina mediante aceleración por hardware
+    function updateCanvasTransform(visualScale = (targetScale / renderedScale)) {
+      canvasCard.style.transform = `translate(${panX}px, ${panY}px) scale(${visualScale})`;
+    }
+
+    // Autoajuste con márgenes mínimos para que la hoja salga mucho más grande desde el inicio
+    function autoFitScreen() {
+      if (!pdfDoc) return;
+      panX = 0;
+      panY = 0;
+      pdfDoc.getPage(pageNum).then(page => {
+        const unscaled = page.getViewport({ scale: 1.0 });
+        
+        // Espacio disponible con márgenes reducidos para maximizar tamaño
+        const availWidth = viewportEl.clientWidth - (window.innerWidth < 768 ? 16 : 48);
+        const availHeight = viewportEl.clientHeight - (window.innerWidth < 768 ? 64 : 64);
+
+        const scaleW = availWidth / unscaled.width;
+        const scaleH = availHeight / unscaled.height;
+        
+        targetScale = Math.min(scaleW, scaleH);
+        renderedScale = targetScale;
+        userCustomZoom = false;
+
+        updateCanvasTransform(1);
+        renderPage(pageNum);
+      });
+    }
+
+    // 3. RENDERIZADO DE LA LÁMINA + CAPA DE ENLACES INTERACTIVOS
+    function renderPage(num) {
+      pageRendering = true;
+
+      pdfDoc.getPage(num).then(page => {
+        const pageViewport = page.getViewport({ scale: renderedScale });
+        const outputScale = Math.max(window.devicePixelRatio || 1, 2);
+        const targetW = Math.floor(pageViewport.width * outputScale);
+        const targetH = Math.floor(pageViewport.height * outputScale);
+
+        // Renderizar en un canvas en memoria (Off-screen) para evitar parpadeos en blanco
+        const offCanvas = document.createElement('canvas');
+        offCanvas.width = targetW;
+        offCanvas.height = targetH;
+        const offCtx = offCanvas.getContext('2d');
+
+        const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+
+        const renderContext = {
+          canvasContext: offCtx,
+          transform: transform,
+          viewport: pageViewport
+        };
+
+        const renderTask = page.render(renderContext);
+        renderTask.promise.then(() => {
+          // Volcado atómico al canvas principal sin tiempo en blanco
+          canvas.width = targetW;
+          canvas.height = targetH;
+          canvas.style.width = Math.floor(pageViewport.width) + "px";
+          canvas.style.height = Math.floor(pageViewport.height) + "px";
+          ctx.drawImage(offCanvas, 0, 0);
+
+          // Dimensionar capa de anotaciones para que coincida exactamente
+          annotationLayer.style.width = Math.floor(pageViewport.width) + "px";
+          annotationLayer.style.height = Math.floor(pageViewport.height) + "px";
+
+          // Sincronizar transformación en el mismo fotograma
+          updateCanvasTransform(1);
+
+          // Si es la primera carga completada con éxito, mostrar el visor
+          if (!isFirstRenderDone) {
+            isFirstRenderDone = true;
+            loadingState.style.display = 'none';
+            canvasCard.style.display = 'inline-block';
+            topBar.style.display = 'flex';
+            bottomBar.style.display = 'block';
+          }
+
+          pageRendering = false;
+          if (pageNumPending !== null) {
+            renderPage(pageNumPending);
+            pageNumPending = null;
+          }
+        });
+
+        // RENDERIZAR ENLACES E HIPERVÍNCULOS DE LA HOJA
+        renderAnnotations(page, pageViewport);
+      });
+
+      // Actualizar contadores y barra de progreso
+      counterInput.value = (num < 10 ? '0' + num : num);
+      progressBar.style.width = `${(num / pdfDoc.numPages) * 100}%`;
+      zoomVal.textContent = Math.round(renderedScale * 100) + '%';
+      prevBtn.disabled = (num <= 1);
+      nextBtn.disabled = (num >= pdfDoc.numPages);
+    }
+
+    // Extraer y activar todos los vínculos insertados en el PDF
+    function renderAnnotations(page, pageViewport) {
+      annotationLayer.innerHTML = '';
+      page.getAnnotations({ intent: 'display' }).then(annotations => {
+        annotations.forEach(annot => {
+          if (annot.subtype === 'Link') {
+            const rect = pageViewport.convertToViewportRectangle(annot.rect);
+            const left = Math.min(rect[0], rect[2]);
+            const top = Math.min(rect[1], rect[3]);
+            // Área táctil/clickeable cómoda
+            const width = Math.max(Math.abs(rect[0] - rect[2]), 14);
+            const height = Math.max(Math.abs(rect[1] - rect[3]), 14);
+
+            const a = document.createElement('a');
+            a.className = 'pdf-link-annot';
+            a.style.left = left + 'px';
+            a.style.top = top + 'px';
+            a.style.width = width + 'px';
+            a.style.height = height + 'px';
+
+            const linkUrl = annot.url || annot.unsafeUrl;
+            if (linkUrl) {
+              a.href = linkUrl;
+              a.target = '_blank';
+              a.rel = 'noopener noreferrer';
+              a.title = 'Abrir enlace: ' + linkUrl;
+            } else if (annot.dest) {
+              a.title = 'Ir a sección interna';
+              a.onclick = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                pdfDoc.getPageIndex(annot.dest[0]).then(idx => {
+                  pageNum = idx + 1;
+                  renderPage(pageNum);
+                });
+              };
+            }
+
+            // Evitar que el mousedown sobre el enlace inicie panning
+            a.addEventListener('mousedown', (e) => {
+              e.stopPropagation();
+            });
+
+            annotationLayer.appendChild(a);
+          }
+        });
+      });
+    }
+
+    function queueRender(num) {
+      if (pageRendering) pageNumPending = num;
+      else renderPage(num);
+    }
+
+    function goPrev() {
+      if (pageNum <= 1) return;
+      pageNum--;
+      if (!userCustomZoom) {
+        panX = 0;
+        panY = 0;
+        autoFitScreen();
+      } else {
+        queueRender(pageNum);
+      }
+    }
+
+    function goNext() {
+      if (pageNum >= pdfDoc.numPages) return;
+      pageNum++;
+      if (!userCustomZoom) {
+        panX = 0;
+        panY = 0;
+        autoFitScreen();
+      } else {
+        queueRender(pageNum);
+      }
+    }
+
+    prevBtn.addEventListener('click', goPrev);
+    nextBtn.addEventListener('click', goNext);
+
+    // Navegación directa escribiendo el número en el contador
+    counterInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        counterInput.blur();
+      }
+    });
+
+    counterInput.addEventListener('change', () => {
+      let val = parseInt(counterInput.value, 10);
+      if (!isNaN(val) && val >= 1 && val <= pdfDoc.numPages) {
+        pageNum = val;
+        if (!userCustomZoom) {
+          panX = 0;
+          panY = 0;
+          autoFitScreen();
+        } else {
+          queueRender(pageNum);
+        }
+      } else {
+        counterInput.value = (pageNum < 10 ? '0' + pageNum : pageNum);
+      }
+    });
+
+    counterInput.addEventListener('focus', () => {
+      counterInput.select();
+    });
+
+    // 4. SISTEMA DE ZOOM FLUIDO A 60 FPS SIN PARPADEO
+    function applySmoothZoom(newScale, focalX = null, focalY = null) {
+      newScale = Math.min(Math.max(newScale, 0.35), 4.5);
+      
+      // Zoom focal hacia el cursor
+      if (focalX !== null && focalY !== null) {
+        const ratio = newScale / targetScale;
+        panX = focalX - (focalX - panX) * ratio;
+        panY = focalY - (focalY - panY) * ratio;
+      }
+
+      targetScale = newScale;
+      userCustomZoom = true;
+
+      const visualScale = targetScale / renderedScale;
+      updateCanvasTransform(visualScale);
+
+      zoomVal.textContent = Math.round(targetScale * 100) + '%';
+
+      clearTimeout(zoomDebounceTimer);
+      zoomDebounceTimer = setTimeout(() => {
+        renderedScale = targetScale;
+        renderPage(pageNum);
+      }, 180);
+    }
+
+    // Zoom con rueda del ratón hacia la posición del cursor
+    viewportEl.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const rect = viewportEl.getBoundingClientRect();
+      const mouseX = e.clientX - (rect.left + rect.width / 2);
+      const mouseY = e.clientY - (rect.top + rect.height / 2);
+
+      const zoomStep = 0.12;
+      const factor = e.deltaY < 0 ? (1 + zoomStep) : (1 - zoomStep);
+      applySmoothZoom(targetScale * factor, mouseX, mouseY);
+    }, { passive: false });
+
+    // Botones de Zoom
+    zoomInBtn.addEventListener('click', () => applySmoothZoom(targetScale * 1.2));
+    zoomOutBtn.addEventListener('click', () => applySmoothZoom(targetScale * 0.82));
+    fitScreenBtn.addEventListener('click', autoFitScreen);
+
+    // Doble clic para restablecer la vista centrada
+    viewportEl.addEventListener('dblclick', (e) => {
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('#grid-modal') || e.target.closest('#help-modal')) return;
+      autoFitScreen();
+    });
+
+    // 5. ARRASTRE ESPACIAL LIBRE (DRAG TO PAN) CON EL RATÓN
+    viewportEl.addEventListener('mousedown', (e) => {
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('#grid-modal') || e.target.closest('#help-modal')) return;
+      isPanning = true;
+      startMouseX = e.clientX;
+      startMouseY = e.clientY;
+      startPanX = panX;
+      startPanY = panY;
+      viewportEl.classList.add('cursor-grabbing');
+      viewportEl.classList.remove('cursor-grab');
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isPanning) return;
+      e.preventDefault();
+      const dx = e.clientX - startMouseX;
+      const dy = e.clientY - startMouseY;
+      panX = startPanX + dx;
+      panY = startPanY + dy;
+      updateCanvasTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isPanning) {
+        isPanning = false;
+        viewportEl.classList.remove('cursor-grabbing');
+        viewportEl.classList.add('cursor-grab');
+      }
+    });
+
+    // 6. GESTOS TÁCTILES MÓVILES
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartPanX = 0;
+    let touchStartPanY = 0;
+    let isTouchPanning = false;
+    let initialPinchDist = 0;
+    let initialPinchScale = 1;
+
+    viewportEl.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        if (e.target.closest('button') || e.target.closest('a') || e.target.closest('#grid-modal') || e.target.closest('#help-modal')) return;
+        isTouchPanning = true;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchStartPanX = panX;
+        touchStartPanY = panY;
+      } else if (e.touches.length === 2) {
+        isTouchPanning = false;
+        initialPinchDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        initialPinchScale = targetScale;
+      }
+    }, { passive: true });
+
+    viewportEl.addEventListener('touchmove', (e) => {
+      if (e.touches.length === 1 && isTouchPanning) {
+        e.preventDefault();
+        const dx = e.touches[0].clientX - touchStartX;
+        const dy = e.touches[0].clientY - touchStartY;
+        panX = touchStartPanX + dx;
+        panY = touchStartPanY + dy;
+        updateCanvasTransform();
+      } else if (e.touches.length === 2 && initialPinchDist > 0) {
+        e.preventDefault();
+        const currentDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const scaleChange = currentDist / initialPinchDist;
+        applySmoothZoom(initialPinchScale * scaleChange);
+      }
+    }, { passive: false });
+
+    viewportEl.addEventListener('touchend', (e) => {
+      if (e.touches.length === 0) {
+        isTouchPanning = false;
+        initialPinchDist = 0;
+      }
+    });
+
+    // 7. GALERÍA MODAL: PROPORCIÓN A4 HORIZONTAL
+    function openGallery() {
+      if (!pdfDoc) return;
+      gridItems.innerHTML = '';
+      gridModal.classList.remove('hidden');
+
+      for (let i = 1; i <= pdfDoc.numPages; i++) {
+        const isCurrent = (i === pageNum);
+        const card = document.createElement('div');
+        
+        card.className = `gallery-card ${isCurrent ? 'active' : ''}`;
+        
+        card.onclick = () => {
+          pageNum = i;
+          if (!userCustomZoom) {
+            panX = 0;
+            panY = 0;
+            autoFitScreen();
+          } else {
+            queueRender(pageNum);
+          }
+          gridModal.classList.add('hidden');
+        };
+
+        card.innerHTML = `
+          <span class="absolute top-2.5 left-2.5 z-10 px-2 py-0.5 rounded-md text-[11px] font-bold shadow-md select-none ${
+            isCurrent ? 'bg-blue-600 text-white ring-2 ring-white/80' : 'bg-slate-900/85 text-white backdrop-blur-sm'
+          }">
+            ${i < 10 ? '0' + i : i}
+          </span>
+          <canvas id="thumb-${i}" class="pointer-events-none"></canvas>
+        `;
+        gridItems.appendChild(card);
+        renderThumbnail(i);
+      }
+    }
+
+    function renderThumbnail(pageNumber) {
+      pdfDoc.getPage(pageNumber).then(page => {
+        const thumbCanvas = document.getElementById(`thumb-${pageNumber}`);
+        if (!thumbCanvas) return;
+        const thumbCtx = thumbCanvas.getContext('2d');
+        
+        const dpr = Math.max(window.devicePixelRatio || 1, 1.5);
+        const vp = page.getViewport({ scale: 0.5 });
+        thumbCanvas.width = Math.floor(vp.width * dpr);
+        thumbCanvas.height = Math.floor(vp.height * dpr);
+        thumbCanvas.style.width = "100%";
+        thumbCanvas.style.height = "100%";
+
+        const transform = dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null;
+
+        page.render({
+          canvasContext: thumbCtx,
+          transform: transform,
+          viewport: vp
+        });
+      });
+    }
+
+    gridToggleBtn.addEventListener('click', openGallery);
+    closeGridBtn.addEventListener('click', () => gridModal.classList.add('hidden'));
+
+    // 8. INDICACIONES
+    function toggleHelp(show) {
+      if (show) helpModal.classList.remove('hidden');
+      else helpModal.classList.add('hidden');
+    }
+    helpBtn.addEventListener('click', () => toggleHelp(true));
+    closeHelpBtn.addEventListener('click', () => toggleHelp(false));
+    understandHelpBtn.addEventListener('click', () => toggleHelp(false));
+
+    window.addEventListener('click', (e) => {
+      if (e.target === helpModal) toggleHelp(false);
+      if (e.target === gridModal) gridModal.classList.add('hidden');
+    });
+
+    // 9. PANTALLA COMPLETA
+    fullscreenBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    });
+
+    // 10. ATAJOS DE TECLADO
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        goNext();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goPrev();
+      } else if (e.key === 'Escape') {
+        toggleHelp(false);
+        gridModal.classList.add('hidden');
+      } else if (e.key === 'f' || e.key === 'F') {
+        fullscreenBtn.click();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (!userCustomZoom) autoFitScreen();
+    });
+
+    // 11. INICIALIZACIÓN Y GESTIÓN DE PARÁMETROS URL (?diplomado=...&mapa=...)
+    function inicializarVisor() {
+      const params = new URLSearchParams(window.location.search);
+      const diplomado = params.get('diplomado') ? params.get('diplomado').trim() : '';
+      const mapaParam = params.get('mapa') ? params.get('mapa').trim() : '';
+
+      // Validación estricta de parámetros requeridos
+      if (!diplomado || !/^\d+$/.test(mapaParam)) {
+        mostrarError();
+        return;
+      }
+
+      const numMapa = parseInt(mapaParam, 10);
+      if (numMapa < 1) {
+        mostrarError();
+        return;
+      }
+
+      const diplomadoClean = diplomado.replace(/\.json$/, '');
+
+      // Cargar catálogo JSON del diplomado
+      fetch(`./${diplomadoClean}.json`)
+        .then(res => {
+          if (!res.ok) {
+            throw new Error('Archivo no encontrado');
+          }
+          return res.json();
+        })
+        .then(data => {
+          if (!data.mapas || !Array.isArray(data.mapas) || data.mapas.length === 0) {
+            mostrarError();
+            return;
+          }
+
+          // Buscar el mapa por propiedad numero o índice (1-based)
+          const mapaItem = data.mapas.find(m => m.numero === numMapa) || data.mapas[numMapa - 1];
+          if (!mapaItem || !mapaItem.ruta) {
+            mostrarError();
+            return;
+          }
+
+          // Construir URL de GitHub Pages a partir del campo ruta
+          if (mapaItem.ruta.startsWith('http://') || mapaItem.ruta.startsWith('https://')) {
+            activePdfUrl = mapaItem.ruta;
+          } else {
+            activePdfUrl = `${GITHUB_PAGES_BASE}${mapaItem.ruta}`;
+          }
+
+          // Fallback relativo para entornos locales
+          fallbackPdfUrl = `./${diplomadoClean}/${encodeURIComponent(mapaItem.archivo)}`;
+
+          // Asignar enlace y nombre al botón de descarga
+          if (downloadBtn) {
+            downloadBtn.href = activePdfUrl;
+            downloadBtn.setAttribute('download', mapaItem.archivo || `mapa_${numMapa}.pdf`);
+          }
+
+          // Cargar el documento PDF en el visor
+          loadPdf(activePdfUrl);
+        })
+        .catch(() => {
+          mostrarError();
+        });
+    }
+
+    // Iniciar carga al cargar el DOM
+    window.addEventListener('DOMContentLoaded', inicializarVisor);
+  </script>
+</body>
+</html>

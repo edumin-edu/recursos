@@ -86,12 +86,12 @@ for (let i = 0; i < DIPLOMADOS.length; i++) {
   }
 }
 
-// Subir el índice maestro, README y scripts restantes
-console.log('Finalizando: subiendo catálogo maestro mapas/index.json, README y scripts...');
-run('git add mapas/index.json scripts/ README.md');
+// Subir el catálogo maestro, README y scripts restantes
+console.log('Finalizando: subiendo catálogo maestro mapas/diplomados.json, README y scripts...');
+run('git add mapas/diplomados.json scripts/ README.md');
 const finalStaged = run('git diff --cached --name-only');
 if (finalStaged) {
-  run('git commit -m "feat(mapas): catalogo maestro index.json y documentacion"');
+  run('git commit -m "feat(mapas): catalogo maestro diplomados.json y documentacion"');
   run('git push origin main');
   console.log('[OK] Catálogo maestro y documentación subidos con éxito.\n');
 }

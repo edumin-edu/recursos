@@ -198,7 +198,7 @@ function generateMasterIndex() {
     });
   }
 
-  const masterPath = path.join(MAPAS_DIR, 'index.json');
+  const masterPath = path.join(MAPAS_DIR, 'diplomados.json');
   const masterContent = JSON.stringify({ diplomados: indexList }, null, 2);
   let changed = true;
   if (fs.existsSync(masterPath)) {
@@ -208,6 +208,11 @@ function generateMasterIndex() {
   }
   if (changed) {
     fs.writeFileSync(masterPath, masterContent, 'utf-8');
+  }
+  // Limpiar index.json obsoleto si aún existe
+  const oldIndexPath = path.join(MAPAS_DIR, 'index.json');
+  if (fs.existsSync(oldIndexPath)) {
+    try { fs.unlinkSync(oldIndexPath); } catch (_) {}
   }
   return changed;
 }
@@ -232,7 +237,7 @@ function runBatchInitialSync() {
     const status = runGit('git status --porcelain');
     if (status) {
       console.log(`       -> Creando commit para diplomado #${dip.id}...`);
-      runGit(`git add mapas/${dip.slug}/ mapas/${dip.slug}.json mapas/index.json`);
+      runGit(`git add mapas/${dip.slug}/ mapas/${dip.slug}.json mapas/diplomados.json`);
       try {
         runGit(`git commit -m "feat(mapas): agregar mapas mentales de ${dip.name}"`);
         console.log(`       -> Intentando subir a GitHub...`);
@@ -350,7 +355,7 @@ function runCopyAll() {
   console.log(`   PROCESO LOCAL COMPLETADO AL 100%                           `);
   console.log(`   Total de PDFs listos: ${totalArchivos}                     `);
   console.log(`   Nuevos copiados: ${totalCopiados}                          `);
-  console.log(`   Catálogo maestro: mapas/index.json                         `);
+  console.log(`   Catálogo maestro: mapas/diplomados.json                    `);
   console.log('===============================================================\n');
 }
 

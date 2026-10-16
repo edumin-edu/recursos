@@ -12,7 +12,8 @@ Los mapas mentales se sincronizan automáticamente desde Google Drive (`G:\Mi un
 
 ```text
 mapas/
-├── index.json                  # Catálogo general con los 22 diplomados
+├── index.html                  # Visor interactivo web de mapas mentales
+├── diplomados.json             # Catálogo general con los 22 diplomados
 ├── derecho-minero/             # Carpeta con los PDFs del diplomado
 │   ├── CLASE 01_...pdf
 │   └── ...
