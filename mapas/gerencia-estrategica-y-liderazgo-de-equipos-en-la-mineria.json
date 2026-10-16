@@ -1,0 +1,277 @@
+{
+  "nombre_diplomado": "GERENCIA ESTRATÉGICA Y LIDERAZGO DE EQUIPOS EN LA MINERÍA",
+  "slug": "gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria",
+  "total_clases": 45,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "PANORAMA ACTUAL DE LA INDUSTRIA MINERA A NIVEL MUNDIAL Y EN EL PERÚ - 1RA PARTE",
+      "archivo": "CLASE 01_ PANORAMA ACTUAL DE LA INDUSTRIA MINERA A NIVEL MUNDIAL Y EN EL PERÚ - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2001_%20PANORAMA%20ACTUAL%20DE%20LA%20INDUSTRIA%20MINERA%20A%20NIVEL%20MUNDIAL%20Y%20EN%20EL%20PER%C3%9A%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "PANORAMA ACTUAL DE LA INDUSTRIA MINERA A NIVEL MUNDIAL Y EN EL PERÚ - 2DA PARTE",
+      "archivo": "CLASE 02_ PANORAMA ACTUAL DE LA INDUSTRIA MINERA A NIVEL MUNDIAL Y EN EL PERÚ - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2002_%20PANORAMA%20ACTUAL%20DE%20LA%20INDUSTRIA%20MINERA%20A%20NIVEL%20MUNDIAL%20Y%20EN%20EL%20PER%C3%9A%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "MARCO LEGAL Y REGULATORIO DE LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 03_ MARCO LEGAL Y REGULATORIO DE LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2003_%20MARCO%20LEGAL%20Y%20REGULATORIO%20DE%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "MARCO LEGAL Y REGULATORIO DE LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 04_ MARCO LEGAL Y REGULATORIO DE LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2004_%20MARCO%20LEGAL%20Y%20REGULATORIO%20DE%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "COMERCIALIZACIÓN DE LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 05_ COMERCIALIZACIÓN DE LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2005_%20COMERCIALIZACI%C3%93N%20DE%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "COMERCIALIZACIÓN DE LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 06_ COMERCIALIZACIÓN DE LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2006_%20COMERCIALIZACI%C3%93N%20DE%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "TENDENCIAS TECNOLÓGICAS E INNOVACIÓN EN LA INDUSTRIA MINERA - 1RA PARTE",
+      "archivo": "CLASE 07_ TENDENCIAS TECNOLÓGICAS E INNOVACIÓN EN LA INDUSTRIA MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2007_%20TENDENCIAS%20TECNOL%C3%93GICAS%20E%20INNOVACI%C3%93N%20EN%20LA%20INDUSTRIA%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "TENDENCIAS TECNOLÓGICAS E INNOVACIÓN EN LA INDUSTRIA MINERA - 2DA PARTE",
+      "archivo": "CLASE 08_ TENDENCIAS TECNOLÓGICAS E INNOVACIÓN EN LA INDUSTRIA MINERA - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2008_%20TENDENCIAS%20TECNOL%C3%93GICAS%20E%20INNOVACI%C3%93N%20EN%20LA%20INDUSTRIA%20MINERA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "RSC  RESPONSABILIDAD SOCIAL CORPORATIVA - 1RA PARTE",
+      "archivo": "CLASE 09_ RSC_ RESPONSABILIDAD SOCIAL CORPORATIVA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2009_%20RSC_%20RESPONSABILIDAD%20SOCIAL%20CORPORATIVA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "RSC  RESPONSABILIDAD SOCIAL CORPORATIVA - 2DA PARTE",
+      "archivo": "CLASE 10_ RSC_ RESPONSABILIDAD SOCIAL CORPORATIVA - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2010_%20RSC_%20RESPONSABILIDAD%20SOCIAL%20CORPORATIVA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "TEORÍAS Y ENFOQUES DE LIDERAZGO APLICADOS A LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 11_ TEORÍAS Y ENFOQUES DE LIDERAZGO APLICADOS A LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2011_%20TEOR%C3%8DAS%20Y%20ENFOQUES%20DE%20LIDERAZGO%20APLICADOS%20A%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "TEORÍAS Y ENFOQUES DE LIDERAZGO APLICADOS A LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 12_ TEORÍAS Y ENFOQUES DE LIDERAZGO APLICADOS A LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2012_%20TEOR%C3%8DAS%20Y%20ENFOQUES%20DE%20LIDERAZGO%20APLICADOS%20A%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "LIDERAZGO Y TOMA DE DECISIONES - 1RA PARTE",
+      "archivo": "CLASE 13_ LIDERAZGO Y TOMA DE DECISIONES - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2013_%20LIDERAZGO%20Y%20TOMA%20DE%20DECISIONES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "LIDERAZGO Y TOMA DE DECISIONES - 2DA PARTE",
+      "archivo": "CLASE 14_ LIDERAZGO Y TOMA DE DECISIONES - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2014_%20LIDERAZGO%20Y%20TOMA%20DE%20DECISIONES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "COMPORTAMIENTO EMOCIONALMENTE INTELIGENTE - 1RA PARTE",
+      "archivo": "CLASE 15_ COMPORTAMIENTO EMOCIONALMENTE INTELIGENTE - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2015_%20COMPORTAMIENTO%20EMOCIONALMENTE%20INTELIGENTE%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "COMPORTAMIENTO EMOCIONALMENTE INTELIGENTE - 2DA PARTE",
+      "archivo": "CLASE 16_ COMPORTAMIENTO EMOCIONALMENTE INTELIGENTE - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2016_%20COMPORTAMIENTO%20EMOCIONALMENTE%20INTELIGENTE%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "GESTIÓN DEL TALENTO Y EQUIPOS DE TRABAJO EN OPERACIONES MINERAS - 1RA PARTE",
+      "archivo": "CLASE 17_ GESTIÓN DEL TALENTO Y EQUIPOS DE TRABAJO EN OPERACIONES MINERAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2017_%20GESTI%C3%93N%20DEL%20TALENTO%20Y%20EQUIPOS%20DE%20TRABAJO%20EN%20OPERACIONES%20MINERAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "GESTIÓN DEL TALENTO Y EQUIPOS DE TRABAJO EN OPERACIONES MINERAS - 2DA PARTE",
+      "archivo": "CLASE 18_ GESTIÓN DEL TALENTO Y EQUIPOS DE TRABAJO EN OPERACIONES MINERAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2018_%20GESTI%C3%93N%20DEL%20TALENTO%20Y%20EQUIPOS%20DE%20TRABAJO%20EN%20OPERACIONES%20MINERAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 19,
+      "titulo": "COMUNICACIÓN EFECTIVA EN ENTORNOS MINEROS - 2DA PARTE",
+      "archivo": "CLASE 19_ COMUNICACIÓN EFECTIVA EN ENTORNOS MINEROS - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2019_%20COMUNICACI%C3%93N%20EFECTIVA%20EN%20ENTORNOS%20MINEROS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 20,
+      "titulo": "COMUNICACIÓN EFECTIVA EN ENTORNOS MINEROS - 2DA PARTE",
+      "archivo": "CLASE 20_ COMUNICACIÓN EFECTIVA EN ENTORNOS MINEROS - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2020_%20COMUNICACI%C3%93N%20EFECTIVA%20EN%20ENTORNOS%20MINEROS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 21,
+      "titulo": "PLANIFICACIÓN ESTRATÉGICA EN EMPRESAS MINERAS - 1RA PARTE",
+      "archivo": "CLASE 21_ PLANIFICACIÓN ESTRATÉGICA EN EMPRESAS MINERAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2021_%20PLANIFICACI%C3%93N%20ESTRAT%C3%89GICA%20EN%20EMPRESAS%20MINERAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 22,
+      "titulo": "PLANIFICACIÓN ESTRATÉGICA EN EMPRESAS MINERAS - 2DA PARTE",
+      "archivo": "CLASE 22_ PLANIFICACIÓN ESTRATÉGICA EN EMPRESAS MINERAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2022_%20PLANIFICACI%C3%93N%20ESTRAT%C3%89GICA%20EN%20EMPRESAS%20MINERAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 23,
+      "titulo": "SISTEMAS DE GESTIÓN DE ALMACENES (WMS) Y HERRAMIENTAS APLICADAS A LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 23_ SISTEMAS DE GESTIÓN DE ALMACENES (WMS) Y HERRAMIENTAS APLICADAS A LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2023_%20SISTEMAS%20DE%20GESTI%C3%93N%20DE%20ALMACENES%20(WMS)%20Y%20HERRAMIENTAS%20APLICADAS%20A%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 24,
+      "titulo": "SISTEMAS DE GESTIÓN DE ALMACENES (WMS) Y HERRAMIENTAS APLICADAS A LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 24_ SISTEMAS DE GESTIÓN DE ALMACENES (WMS) Y HERRAMIENTAS APLICADAS A LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2024_%20SISTEMAS%20DE%20GESTI%C3%93N%20DE%20ALMACENES%20(WMS)%20Y%20HERRAMIENTAS%20APLICADAS%20A%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 25,
+      "titulo": "ANÁLISIS PRESUPUESTARIO Y DE LA GESTIÓN DE COMPRAS - 1RA PARTE",
+      "archivo": "CLASE 25_ ANÁLISIS PRESUPUESTARIO Y DE LA GESTIÓN DE COMPRAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2025_%20AN%C3%81LISIS%20PRESUPUESTARIO%20Y%20DE%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 26,
+      "titulo": "ANÁLISIS PRESUPUESTARIO Y DE LA GESTIÓN DE COMPRAS - 2DA PARTE",
+      "archivo": "CLASE 26_ ANÁLISIS PRESUPUESTARIO Y DE LA GESTIÓN DE COMPRAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2026_%20AN%C3%81LISIS%20PRESUPUESTARIO%20Y%20DE%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 27,
+      "titulo": "FUNDAMENTOS DE LA GESTIÓN DE DISTRIBUCIÓN MINERA",
+      "archivo": "CLASE 27_ FUNDAMENTOS DE LA GESTIÓN DE DISTRIBUCIÓN MINERA.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2027_%20FUNDAMENTOS%20DE%20LA%20GESTI%C3%93N%20DE%20DISTRIBUCI%C3%93N%20MINERA.pdf"
+    },
+    {
+      "numero": 28,
+      "titulo": "LOGÍSTICA MINERA E IDENTIFICACIÓN DE KPIS EN LA CADENA DE ABASTECIMIENTO - 1RA PARTE",
+      "archivo": "CLASE 28_ LOGÍSTICA MINERA E IDENTIFICACIÓN DE KPIS EN LA CADENA DE ABASTECIMIENTO - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2028_%20LOG%C3%8DSTICA%20MINERA%20E%20IDENTIFICACI%C3%93N%20DE%20KPIS%20EN%20LA%20CADENA%20DE%20ABASTECIMIENTO%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 29,
+      "titulo": "LOGÍSTICA MINERA E IDENTIFICACIÓN DE KPIS EN LA CADENA DE ABASTECIMIENTO - 2DA PARTE",
+      "archivo": "CLASE 29_ LOGÍSTICA MINERA E IDENTIFICACIÓN DE KPIS EN LA CADENA DE ABASTECIMIENTO - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2029_%20LOG%C3%8DSTICA%20MINERA%20E%20IDENTIFICACI%C3%93N%20DE%20KPIS%20EN%20LA%20CADENA%20DE%20ABASTECIMIENTO%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 30,
+      "titulo": "ANÁLISIS DE COSTOS EN LA CADENA DE SUMINISTRO MINERA - 1RA PARTE",
+      "archivo": "CLASE 30_ ANÁLISIS DE COSTOS EN LA CADENA DE SUMINISTRO MINERA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2030_%20AN%C3%81LISIS%20DE%20COSTOS%20EN%20LA%20CADENA%20DE%20SUMINISTRO%20MINERA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 31,
+      "titulo": "ANÁLISIS DE COSTOS EN LA CADENA DE SUMINISTRO MINERA- 2DA PARTE",
+      "archivo": "CLASE 31_ ANÁLISIS DE COSTOS EN LA CADENA DE SUMINISTRO MINERA- 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2031_%20AN%C3%81LISIS%20DE%20COSTOS%20EN%20LA%20CADENA%20DE%20SUMINISTRO%20MINERA-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 32,
+      "titulo": "LICITACIONES CAPEX Y OPEX EN LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 32_ LICITACIONES CAPEX Y OPEX EN LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2032_%20LICITACIONES%20CAPEX%20Y%20OPEX%20EN%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 33,
+      "titulo": "LICITACIONES CAPEX Y OPEX EN LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 33_ LICITACIONES CAPEX Y OPEX EN LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2033_%20LICITACIONES%20CAPEX%20Y%20OPEX%20EN%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 34,
+      "titulo": "IMPORTACIONES, EXPORTACIONES, IMPUESTOS E INCOTERMS - 1RA PARTE",
+      "archivo": "CLASE 34_ IMPORTACIONES, EXPORTACIONES, IMPUESTOS E INCOTERMS - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2034_%20IMPORTACIONES%2C%20EXPORTACIONES%2C%20IMPUESTOS%20E%20INCOTERMS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 35,
+      "titulo": "IMPORTACIONES, EXPORTACIONES, IMPUESTOS E INCOTERMS - 2DA PARTE",
+      "archivo": "CLASE 35_ IMPORTACIONES, EXPORTACIONES, IMPUESTOS E INCOTERMS - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2035_%20IMPORTACIONES%2C%20EXPORTACIONES%2C%20IMPUESTOS%20E%20INCOTERMS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 36,
+      "titulo": "CONSIDERACIONES ÉTICAS Y SOCIALES EN LA GESTIÓN DE COMPRAS - 1RA PARTE",
+      "archivo": "CLASE 36_ CONSIDERACIONES ÉTICAS Y SOCIALES EN LA GESTIÓN DE COMPRAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2036_%20CONSIDERACIONES%20%C3%89TICAS%20Y%20SOCIALES%20EN%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 37,
+      "titulo": "CONSIDERACIONES ÉTICAS Y SOCIALES EN LA GESTIÓN DE COMPRAS - 2DA PARTE",
+      "archivo": "CLASE 37_ CONSIDERACIONES ÉTICAS Y SOCIALES EN LA GESTIÓN DE COMPRAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2037_%20CONSIDERACIONES%20%C3%89TICAS%20Y%20SOCIALES%20EN%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 38,
+      "titulo": "PRÁCTICAS DE COMPRAS SOSTENIBLES EN LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 38_ PRÁCTICAS DE COMPRAS SOSTENIBLES EN LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2038_%20PR%C3%81CTICAS%20DE%20COMPRAS%20SOSTENIBLES%20EN%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 39,
+      "titulo": "PRÁCTICAS DE COMPRAS SOSTENIBLES EN LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 39_ PRÁCTICAS DE COMPRAS SOSTENIBLES EN LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2039_%20PR%C3%81CTICAS%20DE%20COMPRAS%20SOSTENIBLES%20EN%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 40,
+      "titulo": "EVALUACIÓN DEL IMPACTO AMBIENTAL Y SOCIAL DE PROVEEDORES - 1RA PARTE",
+      "archivo": "CLASE 40_ EVALUACIÓN DEL IMPACTO AMBIENTAL Y SOCIAL DE PROVEEDORES - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2040_%20EVALUACI%C3%93N%20DEL%20IMPACTO%20AMBIENTAL%20Y%20SOCIAL%20DE%20PROVEEDORES%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 41,
+      "titulo": "EVALUACIÓN DEL IMPACTO AMBIENTAL Y SOCIAL DE PROVEEDORES - 2DA PARTE",
+      "archivo": "CLASE 41_ EVALUACIÓN DEL IMPACTO AMBIENTAL Y SOCIAL DE PROVEEDORES - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2041_%20EVALUACI%C3%93N%20DEL%20IMPACTO%20AMBIENTAL%20Y%20SOCIAL%20DE%20PROVEEDORES%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 42,
+      "titulo": "AUDITORÍA Y REPORTE DE SOSTENIBILIDAD EN COMPRAS - 1RA PARTE",
+      "archivo": "CLASE 42_ AUDITORÍA Y REPORTE DE SOSTENIBILIDAD EN COMPRAS - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2042_%20AUDITOR%C3%8DA%20Y%20REPORTE%20DE%20SOSTENIBILIDAD%20EN%20COMPRAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 43,
+      "titulo": "AUDITORÍA Y REPORTE DE SOSTENIBILIDAD EN COMPRAS - 2DA PARTE",
+      "archivo": "CLASE 43_ AUDITORÍA Y REPORTE DE SOSTENIBILIDAD EN COMPRAS - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2043_%20AUDITOR%C3%8DA%20Y%20REPORTE%20DE%20SOSTENIBILIDAD%20EN%20COMPRAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 44,
+      "titulo": "TENDENCIAS FUTURAS EN LA GESTIÓN DE COMPRAS EN LA MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 44_ TENDENCIAS FUTURAS EN LA GESTIÓN DE COMPRAS EN LA MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2044_%20TENDENCIAS%20FUTURAS%20EN%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20EN%20LA%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 45,
+      "titulo": "TENDENCIAS FUTURAS EN LA GESTIÓN DE COMPRAS EN LA MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 45_ TENDENCIAS FUTURAS EN LA GESTIÓN DE COMPRAS EN LA MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/gerencia-estrategica-y-liderazgo-de-equipos-en-la-mineria/CLASE%2045_%20TENDENCIAS%20FUTURAS%20EN%20LA%20GESTI%C3%93N%20DE%20COMPRAS%20EN%20LA%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    }
+  ]
+}
