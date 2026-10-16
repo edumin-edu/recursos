@@ -1,0 +1,151 @@
+{
+  "nombre_diplomado": "GEOTECNIA MINERA",
+  "slug": "geotecnia-minera",
+  "total_clases": 24,
+  "mapas": [
+    {
+      "numero": 1,
+      "titulo": "PRINCIPIOS FUNDAMENTALES DE LA GEOTECNIA - 1RA PARTE",
+      "archivo": "CLASE 01_ PRINCIPIOS FUNDAMENTALES DE LA GEOTECNIA - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2001_%20PRINCIPIOS%20FUNDAMENTALES%20DE%20LA%20GEOTECNIA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 2,
+      "titulo": "PRINCIPIOS FUNDAMENTALES DE LA GEOTECNIA - 2DA PARTE",
+      "archivo": "CLASE 02_ PRINCIPIOS FUNDAMENTALES DE LA GEOTECNIA - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2002_%20PRINCIPIOS%20FUNDAMENTALES%20DE%20LA%20GEOTECNIA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 3,
+      "titulo": "MODELOS DE COMPORTAMIENTOS DE SUELOS - 1RA PARTE",
+      "archivo": "CLASE 03_ MODELOS DE COMPORTAMIENTOS DE SUELOS - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2003_%20MODELOS%20DE%20COMPORTAMIENTOS%20DE%20SUELOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 4,
+      "titulo": "MODELOS DE COMPORTAMIENTOS DE SUELOS - 2DA PARTE",
+      "archivo": "CLASE 04_ MODELOS DE COMPORTAMIENTOS DE SUELOS - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2004_%20MODELOS%20DE%20COMPORTAMIENTOS%20DE%20SUELOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 5,
+      "titulo": "MECÁNICA DE ROCAS - 1RA PARTE",
+      "archivo": "CLASE 05_ MECÁNICA DE ROCAS - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2005_%20MEC%C3%81NICA%20DE%20ROCAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 6,
+      "titulo": "MECÁNICA DE ROCAS - 2DA PARTE",
+      "archivo": "CLASE 06_ MECÁNICA DE ROCAS - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2006_%20MEC%C3%81NICA%20DE%20ROCAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 7,
+      "titulo": "DINÁMICA DE ROCAS - 1RA PARTE",
+      "archivo": "CLASE 07_ DINÁMICA DE ROCAS - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2007_%20DIN%C3%81MICA%20DE%20ROCAS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 8,
+      "titulo": "DINÁMICA DE ROCAS - 2DA PARTE",
+      "archivo": "CLASE 08_ DINÁMICA DE ROCAS - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2008_%20DIN%C3%81MICA%20DE%20ROCAS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 9,
+      "titulo": "ESTUDIO GEOTÉCNICO - 1RA PARTE",
+      "archivo": "CLASE 09_ ESTUDIO GEOTÉCNICO - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2009_%20ESTUDIO%20GEOT%C3%89CNICO%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 10,
+      "titulo": "ESTUDIO GEOTÉCNICO - 2DA PARTE",
+      "archivo": "CLASE 10_ ESTUDIO GEOTÉCNICO - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2010_%20ESTUDIO%20GEOT%C3%89CNICO%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 11,
+      "titulo": "PENETRACIÓN ESTÁTICA Y DINÁMICA - 1RA PARTE",
+      "archivo": "CLASE 11_ PENETRACIÓN ESTÁTICA Y DINÁMICA - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2011_%20PENETRACI%C3%93N%20EST%C3%81TICA%20Y%20DIN%C3%81MICA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 12,
+      "titulo": "PENETRACIÓN ESTÁTICA Y DINÁMICA - 2DA PARTE",
+      "archivo": "CLASE 12_ PENETRACIÓN ESTÁTICA Y DINÁMICA - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2012_%20PENETRACI%C3%93N%20EST%C3%81TICA%20Y%20DIN%C3%81MICA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 13,
+      "titulo": "INVESTIGACIÓN GEOFÍSICA - 1RA PARTE",
+      "archivo": "CLASE 13_ INVESTIGACIÓN GEOFÍSICA - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2013_%20INVESTIGACI%C3%93N%20GEOF%C3%8DSICA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 14,
+      "titulo": "INVESTIGACIÓN GEOFÍSICA - 2DA PARTE",
+      "archivo": "CLASE 14_ INVESTIGACIÓN GEOFÍSICA - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2014_%20INVESTIGACI%C3%93N%20GEOF%C3%8DSICA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 15,
+      "titulo": "INSTRUMENTACIÓN GEOTÉCNICA - 1RA PARTE",
+      "archivo": "CLASE 15_ INSTRUMENTACIÓN GEOTÉCNICA - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2015_%20INSTRUMENTACI%C3%93N%20GEOT%C3%89CNICA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 16,
+      "titulo": "INSTRUMENTACIÓN GEOTÉCNICA - 2DA PARTE",
+      "archivo": "CLASE 16_ INSTRUMENTACIÓN GEOTÉCNICA - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2016_%20INSTRUMENTACI%C3%93N%20GEOT%C3%89CNICA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 17,
+      "titulo": "GESTIÓN DEL AGUA EN MINERÍA - 1RA PARTE",
+      "archivo": "CLASE 17_ GESTIÓN DEL AGUA EN MINERÍA - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2017_%20GESTI%C3%93N%20DEL%20AGUA%20EN%20MINER%C3%8DA%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 18,
+      "titulo": "GESTIÓN DEL AGUA EN MINERÍA - 2DA PARTE",
+      "archivo": "CLASE 18_ GESTIÓN DEL AGUA EN MINERÍA - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2018_%20GESTI%C3%93N%20DEL%20AGUA%20EN%20MINER%C3%8DA%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 19,
+      "titulo": "SATURACIÓN DE SUELOS - 1RA PARTE",
+      "archivo": "CLASE 19_ SATURACIÓN DE SUELOS - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2019_%20SATURACI%C3%93N%20DE%20SUELOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 20,
+      "titulo": "SATURACIÓN DE SUELOS - 2DA PARTE",
+      "archivo": "CLASE 20_ SATURACIÓN DE SUELOS - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2020_%20SATURACI%C3%93N%20DE%20SUELOS%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 21,
+      "titulo": "PROCESOS DE SATURACIÓN - 1RA PARTE",
+      "archivo": "CLASE 21_ PROCESOS DE SATURACIÓN - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2021_%20PROCESOS%20DE%20SATURACI%C3%93N%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 22,
+      "titulo": "PROCESOS DE SATURACIÓN - 2DA PARTE",
+      "archivo": "CLASE 22_ PROCESOS DE SATURACIÓN - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2022_%20PROCESOS%20DE%20SATURACI%C3%93N%20-%202DA%20PARTE.pdf"
+    },
+    {
+      "numero": 23,
+      "titulo": "DRENAJE DE SUELOS - 1RA PARTE",
+      "archivo": "CLASE 23_ DRENAJE DE SUELOS - 1RA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2023_%20DRENAJE%20DE%20SUELOS%20-%201RA%20PARTE.pdf"
+    },
+    {
+      "numero": 24,
+      "titulo": "DRENAJE DE SUELOS - 2DA PARTE",
+      "archivo": "CLASE 24_ DRENAJE DE SUELOS - 2DA PARTE.pdf",
+      "ruta": "mapas/geotecnia-minera/CLASE%2024_%20DRENAJE%20DE%20SUELOS%20-%202DA%20PARTE.pdf"
+    }
+  ]
+}
