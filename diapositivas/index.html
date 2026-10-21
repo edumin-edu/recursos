@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>EDUMIN - Diapositivas</title>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- PDF.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <style>
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #e5e9f0;
+    }
+
+    .num-tabular {
+      font-variant-numeric: tabular-nums;
+      -webkit-font-feature-settings: "tnum" 1;
+      font-feature-settings: "tnum" 1;
+      display: inline-block;
+    }
+
+    input {
+      font-family: inherit;
+    }
+
+    .material-symbols-outlined {
+      font-family: "Material Symbols Outlined", sans-serif !important;
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      font-size: 20px;
+      line-height: 1;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      white-space: nowrap;
+      overflow-wrap: normal;
+      direction: ltr;
+      vertical-align: middle;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Lámina de diapositiva con sombra limpia y bordes suaves */
+    .slide-sheet {
+      background-color: #ffffff;
+      box-shadow: 0 16px 40px -10px rgb(15, 23, 42, 16%), 0 0 0 1px rgb(15, 23, 42, 6%);
+      border-radius: 12px;
+      transition: opacity 0.15s ease;
+    }
+
+    /* Enlaces interactivos dentro del PDF */
+    .pdf-link-annot {
+      position: absolute;
+      cursor: pointer !important;
+      border-radius: 4px;
+      transition: background-color 0.15s ease;
+      z-index: 25;
+      pointer-events: auto !important;
+      background-color: transparent;
+    }
+
+    .pdf-link-annot:hover {
+      background-color: rgb(37, 99, 235, 15%);
+      outline: 1.5px solid rgb(37, 99, 235, 50%);
+    }
+
+    /* Barra flotante con efecto Glassmorphism */
+    .glass-dock {
+      background-color: rgb(255, 255, 255, 72%) !important;
+      backdrop-filter: blur(20px) saturate(190%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+      border: 1px solid rgb(255, 255, 255, 80%) !important;
+      box-shadow: 0 12px 36px -6px rgb(15, 23, 42, 14%), 0 2px 8px rgb(15, 23, 42, 5%) !important;
+    }
+
+    /* Contenedor para visor PPTX (Office Online) */
+    .pptx-container {
+      width: 100%;
+      height: 100%;
+      max-width: 1200px;
+      max-height: calc(100vh - 96px);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 16px 40px -10px rgb(15, 23, 42, 16%), 0 0 0 1px rgb(15, 23, 42, 6%);
+    }
+
+    /* Caja de error estándar unificada con los demás índices */
+    .caja-error {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 36px 32px;
+      max-width: 440px;
+      margin: auto;
+      background: rgb(255, 255, 255, 88%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgb(255, 255, 255, 90%);
+      border-radius: 24px;
+      box-shadow: 0 16px 40px -10px rgb(15, 23, 42, 12%);
+      z-index: 30;
+      animation: fadeIn 0.3s ease-out both;
+    }
+
+    .icono-error {
+      font-size: 3.4rem;
+      line-height: 1;
+      margin-bottom: 18px;
+      user-select: none;
+    }
+
+    .titulo-error {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .descripcion-error {
+      font-size: 0.95rem;
+      color: #64748b;
+      line-height: 1.45;
+      text-wrap: balance;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="h-full text-slate-800 flex flex-col select-none overflow-hidden relative">
+
+  <!-- ======================================================== -->
+  <!-- LIENZO PRINCIPAL DEL VISOR                               -->
+  <!-- ======================================================== -->
+  <main id="viewport" class="flex-1 w-full h-full overflow-hidden flex items-center justify-center p-2 sm:p-6 pb-20 sm:pb-24 no-scrollbar relative">
+
+    <!-- ESTADO DE CARGA -->
+    <div id="loading-state" class="flex flex-col items-center justify-center gap-3.5 pointer-events-none select-none">
+      <div class="w-11 h-11 border-[3.5px] border-slate-300/70 border-t-blue-600 rounded-full animate-spin"></div>
+      <p id="loading-text" class="text-xs font-semibold text-slate-500 tracking-wide">Cargando presentación…</p>
+    </div>
+
+    <!-- ESTADO DE ERROR UNIFICADO -->
+    <div id="contenido-error" class="caja-error">
+      <div class="icono-error">⚠️</div>
+      <div class="titulo-error">Contenido no disponible</div>
+      <div class="descripcion-error">El diplomado o la presentación solicitada no existe. Verifica que el enlace sea correcto.</div>
+    </div>
+
+    <!-- VISOR 1: LÁMINA PDF (PDF.js) -->
+    <div id="canvas-card" style="display: none;" class="relative inline-block">
+      <canvas id="pdf-canvas" class="slide-sheet block"></canvas>
+      <div id="annotation-layer" class="absolute top-0 left-0 pointer-events-none rounded-xl"></div>
+    </div>
+
+    <!-- VISOR 2: PRESENTACIÓN POWERPOINT (Office Online Embed) -->
+    <div id="pptx-card" style="display: none;" class="pptx-container relative">
+      <iframe
+        id="pptx-iframe"
+        src="about:blank"
+        title="Visor de presentación PowerPoint"
+        class="w-full h-full border-0"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- BARRA INFERIOR FLOTANTE (SOLO LO ESENCIAL)               -->
+  <!-- ======================================================== -->
+  <footer id="bottom-bar" style="display: none;" class="fixed bottom-4 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+    <div class="glass-dock pointer-events-auto flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-2 rounded-2xl">
+
+      <!-- Controles exclusivos de navegación PDF -->
+      <div id="pdf-nav-controls" class="flex items-center gap-1.5 sm:gap-2.5">
+        <!-- Diapositiva anterior -->
+        <button id="prev-btn" type="button" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 disabled:opacity-25 disabled:pointer-events-none transition" title="Diapositiva anterior (←)">
+          <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+        </button>
+
+        <!-- Contador de diapositivas con salto directo -->
+        <div class="flex items-center select-none text-xs sm:text-sm font-bold text-slate-800 num-tabular">
+          <input
+            id="counter-input"
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            maxlength="3"
+            value="01"
+            class="w-[30px] sm:w-[34px] text-right font-bold text-slate-800 bg-transparent hover:bg-slate-200/50 focus:bg-white focus:ring-1 focus:ring-slate-400 focus:outline-none rounded py-0.5 px-0.5 transition cursor-text"
+            title="Escribe el número de diapositiva y presiona Enter"
+          />
+          <span class="w-[14px] text-center text-slate-400 font-normal select-none">/</span>
+          <span id="counter-total" class="w-[30px] sm:w-[34px] text-left text-slate-500 font-medium py-0.5 px-0.5 select-none">&hellip;</span>
+        </div>
+
+        <!-- Barra de progreso sutil -->
+        <div class="w-16 sm:w-28 h-1.5 bg-slate-200/70 rounded-full overflow-hidden border border-slate-300/40 hidden sm:block">
+          <div id="progress-bar" class="h-full bg-blue-600 rounded-full transition-all duration-300" style="width: 0%;"></div>
+        </div>
+
+        <!-- Diapositiva siguiente -->
+        <button id="next-btn" type="button" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 disabled:opacity-25 disabled:pointer-events-none transition" title="Siguiente diapositiva (→)">
+          <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+        </button>
+
+        <div class="w-px h-5 bg-slate-300/60 mx-0.5 sm:mx-1"></div>
+      </div>
+
+      <!-- Botón Descargar archivo original (PDF o PPTX) -->
+      <button id="download-btn" type="button" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 transition flex items-center gap-1.5 text-xs font-semibold px-2.5" title="Descargar presentación">
+        <span class="material-symbols-outlined text-[19px]">download</span>
+        <span class="hidden sm:inline">Descargar</span>
+      </button>
+
+      <!-- Botón Pantalla Completa -->
+      <button id="fullscreen-btn" type="button" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 transition" title="Pantalla completa (F)">
+        <span class="material-symbols-outlined text-[19px]">fullscreen</span>
+      </button>
+
+    </div>
+  </footer>
+
+  <script>
+    /* global pdfjsLib */
+
+    // Configurar worker de PDF.js
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+    // Base pública de GitHub Pages del repositorio
+    const GITHUB_PAGES_BASE = "https://edumin-edu.github.io/recursos/";
+
+    let activeFileUrl = "";
+    let fallbackFileUrl = "";
+    let activeFileName = "diapositivas.pdf";
+    let isFirstRenderDone = false;
+
+    // Estado del visor PDF
+    let pdfDoc = null;
+    let pageNum = 1;
+    let pageRendering = false;
+    let pageNumPending = null;
+    let currentScale = 1.0;
+
+    // Referencias DOM
+    const viewportEl = document.getElementById("viewport");
+    const canvasCard = document.getElementById("canvas-card");
+    const canvas = document.getElementById("pdf-canvas");
+    const ctx = canvas.getContext("2d");
+    const annotationLayer = document.getElementById("annotation-layer");
+    const pptxCard = document.getElementById("pptx-card");
+    const pptxIframe = document.getElementById("pptx-iframe");
+
+    const loadingState = document.getElementById("loading-state");
+    const contenidoError = document.getElementById("contenido-error");
+    const bottomBar = document.getElementById("bottom-bar");
+    const pdfNavControls = document.getElementById("pdf-nav-controls");
+
+    const counterInput = document.getElementById("counter-input");
+    const counterTotal = document.getElementById("counter-total");
+    const progressBar = document.getElementById("progress-bar");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const downloadBtn = document.getElementById("download-btn");
+    const fullscreenBtn = document.getElementById("fullscreen-btn");
+
+    function mostrarError() {
+      if (loadingState) loadingState.style.display = "none";
+      if (canvasCard) canvasCard.style.display = "none";
+      if (pptxCard) pptxCard.style.display = "none";
+      if (bottomBar) bottomBar.style.display = "none";
+      if (contenidoError) contenidoError.style.display = "flex";
+    }
+
+    function formatearNumero(n) {
+      return n < 10 ? "0" + n : String(n);
+    }
+
+    // =========================================================
+    // 1. MODO LECTOR PDF (PDF.js)
+    // =========================================================
+    function loadPdf(targetUrl) {
+      if (!targetUrl) return;
+      loadingState.style.display = "flex";
+      contenidoError.style.display = "none";
+      canvasCard.style.display = "none";
+      pptxCard.style.display = "none";
+      bottomBar.style.display = "none";
+      pdfNavControls.style.display = "flex";
+      annotationLayer.innerHTML = "";
+      isFirstRenderDone = false;
+
+      const loadingTask = pdfjsLib.getDocument(targetUrl);
+      loadingTask.promise
+        .then((doc) => {
+          pdfDoc = doc;
+          pageNum = 1;
+          counterTotal.textContent = formatearNumero(doc.numPages);
+          counterInput.value = formatearNumero(pageNum);
+          fitAndRenderCurrentSlide();
+        })
+        .catch((err) => {
+          console.warn("Error al cargar PDF desde:", targetUrl, err);
+          if (fallbackFileUrl && targetUrl !== fallbackFileUrl) {
+            activeFileUrl = fallbackFileUrl;
+            loadPdf(fallbackFileUrl);
+          } else {
+            mostrarError();
+          }
+        });
+    }
+
+    function fitAndRenderCurrentSlide() {
+      if (!pdfDoc) return;
+      pdfDoc.getPage(pageNum).then((page) => {
+        const unscaled = page.getViewport({ scale: 1.0 });
+        const isMobile = window.innerWidth < 768;
+        const padX = isMobile ? 16 : 56;
+        const padY = isMobile ? 96 : 112;
+
+        const availWidth = Math.max(viewportEl.clientWidth - padX, 200);
+        const availHeight = Math.max(viewportEl.clientHeight - padY, 200);
+
+        const scaleW = availWidth / unscaled.width;
+        const scaleH = availHeight / unscaled.height;
+
+        currentScale = Math.min(scaleW, scaleH);
+        renderPage(pageNum);
+      });
+    }
+
+    function renderPage(num) {
+      pageRendering = true;
+
+      pdfDoc.getPage(num).then((page) => {
+        const pageViewport = page.getViewport({ scale: currentScale });
+        const outputScale = Math.max(window.devicePixelRatio || 1, 2);
+        const targetW = Math.floor(pageViewport.width * outputScale);
+        const targetH = Math.floor(pageViewport.height * outputScale);
+
+        const offCanvas = document.createElement("canvas");
+        offCanvas.width = targetW;
+        offCanvas.height = targetH;
+        const offCtx = offCanvas.getContext("2d");
+
+        const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+
+        const renderTask = page.render({
+          canvasContext: offCtx,
+          transform: transform,
+          viewport: pageViewport,
+        });
+
+        renderTask.promise.then(() => {
+          canvas.width = targetW;
+          canvas.height = targetH;
+          canvas.style.width = Math.floor(pageViewport.width) + "px";
+          canvas.style.height = Math.floor(pageViewport.height) + "px";
+          ctx.drawImage(offCanvas, 0, 0);
+
+          annotationLayer.style.width = Math.floor(pageViewport.width) + "px";
+          annotationLayer.style.height = Math.floor(pageViewport.height) + "px";
+
+          if (!isFirstRenderDone) {
+            isFirstRenderDone = true;
+            loadingState.style.display = "none";
+            canvasCard.style.display = "inline-block";
+            bottomBar.style.display = "block";
+          }
+
+          pageRendering = false;
+          if (pageNumPending !== null) {
+            const nextPending = pageNumPending;
+            pageNumPending = null;
+            fitAndRenderSlideNumber(nextPending);
+          }
+        });
+
+        renderAnnotations(page, pageViewport);
+      });
+
+      counterInput.value = formatearNumero(num);
+      progressBar.style.width = `${(num / pdfDoc.numPages) * 100}%`;
+      prevBtn.disabled = num <= 1;
+      nextBtn.disabled = num >= pdfDoc.numPages;
+    }
+
+    function fitAndRenderSlideNumber(num) {
+      if (pageRendering) {
+        pageNumPending = num;
+      } else {
+        fitAndRenderCurrentSlide();
+      }
+    }
+
+    function renderAnnotations(page, pageViewport) {
+      annotationLayer.innerHTML = "";
+      page
+        .getAnnotations({ intent: "display" })
+        .then((annotations) => {
+          annotations.forEach((annot) => {
+            if (annot.subtype === "Link") {
+              const rect = pageViewport.convertToViewportRectangle(annot.rect);
+              const left = Math.min(rect[0], rect[2]);
+              const top = Math.min(rect[1], rect[3]);
+              const width = Math.max(Math.abs(rect[0] - rect[2]), 16);
+              const height = Math.max(Math.abs(rect[1] - rect[3]), 16);
+              const linkUrl = annot.url || annot.unsafeUrl;
+
+              const a = document.createElement("a");
+              a.className = "pdf-link-annot";
+              a.style.left = left + "px";
+              a.style.top = top + "px";
+              a.style.width = width + "px";
+              a.style.height = height + "px";
+
+              if (linkUrl) {
+                a.href = linkUrl;
+                a.target = "_blank";
+                a.rel = "noopener noreferrer";
+                a.title = linkUrl;
+              } else if (annot.dest) {
+                a.onclick = (e) => {
+                  e.preventDefault();
+                  pdfDoc.getPageIndex(annot.dest[0]).then((idx) => {
+                    pageNum = idx + 1;
+                    fitAndRenderSlideNumber(pageNum);
+                  });
+                };
+              }
+              annotationLayer.appendChild(a);
+            }
+          });
+        })
+        .catch(() => {});
+    }
+
+    function goPrev() {
+      if (!pdfDoc || pageNum <= 1) return;
+      pageNum--;
+      fitAndRenderSlideNumber(pageNum);
+    }
+
+    function goNext() {
+      if (!pdfDoc || pageNum >= pdfDoc.numPages) return;
+      pageNum++;
+      fitAndRenderSlideNumber(pageNum);
+    }
+
+    prevBtn.addEventListener("click", goPrev);
+    nextBtn.addEventListener("click", goNext);
+
+    counterInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        counterInput.blur();
+      }
+    });
+
+    counterInput.addEventListener("change", () => {
+      if (!pdfDoc) return;
+      const val = parseInt(counterInput.value, 10);
+      if (!isNaN(val) && val >= 1 && val <= pdfDoc.numPages) {
+        pageNum = val;
+        fitAndRenderSlideNumber(pageNum);
+      } else {
+        counterInput.value = formatearNumero(pageNum);
+      }
+    });
+
+    counterInput.addEventListener("focus", () => {
+      counterInput.select();
+    });
+
+    // Gestos swipe en móviles para cambiar de diapositiva
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    viewportEl.addEventListener(
+      "touchstart",
+      (e) => {
+        if (e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      },
+      { passive: true }
+    );
+
+    viewportEl.addEventListener(
+      "touchend",
+      (e) => {
+        if (!pdfDoc || e.changedTouches.length !== 1) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+          if (dx < 0) goNext();
+          else goPrev();
+        }
+      },
+      { passive: true }
+    );
+
+    // =========================================================
+    // 2. MODO VISOR POWERPOINT (.PPTX / .PPT)
+    // =========================================================
+    function loadPptx(publicUrl) {
+      loadingState.style.display = "flex";
+      contenidoError.style.display = "none";
+      canvasCard.style.display = "none";
+      pdfNavControls.style.display = "none";
+
+      const officeEmbedUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(publicUrl)}`;
+      pptxIframe.src = officeEmbedUrl;
+
+      pptxIframe.onload = () => {
+        loadingState.style.display = "none";
+        pptxCard.style.display = "block";
+        bottomBar.style.display = "block";
+      };
+
+      pptxIframe.onerror = () => {
+        mostrarError();
+      };
+    }
+
+    // =========================================================
+    // 3. CONTROLES GENERALES (DESCARGA, PANTALLA COMPLETA, TECLADO)
+    // =========================================================
+    downloadBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const targetDownloadUrl = activeFileUrl || fallbackFileUrl;
+      if (!targetDownloadUrl) return;
+
+      const iconSpan = downloadBtn.querySelector(".material-symbols-outlined");
+      const originalText = iconSpan ? iconSpan.textContent : "download";
+
+      try {
+        if (iconSpan) iconSpan.textContent = "hourglass_empty";
+        downloadBtn.disabled = true;
+
+        const response = await fetch(targetDownloadUrl);
+        if (!response.ok) throw new Error("No se pudo obtener el archivo");
+
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const tempLink = document.createElement("a");
+        tempLink.href = blobUrl;
+        tempLink.download = activeFileName;
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
+
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
+      } catch {
+        const tempLink = document.createElement("a");
+        tempLink.href = targetDownloadUrl;
+        tempLink.target = "_blank";
+        tempLink.download = activeFileName;
+        tempLink.click();
+      } finally {
+        if (iconSpan) iconSpan.textContent = originalText;
+        downloadBtn.disabled = false;
+      }
+    });
+
+    fullscreenBtn.addEventListener("click", () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (document.activeElement === counterInput) return;
+      if (e.key === "ArrowRight" || e.key === " ") {
+        if (pdfDoc) {
+          e.preventDefault();
+          goNext();
+        }
+      } else if (e.key === "ArrowLeft") {
+        if (pdfDoc) {
+          e.preventDefault();
+          goPrev();
+        }
+      } else if (e.key === "f" || e.key === "F") {
+        fullscreenBtn.click();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (pdfDoc) {
+        fitAndRenderCurrentSlide();
+      }
+    });
+
+    // =========================================================
+    // 4. INICIALIZACIÓN Y LECTURA DE PARÁMETROS URL
+    //    Soporta:
+    //    A) ?diplomado=derecho-minero&archivo=CLASE 01...pdf (o .pptx)
+    //    B) ?archivo=derecho-minero/CLASE 01...pdf
+    //    C) ?diplomado=derecho-minero&diapositiva=1 (vía catálogo JSON)
+    // =========================================================
+    function abrirRecursoResuelto(diplomadoSlug, fileName, customRuta) {
+      const cleanFile = decodeURIComponent(fileName).trim();
+      activeFileName = cleanFile.split("/").pop() || "diapositivas.pdf";
+
+      const encodedFile = encodeURIComponent(activeFileName);
+      const relativePath = customRuta || (diplomadoSlug ? `diapositivas/${diplomadoSlug}/${encodedFile}` : `diapositivas/${encodedFile}`);
+
+      if (relativePath.startsWith("http://") || relativePath.startsWith("https://")) {
+        activeFileUrl = relativePath;
+        fallbackFileUrl = relativePath;
+      } else {
+        activeFileUrl = `${GITHUB_PAGES_BASE}${relativePath}`;
+        fallbackFileUrl = diplomadoSlug ? `./${diplomadoSlug}/${encodedFile}` : `./${encodedFile}`;
+      }
+
+      const lowerName = activeFileName.toLowerCase();
+      if (lowerName.endsWith(".pptx") || lowerName.endsWith(".ppt")) {
+        loadPptx(activeFileUrl);
+      } else if (lowerName.endsWith(".pdf")) {
+        // En entorno local probamos primero la ruta relativa para velocidad instantánea
+        const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
+        loadPdf(isLocal ? fallbackFileUrl : activeFileUrl);
+      } else {
+        mostrarError();
+      }
+    }
+
+    function inicializarVisor() {
+      const params = new URLSearchParams(window.location.search);
+      const diplomadoRaw = params.get("diplomado") ? params.get("diplomado").trim() : "";
+      const archivoRaw = params.get("archivo") ? params.get("archivo").trim() : "";
+      const numRaw = (params.get("diapositiva") || params.get("clase") || "").trim();
+
+      const diplomadoClean = diplomadoRaw.replace(/\.json$/i, "").replace(/^\/+|\/+$/g, "");
+
+      // Caso 1: Se pasa directamente el nombre o ruta del archivo (?diplomado=...&archivo=... o ?archivo=...)
+      if (archivoRaw) {
+        if (!diplomadoClean && archivoRaw.includes("/")) {
+          const parts = archivoRaw.split("/").filter(Boolean);
+          const filePart = parts.pop();
+          const folderPart = parts.pop();
+          abrirRecursoResuelto(folderPart, filePart, null);
+          return;
+        }
+        if (!diplomadoClean) {
+          mostrarError();
+          return;
+        }
+        abrirRecursoResuelto(diplomadoClean, archivoRaw, null);
+        return;
+      }
+
+      // Caso 2: Se pasa número de diapositiva/clase (?diplomado=...&diapositiva=1)
+      if (diplomadoClean && /^\d+$/.test(numRaw)) {
+        const numItem = parseInt(numRaw, 10);
+        if (numItem < 1) {
+          mostrarError();
+          return;
+        }
+
+        fetch(`./${diplomadoClean}.json`)
+          .then((res) => {
+            if (!res.ok) throw new Error("Catálogo no encontrado");
+            return res.json();
+          })
+          .then((data) => {
+            const lista = data.diapositivas || data.clases || data.mapas || [];
+            if (!Array.isArray(lista) || lista.length === 0) {
+              mostrarError();
+              return;
+            }
+            const item = lista.find((d) => d.numero === numItem) || lista[numItem - 1];
+            if (!item || (!item.archivo && !item.ruta)) {
+              mostrarError();
+              return;
+            }
+            abrirRecursoResuelto(diplomadoClean, item.archivo || item.ruta, item.ruta || null);
+          })
+          .catch(() => {
+            mostrarError();
+          });
+        return;
+      }
+
+      mostrarError();
+    }
+
+    window.addEventListener("DOMContentLoaded", inicializarVisor);
+  </script>
+</body>
+</html>
