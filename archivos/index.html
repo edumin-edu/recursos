@@ -1479,7 +1479,7 @@
       activeFileName = cleanFile.split("/").pop() || "documento.pdf";
 
       const encodedFile = encodeURIComponent(activeFileName);
-      const relativePath = customRuta || (diplomadoSlug ? `diapositivas/${diplomadoSlug}/${encodedFile}` : `diapositivas/${encodedFile}`);
+      const relativePath = customRuta || (diplomadoSlug ? `archivos/${diplomadoSlug}/${encodedFile}` : `archivos/${encodedFile}`);
 
       if (relativePath.startsWith("http://") || relativePath.startsWith("https://")) {
         activeFileUrl = relativePath;
@@ -1508,7 +1508,7 @@
       const params = new URLSearchParams(window.location.search);
       const diplomadoRaw = params.get("diplomado") ? params.get("diplomado").trim() : "";
       const archivoRaw = params.get("archivo") ? params.get("archivo").trim() : "";
-      const numRaw = (params.get("diapositiva") || params.get("clase") || "").trim();
+      const numRaw = (params.get("archivo_num") || params.get("diapositiva") || params.get("clase") || "").trim();
 
       const diplomadoClean = diplomadoRaw.replace(/\.json$/i, "").replace(/^\/+|\/+$/g, "");
 
@@ -1541,7 +1541,7 @@
             return res.json();
           })
           .then((data) => {
-            const lista = data.diapositivas || data.clases || data.mapas || [];
+            const lista = data.archivos || data.diapositivas || data.clases || data.mapas || [];
             if (!Array.isArray(lista) || lista.length === 0) {
               mostrarError();
               return;
