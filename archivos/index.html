@@ -1125,6 +1125,32 @@
       });
     }
 
+    let scrollPageSyncTimer = null;
+    viewportEl.addEventListener("scroll", () => {
+      if (!pdfDoc || canvasCard.style.display === "none") return;
+      clearTimeout(scrollPageSyncTimer);
+      scrollPageSyncTimer = setTimeout(() => {
+        const stageTop = viewportEl.getBoundingClientRect().top;
+        const sheets = [...canvasCard.querySelectorAll(".pdf-page-sheet")];
+        let closestPage = pageNum;
+        let closestDistance = Infinity;
+        sheets.forEach((sheet) => {
+          const distance = Math.abs(sheet.getBoundingClientRect().top - stageTop);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestPage = Number(sheet.dataset.page);
+          }
+        });
+        if (closestPage && closestPage !== pageNum) {
+          pageNum = closestPage;
+          counterInput.value = String(pageNum);
+          prevBtn.disabled = pageNum <= 1;
+          nextBtn.disabled = pageNum >= pdfDoc.numPages;
+          resaltarMiniaturaActiva(pageNum);
+        }
+      }, 80);
+    }, { passive: true });
+
     sidebarToggleBtn.addEventListener("click", () => {
       const isOpen = sidebarEl.classList.toggle("open");
       sidebarToggleBtn.classList.toggle("active", isOpen);
