@@ -340,6 +340,11 @@
       background-color: var(--bg-app);
     }
 
+    .reader-stage.no-padding {
+      padding: 0 !important;
+      overflow: hidden !important;
+    }
+
     .reader-stage.grab-mode {
       cursor: grab;
     }
@@ -352,13 +357,37 @@
     .canvas-holder {
       position: relative;
       display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
       margin: auto;
-      box-shadow: 0 12px 38px rgb(0, 0, 0, 65%), 0 0 0 1px rgb(255, 255, 255, 8%);
+      box-shadow: none;
+      background-color: transparent;
+    }
+
+    .pdf-page-sheet {
+      position: relative;
+      flex: 0 0 auto;
+      margin: 0 auto;
       background-color: #ffffff;
+      box-shadow: 0 8px 24px rgb(0, 0, 0, 48%), 0 0 0 1px rgb(255, 255, 255, 8%);
     }
 
     .canvas-holder canvas {
       display: block;
+    }
+
+    .pdf-page-label {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 16;
+      padding: 3px 7px;
+      border-radius: 4px;
+      background: rgb(20, 21, 24, 78%);
+      color: #fff;
+      font: 11px/1.2 "Plus Jakarta Sans", sans-serif;
+      pointer-events: none;
     }
 
     .pdf-link-annot {
@@ -381,9 +410,9 @@
       height: 100%;
       display: none;
       background-color: #141518;
-      border-radius: 8px;
+      border: 0;
+      border-radius: 0;
       overflow: hidden;
-      border: 1px solid var(--border-color);
     }
 
     .office-holder iframe {
@@ -843,6 +872,7 @@
     // =========================================================
     function loadPdf(targetUrlOrData, fromZip = false) {
       if (!targetUrlOrData) return;
+      viewportEl.classList.remove("no-padding");
       loadingState.style.display = "flex";
       contenidoError.style.display = "none";
       canvasCard.style.display = "none";
@@ -854,6 +884,16 @@
       backToZipBtn.style.display = fromZip ? "inline-flex" : "none";
       annotationLayer.innerHTML = "";
       thumbsList.innerHTML = "";
+      canvasCard.innerHTML = "";
+      const firstPageSheet = document.createElement("div");
+      firstPageSheet.className = "pdf-page-sheet";
+      firstPageSheet.dataset.page = "1";
+      firstPageSheet.append(canvas, annotationLayer);
+      const firstPageLabel = document.createElement("span");
+      firstPageLabel.className = "pdf-page-label";
+      firstPageLabel.textContent = "1";
+      firstPageSheet.appendChild(firstPageLabel);
+      canvasCard.appendChild(firstPageSheet);
       thumbsGenerated = false;
       isFirstRenderDone = false;
       currentRotation = 0;
@@ -910,55 +950,67 @@
       zoomVal.textContent = `${pct}%`;
     }
 
-    function renderPage(num) {
+    async function renderPage(num) {
+      if (!pdfDoc || pageRendering) return;
       pageRendering = true;
-
-      pdfDoc.getPage(num).then((page) => {
-        const pageViewport = page.getViewport({ scale: currentScale, rotation: currentRotation });
-        const outputScale = Math.max(window.devicePixelRatio || 1, 2);
-        const targetW = Math.floor(pageViewport.width * outputScale);
-        const targetH = Math.floor(pageViewport.height * outputScale);
-
-        const offCanvas = document.createElement("canvas");
-        offCanvas.width = targetW;
-        offCanvas.height = targetH;
-        const offCtx = offCanvas.getContext("2d");
-
-        const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
-
-        const renderTask = page.render({
-          canvasContext: offCtx,
-          transform: transform,
-          viewport: pageViewport,
-        });
-
-        renderTask.promise.then(() => {
-          canvas.width = targetW;
-          canvas.height = targetH;
-          canvas.style.width = Math.floor(pageViewport.width) + "px";
-          canvas.style.height = Math.floor(pageViewport.height) + "px";
-          ctx.drawImage(offCanvas, 0, 0);
-
-          annotationLayer.style.width = Math.floor(pageViewport.width) + "px";
-          annotationLayer.style.height = Math.floor(pageViewport.height) + "px";
-
-          if (!isFirstRenderDone) {
+      const targetScrollPage = num;
+      try {
+        for (let pageNumber = 1; pageNumber <= pdfDoc.numPages; pageNumber++) {
+          const page = await pdfDoc.getPage(pageNumber);
+          const pageViewport = page.getViewport({ scale: currentScale, rotation: currentRotation });
+          let sheet = canvasCard.querySelector(`[data-page="${pageNumber}"]`);
+          if (!sheet) {
+            sheet = document.createElement("div");
+            sheet.className = "pdf-page-sheet";
+            sheet.dataset.page = String(pageNumber);
+            const pageCanvas = document.createElement("canvas");
+            const pageAnnotations = document.createElement("div");
+            pageAnnotations.className = "pdf-annotation-layer";
+            pageAnnotations.style.cssText = "position:absolute;top:0;left:0;pointer-events:none";
+            sheet.append(pageCanvas, pageAnnotations);
+            const label = document.createElement("span");
+            label.className = "pdf-page-label";
+            label.textContent = String(pageNumber);
+            sheet.appendChild(label);
+            canvasCard.appendChild(sheet);
+          }
+          const pageCanvas = sheet.querySelector("canvas");
+          const pageCtx = pageCanvas.getContext("2d");
+          const pageAnnotations = sheet.querySelector(".pdf-annotation-layer") || annotationLayer;
+          const outputScale = Math.min(Math.max(window.devicePixelRatio || 1, 1), 2);
+          pageCanvas.width = Math.floor(pageViewport.width * outputScale);
+          pageCanvas.height = Math.floor(pageViewport.height * outputScale);
+          pageCanvas.style.width = Math.floor(pageViewport.width) + "px";
+          pageCanvas.style.height = Math.floor(pageViewport.height) + "px";
+          sheet.style.width = Math.floor(pageViewport.width) + "px";
+          sheet.style.height = Math.floor(pageViewport.height) + "px";
+          await page.render({
+            canvasContext: pageCtx,
+            transform: outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null,
+            viewport: pageViewport,
+          }).promise;
+          pageAnnotations.style.width = Math.floor(pageViewport.width) + "px";
+          pageAnnotations.style.height = Math.floor(pageViewport.height) + "px";
+          renderAnnotations(page, pageViewport, pageAnnotations);
+          if (!isFirstRenderDone && pageNumber === 1) {
             isFirstRenderDone = true;
             loadingState.style.display = "none";
             toolbarEl.style.display = "flex";
-            canvasCard.style.display = "block";
+            canvasCard.style.display = "flex";
           }
-
-          pageRendering = false;
-          if (pageNumPending !== null) {
-            const nextPending = pageNumPending;
-            pageNumPending = null;
-            solicitarRenderPagina(nextPending);
-          }
-        });
-
-        renderAnnotations(page, pageViewport);
-      });
+        }
+        const target = canvasCard.querySelector(`[data-page="${targetScrollPage}"]`);
+        if (target) target.scrollIntoView({ block: "start", behavior: "auto" });
+      } catch (error) {
+        mostrarError();
+      } finally {
+        pageRendering = false;
+        if (pageNumPending !== null) {
+          const nextPending = pageNumPending;
+          pageNumPending = null;
+          solicitarRenderPagina(nextPending);
+        }
+      }
 
       counterInput.value = String(num);
       prevBtn.disabled = num <= 1;
@@ -976,8 +1028,8 @@
       }
     }
 
-    function renderAnnotations(page, pageViewport) {
-      annotationLayer.innerHTML = "";
+    function renderAnnotations(page, pageViewport, targetLayer = annotationLayer) {
+      targetLayer.innerHTML = "";
       page
         .getAnnotations({ intent: "display" })
         .then((annotations) => {
@@ -1011,7 +1063,7 @@
                   });
                 };
               }
-              annotationLayer.appendChild(a);
+              targetLayer.appendChild(a);
             }
           });
         })
@@ -1197,6 +1249,7 @@
     // =========================================================
     function loadOfficeDocument(publicUrl, ext) {
       pdfDoc = null;
+      viewportEl.classList.add("no-padding");
       loadingState.style.display = "flex";
       contenidoError.style.display = "none";
       canvasCard.style.display = "none";
@@ -1260,6 +1313,7 @@
 
     async function loadArchive(targetUrl, ext) {
       pdfDoc = null;
+      viewportEl.classList.remove("no-padding");
       loadingState.style.display = "flex";
       contenidoError.style.display = "none";
       canvasCard.style.display = "none";
@@ -1508,7 +1562,7 @@
       const params = new URLSearchParams(window.location.search);
       const diplomadoRaw = params.get("diplomado") ? params.get("diplomado").trim() : "";
       const archivoRaw = params.get("archivo") ? params.get("archivo").trim() : "";
-      const numRaw = (params.get("archivo_num") || params.get("diapositiva") || params.get("clase") || "").trim();
+      const numRaw = (params.get("diapositiva") || params.get("clase") || "").trim();
 
       const diplomadoClean = diplomadoRaw.replace(/\.json$/i, "").replace(/^\/+|\/+$/g, "");
 
