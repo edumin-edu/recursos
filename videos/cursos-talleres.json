@@ -1,0 +1,548 @@
+[
+  {
+    "numero_curso": 1,
+    "codigo": "CUR-01",
+    "tipo": "CURSO",
+    "nombre_curso": "MANEJO DE EPPS SEGÚN LA NORMA TÉCNICA PERUANA LEY 29783",
+    "url": "https://www.youtube.com/watch?v=h7SebUJjV0I"
+  },
+  {
+    "numero_curso": 2,
+    "codigo": "CUR-02",
+    "tipo": "CURSO",
+    "nombre_curso": "IMPLEMENTACIÓN DE MEDIDAS DE CONTROL EN RIESGOS MINEROS",
+    "url": "https://www.youtube.com/watch?v=-OEsopQ0D80"
+  },
+  {
+    "numero_curso": 3,
+    "codigo": "CUR-03",
+    "tipo": "CURSO",
+    "nombre_curso": "ERGONOMÍA Y SALUD OCUPACIONAL EN EL SECTOR MINERO E INDUSTRIAL",
+    "url": "https://www.youtube.com/watch?v=AJl9tFlbljs"
+  },
+  {
+    "numero_curso": 4,
+    "codigo": "CUR-04",
+    "tipo": "CURSO",
+    "nombre_curso": "MARCO JURÍDICO Y NORMATIVO DE LA MINERÍA",
+    "url": "https://www.youtube.com/watch?v=kLcuDTtJCZY"
+  },
+  {
+    "numero_curso": 5,
+    "codigo": "CUR-05",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE PROVEEDORES EN MINERÍA",
+    "url": "https://www.youtube.com/watch?v=Vz9Qas9UUf8"
+  },
+  {
+    "numero_curso": 6,
+    "codigo": "CUR-06",
+    "tipo": "CURSO",
+    "nombre_curso": "CONTROL DE COSTOS EN ALMACENES MINEROS",
+    "url": "https://www.youtube.com/watch?v=hOmKjSB_N8c"
+  },
+  {
+    "numero_curso": 7,
+    "codigo": "CUR-07",
+    "tipo": "CURSO",
+    "nombre_curso": "LOGÍSTICA Y DISTRIBUCIÓN EN LA INDUSTRIA Y MINERÍA",
+    "url": "https://www.youtube.com/watch?v=d0nYKRr1ZxQ"
+  },
+  {
+    "numero_curso": 8,
+    "codigo": "CUR-08",
+    "tipo": "CURSO",
+    "nombre_curso": "CONTRATOS EN LA INDUSTRIA MINERA",
+    "url": "https://www.youtube.com/watch?v=dDL_g5hp16k"
+  },
+  {
+    "numero_curso": 9,
+    "codigo": "CUR-09",
+    "tipo": "CURSO",
+    "nombre_curso": "DERECHOS HUMANOS EN MINERÍA",
+    "url": "https://www.youtube.com/watch?v=sNFqIwcMG_8"
+  },
+  {
+    "numero_curso": 10,
+    "codigo": "CUR-10",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE TRABAJO EN ALTO RIESGO EN MINERÍA",
+    "url": "https://www.youtube.com/watch?v=_iM2mfWgkHI"
+  },
+  {
+    "numero_curso": 11,
+    "codigo": "CUR-11",
+    "tipo": "CURSO",
+    "nombre_curso": "RESPONSABILIDAD PENAL EN MINERÍA",
+    "url": "https://www.youtube.com/watch?v=79zLbuMj1P4"
+  },
+  {
+    "numero_curso": 12,
+    "codigo": "CUR-12",
+    "tipo": "CURSO",
+    "nombre_curso": "DERECHO LABORAL EN MINERÍA",
+    "url": "https://www.youtube.com/watch?v=cWAm8wSWUkA"
+  },
+  {
+    "numero_curso": 13,
+    "codigo": "CUR-13",
+    "tipo": "CURSO",
+    "nombre_curso": "TIPOS DE CONCESIONES MINERAS",
+    "url": "https://www.youtube.com/watch?v=BFUMntWe6Y0"
+  },
+  {
+    "numero_curso": 14,
+    "codigo": "CUR-14",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE CONTRATOS LOGÍSTICOS EN LA INDUSTRIA Y MINERÍA",
+    "url": "https://www.youtube.com/watch?v=6r42kzImcW8"
+  },
+  {
+    "numero_curso": 15,
+    "codigo": "CUR-15",
+    "tipo": "CURSO",
+    "nombre_curso": "CURSO DE PREVENCIÓN DE RIESGOS",
+    "url": "https://www.youtube.com/watch?v=08VfkiUHt8g"
+  },
+  {
+    "numero_curso": 16,
+    "codigo": "CUR-16",
+    "tipo": "CURSO",
+    "nombre_curso": "IMPLEMENTACIÓN DE LA ISO 45001:2018",
+    "url": "https://www.youtube.com/watch?v=pwozylzcwi0"
+  },
+  {
+    "numero_curso": 17,
+    "codigo": "CUR-17",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE EMERGENCIAS EN INDUSTRIA Y MINERÍA",
+    "url": "https://www.youtube.com/watch?v=oFXkwtaaoxw"
+  },
+  {
+    "numero_curso": 18,
+    "codigo": "CUR-18",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE INVENTARIOS EN INDUSTRIA Y MINERÍA",
+    "url": "https://www.youtube.com/watch?v=vqEAP7BGhK0"
+  },
+  {
+    "numero_curso": 19,
+    "codigo": "CUR-19",
+    "tipo": "CURSO",
+    "nombre_curso": "CONTROL FINANCIERO EN ALMACENES",
+    "url": "https://www.youtube.com/watch?v=nt_17QPflhA"
+  },
+  {
+    "numero_curso": 20,
+    "codigo": "CUR-20",
+    "tipo": "CURSO",
+    "nombre_curso": "LOGÍSTICA INTERNA EN CONTROL DE ALMACENES",
+    "url": "https://www.youtube.com/watch?v=H20Fsy8y8Vs"
+  },
+  {
+    "numero_curso": 21,
+    "codigo": "CUR-21",
+    "tipo": "CURSO",
+    "nombre_curso": "FUNDAMENTOS DE BIG DATA",
+    "url": "https://www.youtube.com/watch?v=dYpN-31JiBE"
+  },
+  {
+    "numero_curso": 22,
+    "codigo": "CUR-22",
+    "tipo": "CURSO",
+    "nombre_curso": "MÉTODOS DE CAPTURA DE INFORMACIÓN EN BIG DATA",
+    "url": "https://www.youtube.com/watch?v=YJK5_Lev4HI"
+  },
+  {
+    "numero_curso": 23,
+    "codigo": "CUR-23",
+    "tipo": "CURSO",
+    "nombre_curso": "TENDENCIAS 2025-2026: CLAVES DE BIG DATA",
+    "url": "https://www.youtube.com/watch?v=2I_uPf0TtYI"
+  },
+  {
+    "numero_curso": 24,
+    "codigo": "CUR-24",
+    "tipo": "CURSO",
+    "nombre_curso": "BIG DATA: TRANSFORMACIÓN DE DATOS (PYTHON Y R)",
+    "url": "https://www.youtube.com/watch?v=RMnql4HQy2M"
+  },
+  {
+    "numero_curso": 25,
+    "codigo": "CUR-25",
+    "tipo": "CURSO",
+    "nombre_curso": "MINERÍA 4.0 ESSENTIALS: NUEVAS HERRAMIENTAS",
+    "url": "https://www.youtube.com/watch?v=ujbjzCY3uzM"
+  },
+  {
+    "numero_curso": 26,
+    "codigo": "CUR-26",
+    "tipo": "CURSO",
+    "nombre_curso": "INNOVACIÓN EN MINERÍA: APLICACIONES DE INTELIGENCIA ARTIFICIAL",
+    "url": "https://www.youtube.com/watch?v=58on5LdxLzk"
+  },
+  {
+    "numero_curso": 27,
+    "codigo": "CUR-27",
+    "tipo": "CURSO",
+    "nombre_curso": "AUTOMATIZACIÓN 4.0 EN PROCESOS MINEROS",
+    "url": "https://www.youtube.com/watch?v=4Q5lW7imcOM"
+  },
+  {
+    "numero_curso": 28,
+    "codigo": "CUR-28",
+    "tipo": "CURSO",
+    "nombre_curso": "CADENA DE SUMINISTRO LOGÍSTICA Y DISTRIBUCIÓN",
+    "url": "https://www.youtube.com/watch?v=deHEsA1WlgE"
+  },
+  {
+    "numero_curso": 29,
+    "codigo": "CUR-29",
+    "tipo": "CURSO",
+    "nombre_curso": "MEJORA DE LOS MÉTODOS Y MEDICIÓN DE LOS RECURSOS",
+    "url": "https://www.youtube.com/watch?v=3ArR6b0q6m0"
+  },
+  {
+    "numero_curso": 30,
+    "codigo": "CUR-30",
+    "tipo": "CURSO",
+    "nombre_curso": "INTRODUCCIÓN A LA GESTIÓN DE PROYECTOS",
+    "url": "https://www.youtube.com/watch?v=u-y7iRvZi1k"
+  },
+  {
+    "numero_curso": 31,
+    "codigo": "CUR-31",
+    "tipo": "CURSO",
+    "nombre_curso": "ARQUITECTURA DE DATOS: LA IMPORTANCIA DEL DISEÑO, COMPONENTES, FUNCIÓN, CONFIGURACIÓN Y PATRONES",
+    "url": "https://www.youtube.com/watch?v=8R8QulLn5SY"
+  },
+  {
+    "numero_curso": 32,
+    "codigo": "CUR-32",
+    "tipo": "CURSO",
+    "nombre_curso": "ECOSISTEMA BIG DATA: HERRAMIENTAS Y TECNOLOGÍAS ESENCIALES",
+    "url": "https://www.youtube.com/watch?v=KVVSGNiQFxA"
+  },
+  {
+    "numero_curso": 33,
+    "codigo": "CUR-33",
+    "tipo": "CURSO",
+    "nombre_curso": "INTRODUCCIÓN A MACHINE LEARNING PARA BIG DATA",
+    "url": "https://www.youtube.com/watch?v=vL_KwlWSqs4"
+  },
+  {
+    "numero_curso": 34,
+    "codigo": "CUR-34",
+    "tipo": "CURSO",
+    "nombre_curso": "PROYECTOS CON HERRAMIENTAS DIGITALES PARA MINERÍA",
+    "url": "https://www.youtube.com/watch?v=K3NL8604PuI"
+  },
+  {
+    "numero_curso": 35,
+    "codigo": "CUR-35",
+    "tipo": "CURSO",
+    "nombre_curso": "INTRODUCCIÓN A MACHINE LEARNING EN MINERÍA",
+    "url": ""
+  },
+  {
+    "numero_curso": 36,
+    "codigo": "CUR-36",
+    "tipo": "CURSO",
+    "nombre_curso": "TIPOS DE INTELIGENCIA ARTIFICIAL APLICADAS A LA MINERÍA",
+    "url": "https://www.youtube.com/watch?v=yQ38XnrduKQ"
+  },
+  {
+    "numero_curso": 37,
+    "codigo": "CUR-37",
+    "tipo": "CURSO",
+    "nombre_curso": "HERRAMIENTAS DE BIG DATA APLICADA A MINERÍA",
+    "url": "https://www.youtube.com/watch?v=3RoK18CPyrU"
+  },
+  {
+    "numero_curso": 38,
+    "codigo": "CUR-38",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN AVANZADA DE OPERACIONES INDUSTRIALES",
+    "url": "https://www.youtube.com/watch?v=rBtzmh-MhCg"
+  },
+  {
+    "numero_curso": 39,
+    "codigo": "CUR-39",
+    "tipo": "CURSO",
+    "nombre_curso": "BIG DATA APLICADA A PROCESOS INDUSTRIALES",
+    "url": ""
+  },
+  {
+    "numero_curso": 40,
+    "codigo": "CUR-40",
+    "tipo": "CURSO",
+    "nombre_curso": "CONTROL DE COSTOS EN PRODUCCIÓN INDUSTRIAL O EN ÁREAS DE PRODUCCIÓN",
+    "url": "https://www.youtube.com/watch?v=ePuxv3mrR5s"
+  },
+  {
+    "numero_curso": 41,
+    "codigo": "CUR-41",
+    "tipo": "CURSO",
+    "nombre_curso": "IMPORTACIÓN Y EXPORTACIÓN DESDE 0: CLAVES PARA EL ÉXITO",
+    "url": "https://www.youtube.com/watch?v=-mRZEM08-uo"
+  },
+  {
+    "numero_curso": 42,
+    "codigo": "CUR-42",
+    "tipo": "CURSO",
+    "nombre_curso": "IMPLEMENTACIÓN DE LA NORMA ISO 9001:2015",
+    "url": "https://www.youtube.com/watch?v=QwPeVlMMndQ"
+  },
+  {
+    "numero_curso": 43,
+    "codigo": "CUR-43",
+    "tipo": "CURSO",
+    "nombre_curso": "ANÁLISIS DE MERCADOS INTERNACIONALES: ESTRATEGIAS DE IMPORTACIÓN Y EXPORTACIÓN 2025-2026",
+    "url": "https://www.youtube.com/watch?v=TLOTwPU8VQ4"
+  },
+  {
+    "numero_curso": 44,
+    "codigo": "CUR-44",
+    "tipo": "CURSO",
+    "nombre_curso": "DE LA IMPORTACIÓN A LA VENTA ONLINE: IMPLEMENTA TU TIENDA VIRTUAL DESDE CERO",
+    "url": "https://www.youtube.com/watch?v=mLMdxkT_b7U"
+  },
+  {
+    "numero_curso": 45,
+    "codigo": "CUR-45",
+    "tipo": "CURSO",
+    "nombre_curso": "CONTROL Y SUPERVISIÓN DE PROCESOS CON SOFTWARE SCADA",
+    "url": "https://www.youtube.com/watch?v=Xkww99fJleU"
+  },
+  {
+    "numero_curso": 46,
+    "codigo": "CUR-46",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE OPERACIONES Y PROCESOS EN LA MINERÍA",
+    "url": "https://www.youtube.com/watch?v=J9U-nDb3Klg"
+  },
+  {
+    "numero_curso": 47,
+    "codigo": "CUR-47",
+    "tipo": "CURSO",
+    "nombre_curso": "PIRÁMIDE DE PROCESOS: TÉCNICAS DE CONTROL EN MINERÍA",
+    "url": "https://www.youtube.com/watch?v=i527lI7SE9c"
+  },
+  {
+    "numero_curso": 48,
+    "codigo": "CUR-48",
+    "tipo": "CURSO",
+    "nombre_curso": "PROCESO DE OPTIMIZACIÓN DEL MANTENIMIENTO A PARTIR DEL USO DE TÉCNICAS DE LA INDUSTRIA 4.0",
+    "url": "https://www.youtube.com/watch?v=ZnShHRreu4E"
+  },
+  {
+    "numero_curso": 49,
+    "codigo": "CUR-49",
+    "tipo": "CURSO",
+    "nombre_curso": "SISTEMAS INTEGRADOS PARA LA GESTIÓN DE MANTENIMIENTO",
+    "url": "https://www.youtube.com/watch?v=8BkgotBqXeE"
+  },
+  {
+    "numero_curso": 50,
+    "codigo": "CUR-50",
+    "tipo": "CURSO",
+    "nombre_curso": "ESTÁNDARES Y SISTEMA DE CALIDAD DEL MANTENIMIENTO",
+    "url": "https://www.youtube.com/watch?v=rSCPqTR21ZU"
+  },
+  {
+    "numero_curso": 51,
+    "codigo": "CUR-51",
+    "tipo": "CURSO",
+    "nombre_curso": "DOCUMENTACIÓN Y TRÁMITES ADUANEROS",
+    "url": "https://www.youtube.com/watch?v=QAA8_0k_pck"
+  },
+  {
+    "numero_curso": 52,
+    "codigo": "CUR-52",
+    "tipo": "CURSO",
+    "nombre_curso": "REVISIÓN DE PROVEEDORES PARA EVITAR ESTAFAS EN IMPORTACIONES CHINAS",
+    "url": "https://www.youtube.com/watch?v=IQIDn_Uxe3o"
+  },
+  {
+    "numero_curso": 53,
+    "codigo": "CUR-53",
+    "tipo": "CURSO",
+    "nombre_curso": "PLANIFICACIÓN DE RIESGOS PARA IMPORTACIÓN Y EXPORTACIÓN",
+    "url": "https://www.youtube.com/watch?v=KM2tWalgkPc"
+  },
+  {
+    "numero_curso": 54,
+    "codigo": "CUR-54",
+    "tipo": "CURSO",
+    "nombre_curso": "CONTROL DE CALIDAD EN PROCESOS MINEROS",
+    "url": "https://www.youtube.com/watch?v=np1nGZNic7k"
+  },
+  {
+    "numero_curso": 55,
+    "codigo": "CUR-55",
+    "tipo": "CURSO",
+    "nombre_curso": "MONITOREO Y CONTROL EN LA OPERACIÓN DE PLANTAS MINERAS",
+    "url": "https://www.youtube.com/watch?v=TxEEUauKdQU"
+  },
+  {
+    "numero_curso": 56,
+    "codigo": "CUR-56",
+    "tipo": "CURSO",
+    "nombre_curso": "SOSTENIBILIDAD Y SEGURIDAD EN CAMPAMENTOS MINEROS",
+    "url": "https://www.youtube.com/watch?v=csZtHcEAlRA"
+  },
+  {
+    "numero_curso": 57,
+    "codigo": "CUR-57",
+    "tipo": "CURSO",
+    "nombre_curso": "ANÁLISIS DE DATOS PARA OPTIMIZAR OPERACIONES MINERAS",
+    "url": "https://www.youtube.com/watch?v=Nzckp8rkiWQ"
+  },
+  {
+    "numero_curso": 58,
+    "codigo": "CUR-58",
+    "tipo": "CURSO",
+    "nombre_curso": "SEGURIDAD Y CONTROL AMBIENTAL EN EL MANTENIMIENTO",
+    "url": "https://www.youtube.com/watch?v=wHBC0yAqVfg"
+  },
+  {
+    "numero_curso": 59,
+    "codigo": "CUR-59",
+    "tipo": "CURSO",
+    "nombre_curso": "GERENCIA DE PROYECTOS DEL MANTENIMIENTO",
+    "url": "https://www.youtube.com/watch?v=9eHTnjqmmPg"
+  },
+  {
+    "numero_curso": 60,
+    "codigo": "CUR-60",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE COSTOS DEL MANTENIMIENTO EN LA INDUSTRIA 4.0",
+    "url": "https://www.youtube.com/watch?v=zS-mC19MkRo"
+  },
+  {
+    "numero_curso": 61,
+    "codigo": "CUR-61",
+    "tipo": "CURSO",
+    "nombre_curso": "SOSTENIBILIDAD Y MINERÍA RESPONSABLE",
+    "url": "https://www.youtube.com/watch?v=VlplY10c1_w"
+  },
+  {
+    "numero_curso": 62,
+    "codigo": "CUR-62",
+    "tipo": "CURSO",
+    "nombre_curso": "PRIMEROS AUXILIOS EN MINERÍA",
+    "url": "https://www.youtube.com/watch?v=aWZ3VHKXd0E"
+  },
+  {
+    "numero_curso": 63,
+    "codigo": "CUR-63",
+    "tipo": "CURSO",
+    "nombre_curso": "INDICADORES CLAVE (KPIS) PARA LA CADENA DE ABASTECIMIENTOS",
+    "url": "https://www.youtube.com/watch?v=5dX35nPZ7Pg"
+  },
+  {
+    "numero_curso": 64,
+    "codigo": "CUR-64",
+    "tipo": "CURSO",
+    "nombre_curso": "EXPLORACIÓN MINERA Y EVALUACIÓN DE YACIMIENTOS",
+    "url": "https://www.youtube.com/watch?v=sxXgX1ZGuOM"
+  },
+  {
+    "numero_curso": 65,
+    "codigo": "CUR-65",
+    "tipo": "CURSO",
+    "nombre_curso": "REQUISITOS CLAVE DE ISO 14001 Y CÓMO APLICARLOS EN LA EMPRESA",
+    "url": "https://www.youtube.com/watch?v=gBTd9MIfev0"
+  },
+  {
+    "numero_curso": 66,
+    "codigo": "CUR-66",
+    "tipo": "CURSO",
+    "nombre_curso": "SISTEMAS INTEGRADOS DE GESTIÓN HSEQ (ISO 9001, 14001, 45001)",
+    "url": "https://www.youtube.com/watch?v=_Fbqw0qntwQ"
+  },
+  {
+    "numero_curso": 67,
+    "codigo": "CUR-67",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE CRISIS Y MANEJO DE CONFLICTOS EN AMBIENTES INDUSTRIALES",
+    "url": "https://www.youtube.com/watch?v=N-0OOzn4jP0"
+  },
+  {
+    "numero_curso": 68,
+    "codigo": "CUR-68",
+    "tipo": "CURSO",
+    "nombre_curso": "PLANIFICACIÓN ESTRATÉGICA Y BALANCED SCORECARD",
+    "url": "https://www.youtube.com/watch?v=ax2mwDIC2RE"
+  },
+  {
+    "numero_curso": 69,
+    "codigo": "CUR-69",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE LA ENERGÍA EN OPERACIONES MINERAS",
+    "url": "https://www.youtube.com/watch?v=-WsCnInyyjI"
+  },
+  {
+    "numero_curso": 70,
+    "codigo": "CUR-70",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE LA CADENA DE SUMINISTRO EN EMPRESAS MINERAS",
+    "url": "https://www.youtube.com/watch?v=J9VCXmpfBVA"
+  },
+  {
+    "numero_curso": 71,
+    "codigo": "CUR-71",
+    "tipo": "CURSO",
+    "nombre_curso": "SEGURIDAD Y NORMATIVA EN EL CONTROL DE INVENTARIO Y LOGÍSTICA MINERA",
+    "url": "https://www.youtube.com/watch?v=F9TwVpsRZFY"
+  },
+  {
+    "numero_curso": 72,
+    "codigo": "CUR-72",
+    "tipo": "CURSO",
+    "nombre_curso": "SALUD MENTAL EN EL TRABAJO: DETECCIÓN Y PREVENCIÓN DE TRASTORNOS PSICOLÓGICOS",
+    "url": "https://www.youtube.com/watch?v=Fy5kE_2rp2k"
+  },
+  {
+    "numero_curso": 73,
+    "codigo": "CUR-73",
+    "tipo": "CURSO",
+    "nombre_curso": "IMPLEMENTACIÓN DE LEAN MANUFACTURING EN PROCESOS INDUSTRIALES",
+    "url": "https://www.youtube.com/watch?v=vMADmOtWdpo"
+  },
+  {
+    "numero_curso": 74,
+    "codigo": "CUR-74",
+    "tipo": "CURSO",
+    "nombre_curso": "ERGONOMÍA Y DISEÑO DE PUESTOS DE TRABAJO EN LA INDUSTRIA",
+    "url": "https://www.youtube.com/watch?v=fgeeVOZaHVA"
+  },
+  {
+    "numero_curso": 75,
+    "codigo": "CUR-75",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE SEGURIDAD DURANTE LAS PARADAS DE PLANTA Y MANTENIMIENTO",
+    "url": "https://www.youtube.com/watch?v=Q-QcKoG-fzs"
+  },
+  {
+    "numero_curso": 76,
+    "codigo": "CUR-76",
+    "tipo": "CURSO",
+    "nombre_curso": "GESTIÓN DE RELAVES Y RESIDUOS MINEROS",
+    "url": "https://www.youtube.com/watch?v=1LUHD17OEKM"
+  },
+  {
+    "numero_curso": 77,
+    "codigo": "TAL-01",
+    "tipo": "TALLER",
+    "nombre_curso": "TALLER DE SOFT SKILLS EN LA INDUSTRIA Y MINERÍA",
+    "url": ""
+  },
+  {
+    "numero_curso": 78,
+    "codigo": "TAL-02",
+    "tipo": "TALLER",
+    "nombre_curso": "TALLER DE SEGURIDAD BASADA EN EL COMPORTAMIENTO",
+    "url": ""
+  }
+]

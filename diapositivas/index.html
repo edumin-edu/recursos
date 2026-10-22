@@ -1,371 +1,920 @@
 <!doctype html>
-<html lang="es" class="h-full">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>EDUMIN - Diapositivas</title>
+  <title>EDUMIN - Visor de Documentos</title>
 
-  <!-- Google Fonts & Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
   <!-- PDF.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <!-- JSZip CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
   <style>
+    :root {
+      --bg-app: #18191c;
+      --bg-toolbar: #232529;
+      --bg-sidebar: #1e2024;
+      --bg-surface: #2b2d33;
+      --bg-hover: #363940;
+      --border-color: #34373e;
+      --text-primary: #f1f3f5;
+      --text-secondary: #9ba1ab;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
     body {
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      -webkit-tap-highlight-color: transparent;
-      background-color: #e5e9f0;
-    }
-
-    .num-tabular {
-      font-variant-numeric: tabular-nums;
-      -webkit-font-feature-settings: "tnum" 1;
-      font-feature-settings: "tnum" 1;
-      display: inline-block;
-    }
-
-    input {
-      font-family: inherit;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg-app);
+      color: var(--text-primary);
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
     }
 
     .material-symbols-outlined {
       font-family: "Material Symbols Outlined", sans-serif !important;
-      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 22;
       font-size: 20px;
       line-height: 1;
-      font-style: normal;
-      font-weight: normal;
       display: inline-block;
-      white-space: nowrap;
-      overflow-wrap: normal;
-      direction: ltr;
       vertical-align: middle;
       user-select: none;
-      -webkit-font-smoothing: antialiased;
     }
 
-    /* Lámina de diapositiva con sombra limpia y bordes suaves */
-    .slide-sheet {
+    /* =========================================
+       ESTRUCTURA PRINCIPAL DEL LECTOR OSCURO
+       ========================================= */
+    .reader-app {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* BARRA DE HERRAMIENTAS SUPERIOR (ESTILO VISOR PDF OSCURO) */
+    .reader-toolbar {
+      height: 52px;
+      background-color: var(--bg-toolbar);
+      border-bottom: 1px solid var(--border-color);
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      gap: 8px;
+      z-index: 30;
+      flex-shrink: 0;
+    }
+
+    .toolbar-section {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toolbar-left {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .toolbar-center {
+      flex-shrink: 0;
+      justify-content: center;
+    }
+
+    .toolbar-right {
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .doc-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      padding-left: 4px;
+    }
+
+    .doc-badge {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background-color: #ef4444;
+      color: #ffffff;
+      letter-spacing: 0.4px;
+      flex-shrink: 0;
+    }
+
+    .doc-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 260px;
+    }
+
+    /* Botones de herramienta */
+    .tool-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-primary);
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .tool-btn:hover:not(:disabled) {
+      background-color: var(--bg-hover);
+    }
+
+    .tool-btn:active:not(:disabled) {
+      background-color: #42464f;
+    }
+
+    .tool-btn:disabled {
+      opacity: 0.32;
+      cursor: default;
+    }
+
+    .tool-btn.active {
+      background-color: rgb(59, 130, 246, 22%);
+      color: #60a5fa;
+      border-color: rgb(59, 130, 246, 40%);
+    }
+
+    .tool-btn-primary {
+      background-color: var(--accent);
+      color: #ffffff;
+      width: auto;
+      padding: 0 12px;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .tool-btn-primary:hover:not(:disabled) {
+      background-color: var(--accent-hover);
+    }
+
+    .tool-divider {
+      width: 1px;
+      height: 22px;
+      background-color: var(--border-color);
+      margin: 0 4px;
+    }
+
+    /* Controles de página y zoom en barra */
+    .page-box {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .page-input {
+      width: 42px;
+      height: 28px;
+      background-color: #141518;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      color: var(--text-primary);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .page-input:focus {
+      border-color: var(--accent);
+    }
+
+    .zoom-label {
+      min-width: 48px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      background-color: #141518;
+      border: 1px solid var(--border-color);
+      padding: 5px 8px;
+      border-radius: 5px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* =========================================
+       CUERPO DEL VISOR (SIDEBAR + ÁREA CENTRAL)
+       ========================================= */
+    .reader-body {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* PANEL LATERAL DE MINIATURAS */
+    .reader-sidebar {
+      width: 210px;
+      background-color: var(--bg-sidebar);
+      border-right: 1px solid var(--border-color);
+      display: none;
+      flex-direction: column;
+      flex-shrink: 0;
+      z-index: 20;
+    }
+
+    .reader-sidebar.open {
+      display: flex;
+    }
+
+    .sidebar-header {
+      padding: 10px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .thumbs-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .thumb-item {
+      width: 156px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .thumb-item:hover {
+      background-color: var(--bg-surface);
+    }
+
+    .thumb-item.active {
+      background-color: rgb(59, 130, 246, 14%);
+      border-color: var(--accent);
+    }
+
+    .thumb-canvas-wrap {
+      width: 100%;
       background-color: #ffffff;
-      box-shadow: 0 16px 40px -10px rgb(15, 23, 42, 16%), 0 0 0 1px rgb(15, 23, 42, 6%);
-      border-radius: 12px;
-      transition: opacity 0.15s ease;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgb(0, 0, 0, 45%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 88px;
     }
 
-    /* Enlaces interactivos dentro del PDF */
+    .thumb-canvas-wrap canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .thumb-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .thumb-item.active .thumb-label {
+      color: #60a5fa;
+    }
+
+    /* ÁREA DE TRABAJO CENTRAL */
+    .reader-stage {
+      flex: 1;
+      height: 100%;
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      background-color: var(--bg-app);
+    }
+
+    .reader-stage.grab-mode {
+      cursor: grab;
+    }
+
+    .reader-stage.grabbing {
+      cursor: grabbing;
+    }
+
+    /* Hoja PDF sobre fondo oscuro */
+    .canvas-holder {
+      position: relative;
+      display: none;
+      margin: auto;
+      box-shadow: 0 12px 38px rgb(0, 0, 0, 65%), 0 0 0 1px rgb(255, 255, 255, 8%);
+      background-color: #ffffff;
+    }
+
+    .canvas-holder canvas {
+      display: block;
+    }
+
     .pdf-link-annot {
       position: absolute;
       cursor: pointer !important;
-      border-radius: 4px;
+      border-radius: 3px;
       transition: background-color 0.15s ease;
-      z-index: 25;
+      z-index: 15;
       pointer-events: auto !important;
-      background-color: transparent;
     }
 
     .pdf-link-annot:hover {
-      background-color: rgb(37, 99, 235, 15%);
-      outline: 1.5px solid rgb(37, 99, 235, 50%);
+      background-color: rgb(59, 130, 246, 22%);
+      outline: 1.5px solid rgb(59, 130, 246, 70%);
     }
 
-    /* Barra flotante con efecto Glassmorphism */
-    .glass-dock {
-      background-color: rgb(255, 255, 255, 72%) !important;
-      backdrop-filter: blur(20px) saturate(190%) !important;
-      -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
-      border: 1px solid rgb(255, 255, 255, 80%) !important;
-      box-shadow: 0 12px 36px -6px rgb(15, 23, 42, 14%), 0 2px 8px rgb(15, 23, 42, 5%) !important;
-    }
-
-    /* Contenedor para visor PPTX (Office Online) */
-    .pptx-container {
+    /* VISOR OFFICE (PPTX, DOCX, XLSX) */
+    .office-holder {
       width: 100%;
       height: 100%;
-      max-width: 1200px;
-      max-height: calc(100vh - 96px);
-      border-radius: 14px;
+      display: none;
+      background-color: #141518;
+      border-radius: 8px;
       overflow: hidden;
-      background: #ffffff;
-      box-shadow: 0 16px 40px -10px rgb(15, 23, 42, 16%), 0 0 0 1px rgb(15, 23, 42, 6%);
+      border: 1px solid var(--border-color);
     }
 
-    /* Caja de error estándar unificada con los demás índices */
+    .office-holder iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* EXPLORADOR DE ARCHIVOS COMPRIMIDOS OSCURO (.ZIP / .RAR / .7Z) */
+    .archive-holder {
+      width: 100%;
+      max-width: 680px;
+      max-height: calc(100vh - 100px);
+      background-color: var(--bg-toolbar);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      box-shadow: 0 20px 50px rgb(0, 0, 0, 55%);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      margin: auto;
+    }
+
+    .archive-top {
+      padding: 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background-color: var(--bg-sidebar);
+    }
+
+    .archive-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .archive-icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      background-color: rgb(59, 130, 246, 15%);
+      color: #60a5fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .archive-list {
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 60vh;
+    }
+
+    .archive-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      transition: background-color 0.15s ease;
+    }
+
+    .archive-row:hover {
+      background-color: var(--bg-hover);
+    }
+
+    /* CARGADOR OSCURO */
+    .loader-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: auto;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgb(255, 255, 255, 12%);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* CAJA DE ERROR OSCURA */
     .caja-error {
       display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 36px 32px;
-      max-width: 440px;
+      padding: 38px 32px;
+      max-width: 420px;
       margin: auto;
-      background: rgb(255, 255, 255, 88%);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgb(255, 255, 255, 90%);
-      border-radius: 24px;
-      box-shadow: 0 16px 40px -10px rgb(15, 23, 42, 12%);
-      z-index: 30;
-      animation: fadeIn 0.3s ease-out both;
+      background-color: var(--bg-toolbar);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgb(0, 0, 0, 60%);
     }
 
     .icono-error {
-      font-size: 3.4rem;
+      font-size: 3.2rem;
       line-height: 1;
-      margin-bottom: 18px;
-      user-select: none;
+      margin-bottom: 16px;
     }
 
     .titulo-error {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      color: #0f172a;
+      color: var(--text-primary);
       margin-bottom: 8px;
-      line-height: 1.3;
     }
 
     .descripcion-error {
-      font-size: 0.95rem;
-      color: #64748b;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
       line-height: 1.45;
-      text-wrap: balance;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
+    /* Scrollbars oscuras elegantes */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #141518;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #383b42;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4b4f58;
+    }
+
+    /* Responsivo móvil */
+    @media (max-width: 768px) {
+      .reader-toolbar {
+        padding: 0 8px;
+        gap: 4px;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+      .doc-title-wrap {
+        display: none;
       }
-    }
 
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
+      .hide-mobile {
+        display: none !important;
+      }
 
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+      .reader-sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        box-shadow: 12px 0 30px rgb(0, 0, 0, 70%);
+      }
+
+      .reader-stage {
+        padding: 10px;
+      }
+
+      .tool-btn-primary span.btn-text {
+        display: none;
+      }
+
+      .tool-btn-primary {
+        padding: 0;
+        width: 34px;
+      }
     }
   </style>
 </head>
-<body class="h-full text-slate-800 flex flex-col select-none overflow-hidden relative">
+<body>
+  <div class="reader-app">
 
-  <!-- ======================================================== -->
-  <!-- LIENZO PRINCIPAL DEL VISOR                               -->
-  <!-- ======================================================== -->
-  <main id="viewport" class="flex-1 w-full h-full overflow-hidden flex items-center justify-center p-2 sm:p-6 pb-20 sm:pb-24 no-scrollbar relative">
+    <!-- ======================================================== -->
+    <!-- BARRA SUPERIOR DE HERRAMIENTAS (DARK PDF STUDIO)         -->
+    <!-- ======================================================== -->
+    <header id="reader-toolbar" class="reader-toolbar">
 
-    <!-- ESTADO DE CARGA -->
-    <div id="loading-state" class="flex flex-col items-center justify-center gap-3.5 pointer-events-none select-none">
-      <div class="w-11 h-11 border-[3.5px] border-slate-300/70 border-t-blue-600 rounded-full animate-spin"></div>
-      <p id="loading-text" class="text-xs font-semibold text-slate-500 tracking-wide">Cargando presentación…</p>
-    </div>
-
-    <!-- ESTADO DE ERROR UNIFICADO -->
-    <div id="contenido-error" class="caja-error">
-      <div class="icono-error">⚠️</div>
-      <div class="titulo-error">Contenido no disponible</div>
-      <div class="descripcion-error">El diplomado o la presentación solicitada no existe. Verifica que el enlace sea correcto.</div>
-    </div>
-
-    <!-- VISOR 1: LÁMINA PDF (PDF.js) -->
-    <div id="canvas-card" style="display: none;" class="relative inline-block">
-      <canvas id="pdf-canvas" class="slide-sheet block"></canvas>
-      <div id="annotation-layer" class="absolute top-0 left-0 pointer-events-none rounded-xl"></div>
-    </div>
-
-    <!-- VISOR 2: PRESENTACIÓN POWERPOINT (Office Online Embed) -->
-    <div id="pptx-card" style="display: none;" class="pptx-container relative">
-      <iframe
-        id="pptx-iframe"
-        src="about:blank"
-        title="Visor de presentación PowerPoint"
-        class="w-full h-full border-0"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-  </main>
-
-  <!-- ======================================================== -->
-  <!-- BARRA INFERIOR FLOTANTE (SOLO LO ESENCIAL)               -->
-  <!-- ======================================================== -->
-  <footer id="bottom-bar" style="display: none;" class="fixed bottom-4 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
-    <div class="glass-dock pointer-events-auto flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-2 rounded-2xl">
-
-      <!-- Controles exclusivos de navegación PDF -->
-      <div id="pdf-nav-controls" class="flex items-center gap-1.5 sm:gap-2.5">
-        <!-- Diapositiva anterior -->
-        <button id="prev-btn" type="button" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 disabled:opacity-25 disabled:pointer-events-none transition" title="Diapositiva anterior (←)">
-          <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+      <!-- IZQUIERDA: Miniaturas + Nombre del archivo -->
+      <div class="toolbar-section toolbar-left">
+        <button id="sidebar-toggle-btn" type="button" class="tool-btn" title="Mostrar/ocultar miniaturas de páginas">
+          <span class="material-symbols-outlined">dock_to_right</span>
         </button>
 
-        <!-- Contador de diapositivas con salto directo -->
-        <div class="flex items-center select-none text-xs sm:text-sm font-bold text-slate-800 num-tabular">
+        <button id="back-to-zip-btn" type="button" style="display: none;" class="tool-btn" title="Volver al archivo ZIP">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+
+        <div class="doc-title-wrap">
+          <span id="doc-badge" class="doc-badge">PDF</span>
+          <span id="doc-title" class="doc-title" title="">Cargando…</span>
+        </div>
+      </div>
+
+      <!-- CENTRO: Herramientas de lectura PDF (Paginación + Zoom + Ajuste + Rotación) -->
+      <div id="pdf-tools-center" class="toolbar-section toolbar-center">
+        <!-- Navegación de página -->
+        <button id="prev-btn" type="button" class="tool-btn" title="Página anterior (←)">
+          <span class="material-symbols-outlined">keyboard_arrow_up</span>
+        </button>
+
+        <div class="page-box">
           <input
             id="counter-input"
             type="text"
             inputmode="numeric"
             pattern="[0-9]*"
             maxlength="3"
-            value="01"
-            class="w-[30px] sm:w-[34px] text-right font-bold text-slate-800 bg-transparent hover:bg-slate-200/50 focus:bg-white focus:ring-1 focus:ring-slate-400 focus:outline-none rounded py-0.5 px-0.5 transition cursor-text"
-            title="Escribe el número de diapositiva y presiona Enter"
+            value="1"
+            class="page-input"
+            title="Ir a la página"
           />
-          <span class="w-[14px] text-center text-slate-400 font-normal select-none">/</span>
-          <span id="counter-total" class="w-[30px] sm:w-[34px] text-left text-slate-500 font-medium py-0.5 px-0.5 select-none">&hellip;</span>
+          <span>/</span>
+          <span id="counter-total">1</span>
         </div>
 
-        <!-- Barra de progreso sutil -->
-        <div class="w-16 sm:w-28 h-1.5 bg-slate-200/70 rounded-full overflow-hidden border border-slate-300/40 hidden sm:block">
-          <div id="progress-bar" class="h-full bg-blue-600 rounded-full transition-all duration-300" style="width: 0%;"></div>
-        </div>
-
-        <!-- Diapositiva siguiente -->
-        <button id="next-btn" type="button" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 disabled:opacity-25 disabled:pointer-events-none transition" title="Siguiente diapositiva (→)">
-          <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+        <button id="next-btn" type="button" class="tool-btn" title="Página siguiente (→)">
+          <span class="material-symbols-outlined">keyboard_arrow_down</span>
         </button>
 
-        <div class="w-px h-5 bg-slate-300/60 mx-0.5 sm:mx-1"></div>
+        <div class="tool-divider"></div>
+
+        <!-- Controles de Zoom -->
+        <button id="zoom-out-btn" type="button" class="tool-btn" title="Alejar (-)">
+          <span class="material-symbols-outlined">remove</span>
+        </button>
+
+        <span id="zoom-val" class="zoom-label">100%</span>
+
+        <button id="zoom-in-btn" type="button" class="tool-btn" title="Acercar (+)">
+          <span class="material-symbols-outlined">add</span>
+        </button>
+
+        <div class="tool-divider hide-mobile"></div>
+
+        <!-- Ajustar a pantalla / Ajustar al ancho / Rotar -->
+        <button id="fit-page-btn" type="button" class="tool-btn" title="Ajustar página completa">
+          <span class="material-symbols-outlined">fit_screen</span>
+        </button>
+
+        <button id="fit-width-btn" type="button" class="tool-btn hide-mobile" title="Ajustar al ancho">
+          <span class="material-symbols-outlined">swap_horiz</span>
+        </button>
+
+        <button id="rotate-btn" type="button" class="tool-btn hide-mobile" title="Rotar página 90° (R)">
+          <span class="material-symbols-outlined">rotate_right</span>
+        </button>
       </div>
 
-      <!-- Botón Descargar archivo original (PDF o PPTX) -->
-      <button id="download-btn" type="button" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 transition flex items-center gap-1.5 text-xs font-semibold px-2.5" title="Descargar presentación">
-        <span class="material-symbols-outlined text-[19px]">download</span>
-        <span class="hidden sm:inline">Descargar</span>
-      </button>
+      <!-- DERECHA: Imprimir, Pantalla completa y Descargar -->
+      <div class="toolbar-section toolbar-right">
+        <button id="print-btn" type="button" class="tool-btn hide-mobile" title="Imprimir documento">
+          <span class="material-symbols-outlined">print</span>
+        </button>
 
-      <!-- Botón Pantalla Completa -->
-      <button id="fullscreen-btn" type="button" class="p-2 rounded-xl bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 transition" title="Pantalla completa (F)">
-        <span class="material-symbols-outlined text-[19px]">fullscreen</span>
-      </button>
+        <button id="fullscreen-btn" type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+
+        <button id="download-btn" type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+
+    </header>
+
+    <!-- ======================================================== -->
+    <!-- CUERPO DEL LECTOR: PANEL DE MINIATURAS + LIENZO          -->
+    <!-- ======================================================== -->
+    <div class="reader-body">
+
+      <!-- PANEL IZQUIERDO DE MINIATURAS -->
+      <aside id="reader-sidebar" class="reader-sidebar">
+        <div class="sidebar-header">
+          <span>Páginas</span>
+          <button id="close-sidebar-btn" type="button" class="tool-btn" style="width: 24px; height: 24px;" title="Cerrar panel">
+            <span class="material-symbols-outlined" style="font-size: 16px;">close</span>
+          </button>
+        </div>
+        <div id="thumbs-list" class="thumbs-list"></div>
+      </aside>
+
+      <!-- ÁREA CENTRAL DE VISUALIZACIÓN -->
+      <main id="viewport" class="reader-stage">
+
+        <!-- CARGADOR -->
+        <div id="loading-state" class="loader-box">
+          <div class="spinner"></div>
+          <p style="font-size: 13px; color: var(--text-secondary); font-weight: 500;">Abriendo documento…</p>
+        </div>
+
+        <!-- ESTADO DE ERROR -->
+        <div id="contenido-error" class="caja-error">
+          <div class="icono-error">⚠️</div>
+          <div class="titulo-error">Contenido no disponible</div>
+          <div class="descripcion-error">El diplomado o el archivo solicitado no existe. Verifica que el enlace sea correcto.</div>
+        </div>
+
+        <!-- 1. CONTENEDOR DE PÁGINA PDF -->
+        <div id="canvas-card" class="canvas-holder">
+          <canvas id="pdf-canvas"></canvas>
+          <div id="annotation-layer" style="position: absolute; top: 0; left: 0; pointer-events: none;"></div>
+        </div>
+
+        <!-- 2. CONTENEDOR OFFICE (.PPTX, .PPT, .DOCX, .DOC, .XLSX, .XLS) -->
+        <div id="office-card" class="office-holder">
+          <iframe id="office-iframe" src="about:blank" title="Visor Office Online" allowfullscreen></iframe>
+        </div>
+
+        <!-- 3. CONTENEDOR DE ARCHIVOS COMPRIMIDOS (.ZIP / .RAR / .7Z) -->
+        <div id="archive-card" class="archive-holder">
+          <div class="archive-top">
+            <div class="archive-info">
+              <div class="archive-icon-box">
+                <span class="material-symbols-outlined" style="font-size: 26px;">folder_zip</span>
+              </div>
+              <div style="min-width: 0;">
+                <div id="archive-badge" style="font-size: 10px; font-weight: 700; color: #60a5fa; letter-spacing: 0.5px; margin-bottom: 2px;">ARCHIVO COMPRIMIDO</div>
+                <div id="archive-title" style="font-size: 15px; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">materiales.zip</div>
+                <div id="archive-subtitle" style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">Listo para descargar</div>
+              </div>
+            </div>
+            <button id="archive-main-download-btn" type="button" class="tool-btn tool-btn-primary" style="height: 38px; padding: 0 14px;">
+              <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+              <span>Descargar todo</span>
+            </button>
+          </div>
+          <div id="archive-list-container" class="archive-list"></div>
+        </div>
+
+      </main>
 
     </div>
-  </footer>
+
+  </div>
 
   <script>
-    /* global pdfjsLib */
+    /* global pdfjsLib, JSZip */
 
-    // Configurar worker de PDF.js
     pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
-    // Base pública de GitHub Pages del repositorio
     const GITHUB_PAGES_BASE = "https://edumin-edu.github.io/recursos/";
 
     let activeFileUrl = "";
     let fallbackFileUrl = "";
-    let activeFileName = "diapositivas.pdf";
+    let activeFileName = "documento.pdf";
     let isFirstRenderDone = false;
 
-    // Estado del visor PDF
+    // Estado del lector PDF
     let pdfDoc = null;
     let pageNum = 1;
     let pageRendering = false;
     let pageNumPending = null;
+    let baseFitScale = 1.0;
     let currentScale = 1.0;
+    let currentRotation = 0;
+    let fitMode = "page"; // "page" | "width" | "custom"
+    let thumbsGenerated = false;
 
-    // Referencias DOM
-    const viewportEl = document.getElementById("viewport");
+    // Elementos DOM
+    const toolbarEl = document.getElementById("reader-toolbar");
+    const sidebarEl = document.getElementById("reader-sidebar");
+    const sidebarToggleBtn = document.getElementById("sidebar-toggle-btn");
+    const closeSidebarBtn = document.getElementById("close-sidebar-btn");
+    const thumbsList = document.getElementById("thumbs-list");
+
+    const docBadge = document.getElementById("doc-badge");
+    const docTitle = document.getElementById("doc-title");
+    const pdfToolsCenter = document.getElementById("pdf-tools-center");
+    const backToZipBtn = document.getElementById("back-to-zip-btn");
+
+    const viewportEl = document.querySelector(".reader-stage");
+    const loadingState = document.getElementById("loading-state");
+    const contenidoError = document.getElementById("contenido-error");
+
     const canvasCard = document.getElementById("canvas-card");
     const canvas = document.getElementById("pdf-canvas");
     const ctx = canvas.getContext("2d");
     const annotationLayer = document.getElementById("annotation-layer");
-    const pptxCard = document.getElementById("pptx-card");
-    const pptxIframe = document.getElementById("pptx-iframe");
 
-    const loadingState = document.getElementById("loading-state");
-    const contenidoError = document.getElementById("contenido-error");
-    const bottomBar = document.getElementById("bottom-bar");
-    const pdfNavControls = document.getElementById("pdf-nav-controls");
+    const officeCard = document.getElementById("office-card");
+    const officeIframe = document.getElementById("office-iframe");
 
-    const counterInput = document.getElementById("counter-input");
-    const counterTotal = document.getElementById("counter-total");
-    const progressBar = document.getElementById("progress-bar");
+    const archiveCard = document.getElementById("archive-card");
+    const archiveBadge = document.getElementById("archive-badge");
+    const archiveTitle = document.getElementById("archive-title");
+    const archiveSubtitle = document.getElementById("archive-subtitle");
+    const archiveListContainer = document.getElementById("archive-list-container");
+    const archiveMainDownloadBtn = document.getElementById("archive-main-download-btn");
+
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
-    const downloadBtn = document.getElementById("download-btn");
+    const counterInput = document.getElementById("counter-input");
+    const counterTotal = document.getElementById("counter-total");
+    const zoomOutBtn = document.getElementById("zoom-out-btn");
+    const zoomInBtn = document.getElementById("zoom-in-btn");
+    const zoomVal = document.getElementById("zoom-val");
+    const fitPageBtn = document.getElementById("fit-page-btn");
+    const fitWidthBtn = document.getElementById("fit-width-btn");
+    const rotateBtn = document.getElementById("rotate-btn");
+    const printBtn = document.getElementById("print-btn");
     const fullscreenBtn = document.getElementById("fullscreen-btn");
+    const downloadBtn = document.getElementById("download-btn");
 
     function mostrarError() {
-      if (loadingState) loadingState.style.display = "none";
-      if (canvasCard) canvasCard.style.display = "none";
-      if (pptxCard) pptxCard.style.display = "none";
-      if (bottomBar) bottomBar.style.display = "none";
-      if (contenidoError) contenidoError.style.display = "flex";
+      loadingState.style.display = "none";
+      canvasCard.style.display = "none";
+      officeCard.style.display = "none";
+      archiveCard.style.display = "none";
+      toolbarEl.style.display = "none";
+      sidebarEl.classList.remove("open");
+      contenidoError.style.display = "flex";
     }
 
-    function formatearNumero(n) {
-      return n < 10 ? "0" + n : String(n);
+    function formatearBytes(bytes) {
+      if (!bytes || bytes <= 0) return "";
+      const k = 1024;
+      const sizes = ["B", "KB", "MB", "GB"];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + " " + sizes[i];
+    }
+
+    function configurarEncabezadoArchivo(nombre, tipo, colorHex) {
+      docTitle.textContent = nombre;
+      docTitle.title = nombre;
+      docBadge.textContent = tipo;
+      docBadge.style.backgroundColor = colorHex;
     }
 
     // =========================================================
-    // 1. MODO LECTOR PDF (PDF.js)
+    // 1. VISOR PDF PROFESIONAL OSCURO
     // =========================================================
-    function loadPdf(targetUrl) {
-      if (!targetUrl) return;
+    function loadPdf(targetUrlOrData, fromZip = false) {
+      if (!targetUrlOrData) return;
       loadingState.style.display = "flex";
       contenidoError.style.display = "none";
       canvasCard.style.display = "none";
-      pptxCard.style.display = "none";
-      bottomBar.style.display = "none";
-      pdfNavControls.style.display = "flex";
+      officeCard.style.display = "none";
+      archiveCard.style.display = "none";
+      pdfToolsCenter.style.display = "flex";
+      sidebarToggleBtn.style.display = "inline-flex";
+      printBtn.style.display = "inline-flex";
+      backToZipBtn.style.display = fromZip ? "inline-flex" : "none";
       annotationLayer.innerHTML = "";
+      thumbsList.innerHTML = "";
+      thumbsGenerated = false;
       isFirstRenderDone = false;
+      currentRotation = 0;
+      fitMode = "page";
 
-      const loadingTask = pdfjsLib.getDocument(targetUrl);
+      configurarEncabezadoArchivo(activeFileName, "PDF", "#ef4444");
+
+      const loadingTask = pdfjsLib.getDocument(targetUrlOrData);
       loadingTask.promise
         .then((doc) => {
           pdfDoc = doc;
           pageNum = 1;
-          counterTotal.textContent = formatearNumero(doc.numPages);
-          counterInput.value = formatearNumero(pageNum);
-          fitAndRenderCurrentSlide();
+          counterTotal.textContent = String(doc.numPages);
+          counterInput.value = String(pageNum);
+          calcularEscalaYRenderizar();
         })
-        .catch((err) => {
-          console.warn("Error al cargar PDF desde:", targetUrl, err);
-          if (fallbackFileUrl && targetUrl !== fallbackFileUrl) {
+        .catch(() => {
+          if (!fromZip && fallbackFileUrl && targetUrlOrData !== fallbackFileUrl) {
             activeFileUrl = fallbackFileUrl;
-            loadPdf(fallbackFileUrl);
+            loadPdf(fallbackFileUrl, false);
           } else {
             mostrarError();
           }
         });
     }
 
-    function fitAndRenderCurrentSlide() {
+    function calcularEscalaYRenderizar() {
       if (!pdfDoc) return;
       pdfDoc.getPage(pageNum).then((page) => {
-        const unscaled = page.getViewport({ scale: 1.0 });
-        const isMobile = window.innerWidth < 768;
-        const padX = isMobile ? 16 : 56;
-        const padY = isMobile ? 96 : 112;
+        const unscaled = page.getViewport({ scale: 1.0, rotation: currentRotation });
+        const padX = window.innerWidth < 768 ? 24 : 56;
+        const padY = window.innerWidth < 768 ? 24 : 48;
 
-        const availWidth = Math.max(viewportEl.clientWidth - padX, 200);
-        const availHeight = Math.max(viewportEl.clientHeight - padY, 200);
+        const availW = Math.max(viewportEl.clientWidth - padX, 180);
+        const availH = Math.max(viewportEl.clientHeight - padY, 180);
 
-        const scaleW = availWidth / unscaled.width;
-        const scaleH = availHeight / unscaled.height;
+        const scaleW = availW / unscaled.width;
+        const scaleH = availH / unscaled.height;
+        baseFitScale = Math.min(scaleW, scaleH);
 
-        currentScale = Math.min(scaleW, scaleH);
+        if (fitMode === "page") {
+          currentScale = baseFitScale;
+        } else if (fitMode === "width") {
+          currentScale = scaleW;
+        }
+
+        actualizarEtiquetaZoom();
         renderPage(pageNum);
       });
+    }
+
+    function actualizarEtiquetaZoom() {
+      const pct = Math.round((currentScale / (baseFitScale || 1)) * 100);
+      zoomVal.textContent = `${pct}%`;
     }
 
     function renderPage(num) {
       pageRendering = true;
 
       pdfDoc.getPage(num).then((page) => {
-        const pageViewport = page.getViewport({ scale: currentScale });
+        const pageViewport = page.getViewport({ scale: currentScale, rotation: currentRotation });
         const outputScale = Math.max(window.devicePixelRatio || 1, 2);
         const targetW = Math.floor(pageViewport.width * outputScale);
         const targetH = Math.floor(pageViewport.height * outputScale);
@@ -396,32 +945,34 @@
           if (!isFirstRenderDone) {
             isFirstRenderDone = true;
             loadingState.style.display = "none";
-            canvasCard.style.display = "inline-block";
-            bottomBar.style.display = "block";
+            toolbarEl.style.display = "flex";
+            canvasCard.style.display = "block";
           }
 
           pageRendering = false;
           if (pageNumPending !== null) {
             const nextPending = pageNumPending;
             pageNumPending = null;
-            fitAndRenderSlideNumber(nextPending);
+            solicitarRenderPagina(nextPending);
           }
         });
 
         renderAnnotations(page, pageViewport);
       });
 
-      counterInput.value = formatearNumero(num);
-      progressBar.style.width = `${(num / pdfDoc.numPages) * 100}%`;
+      counterInput.value = String(num);
       prevBtn.disabled = num <= 1;
       nextBtn.disabled = num >= pdfDoc.numPages;
+      resaltarMiniaturaActiva(num);
     }
 
-    function fitAndRenderSlideNumber(num) {
+    function solicitarRenderPagina(num) {
       if (pageRendering) {
         pageNumPending = num;
+      } else if (fitMode === "custom") {
+        renderPage(num);
       } else {
-        fitAndRenderCurrentSlide();
+        calcularEscalaYRenderizar();
       }
     }
 
@@ -456,7 +1007,7 @@
                   e.preventDefault();
                   pdfDoc.getPageIndex(annot.dest[0]).then((idx) => {
                     pageNum = idx + 1;
-                    fitAndRenderSlideNumber(pageNum);
+                    solicitarRenderPagina(pageNum);
                   });
                 };
               }
@@ -467,25 +1018,97 @@
         .catch(() => {});
     }
 
+    // Panel lateral de miniaturas
+    function construirMiniaturas() {
+      if (!pdfDoc || thumbsGenerated) return;
+      thumbsGenerated = true;
+      thumbsList.innerHTML = "";
+
+      for (let i = 1; i <= pdfDoc.numPages; i++) {
+        const item = document.createElement("div");
+        item.className = `thumb-item ${i === pageNum ? "active" : ""}`;
+        item.dataset.page = String(i);
+        item.innerHTML = `
+          <div class="thumb-canvas-wrap">
+            <canvas id="thumb-canvas-${i}"></canvas>
+          </div>
+          <span class="thumb-label">${i}</span>
+        `;
+        item.addEventListener("click", () => {
+          pageNum = i;
+          solicitarRenderPagina(pageNum);
+          if (window.innerWidth < 768) {
+            sidebarEl.classList.remove("open");
+            sidebarToggleBtn.classList.remove("active");
+          }
+        });
+        thumbsList.appendChild(item);
+        renderizarMiniaturaIndividual(i);
+      }
+    }
+
+    function renderizarMiniaturaIndividual(num) {
+      pdfDoc.getPage(num).then((page) => {
+        const thumbCanvas = document.getElementById(`thumb-canvas-${num}`);
+        if (!thumbCanvas) return;
+        const vp = page.getViewport({ scale: 0.28 });
+        thumbCanvas.width = Math.floor(vp.width);
+        thumbCanvas.height = Math.floor(vp.height);
+        page.render({
+          canvasContext: thumbCanvas.getContext("2d"),
+          viewport: vp,
+        });
+      });
+    }
+
+    function resaltarMiniaturaActiva(num) {
+      const items = thumbsList.querySelectorAll(".thumb-item");
+      items.forEach((el) => {
+        if (Number(el.dataset.page) === num) {
+          el.classList.add("active");
+          el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        } else {
+          el.classList.remove("active");
+        }
+      });
+    }
+
+    sidebarToggleBtn.addEventListener("click", () => {
+      const isOpen = sidebarEl.classList.toggle("open");
+      sidebarToggleBtn.classList.toggle("active", isOpen);
+      if (isOpen) {
+        construirMiniaturas();
+      }
+      if (pdfDoc && fitMode !== "custom") {
+        setTimeout(calcularEscalaYRenderizar, 50);
+      }
+    });
+
+    closeSidebarBtn.addEventListener("click", () => {
+      sidebarEl.classList.remove("open");
+      sidebarToggleBtn.classList.remove("active");
+      if (pdfDoc && fitMode !== "custom") {
+        setTimeout(calcularEscalaYRenderizar, 50);
+      }
+    });
+
     function goPrev() {
       if (!pdfDoc || pageNum <= 1) return;
       pageNum--;
-      fitAndRenderSlideNumber(pageNum);
+      solicitarRenderPagina(pageNum);
     }
 
     function goNext() {
       if (!pdfDoc || pageNum >= pdfDoc.numPages) return;
       pageNum++;
-      fitAndRenderSlideNumber(pageNum);
+      solicitarRenderPagina(pageNum);
     }
 
     prevBtn.addEventListener("click", goPrev);
     nextBtn.addEventListener("click", goNext);
 
     counterInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        counterInput.blur();
-      }
+      if (e.key === "Enter") counterInput.blur();
     });
 
     counterInput.addEventListener("change", () => {
@@ -493,85 +1116,293 @@
       const val = parseInt(counterInput.value, 10);
       if (!isNaN(val) && val >= 1 && val <= pdfDoc.numPages) {
         pageNum = val;
-        fitAndRenderSlideNumber(pageNum);
+        solicitarRenderPagina(pageNum);
       } else {
-        counterInput.value = formatearNumero(pageNum);
+        counterInput.value = String(pageNum);
       }
     });
 
-    counterInput.addEventListener("focus", () => {
-      counterInput.select();
+    counterInput.addEventListener("focus", () => counterInput.select());
+
+    // Herramientas de Zoom, Ajuste y Rotación
+    function cambiarZoomManual(factor) {
+      if (!pdfDoc) return;
+      fitMode = "custom";
+      const minScale = (baseFitScale || 1) * 0.4;
+      const maxScale = (baseFitScale || 1) * 4.0;
+      currentScale = Math.min(Math.max(currentScale * factor, minScale), maxScale);
+      actualizarEtiquetaZoom();
+      renderPage(pageNum);
+    }
+
+    zoomInBtn.addEventListener("click", () => cambiarZoomManual(1.2));
+    zoomOutBtn.addEventListener("click", () => cambiarZoomManual(0.84));
+
+    fitPageBtn.addEventListener("click", () => {
+      if (!pdfDoc) return;
+      fitMode = "page";
+      calcularEscalaYRenderizar();
     });
 
-    // Gestos swipe en móviles para cambiar de diapositiva
-    let touchStartX = 0;
-    let touchStartY = 0;
+    fitWidthBtn.addEventListener("click", () => {
+      if (!pdfDoc) return;
+      fitMode = "width";
+      calcularEscalaYRenderizar();
+    });
 
-    viewportEl.addEventListener(
-      "touchstart",
-      (e) => {
-        if (e.touches.length === 1) {
-          touchStartX = e.touches[0].clientX;
-          touchStartY = e.touches[0].clientY;
-        }
-      },
-      { passive: true }
-    );
+    rotateBtn.addEventListener("click", () => {
+      if (!pdfDoc) return;
+      currentRotation = (currentRotation + 90) % 360;
+      calcularEscalaYRenderizar();
+    });
 
-    viewportEl.addEventListener(
-      "touchend",
-      (e) => {
-        if (!pdfDoc || e.changedTouches.length !== 1) return;
-        const dx = e.changedTouches[0].clientX - touchStartX;
-        const dy = e.changedTouches[0].clientY - touchStartY;
-        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
-          if (dx < 0) goNext();
-          else goPrev();
-        }
-      },
-      { passive: true }
-    );
+    printBtn.addEventListener("click", () => {
+      const targetUrl = activeFileUrl || fallbackFileUrl;
+      if (targetUrl) {
+        const win = window.open(targetUrl, "_blank");
+        if (win) win.focus();
+      }
+    });
+
+    // Arrastre con mouse cuando la página tiene zoom mayor al área
+    let isDraggingStage = false;
+    let startScrollX = 0;
+    let startScrollY = 0;
+    let startMouseX = 0;
+    let startMouseY = 0;
+
+    viewportEl.addEventListener("mousedown", (e) => {
+      if (!pdfDoc || e.target.closest("a") || e.target.closest("button")) return;
+      isDraggingStage = true;
+      startMouseX = e.clientX;
+      startMouseY = e.clientY;
+      startScrollX = viewportEl.scrollLeft;
+      startScrollY = viewportEl.scrollTop;
+      viewportEl.classList.add("grabbing");
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!isDraggingStage) return;
+      viewportEl.scrollLeft = startScrollX - (e.clientX - startMouseX);
+      viewportEl.scrollTop = startScrollY - (e.clientY - startMouseY);
+    });
+
+    window.addEventListener("mouseup", () => {
+      isDraggingStage = false;
+      viewportEl.classList.remove("grabbing");
+    });
 
     // =========================================================
-    // 2. MODO VISOR POWERPOINT (.PPTX / .PPT)
+    // 2. MODO DOCUMENTOS OFFICE (.PPTX, .PPT, .DOCX, .DOC, .XLSX, .XLS)
     // =========================================================
-    function loadPptx(publicUrl) {
+    function loadOfficeDocument(publicUrl, ext) {
+      pdfDoc = null;
       loadingState.style.display = "flex";
       contenidoError.style.display = "none";
       canvasCard.style.display = "none";
-      pdfNavControls.style.display = "none";
+      archiveCard.style.display = "none";
+      sidebarEl.classList.remove("open");
+      sidebarToggleBtn.style.display = "none";
+      pdfToolsCenter.style.display = "none";
+      printBtn.style.display = "none";
+      backToZipBtn.style.display = "none";
+
+      const badgeColors = {
+        PPTX: "#f97316",
+        PPT: "#f97316",
+        DOCX: "#3b82f6",
+        DOC: "#3b82f6",
+        XLSX: "#10b981",
+        XLS: "#10b981",
+      };
+      const upperExt = ext.toUpperCase();
+      configurarEncabezadoArchivo(activeFileName, upperExt, badgeColors[upperExt] || "#6366f1");
 
       const officeEmbedUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(publicUrl)}`;
-      pptxIframe.src = officeEmbedUrl;
+      officeIframe.src = officeEmbedUrl;
 
-      pptxIframe.onload = () => {
+      officeIframe.onload = () => {
         loadingState.style.display = "none";
-        pptxCard.style.display = "block";
-        bottomBar.style.display = "block";
+        toolbarEl.style.display = "flex";
+        officeCard.style.display = "block";
       };
 
-      pptxIframe.onerror = () => {
+      officeIframe.onerror = () => {
         mostrarError();
       };
     }
 
     // =========================================================
-    // 3. CONTROLES GENERALES (DESCARGA, PANTALLA COMPLETA, TECLADO)
+    // 3. MODO ARCHIVOS COMPRIMIDOS (.ZIP / .RAR / .7Z)
     // =========================================================
-    downloadBtn.addEventListener("click", async (e) => {
-      e.preventDefault();
+    function obtenerIconoPorExtension(nombre) {
+      const lower = nombre.toLowerCase();
+      if (lower.endsWith(".pdf")) return { icon: "picture_as_pdf", color: "#f87171" };
+      if (lower.endsWith(".doc") || lower.endsWith(".docx")) return { icon: "description", color: "#60a5fa" };
+      if (lower.endsWith(".ppt") || lower.endsWith(".pptx")) return { icon: "slideshow", color: "#fb923c" };
+      if (lower.endsWith(".xls") || lower.endsWith(".xlsx") || lower.endsWith(".csv")) return { icon: "table_chart", color: "#34d399" };
+      return { icon: "insert_drive_file", color: "#9ba1ab" };
+    }
+
+    function mostrarTarjetaComprimidoSimple(extLabel) {
+      loadingState.style.display = "none";
+      toolbarEl.style.display = "flex";
+      archiveBadge.textContent = `PAQUETE .${extLabel.toUpperCase()}`;
+      archiveTitle.textContent = activeFileName;
+      archiveSubtitle.textContent = "Archivo comprimido listo para descargar";
+      archiveListContainer.innerHTML = `
+        <div style="padding: 28px 16px; text-align: center; color: var(--text-secondary); font-size: 13px;">
+          Este paquete está en formato <strong>.${extLabel.toUpperCase()}</strong>. Usa el botón <strong>Descargar todo</strong> para guardarlo en tu equipo.
+        </div>
+      `;
+      archiveCard.style.display = "flex";
+    }
+
+    async function loadArchive(targetUrl, ext) {
+      pdfDoc = null;
+      loadingState.style.display = "flex";
+      contenidoError.style.display = "none";
+      canvasCard.style.display = "none";
+      officeCard.style.display = "none";
+      archiveCard.style.display = "none";
+      sidebarEl.classList.remove("open");
+      sidebarToggleBtn.style.display = "none";
+      pdfToolsCenter.style.display = "none";
+      printBtn.style.display = "none";
+      backToZipBtn.style.display = "none";
+
+      configurarEncabezadoArchivo(activeFileName, ext.toUpperCase(), "#8b5cf6");
+
+      if (ext !== "zip" || typeof JSZip === "undefined") {
+        try {
+          const checkRes = await fetch(targetUrl, { method: "HEAD" });
+          if (!checkRes.ok) throw new Error("No encontrado");
+          mostrarTarjetaComprimidoSimple(ext);
+        } catch {
+          if (fallbackFileUrl && targetUrl !== fallbackFileUrl) {
+            activeFileUrl = fallbackFileUrl;
+            loadArchive(fallbackFileUrl, ext);
+          } else {
+            mostrarError();
+          }
+        }
+        return;
+      }
+
+      try {
+        const res = await fetch(targetUrl);
+        if (!res.ok) throw new Error("Archivo ZIP no encontrado");
+        const blob = await res.blob();
+        const zip = await JSZip.loadAsync(blob);
+
+        const entries = [];
+        zip.forEach((relativePath, zipEntry) => {
+          if (!zipEntry.dir && !relativePath.startsWith("__MACOSX/")) {
+            entries.push(zipEntry);
+          }
+        });
+
+        archiveBadge.textContent = "PAQUETE ZIP";
+        archiveTitle.textContent = activeFileName;
+        archiveSubtitle.textContent = `${entries.length} ${entries.length === 1 ? "archivo" : "archivos"} (${formatearBytes(blob.size)})`;
+        archiveListContainer.innerHTML = "";
+
+        entries.forEach((entry) => {
+          const cleanEntryName = entry.name.split("/").pop() || entry.name;
+          const { icon, color } = obtenerIconoPorExtension(cleanEntryName);
+          const isPdf = cleanEntryName.toLowerCase().endsWith(".pdf");
+          const sizeStr = entry._data && entry._data.uncompressedSize ? formatearBytes(entry._data.uncompressedSize) : "";
+
+          const row = document.createElement("div");
+          row.className = "archive-row";
+          row.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+              <span class="material-symbols-outlined" style="color: ${color}; font-size: 22px;">${icon}</span>
+              <div style="min-width: 0;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${cleanEntryName}</div>
+                <div style="font-size: 11px; color: var(--text-secondary);">${sizeStr || entry.name}</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+              ${
+                isPdf
+                  ? `<button type="button" class="tool-btn btn-preview-entry" style="width: auto; padding: 0 10px; font-size: 12px; gap: 4px; background: rgb(59, 130, 246, 18%); color: #60a5fa;">
+                      <span class="material-symbols-outlined" style="font-size: 16px;">visibility</span>
+                      <span>Ver</span>
+                    </button>`
+                  : ""
+              }
+              <button type="button" class="tool-btn btn-download-entry" title="Descargar archivo">
+                <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+              </button>
+            </div>
+          `;
+
+          const btnDown = row.querySelector(".btn-download-entry");
+          if (btnDown) {
+            btnDown.addEventListener("click", async () => {
+              const entryBlob = await entry.async("blob");
+              const url = URL.createObjectURL(entryBlob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = cleanEntryName;
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              setTimeout(() => URL.revokeObjectURL(url), 2000);
+            });
+          }
+
+          const btnPrev = row.querySelector(".btn-preview-entry");
+          if (btnPrev) {
+            btnPrev.addEventListener("click", async () => {
+              const uint8 = await entry.async("uint8array");
+              loadPdf({ data: uint8 }, true);
+            });
+          }
+
+          archiveListContainer.appendChild(row);
+        });
+
+        loadingState.style.display = "none";
+        toolbarEl.style.display = "flex";
+        archiveCard.style.display = "flex";
+      } catch {
+        if (fallbackFileUrl && targetUrl !== fallbackFileUrl) {
+          activeFileUrl = fallbackFileUrl;
+          loadArchive(fallbackFileUrl, ext);
+        } else {
+          mostrarError();
+        }
+      }
+    }
+
+    backToZipBtn.addEventListener("click", () => {
+      canvasCard.style.display = "none";
+      sidebarEl.classList.remove("open");
+      sidebarToggleBtn.style.display = "none";
+      pdfToolsCenter.style.display = "none";
+      backToZipBtn.style.display = "none";
+      configurarEncabezadoArchivo(activeFileName, "ZIP", "#8b5cf6");
+      archiveCard.style.display = "flex";
+    });
+
+    // =========================================================
+    // 4. CONTROLES GENERALES (DESCARGA, PANTALLA COMPLETA, ATAJOS)
+    // =========================================================
+    async function ejecutarDescargaArchivoPrincipal(botonRef) {
       const targetDownloadUrl = activeFileUrl || fallbackFileUrl;
       if (!targetDownloadUrl) return;
 
-      const iconSpan = downloadBtn.querySelector(".material-symbols-outlined");
+      const iconSpan = botonRef ? botonRef.querySelector(".material-symbols-outlined") : null;
       const originalText = iconSpan ? iconSpan.textContent : "download";
 
       try {
         if (iconSpan) iconSpan.textContent = "hourglass_empty";
-        downloadBtn.disabled = true;
+        if (botonRef) botonRef.disabled = true;
 
         const response = await fetch(targetDownloadUrl);
-        if (!response.ok) throw new Error("No se pudo obtener el archivo");
+        if (!response.ok) throw new Error("Error de red");
 
         const blob = await response.blob();
         const blobUrl = URL.createObjectURL(blob);
@@ -591,8 +1422,18 @@
         tempLink.click();
       } finally {
         if (iconSpan) iconSpan.textContent = originalText;
-        downloadBtn.disabled = false;
+        if (botonRef) botonRef.disabled = false;
       }
+    }
+
+    downloadBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      ejecutarDescargaArchivoPrincipal(downloadBtn);
+    });
+
+    archiveMainDownloadBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      ejecutarDescargaArchivoPrincipal(archiveMainDownloadBtn);
     });
 
     fullscreenBtn.addEventListener("click", () => {
@@ -605,15 +1446,19 @@
 
     document.addEventListener("keydown", (e) => {
       if (document.activeElement === counterInput) return;
-      if (e.key === "ArrowRight" || e.key === " ") {
-        if (pdfDoc) {
+      if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === " ") {
+        if (pdfDoc && canvasCard.style.display !== "none") {
           e.preventDefault();
           goNext();
         }
-      } else if (e.key === "ArrowLeft") {
-        if (pdfDoc) {
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        if (pdfDoc && canvasCard.style.display !== "none") {
           e.preventDefault();
           goPrev();
+        }
+      } else if (e.key === "r" || e.key === "R") {
+        if (pdfDoc && canvasCard.style.display !== "none") {
+          rotateBtn.click();
         }
       } else if (e.key === "f" || e.key === "F") {
         fullscreenBtn.click();
@@ -621,21 +1466,17 @@
     });
 
     window.addEventListener("resize", () => {
-      if (pdfDoc) {
-        fitAndRenderCurrentSlide();
+      if (pdfDoc && canvasCard.style.display !== "none" && fitMode !== "custom") {
+        calcularEscalaYRenderizar();
       }
     });
 
     // =========================================================
-    // 4. INICIALIZACIÓN Y LECTURA DE PARÁMETROS URL
-    //    Soporta:
-    //    A) ?diplomado=derecho-minero&archivo=CLASE 01...pdf (o .pptx)
-    //    B) ?archivo=derecho-minero/CLASE 01...pdf
-    //    C) ?diplomado=derecho-minero&diapositiva=1 (vía catálogo JSON)
+    // 5. INICIALIZACIÓN Y PARÁMETROS URL
     // =========================================================
     function abrirRecursoResuelto(diplomadoSlug, fileName, customRuta) {
       const cleanFile = decodeURIComponent(fileName).trim();
-      activeFileName = cleanFile.split("/").pop() || "diapositivas.pdf";
+      activeFileName = cleanFile.split("/").pop() || "documento.pdf";
 
       const encodedFile = encodeURIComponent(activeFileName);
       const relativePath = customRuta || (diplomadoSlug ? `diapositivas/${diplomadoSlug}/${encodedFile}` : `diapositivas/${encodedFile}`);
@@ -649,12 +1490,15 @@
       }
 
       const lowerName = activeFileName.toLowerCase();
-      if (lowerName.endsWith(".pptx") || lowerName.endsWith(".ppt")) {
-        loadPptx(activeFileUrl);
-      } else if (lowerName.endsWith(".pdf")) {
-        // En entorno local probamos primero la ruta relativa para velocidad instantánea
-        const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
-        loadPdf(isLocal ? fallbackFileUrl : activeFileUrl);
+      const ext = lowerName.split(".").pop() || "";
+      const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
+
+      if (lowerName.endsWith(".pdf")) {
+        loadPdf(isLocal ? fallbackFileUrl : activeFileUrl, false);
+      } else if (/\.(pptx|ppt|docx|doc|xlsx|xls)$/i.test(lowerName)) {
+        loadOfficeDocument(activeFileUrl, ext);
+      } else if (/\.(zip|rar|7z|tar|gz)$/i.test(lowerName)) {
+        loadArchive(isLocal ? fallbackFileUrl : activeFileUrl, ext);
       } else {
         mostrarError();
       }
@@ -668,7 +1512,6 @@
 
       const diplomadoClean = diplomadoRaw.replace(/\.json$/i, "").replace(/^\/+|\/+$/g, "");
 
-      // Caso 1: Se pasa directamente el nombre o ruta del archivo (?diplomado=...&archivo=... o ?archivo=...)
       if (archivoRaw) {
         if (!diplomadoClean && archivoRaw.includes("/")) {
           const parts = archivoRaw.split("/").filter(Boolean);
@@ -685,7 +1528,6 @@
         return;
       }
 
-      // Caso 2: Se pasa número de diapositiva/clase (?diplomado=...&diapositiva=1)
       if (diplomadoClean && /^\d+$/.test(numRaw)) {
         const numItem = parseInt(numRaw, 10);
         if (numItem < 1) {
