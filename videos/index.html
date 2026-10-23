@@ -156,6 +156,14 @@
         flex-wrap: wrap;
         position: relative;
       }
+      .contenedor-boton {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+      }
+      .modo-un-boton #contenedor-btn-lista {
+        display: none !important;
+      }
       .botones {
         padding: 12px 24px;
         border-radius: var(--radio);
@@ -371,6 +379,10 @@
           flex-direction: column;
           gap: 15px;
         }
+        .contenedor-boton {
+          width: 100%;
+          display: flex;
+        }
         .botones {
           width: 100%;
           box-sizing: border-box;
@@ -439,7 +451,7 @@
         <div id="contenido-normal">
           <div class="fila-info">
             <div class="punto-color"></div>
-            <p class="texto-info">Repasa a tu manera: mira el resumen <b>aquí</b>, ábrelo en <b>YouTube</b> o revisa la <b>lista completa</b>. ¡Elige la opción que prefieras y listo!</p>
+            <p id="texto-info" class="texto-info">Repasa a tu manera: mira el resumen <b>aquí</b>, ábrelo en <b>YouTube</b> o revisa la <b>lista completa</b>. ¡Elige la opción que prefieras y listo!</p>
           </div>
           <div class="caja-video">
             <span class="pegatina pegatina-4"></span>
@@ -447,11 +459,13 @@
             <iframe id="iframe-video" src="about:blank" loading="lazy" title="Reproductor de YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
           <div class="fila-botones">
-            <a href="#" id="btn-reproducir" target="_blank" class="botones botones-colorido">
-              <span class="material-symbols-rounded">play_circle</span>
-              Ver en YouTube
-            </a>
-            <div style="position: relative; display: inline-block">
+            <div id="contenedor-btn-reproducir" class="contenedor-boton">
+              <a href="#" id="btn-reproducir" target="_blank" class="botones botones-colorido">
+                <span class="material-symbols-rounded">play_circle</span>
+                Ver en YouTube
+              </a>
+            </div>
+            <div id="contenedor-btn-lista" class="contenedor-boton">
               <a href="#" id="btn-lista" target="_blank" class="botones">
                 <span class="material-symbols-rounded">video_library</span>
                 Ver lista completa
@@ -523,12 +537,110 @@
           if (p6Movil) p6Movil.style.display = "none";
         }
 
-        // Validación estricta de parámetros:
-        // Deben existir únicamente y de forma exacta 'diplomado' y 'video'
-        const paramKeys = Array.from(params.keys());
-        const tieneParametrosExactos = paramKeys.length === 2 && params.has("diplomado") && params.has("video");
+        function activarModoUnBoton() {
+          document.body.classList.add("modo-un-boton");
+          const contenedorBtnReproducir = document.getElementById("contenedor-btn-reproducir");
+          const p6 = document.querySelector(".pegatina-6");
+          if (contenedorBtnReproducir && p6) {
+            contenedorBtnReproducir.appendChild(p6);
+          }
+          const textoInfo = document.getElementById("texto-info");
+          if (textoInfo) {
+            textoInfo.innerHTML = 'Repasa a tu manera: mira el resumen <b>aquí</b> o ábrelo en <b>YouTube</b>. ¡Elige la opción que prefieras y listo!';
+          }
+        }
 
-        if (!tieneParametrosExactos) {
+        function extraerIdVideo(url) {
+          if (!url) return null;
+          const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+          const match = url.match(regExp);
+          return match && match[2].length === 11 ? match[2] : null;
+        }
+
+        // 1. MODO CURSO O TALLER (1 BOTÓN)
+        // Estructura obligatoria y estricta: ?curso={numero}&video={nro} o ?taller={numero}&video={nro}
+        const esCurso = params.has("curso");
+        const esTaller = params.has("taller");
+
+        if (esCurso || esTaller) {
+          if (esCurso && esTaller) {
+            mostrarError();
+            return;
+          }
+
+          const tipo = esCurso ? "curso" : "taller";
+          const paramKeys = Array.from(params.keys());
+
+          // Validación estricta: deben existir de forma única y obligatoria ?{tipo}={numero}&video={nro}
+          const clavesValidas = paramKeys.length === 2 && params.has(tipo) && params.has("video");
+
+          if (!clavesValidas) {
+            mostrarError();
+            return;
+          }
+
+          const idParam = params.get(tipo) ? params.get(tipo).trim() : "";
+          const videoParam = params.get("video") ? params.get("video").trim() : "";
+
+          if (!/^\d+$/.test(idParam) || !/^\d+$/.test(videoParam)) {
+            mostrarError();
+            return;
+          }
+
+          const numItem = parseInt(idParam, 10);
+          const numVideo = parseInt(videoParam, 10);
+
+          if (numItem < 1 || numVideo < 1) {
+            mostrarError();
+            return;
+          }
+
+          activarModoUnBoton();
+
+          fetch("./cursos-talleres.json")
+            .then((res) => {
+              if (!res.ok) throw new Error("Archivo no encontrado");
+              return res.json();
+            })
+            .then((data) => {
+              if (!Array.isArray(data)) {
+                mostrarError();
+                return;
+              }
+
+              const item = data.find((elem) => elem.tipo === tipo && elem.numero === numItem);
+              if (!item || !item.urls || !Array.isArray(item.urls) || numVideo > item.urls.length) {
+                mostrarError();
+                return;
+              }
+
+              const urlVideo = item.urls[numVideo - 1];
+              const videoId = extraerIdVideo(urlVideo);
+              if (!videoId) {
+                mostrarError();
+                return;
+              }
+
+              if (iframeVideo) {
+                iframeVideo.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
+              }
+              if (btnPrincipal) {
+                btnPrincipal.href = `https://www.youtube.com/watch?v=${videoId}`;
+              }
+            })
+            .catch(() => {
+              mostrarError();
+            });
+
+          return;
+        }
+
+        // 2. MODO DIPLOMADO (2 BOTONES)
+        // Validación estricta original de diplomados: deben existir únicamente 'diplomado' y 'video'
+        const paramKeys = Array.from(params.keys());
+        const tieneParametrosDiplomado = paramKeys.length === 2 && params.has("diplomado") && params.has("video");
+
+        if (!tieneParametrosDiplomado) {
           mostrarError();
           return;
         }
@@ -536,7 +648,6 @@
         const diplomado = params.get("diplomado") ? params.get("diplomado").trim() : "";
         const videoParam = params.get("video") ? params.get("video").trim() : "";
 
-        // El diplomado no debe estar vacío y el video debe ser un entero positivo válido
         if (!diplomado || !/^\d+$/.test(videoParam)) {
           mostrarError();
           return;
@@ -546,13 +657,6 @@
         if (numVideo < 1) {
           mostrarError();
           return;
-        }
-
-        function extraerIdVideo(url) {
-          if (!url) return null;
-          const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-          const match = url.match(regExp);
-          return match && match[2].length === 11 ? match[2] : null;
         }
 
         const diplomadoClean = diplomado.replace(/\.json$/, "");
@@ -594,6 +698,12 @@
             // Asignar botón de lista completa a la playlist general
             if (btnLista && data.playlist_url) {
               btnLista.href = data.playlist_url;
+            }
+
+            // Asegurar texto original completo con resaltados para diplomados
+            const textoInfo = document.getElementById("texto-info");
+            if (textoInfo) {
+              textoInfo.innerHTML = 'Repasa a tu manera: mira el resumen <b>aquí</b>, ábrelo en <b>YouTube</b> o revisa la <b>lista completa</b>. ¡Elige la opción que prefieras y listo!';
             }
           })
           .catch(() => {

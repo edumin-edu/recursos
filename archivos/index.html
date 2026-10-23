@@ -308,13 +308,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 88px;
     }
 
     .thumb-canvas-wrap canvas {
       width: 100%;
       height: auto;
       display: block;
+      flex: none;
     }
 
     .thumb-label {
@@ -375,19 +375,6 @@
 
     .canvas-holder canvas {
       display: block;
-    }
-
-    .pdf-page-label {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      z-index: 16;
-      padding: 3px 7px;
-      border-radius: 4px;
-      background: rgb(20, 21, 24, 78%);
-      color: #fff;
-      font: 11px/1.2 "Plus Jakarta Sans", sans-serif;
-      pointer-events: none;
     }
 
     .pdf-link-annot {
@@ -889,10 +876,6 @@
       firstPageSheet.className = "pdf-page-sheet";
       firstPageSheet.dataset.page = "1";
       firstPageSheet.append(canvas, annotationLayer);
-      const firstPageLabel = document.createElement("span");
-      firstPageLabel.className = "pdf-page-label";
-      firstPageLabel.textContent = "1";
-      firstPageSheet.appendChild(firstPageLabel);
       canvasCard.appendChild(firstPageSheet);
       thumbsGenerated = false;
       isFirstRenderDone = false;
@@ -968,10 +951,6 @@
             pageAnnotations.className = "pdf-annotation-layer";
             pageAnnotations.style.cssText = "position:absolute;top:0;left:0;pointer-events:none";
             sheet.append(pageCanvas, pageAnnotations);
-            const label = document.createElement("span");
-            label.className = "pdf-page-label";
-            label.textContent = String(pageNumber);
-            sheet.appendChild(label);
             canvasCard.appendChild(sheet);
           }
           const pageCanvas = sheet.querySelector("canvas");
@@ -999,8 +978,7 @@
             canvasCard.style.display = "flex";
           }
         }
-        const target = canvasCard.querySelector(`[data-page="${targetScrollPage}"]`);
-        if (target) target.scrollIntoView({ block: "start", behavior: "auto" });
+        scrollToPdfPage(targetScrollPage, "auto");
       } catch (error) {
         mostrarError();
       } finally {
@@ -1058,8 +1036,7 @@
                 a.onclick = (e) => {
                   e.preventDefault();
                   pdfDoc.getPageIndex(annot.dest[0]).then((idx) => {
-                    pageNum = idx + 1;
-                    solicitarRenderPagina(pageNum);
+                    scrollToPdfPage(idx + 1);
                   });
                 };
               }
@@ -1087,8 +1064,7 @@
           <span class="thumb-label">${i}</span>
         `;
         item.addEventListener("click", () => {
-          pageNum = i;
-          solicitarRenderPagina(pageNum);
+          scrollToPdfPage(i);
           if (window.innerWidth < 768) {
             sidebarEl.classList.remove("open");
             sidebarToggleBtn.classList.remove("active");
@@ -1106,6 +1082,8 @@
         const vp = page.getViewport({ scale: 0.28 });
         thumbCanvas.width = Math.floor(vp.width);
         thumbCanvas.height = Math.floor(vp.height);
+        const thumbWrap = thumbCanvas.parentElement;
+        thumbWrap.style.aspectRatio = `${vp.width} / ${vp.height}`;
         page.render({
           canvasContext: thumbCanvas.getContext("2d"),
           viewport: vp,
@@ -1172,14 +1150,30 @@
 
     function goPrev() {
       if (!pdfDoc || pageNum <= 1) return;
-      pageNum--;
-      solicitarRenderPagina(pageNum);
+      scrollToPdfPage(pageNum - 1);
     }
 
     function goNext() {
       if (!pdfDoc || pageNum >= pdfDoc.numPages) return;
-      pageNum++;
-      solicitarRenderPagina(pageNum);
+      scrollToPdfPage(pageNum + 1);
+    }
+
+    function scrollToPdfPage(num, behavior = "smooth") {
+      if (!pdfDoc) return;
+      const boundedPage = Math.max(1, Math.min(num, pdfDoc.numPages));
+      const target = canvasCard.querySelector(`[data-page="${boundedPage}"]`);
+      if (!target) return;
+      pageNum = boundedPage;
+      counterInput.value = String(pageNum);
+      prevBtn.disabled = pageNum <= 1;
+      nextBtn.disabled = pageNum >= pdfDoc.numPages;
+      resaltarMiniaturaActiva(pageNum);
+      const stageTop = viewportEl.getBoundingClientRect().top;
+      const targetTop = target.getBoundingClientRect().top;
+      viewportEl.scrollTo({
+        top: viewportEl.scrollTop + targetTop - stageTop - 12,
+        behavior,
+      });
     }
 
     prevBtn.addEventListener("click", goPrev);
@@ -1193,8 +1187,7 @@
       if (!pdfDoc) return;
       const val = parseInt(counterInput.value, 10);
       if (!isNaN(val) && val >= 1 && val <= pdfDoc.numPages) {
-        pageNum = val;
-        solicitarRenderPagina(pageNum);
+        scrollToPdfPage(val);
       } else {
         counterInput.value = String(pageNum);
       }
