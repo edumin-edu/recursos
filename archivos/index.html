@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
   <!-- PDF.js CDN -->
@@ -42,7 +42,7 @@
       overflow: hidden;
       background-color: var(--bg-app);
       color: var(--text-primary);
-      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
       user-select: none;
     }
@@ -75,8 +75,8 @@
       display: none;
       align-items: center;
       justify-content: space-between;
-      padding: 0 12px;
-      gap: 8px;
+      padding: 0 16px;
+      gap: 24px;
       z-index: 30;
       flex-shrink: 0;
     }
@@ -107,7 +107,6 @@
       align-items: center;
       gap: 8px;
       min-width: 0;
-      padding-left: 4px;
     }
 
     .doc-badge {
@@ -118,18 +117,18 @@
       border-radius: 4px;
       background-color: #ef4444;
       color: #ffffff;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.5px;
       flex-shrink: 0;
     }
 
     .doc-title {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--text-primary);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 260px;
+      max-width: 360px;
     }
 
     /* Botones de herramienta */
@@ -139,6 +138,10 @@
       color: var(--text-primary);
       width: 34px;
       height: 34px;
+      min-width: 34px;
+      min-height: 34px;
+      aspect-ratio: 1 / 1;
+      flex-shrink: 0;
       border-radius: 6px;
       display: inline-flex;
       align-items: center;
@@ -160,24 +163,51 @@
       cursor: default;
     }
 
-    .tool-btn.active {
-      background-color: rgb(59, 130, 246, 22%);
-      color: #60a5fa;
-      border-color: rgb(59, 130, 246, 40%);
+    button[title*="Rotar"] .material-symbols-outlined {
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+    }
+
+    @keyframes icon-pop {
+      0% {
+        transform: scale(0.68);
+        opacity: 0.3;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .icon-pop {
+      animation: icon-pop 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
     }
 
     .tool-btn-primary {
       background-color: var(--accent);
       color: #ffffff;
       width: auto;
+      min-width: auto;
+      aspect-ratio: auto;
       padding: 0 12px;
       gap: 6px;
       font-size: 12px;
       font-weight: 600;
+      transition: background-color 0.15s ease, opacity 0.15s ease;
     }
 
     .tool-btn-primary:hover:not(:disabled) {
       background-color: var(--accent-hover);
+    }
+
+    .tool-btn-primary:active:not(:disabled) {
+      background-color: #1d4ed8;
+    }
+
+    .tool-btn-primary:disabled {
+      opacity: 0.65;
+      cursor: wait;
     }
 
     .tool-divider {
@@ -191,24 +221,27 @@
     .page-box {
       display: flex;
       align-items: center;
-      gap: 5px;
-      font-size: 13px;
+      gap: 6px;
+      font-size: 12px;
       color: var(--text-secondary);
       font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum";
     }
 
     .page-input {
-      width: 42px;
-      height: 28px;
+      width: 36px;
+      height: 30px;
       background-color: #141518;
       border: 1px solid var(--border-color);
-      border-radius: 5px;
+      border-radius: 6px;
       color: var(--text-primary);
       text-align: center;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       font-family: inherit;
       outline: none;
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum";
     }
 
     .page-input:focus {
@@ -216,16 +249,15 @@
     }
 
     .zoom-label {
-      min-width: 48px;
+      width: 38px;
+      min-width: 38px;
       text-align: center;
       font-size: 12px;
       font-weight: 600;
       color: var(--text-primary);
-      background-color: #141518;
-      border: 1px solid var(--border-color);
-      padding: 5px 8px;
-      border-radius: 5px;
+      user-select: none;
       font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum";
     }
 
     /* =========================================
@@ -259,7 +291,7 @@
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       color: var(--text-secondary);
       border-bottom: 1px solid var(--border-color);
       display: flex;
@@ -444,8 +476,8 @@
       width: 46px;
       height: 46px;
       border-radius: 10px;
-      background-color: rgb(59, 130, 246, 15%);
-      color: #60a5fa;
+      background-color: rgb(192, 38, 211, 15%);
+      color: #e879f9;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -478,19 +510,28 @@
     }
 
     /* CARGADOR OSCURO */
-    .loader-box {
+    /* ESTADOS DE VISTA: CARGADOR Y ERROR (CLASES REUTILIZABLES) */
+    .caja-estado,
+    .loader-box,
+    .caja-error {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
       gap: 14px;
       margin: auto;
+      max-width: 380px;
+    }
+
+    #contenido-error {
+      display: none;
     }
 
     .spinner {
       width: 40px;
       height: 40px;
-      border: 3px solid rgb(255, 255, 255, 12%);
+      border: 4px solid rgb(255, 255, 255, 12%);
       border-top-color: var(--accent);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
@@ -502,39 +543,79 @@
       }
     }
 
-    /* CAJA DE ERROR OSCURA */
-    .caja-error {
-      display: none;
-      flex-direction: column;
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+    }
+
+    .icono-cargador-error {
+      width: 40px;
+      height: 40px;
+      color: #f59e0b;
+      line-height: 1;
+      display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 38px 32px;
-      max-width: 420px;
-      margin: auto;
-      background-color: var(--bg-toolbar);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      box-shadow: 0 20px 50px rgb(0, 0, 0, 60%);
     }
 
-    .icono-error {
-      font-size: 3.2rem;
+    .icono-cargador-error .material-symbols-outlined {
+      font-size: 40px;
+      width: 40px;
+      height: 40px;
       line-height: 1;
-      margin-bottom: 16px;
+      display: block;
     }
 
+    .textos-error {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .titulo-estado,
     .titulo-error {
-      font-size: 1.2rem;
+      font-size: 16px;
       font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 8px;
+      text-wrap: balance;
+      margin: 0;
     }
 
+    .descripcion-estado,
     .descripcion-error {
-      font-size: 0.92rem;
+      font-size: 14px;
+      font-weight: 500;
       color: var(--text-secondary);
-      line-height: 1.45;
+      line-height: 1.5;
+      text-wrap: balance;
+      margin: 0;
+      text-align: center;
+    }
+
+    /* =========================================================
+       [MODO DESARROLLO - DEMO DE TODAS LAS BARRAS EN UN SOLO SLUG]
+       Temporal: Para eliminar cuando el usuario confirme diseño
+       ========================================================= */
+    .demo-showcase {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      background-color: var(--bg-app);
+      box-sizing: border-box;
+      z-index: 100;
+    }
+
+    .demo-showcase .demo-toolbar-instance {
+      display: flex !important;
+      position: relative;
+      width: 100%;
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--border-color);
     }
 
     /* Scrollbars oscuras elegantes */
@@ -590,6 +671,45 @@
       .tool-btn-primary {
         padding: 0;
         width: 34px;
+        min-width: 34px;
+        aspect-ratio: 1 / 1;
+      }
+
+      /* Estados de carga y error en móvil */
+      .caja-estado,
+      .loader-box,
+      .caja-error {
+        gap: 12px;
+        max-width: 320px;
+        padding: 0 16px;
+      }
+
+      .spinner {
+        width: 34px;
+        height: 34px;
+        border-width: 3.5px;
+      }
+
+      .icono-cargador-error {
+        width: 34px;
+        height: 34px;
+      }
+
+      .icono-cargador-error .material-symbols-outlined {
+        font-size: 34px;
+        width: 34px;
+        height: 34px;
+      }
+
+      .titulo-estado,
+      .titulo-error {
+        font-size: 15px;
+      }
+
+      .descripcion-estado,
+      .descripcion-error {
+        font-size: 13px;
+        line-height: 1.45;
       }
     }
   </style>
@@ -620,11 +740,7 @@
 
       <!-- CENTRO: Herramientas de lectura PDF (Paginación + Zoom + Ajuste + Rotación) -->
       <div id="pdf-tools-center" class="toolbar-section toolbar-center">
-        <!-- Navegación de página -->
-        <button id="prev-btn" type="button" class="tool-btn" title="Página anterior (←)">
-          <span class="material-symbols-outlined">keyboard_arrow_up</span>
-        </button>
-
+        <!-- Contador de página directo -->
         <div class="page-box">
           <input
             id="counter-input"
@@ -639,10 +755,6 @@
           <span>/</span>
           <span id="counter-total">1</span>
         </div>
-
-        <button id="next-btn" type="button" class="tool-btn" title="Página siguiente (→)">
-          <span class="material-symbols-outlined">keyboard_arrow_down</span>
-        </button>
 
         <div class="tool-divider"></div>
 
@@ -659,13 +771,9 @@
 
         <div class="tool-divider hide-mobile"></div>
 
-        <!-- Ajustar a pantalla / Ajustar al ancho / Rotar -->
-        <button id="fit-page-btn" type="button" class="tool-btn" title="Ajustar página completa">
-          <span class="material-symbols-outlined">fit_screen</span>
-        </button>
-
-        <button id="fit-width-btn" type="button" class="tool-btn hide-mobile" title="Ajustar al ancho">
-          <span class="material-symbols-outlined">swap_horiz</span>
+        <!-- Botón único de ajuste (estilo Chrome PDF) / Rotar -->
+        <button id="fit-toggle-btn" type="button" class="tool-btn" title="Ajustar al ancho">
+          <span id="fit-icon" class="material-symbols-outlined">fit_page_width</span>
         </button>
 
         <button id="rotate-btn" type="button" class="tool-btn hide-mobile" title="Rotar página 90° (R)">
@@ -673,12 +781,8 @@
         </button>
       </div>
 
-      <!-- DERECHA: Imprimir, Pantalla completa y Descargar -->
+      <!-- DERECHA: Pantalla completa y Descargar (consistente con las demás barras) -->
       <div class="toolbar-section toolbar-right">
-        <button id="print-btn" type="button" class="tool-btn hide-mobile" title="Imprimir documento">
-          <span class="material-symbols-outlined">print</span>
-        </button>
-
         <button id="fullscreen-btn" type="button" class="tool-btn" title="Pantalla completa (F)">
           <span class="material-symbols-outlined">fullscreen</span>
         </button>
@@ -711,16 +815,22 @@
       <main id="viewport" class="reader-stage">
 
         <!-- CARGADOR -->
-        <div id="loading-state" class="loader-box">
+        <div id="loading-state" class="caja-estado">
           <div class="spinner"></div>
-          <p style="font-size: 13px; color: var(--text-secondary); font-weight: 500;">Abriendo documento…</p>
+          <p class="descripcion-estado">
+            Abriendo documento…
+          </p>
         </div>
 
-        <!-- ESTADO DE ERROR -->
-        <div id="contenido-error" class="caja-error">
-          <div class="icono-error">⚠️</div>
-          <div class="titulo-error">Contenido no disponible</div>
-          <div class="descripcion-error">El diplomado o el archivo solicitado no existe. Verifica que el enlace sea correcto.</div>
+        <!-- ESTADO DE ERROR (ESTILO CARGADOR: ÍCONO DIRECTO Y TEXTOS EN BLANCO, SIN CAJA, NI BORDES, NI SOMBRAS) -->
+        <div id="contenido-error" class="caja-estado">
+          <div class="icono-cargador-error">
+            <span class="material-symbols-outlined">warning</span>
+          </div>
+          <div class="textos-error">
+            <h3 class="titulo-estado">Contenido no disponible</h3>
+            <p class="descripcion-estado">El diplomado o la clase solicitada no existe. Verifica que el enlace sea correcto.</p>
+          </div>
         </div>
 
         <!-- 1. CONTENEDOR DE PÁGINA PDF -->
@@ -742,7 +852,7 @@
                 <span class="material-symbols-outlined" style="font-size: 26px;">folder_zip</span>
               </div>
               <div style="min-width: 0;">
-                <div id="archive-badge" style="font-size: 10px; font-weight: 700; color: #60a5fa; letter-spacing: 0.5px; margin-bottom: 2px;">ARCHIVO COMPRIMIDO</div>
+                <div id="archive-badge" style="font-size: 10px; font-weight: 700; color: #e879f9; letter-spacing: 0.5px; margin-bottom: 2px;">ARCHIVO COMPRIMIDO</div>
                 <div id="archive-title" style="font-size: 15px; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">materiales.zip</div>
                 <div id="archive-subtitle" style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">Listo para descargar</div>
               </div>
@@ -757,6 +867,437 @@
 
       </main>
 
+    </div>
+
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- [MODO DESARROLLO - DEMO DE TODAS LAS BARRAS EN UN SOLO SLUG]-->
+  <!-- Temporal: Para ser eliminado cuando el usuario confirme   -->
+  <!-- ========================================================= -->
+  <div id="demo-showcase" class="demo-showcase">
+
+    <!-- 1. BARRA SUPERIOR: DOCUMENTO PDF -->
+    <header class="reader-toolbar demo-toolbar-instance">
+      <div class="toolbar-section toolbar-left">
+        <button type="button" class="tool-btn" title="Mostrar/ocultar miniaturas de páginas">
+          <span class="material-symbols-outlined">dock_to_right</span>
+        </button>
+        <div class="doc-title-wrap">
+          <span class="doc-badge" style="background-color: #ef4444;">PDF</span>
+          <span class="doc-title" title="CLASE 01 - INTRODUCCIÓN GENERAL Y FUNDAMENTOS.pdf">CLASE 01 - INTRODUCCIÓN GENERAL Y FUNDAMENTOS.pdf</span>
+        </div>
+      </div>
+      <div class="toolbar-section toolbar-center">
+        <div class="page-box">
+          <input type="text" value="1" class="page-input" title="Ir a la página" />
+          <span>/</span>
+          <span>18</span>
+        </div>
+        <div class="tool-divider"></div>
+        <button type="button" class="tool-btn" title="Alejar (-)">
+          <span class="material-symbols-outlined">remove</span>
+        </button>
+        <span class="zoom-label">100%</span>
+        <button type="button" class="tool-btn" title="Acercar (+)">
+          <span class="material-symbols-outlined">add</span>
+        </button>
+        <div class="tool-divider hide-mobile"></div>
+        <button type="button" class="tool-btn" title="Ajustar al ancho">
+          <span class="material-symbols-outlined">fit_page_width</span>
+        </button>
+        <button type="button" class="tool-btn hide-mobile" title="Rotar página 90° (R)">
+          <span class="material-symbols-outlined">rotate_right</span>
+        </button>
+      </div>
+      <div class="toolbar-section toolbar-right">
+        <button type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+        <button type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. BARRA SUPERIOR: PDF EN ZIP (CON RETORNO) -->
+    <header class="reader-toolbar demo-toolbar-instance">
+      <div class="toolbar-section toolbar-left">
+        <button type="button" class="tool-btn" title="Volver al archivo ZIP">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <button type="button" class="tool-btn" title="Mostrar/ocultar miniaturas de páginas">
+          <span class="material-symbols-outlined">dock_to_right</span>
+        </button>
+        <div class="doc-title-wrap">
+          <span class="doc-badge" style="background-color: #ef4444;">PDF</span>
+          <span class="doc-title" title="GUIA_METODOLOGICA_DE_CAMPO.pdf (en paquete.zip)">GUIA_METODOLOGICA_DE_CAMPO.pdf (en paquete.zip)</span>
+        </div>
+      </div>
+      <div class="toolbar-section toolbar-center">
+        <div class="page-box">
+          <input type="text" value="3" class="page-input" title="Ir a la página" />
+          <span>/</span>
+          <span>12</span>
+        </div>
+        <div class="tool-divider"></div>
+        <button type="button" class="tool-btn" title="Alejar (-)">
+          <span class="material-symbols-outlined">remove</span>
+        </button>
+        <span class="zoom-label">100%</span>
+        <button type="button" class="tool-btn" title="Acercar (+)">
+          <span class="material-symbols-outlined">add</span>
+        </button>
+        <div class="tool-divider hide-mobile"></div>
+        <button type="button" class="tool-btn" title="Ajustar al ancho">
+          <span class="material-symbols-outlined">fit_page_width</span>
+        </button>
+        <button type="button" class="tool-btn hide-mobile" title="Rotar página 90° (R)">
+          <span class="material-symbols-outlined">rotate_right</span>
+        </button>
+      </div>
+      <div class="toolbar-section toolbar-right">
+        <button type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+        <button type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 3. BARRA SUPERIOR: POWERPOINT (.PPTX) -->
+    <header class="reader-toolbar demo-toolbar-instance">
+      <div class="toolbar-section toolbar-left">
+        <div class="doc-title-wrap">
+          <span class="doc-badge" style="background-color: #f97316;">PPTX</span>
+          <span class="doc-title" title="CLASE 04 - GESTIÓN Y OPERACIONES MINERAS.pptx">CLASE 04 - GESTIÓN Y OPERACIONES MINERAS.pptx</span>
+        </div>
+      </div>
+      <div class="toolbar-section toolbar-right">
+        <button type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+        <button type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 4. BARRA SUPERIOR: POWERPOINT (.PPT) -->
+    <header class="reader-toolbar demo-toolbar-instance">
+      <div class="toolbar-section toolbar-left">
+        <div class="doc-title-wrap">
+          <span class="doc-badge" style="background-color: #f97316;">PPT</span>
+          <span class="doc-title" title="RESUMEN_EJECUTIVO_GEOLOGIA.ppt">RESUMEN_EJECUTIVO_GEOLOGIA.ppt</span>
+        </div>
+      </div>
+      <div class="toolbar-section toolbar-right">
+        <button type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+        <button type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 5. BARRA SUPERIOR: WORD (.DOCX) -->
+    <header class="reader-toolbar demo-toolbar-instance">
+      <div class="toolbar-section toolbar-left">
+        <div class="doc-title-wrap">
+          <span class="doc-badge" style="background-color: #3b82f6;">DOCX</span>
+          <span class="doc-title" title="MANUAL DE PROCEDIMIENTOS Y GESTIÓN LABORAL.docx">MANUAL DE PROCEDIMIENTOS Y GESTIÓN LABORAL.docx</span>
+        </div>
+      </div>
+      <div class="toolbar-section toolbar-right">
+        <button type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+        <button type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 6. BARRA SUPERIOR: WORD (.DOC) -->
+    <header class="reader-toolbar demo-toolbar-instance">
+      <div class="toolbar-section toolbar-left">
+        <div class="doc-title-wrap">
+          <span class="doc-badge" style="background-color: #3b82f6;">DOC</span>
+          <span class="doc-title" title="INFORME_TECNICO_HISTORICO.doc">INFORME_TECNICO_HISTORICO.doc</span>
+        </div>
+      </div>
+      <div class="toolbar-section toolbar-right">
+        <button type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+        <button type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 7. BARRA SUPERIOR: EXCEL (.XLSX) -->
+    <header class="reader-toolbar demo-toolbar-instance">
+      <div class="toolbar-section toolbar-left">
+        <div class="doc-title-wrap">
+          <span class="doc-badge" style="background-color: #10b981;">XLSX</span>
+          <span class="doc-title" title="MATRIZ DE COSTOS Y PROCESOS PRODUCTIVOS.xlsx">MATRIZ DE COSTOS Y PROCESOS PRODUCTIVOS.xlsx</span>
+        </div>
+      </div>
+      <div class="toolbar-section toolbar-right">
+        <button type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+        <button type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 8. BARRA SUPERIOR: EXCEL (.XLS) -->
+    <header class="reader-toolbar demo-toolbar-instance">
+      <div class="toolbar-section toolbar-left">
+        <div class="doc-title-wrap">
+          <span class="doc-badge" style="background-color: #10b981;">XLS</span>
+          <span class="doc-title" title="TABLA_DATOS_OPERATIVOS.xls">TABLA_DATOS_OPERATIVOS.xls</span>
+        </div>
+      </div>
+      <div class="toolbar-section toolbar-right">
+        <button type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+        <button type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 9. BARRA SUPERIOR: PAQUETE COMPRIMIDO (.ZIP) -->
+    <header class="reader-toolbar demo-toolbar-instance">
+      <div class="toolbar-section toolbar-left">
+        <div class="doc-title-wrap">
+          <span class="doc-badge" style="background-color: #c026d3;">ZIP</span>
+          <span class="doc-title" title="MATERIALES_COMPLEMENTARIOS_2026.zip">MATERIALES_COMPLEMENTARIOS_2026.zip</span>
+        </div>
+      </div>
+      <div class="toolbar-section toolbar-right">
+        <button type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+        <button type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 10. BARRA SUPERIOR: PAQUETE COMPRIMIDO (.RAR) -->
+    <header class="reader-toolbar demo-toolbar-instance">
+      <div class="toolbar-section toolbar-left">
+        <div class="doc-title-wrap">
+          <span class="doc-badge" style="background-color: #c026d3;">RAR</span>
+          <span class="doc-title" title="DOCUMENTACION_TECNICA.rar">DOCUMENTACION_TECNICA.rar</span>
+        </div>
+      </div>
+      <div class="toolbar-section toolbar-right">
+        <button type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+        <button type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 11. BARRA SUPERIOR: PAQUETE COMPRIMIDO (.7Z) -->
+    <header class="reader-toolbar demo-toolbar-instance">
+      <div class="toolbar-section toolbar-left">
+        <div class="doc-title-wrap">
+          <span class="doc-badge" style="background-color: #c026d3;">7Z</span>
+          <span class="doc-title" title="ARCHIVOS_ADICIONALES.7z">ARCHIVOS_ADICIONALES.7z</span>
+        </div>
+      </div>
+      <div class="toolbar-section toolbar-right">
+        <button type="button" class="tool-btn" title="Pantalla completa (F)">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </button>
+        <button type="button" class="tool-btn tool-btn-primary" title="Descargar archivo">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span class="btn-text">Descargar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 12. CABECERA DEL PANEL LATERAL PDF (.sidebar-header) -->
+    <div class="sidebar-header demo-toolbar-instance" style="width: 100%; border-bottom: 1px solid var(--border-color); background-color: var(--bg-sidebar); padding: 10px 16px;">
+      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary);">PÁGINAS (.sidebar-header)</span>
+      <button type="button" class="tool-btn" style="width: 24px; height: 24px;" title="Cerrar panel">
+        <span class="material-symbols-outlined" style="font-size: 16px;">close</span>
+      </button>
+    </div>
+
+    <!-- MUESTRA DEL PANEL LATERAL COMPLETO EN SU ANCHO NATURAL (210px) -->
+    <div style="width: 100%; padding: 24px 20px; border-bottom: 1px solid var(--border-color); background-color: var(--bg-app); display: flex; flex-direction: column; align-items: center; gap: 12px;">
+      <div style="font-size: 12px; font-weight: 600; color: var(--text-secondary);">Panel lateral PDF completo (.reader-sidebar con .sidebar-header):</div>
+      <aside style="width: 210px; background-color: var(--bg-sidebar); border: 1px solid var(--border-color); border-radius: 8px; display: flex; flex-direction: column; overflow: hidden;">
+        <div class="sidebar-header">
+          <span>Páginas</span>
+          <button type="button" class="tool-btn" style="width: 24px; height: 24px;" title="Cerrar panel">
+            <span class="material-symbols-outlined" style="font-size: 16px;">close</span>
+          </button>
+        </div>
+        <div class="thumbs-list" style="max-height: 220px; padding: 12px 10px; gap: 12px;">
+          <div class="thumb-item active" style="width: 140px;">
+            <div class="thumb-canvas-wrap" style="width: 100%; height: 80px; background: #262a30; border-radius: 4px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--accent);">
+              <span style="font-size: 11px; color: var(--text-secondary);">Pág. 1</span>
+            </div>
+            <span class="thumb-label" style="font-size: 11px; color: var(--accent); font-weight: 600;">1</span>
+          </div>
+          <div class="thumb-item" style="width: 140px;">
+            <div class="thumb-canvas-wrap" style="width: 100%; height: 80px; background: #262a30; border-radius: 4px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+              <span style="font-size: 11px; color: var(--text-secondary);">Pág. 2</span>
+            </div>
+            <span class="thumb-label" style="font-size: 11px; color: var(--text-secondary);">2</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- 13. CONTENEDOR DE ARCHIVOS COMPRIMIDOS (.ZIP / .RAR / .7Z) -->
+    <div style="width: 100%; padding: 36px 20px; border-bottom: 1px solid var(--border-color); background-color: var(--bg-app); display: flex; flex-direction: column; align-items: center; gap: 16px;">
+      <div style="font-size: 12px; font-weight: 600; color: var(--text-secondary);">Contenedor de archivos comprimidos (.archive-holder):</div>
+      <div class="archive-holder" style="display: flex; margin: 0; width: 100%;">
+        <div class="archive-top">
+          <div class="archive-info">
+            <div class="archive-icon-box">
+              <span class="material-symbols-outlined" style="font-size: 26px;">folder_zip</span>
+            </div>
+            <div style="min-width: 0;">
+              <div style="font-size: 10px; font-weight: 700; color: #e879f9; letter-spacing: 0.5px; margin-bottom: 2px;">PAQUETE ZIP</div>
+              <div style="font-size: 15px; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">MATERIALES_COMPLEMENTARIOS_2026.zip</div>
+              <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">5 archivos (14.2 MB)</div>
+            </div>
+          </div>
+          <button type="button" class="tool-btn tool-btn-primary" style="height: 38px; padding: 0 14px;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+            <span>Descargar todo</span>
+          </button>
+        </div>
+        <div class="archive-list">
+          <div class="archive-row">
+            <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+              <span class="material-symbols-outlined" style="color: #f87171; font-size: 22px;">picture_as_pdf</span>
+              <div style="min-width: 0;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">01_GUIA_METODOLOGICA_COMPLETA.pdf</div>
+                <div style="font-size: 11px; color: var(--text-secondary);">2.4 MB</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+              <button type="button" class="tool-btn btn-preview-entry" style="width: auto; padding: 0 10px; font-size: 12px; gap: 4px; background: rgb(59, 130, 246, 18%); color: #60a5fa;">
+                <span class="material-symbols-outlined" style="font-size: 16px;">visibility</span>
+                <span>Ver</span>
+              </button>
+              <button type="button" class="tool-btn btn-download-entry" title="Descargar archivo">
+                <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="archive-row">
+            <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+              <span class="material-symbols-outlined" style="color: #60a5fa; font-size: 22px;">description</span>
+              <div style="min-width: 0;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">02_CASO_PRACTICO_DE_ESTUDIO.docx</div>
+                <div style="font-size: 11px; color: var(--text-secondary);">1.1 MB</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+              <button type="button" class="tool-btn btn-download-entry" title="Descargar archivo">
+                <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="archive-row">
+            <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+              <span class="material-symbols-outlined" style="color: #34d399; font-size: 22px;">table_chart</span>
+              <div style="min-width: 0;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">03_PLANTILLA_CALCULO_FINANCIERO.xlsx</div>
+                <div style="font-size: 11px; color: var(--text-secondary);">850 KB</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+              <button type="button" class="tool-btn btn-download-entry" title="Descargar archivo">
+                <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="archive-row">
+            <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+              <span class="material-symbols-outlined" style="color: #fb923c; font-size: 22px;">slideshow</span>
+              <div style="min-width: 0;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">04_DIAPOSITIVAS_DE_EXPEDICION.pptx</div>
+                <div style="font-size: 11px; color: var(--text-secondary);">5.6 MB</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+              <button type="button" class="tool-btn btn-download-entry" title="Descargar archivo">
+                <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="archive-row">
+            <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+              <span class="material-symbols-outlined" style="color: #34d399; font-size: 22px;">table_chart</span>
+              <div style="min-width: 0;">
+                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">05_DATASET_MUESTRAL.csv</div>
+                <div style="font-size: 11px; color: var(--text-secondary);">420 KB</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+              <button type="button" class="tool-btn btn-download-entry" title="Descargar archivo">
+                <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. VISTA DEL CARGADOR -->
+    <div style="min-height: 180px; display: flex; align-items: center; justify-content: center; width: 100%; padding: 40px 20px; border-bottom: 1px solid var(--border-color);">
+      <div class="caja-estado">
+        <div class="spinner"></div>
+        <p class="descripcion-estado">
+          Abriendo documento…
+        </p>
+      </div>
+    </div>
+
+    <!-- 15. VISTA DE CONTENIDO NO DISPONIBLE (ESTILO CARGADOR) -->
+    <div style="min-height: 220px; display: flex; align-items: center; justify-content: center; width: 100%; padding: 40px 20px;">
+      <div class="caja-estado">
+        <div class="icono-cargador-error">
+          <span class="material-symbols-outlined">warning</span>
+        </div>
+        <div class="textos-error">
+          <h3 class="titulo-estado">Contenido no disponible</h3>
+          <p class="descripcion-estado">El diplomado o la clase solicitada no existe. Verifica que el enlace sea correcto.</p>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -781,6 +1322,7 @@
     let baseFitScale = 1.0;
     let currentScale = 1.0;
     let currentRotation = 0;
+    let iconRotationDegrees = 0;
     let fitMode = "page"; // "page" | "width" | "custom"
     let thumbsGenerated = false;
 
@@ -802,7 +1344,6 @@
 
     const canvasCard = document.getElementById("canvas-card");
     const canvas = document.getElementById("pdf-canvas");
-    const ctx = canvas.getContext("2d");
     const annotationLayer = document.getElementById("annotation-layer");
 
     const officeCard = document.getElementById("office-card");
@@ -815,19 +1356,26 @@
     const archiveListContainer = document.getElementById("archive-list-container");
     const archiveMainDownloadBtn = document.getElementById("archive-main-download-btn");
 
-    const prevBtn = document.getElementById("prev-btn");
-    const nextBtn = document.getElementById("next-btn");
     const counterInput = document.getElementById("counter-input");
     const counterTotal = document.getElementById("counter-total");
     const zoomOutBtn = document.getElementById("zoom-out-btn");
     const zoomInBtn = document.getElementById("zoom-in-btn");
     const zoomVal = document.getElementById("zoom-val");
-    const fitPageBtn = document.getElementById("fit-page-btn");
-    const fitWidthBtn = document.getElementById("fit-width-btn");
+    const fitToggleBtn = document.getElementById("fit-toggle-btn");
+    const fitIcon = document.getElementById("fit-icon");
     const rotateBtn = document.getElementById("rotate-btn");
-    const printBtn = document.getElementById("print-btn");
     const fullscreenBtn = document.getElementById("fullscreen-btn");
     const downloadBtn = document.getElementById("download-btn");
+
+    function animarCambioIcono(iconEl, nuevoTexto) {
+      if (!iconEl) return;
+      if (nuevoTexto && iconEl.textContent.trim() !== nuevoTexto) {
+        iconEl.textContent = nuevoTexto;
+      }
+      iconEl.classList.remove("icon-pop");
+      void iconEl.offsetWidth; // Forzar reflow para reiniciar la animación CSS
+      iconEl.classList.add("icon-pop");
+    }
 
     function mostrarError() {
       loadingState.style.display = "none";
@@ -867,7 +1415,6 @@
       archiveCard.style.display = "none";
       pdfToolsCenter.style.display = "flex";
       sidebarToggleBtn.style.display = "inline-flex";
-      printBtn.style.display = "inline-flex";
       backToZipBtn.style.display = fromZip ? "inline-flex" : "none";
       annotationLayer.innerHTML = "";
       thumbsList.innerHTML = "";
@@ -880,6 +1427,9 @@
       thumbsGenerated = false;
       isFirstRenderDone = false;
       currentRotation = 0;
+      iconRotationDegrees = 0;
+      const rotateIconSpan = rotateBtn.querySelector(".material-symbols-outlined");
+      if (rotateIconSpan) rotateIconSpan.style.transform = "";
       fitMode = "page";
 
       configurarEncabezadoArchivo(activeFileName, "PDF", "#ef4444");
@@ -979,7 +1529,7 @@
           }
         }
         scrollToPdfPage(targetScrollPage, "auto");
-      } catch (error) {
+      } catch {
         mostrarError();
       } finally {
         pageRendering = false;
@@ -991,8 +1541,6 @@
       }
 
       counterInput.value = String(num);
-      prevBtn.disabled = num <= 1;
-      nextBtn.disabled = num >= pdfDoc.numPages;
       resaltarMiniaturaActiva(num);
     }
 
@@ -1067,7 +1615,9 @@
           scrollToPdfPage(i);
           if (window.innerWidth < 768) {
             sidebarEl.classList.remove("open");
-            sidebarToggleBtn.classList.remove("active");
+            const iconSpan = sidebarToggleBtn.querySelector(".material-symbols-outlined");
+            if (iconSpan) animarCambioIcono(iconSpan, "dock_to_right");
+            sidebarToggleBtn.title = "Mostrar miniaturas de páginas";
           }
         });
         thumbsList.appendChild(item);
@@ -1122,8 +1672,6 @@
         if (closestPage && closestPage !== pageNum) {
           pageNum = closestPage;
           counterInput.value = String(pageNum);
-          prevBtn.disabled = pageNum <= 1;
-          nextBtn.disabled = pageNum >= pdfDoc.numPages;
           resaltarMiniaturaActiva(pageNum);
         }
       }, 80);
@@ -1131,7 +1679,11 @@
 
     sidebarToggleBtn.addEventListener("click", () => {
       const isOpen = sidebarEl.classList.toggle("open");
-      sidebarToggleBtn.classList.toggle("active", isOpen);
+      const iconSpan = sidebarToggleBtn.querySelector(".material-symbols-outlined");
+      if (iconSpan) {
+        animarCambioIcono(iconSpan, isOpen ? "dock_to_left" : "dock_to_right");
+      }
+      sidebarToggleBtn.title = isOpen ? "Ocultar miniaturas de páginas" : "Mostrar miniaturas de páginas";
       if (isOpen) {
         construirMiniaturas();
       }
@@ -1142,7 +1694,11 @@
 
     closeSidebarBtn.addEventListener("click", () => {
       sidebarEl.classList.remove("open");
-      sidebarToggleBtn.classList.remove("active");
+      const iconSpan = sidebarToggleBtn.querySelector(".material-symbols-outlined");
+      if (iconSpan) {
+        animarCambioIcono(iconSpan, "dock_to_right");
+      }
+      sidebarToggleBtn.title = "Mostrar miniaturas de páginas";
       if (pdfDoc && fitMode !== "custom") {
         setTimeout(calcularEscalaYRenderizar, 50);
       }
@@ -1165,8 +1721,6 @@
       if (!target) return;
       pageNum = boundedPage;
       counterInput.value = String(pageNum);
-      prevBtn.disabled = pageNum <= 1;
-      nextBtn.disabled = pageNum >= pdfDoc.numPages;
       resaltarMiniaturaActiva(pageNum);
       const stageTop = viewportEl.getBoundingClientRect().top;
       const targetTop = target.getBoundingClientRect().top;
@@ -1175,9 +1729,6 @@
         behavior,
       });
     }
-
-    prevBtn.addEventListener("click", goPrev);
-    nextBtn.addEventListener("click", goNext);
 
     counterInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") counterInput.blur();
@@ -1206,33 +1757,42 @@
       renderPage(pageNum);
     }
 
-    zoomInBtn.addEventListener("click", () => cambiarZoomManual(1.2));
-    zoomOutBtn.addEventListener("click", () => cambiarZoomManual(0.84));
-
-    fitPageBtn.addEventListener("click", () => {
-      if (!pdfDoc) return;
-      fitMode = "page";
-      calcularEscalaYRenderizar();
+    zoomInBtn.addEventListener("click", () => {
+      cambiarZoomManual(1.2);
+      const icon = zoomInBtn.querySelector(".material-symbols-outlined");
+      if (icon) animarCambioIcono(icon);
+    });
+    zoomOutBtn.addEventListener("click", () => {
+      cambiarZoomManual(0.84);
+      const icon = zoomOutBtn.querySelector(".material-symbols-outlined");
+      if (icon) animarCambioIcono(icon);
     });
 
-    fitWidthBtn.addEventListener("click", () => {
-      if (!pdfDoc) return;
-      fitMode = "width";
-      calcularEscalaYRenderizar();
-    });
+    if (fitToggleBtn) {
+      fitToggleBtn.addEventListener("click", () => {
+        if (!pdfDoc) return;
+        if (fitMode === "page") {
+          fitMode = "width";
+          if (fitIcon) animarCambioIcono(fitIcon, "fit_page_height");
+          fitToggleBtn.title = "Ajustar a la página";
+        } else {
+          fitMode = "page";
+          if (fitIcon) animarCambioIcono(fitIcon, "fit_page_width");
+          fitToggleBtn.title = "Ajustar al ancho";
+        }
+        calcularEscalaYRenderizar();
+      });
+    }
 
     rotateBtn.addEventListener("click", () => {
       if (!pdfDoc) return;
       currentRotation = (currentRotation + 90) % 360;
-      calcularEscalaYRenderizar();
-    });
-
-    printBtn.addEventListener("click", () => {
-      const targetUrl = activeFileUrl || fallbackFileUrl;
-      if (targetUrl) {
-        const win = window.open(targetUrl, "_blank");
-        if (win) win.focus();
+      iconRotationDegrees += 90;
+      const iconSpan = rotateBtn.querySelector(".material-symbols-outlined");
+      if (iconSpan) {
+        iconSpan.style.transform = `rotate(${iconRotationDegrees}deg)`;
       }
+      calcularEscalaYRenderizar();
     });
 
     // Arrastre con mouse cuando la página tiene zoom mayor al área
@@ -1276,7 +1836,6 @@
       sidebarEl.classList.remove("open");
       sidebarToggleBtn.style.display = "none";
       pdfToolsCenter.style.display = "none";
-      printBtn.style.display = "none";
       backToZipBtn.style.display = "none";
 
       const badgeColors = {
@@ -1341,10 +1900,9 @@
       sidebarEl.classList.remove("open");
       sidebarToggleBtn.style.display = "none";
       pdfToolsCenter.style.display = "none";
-      printBtn.style.display = "none";
       backToZipBtn.style.display = "none";
 
-      configurarEncabezadoArchivo(activeFileName, ext.toUpperCase(), "#8b5cf6");
+      configurarEncabezadoArchivo(activeFileName, ext.toUpperCase(), "#c026d3");
 
       if (ext !== "zip" || typeof JSZip === "undefined") {
         try {
@@ -1456,7 +2014,7 @@
       sidebarToggleBtn.style.display = "none";
       pdfToolsCenter.style.display = "none";
       backToZipBtn.style.display = "none";
-      configurarEncabezadoArchivo(activeFileName, "ZIP", "#8b5cf6");
+      configurarEncabezadoArchivo(activeFileName, "ZIP", "#c026d3");
       archiveCard.style.display = "flex";
     });
 
@@ -1468,10 +2026,10 @@
       if (!targetDownloadUrl) return;
 
       const iconSpan = botonRef ? botonRef.querySelector(".material-symbols-outlined") : null;
-      const originalText = iconSpan ? iconSpan.textContent : "download";
+      const originalText = iconSpan ? iconSpan.textContent.trim() : "download";
 
       try {
-        if (iconSpan) iconSpan.textContent = "hourglass_empty";
+        if (iconSpan) animarCambioIcono(iconSpan, "hourglass_empty");
         if (botonRef) botonRef.disabled = true;
 
         const response = await fetch(targetDownloadUrl);
@@ -1494,7 +2052,7 @@
         tempLink.download = activeFileName;
         tempLink.click();
       } finally {
-        if (iconSpan) iconSpan.textContent = originalText;
+        if (iconSpan) animarCambioIcono(iconSpan, originalText);
         if (botonRef) botonRef.disabled = false;
       }
     }
@@ -1515,6 +2073,15 @@
       } else {
         document.exitFullscreen().catch(() => {});
       }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+      const isFull = Boolean(document.fullscreenElement);
+      const fsIcon = fullscreenBtn.querySelector(".material-symbols-outlined");
+      if (fsIcon) {
+        animarCambioIcono(fsIcon, isFull ? "fullscreen_exit" : "fullscreen");
+      }
+      fullscreenBtn.title = isFull ? "Salir de pantalla completa (F)" : "Pantalla completa (F)";
     });
 
     document.addEventListener("keydown", (e) => {
@@ -1577,7 +2144,154 @@
       }
     }
 
+    // =========================================================
+    // [MODO DESARROLLO - DEMO DE TODAS LAS BARRAS EN UN SOLO SLUG]
+    // =========================================================
+    function inicializarModoDemo() {
+      const params = new URLSearchParams(window.location.search);
+      const demoParam = params.get("demo");
+      const slugParam = params.get("slug");
+      const diplomadoParam = params.get("diplomado");
+      const archivoParam = params.get("archivo");
+
+      const esDemo =
+        demoParam !== null ||
+        slugParam === "demo" ||
+        diplomadoParam === "demo" ||
+        archivoParam === "demo";
+
+      if (!esDemo) return false;
+
+      const readerAppEl = document.querySelector(".reader-app");
+      const demoShowcaseEl = document.getElementById("demo-showcase");
+
+      if (readerAppEl) readerAppEl.style.display = "none";
+      if (demoShowcaseEl) {
+        demoShowcaseEl.style.display = "flex";
+
+        // Interactividad para probar botones de la barra demo
+        demoShowcaseEl.querySelectorAll(".demo-toolbar-instance").forEach((bar) => {
+          const pInput = bar.querySelector(".page-input");
+          const zLabel = bar.querySelector(".zoom-label");
+          const zIn = bar.querySelector('button[title*="Acercar"]');
+          const zOut = bar.querySelector('button[title*="Alejar"]');
+          const fitBtn = bar.querySelector('button[title*="Ajustar"]');
+
+          if (zIn && zLabel) {
+            zIn.addEventListener("click", () => {
+              let val = parseInt(zLabel.textContent, 10) || 100;
+              zLabel.textContent = `${Math.min(val + 15, 300)}%`;
+              const icon = zIn.querySelector(".material-symbols-outlined");
+              if (icon) animarCambioIcono(icon);
+            });
+          }
+          if (zOut && zLabel) {
+            zOut.addEventListener("click", () => {
+              let val = parseInt(zLabel.textContent, 10) || 100;
+              zLabel.textContent = `${Math.max(val - 15, 40)}%`;
+              const icon = zOut.querySelector(".material-symbols-outlined");
+              if (icon) animarCambioIcono(icon);
+            });
+          }
+          if (fitBtn) {
+            fitBtn.addEventListener("click", () => {
+              const icon = fitBtn.querySelector(".material-symbols-outlined");
+              if (icon) {
+                if (icon.textContent.trim() === "fit_page_width") {
+                  animarCambioIcono(icon, "fit_page_height");
+                  fitBtn.title = "Ajustar a la página";
+                } else {
+                  animarCambioIcono(icon, "fit_page_width");
+                  fitBtn.title = "Ajustar al ancho";
+                }
+              }
+            });
+          }
+          const sidebarBtn = bar.querySelector('button[title*="miniaturas"]');
+          if (sidebarBtn) {
+            sidebarBtn.addEventListener("click", () => {
+              const icon = sidebarBtn.querySelector(".material-symbols-outlined");
+              if (icon) {
+                if (icon.textContent.trim() === "dock_to_right") {
+                  animarCambioIcono(icon, "dock_to_left");
+                  sidebarBtn.title = "Ocultar miniaturas de páginas";
+                } else {
+                  animarCambioIcono(icon, "dock_to_right");
+                  sidebarBtn.title = "Mostrar miniaturas de páginas";
+                }
+              }
+            });
+          }
+          const fsBtn = bar.querySelector('button[title*="completa"]');
+          if (fsBtn) {
+            fsBtn.addEventListener("click", () => {
+              const icon = fsBtn.querySelector(".material-symbols-outlined");
+              if (icon) {
+                const isExit = icon.textContent.trim() === "fullscreen_exit";
+                animarCambioIcono(icon, isExit ? "fullscreen" : "fullscreen_exit");
+                fsBtn.title = isExit ? "Pantalla completa (F)" : "Salir de pantalla completa (F)";
+              }
+            });
+          }
+          const rotateB = bar.querySelector('button[title*="Rotar"]');
+          let barRotateDeg = 0;
+          if (rotateB) {
+            rotateB.addEventListener("click", () => {
+              barRotateDeg += 90;
+              const icon = rotateB.querySelector(".material-symbols-outlined");
+              if (icon) {
+                icon.style.transform = `rotate(${barRotateDeg}deg)`;
+              }
+            });
+          }
+          const dlBtn = bar.querySelector('button[title*="Descargar"]');
+          if (dlBtn) {
+            dlBtn.addEventListener("click", () => {
+              if (dlBtn.disabled) return;
+              const icon = dlBtn.querySelector(".material-symbols-outlined");
+
+              dlBtn.disabled = true;
+              if (icon) animarCambioIcono(icon, "hourglass_empty");
+
+              setTimeout(() => {
+                if (icon) animarCambioIcono(icon, "download");
+                dlBtn.disabled = false;
+              }, 1200);
+            });
+          }
+          if (pInput) {
+            pInput.addEventListener("keydown", (e) => {
+              if (e.key === "Enter") pInput.blur();
+            });
+          }
+        });
+
+        demoShowcaseEl.querySelectorAll(".archive-holder button").forEach((archBtn) => {
+          if (archBtn.textContent.includes("Descargar") || archBtn.title.includes("Descargar")) {
+            archBtn.addEventListener("click", () => {
+              if (archBtn.disabled) return;
+              const icon = archBtn.querySelector(".material-symbols-outlined");
+
+              archBtn.disabled = true;
+              if (icon) animarCambioIcono(icon, "hourglass_empty");
+
+              setTimeout(() => {
+                if (icon) animarCambioIcono(icon, "download");
+                archBtn.disabled = false;
+              }, 1200);
+            });
+          }
+        });
+      }
+
+      return true;
+    }
+
     function inicializarVisor() {
+      if (inicializarModoDemo()) {
+        return;
+      }
+
       const params = new URLSearchParams(window.location.search);
       const diplomadoRaw = params.get("diplomado") ? params.get("diplomado").trim() : "";
       const archivoRaw = params.get("archivo") ? params.get("archivo").trim() : "";
