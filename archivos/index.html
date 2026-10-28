@@ -170,22 +170,45 @@
 
     @keyframes icon-pop {
       0% {
-        transform: scale(0.68);
-        opacity: 0.3;
+        transform: scale(1);
+      }
+      40% {
+        transform: scale(1.22);
       }
       100% {
         transform: scale(1);
-        opacity: 1;
       }
     }
 
     .icon-pop {
-      animation: icon-pop 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: icon-pop 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: inline-block;
+    }
+
+    @keyframes zoom-pulse-in {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.22); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes zoom-pulse-out {
+      0% { transform: scale(1); }
+      40% { transform: scale(0.8); }
+      100% { transform: scale(1); }
+    }
+
+    .zoom-pulse-in {
+      animation: zoom-pulse-in 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: inline-block;
+    }
+
+    .zoom-pulse-out {
+      animation: zoom-pulse-out 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
       display: inline-block;
     }
 
     .tool-btn-primary {
-      background-color: var(--accent);
+      background-color: #0891b2;
       color: #ffffff;
       width: auto;
       min-width: auto;
@@ -198,11 +221,11 @@
     }
 
     .tool-btn-primary:hover:not(:disabled) {
-      background-color: var(--accent-hover);
+      background-color: #0e7490;
     }
 
     .tool-btn-primary:active:not(:disabled) {
-      background-color: #1d4ed8;
+      background-color: #155e75;
     }
 
     .tool-btn-primary:disabled {
@@ -640,12 +663,76 @@
     /* Responsivo móvil */
     @media (max-width: 768px) {
       .reader-toolbar {
-        padding: 0 8px;
-        gap: 4px;
+        padding: 0 10px;
+        gap: 8px;
+      }
+
+      .toolbar-left {
+        flex: 1;
+        min-width: 0;
+        gap: 8px;
       }
 
       .doc-title-wrap {
-        display: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 0;
+        flex: 1;
+      }
+
+      .doc-badge {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 5px;
+        letter-spacing: 0.4px;
+        flex-shrink: 0;
+      }
+
+      .doc-title {
+        font-size: 13px;
+        font-weight: 600;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* En móvil, la barra de herramientas PDF flota en la esquina inferior derecha */
+      #reader-toolbar .toolbar-center {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        left: auto;
+        transform: none;
+        background-color: rgb(26, 28, 33, 0.94);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgb(255, 255, 255, 0.12);
+        border-radius: 20px;
+        padding: 3px 6px;
+        gap: 3px;
+        box-shadow: 0 8px 24px rgb(0, 0, 0, 0.55);
+        z-index: 35;
+      }
+
+      #reader-toolbar .toolbar-center .tool-btn {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
+      }
+
+      #reader-toolbar .toolbar-center .page-input {
+        width: 32px;
+        height: 26px;
+        font-size: 11px;
+      }
+
+      #reader-toolbar .toolbar-center .zoom-label {
+        width: 34px;
+        min-width: 34px;
+        font-size: 11px;
       }
 
       .hide-mobile {
@@ -657,6 +744,7 @@
         top: 0;
         left: 0;
         bottom: 0;
+        z-index: 50;
         box-shadow: 12px 0 30px rgb(0, 0, 0, 70%);
       }
 
@@ -1377,6 +1465,14 @@
       iconEl.classList.add("icon-pop");
     }
 
+    function animarPulsoZoom(iconEl, tipo) {
+      if (!iconEl) return;
+      const animClass = tipo === "in" ? "zoom-pulse-in" : "zoom-pulse-out";
+      iconEl.classList.remove("zoom-pulse-in", "zoom-pulse-out");
+      void iconEl.offsetWidth; // Forzar reflow para reiniciar la animación
+      iconEl.classList.add(animClass);
+    }
+
     function mostrarError() {
       loadingState.style.display = "none";
       canvasCard.style.display = "none";
@@ -1760,12 +1856,12 @@
     zoomInBtn.addEventListener("click", () => {
       cambiarZoomManual(1.2);
       const icon = zoomInBtn.querySelector(".material-symbols-outlined");
-      if (icon) animarCambioIcono(icon);
+      if (icon) animarPulsoZoom(icon, "in");
     });
     zoomOutBtn.addEventListener("click", () => {
       cambiarZoomManual(0.84);
       const icon = zoomOutBtn.querySelector(".material-symbols-outlined");
-      if (icon) animarCambioIcono(icon);
+      if (icon) animarPulsoZoom(icon, "out");
     });
 
     if (fitToggleBtn) {
@@ -2182,7 +2278,7 @@
               let val = parseInt(zLabel.textContent, 10) || 100;
               zLabel.textContent = `${Math.min(val + 15, 300)}%`;
               const icon = zIn.querySelector(".material-symbols-outlined");
-              if (icon) animarCambioIcono(icon);
+              if (icon) animarPulsoZoom(icon, "in");
             });
           }
           if (zOut && zLabel) {
@@ -2190,7 +2286,7 @@
               let val = parseInt(zLabel.textContent, 10) || 100;
               zLabel.textContent = `${Math.max(val - 15, 40)}%`;
               const icon = zOut.querySelector(".material-symbols-outlined");
-              if (icon) animarCambioIcono(icon);
+              if (icon) animarPulsoZoom(icon, "out");
             });
           }
           if (fitBtn) {
