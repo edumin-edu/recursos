@@ -508,11 +508,19 @@
         background-color: var(--bg-toolbar);
         border: 1px solid var(--border-color);
         border-radius: 14px;
-        box-shadow: 0 20px 50px rgb(0, 0, 0, 55%);
+        box-shadow: none;
         display: none;
         flex-direction: column;
         overflow: hidden;
         margin: 20px auto;
+      }
+
+      .archive-holder.simple-archive .archive-top {
+        border-bottom: none;
+      }
+
+      .archive-holder.simple-archive .archive-list {
+        display: none;
       }
 
       .archive-top {
@@ -544,6 +552,22 @@
         flex-shrink: 0;
       }
 
+      .archive-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .archive-subtitle {
+        font-size: 12px;
+        color: var(--text-secondary);
+        margin-top: 2px;
+        text-wrap: pretty;
+      }
+
       .archive-list {
         padding: 16px;
         overflow-y: auto;
@@ -567,6 +591,20 @@
 
       .archive-row:hover {
         background-color: var(--bg-hover);
+      }
+
+      .archive-row .tool-btn {
+        border-radius: 6px;
+        transition:
+          background-color 0.15s ease,
+          border-color 0.15s ease,
+          color 0.15s ease;
+      }
+
+      .archive-row .tool-btn:hover {
+        background-color: rgb(255, 255, 255, 8%);
+        border-color: var(--border-color);
+        color: #ffffff;
       }
 
       /* CARGADOR OSCURO */
@@ -836,12 +874,12 @@
       <header id="reader-toolbar" class="reader-toolbar">
         <!-- IZQUIERDA: Miniaturas + Nombre del archivo -->
         <div class="toolbar-section toolbar-left">
-          <button id="sidebar-toggle-btn" type="button" class="tool-btn" title="Mostrar/ocultar miniaturas de páginas">
-            <span class="material-symbols-outlined">dock_to_right</span>
-          </button>
-
           <button id="back-to-zip-btn" type="button" style="display: none" class="tool-btn" title="Volver al archivo ZIP">
             <span class="material-symbols-outlined">arrow_back</span>
+          </button>
+
+          <button id="sidebar-toggle-btn" type="button" class="tool-btn" title="Mostrar/ocultar miniaturas de páginas">
+            <span class="material-symbols-outlined">dock_to_right</span>
           </button>
 
           <div class="doc-title-wrap">
@@ -875,7 +913,7 @@
           <div class="tool-divider hide-mobile"></div>
 
           <!-- Botón único de ajuste (estilo Chrome PDF) / Rotar -->
-          <button id="fit-toggle-btn" type="button" class="tool-btn hide-mobile" title="Ajustar al ancho">
+          <button id="fit-toggle-btn" type="button" class="tool-btn" title="Ajustar al ancho">
             <span id="fit-icon" class="material-symbols-outlined">fit_page_width</span>
           </button>
 
@@ -911,7 +949,7 @@
           <!-- CARGADOR -->
           <div id="loading-state" class="caja-estado">
             <div class="spinner"></div>
-            <p class="descripcion-estado">Abriendo documento…</p>
+            <p class="titulo-estado">Abriendo documento…</p>
           </div>
 
           <!-- ESTADO DE ERROR (ESTILO CARGADOR: ÍCONO DIRECTO Y TEXTOS EN BLANCO, SIN CAJA, NI BORDES, NI SOMBRAS) -->
@@ -944,14 +982,13 @@
                   <span class="material-symbols-outlined" style="font-size: 26px">folder_zip</span>
                 </div>
                 <div style="min-width: 0">
-                  <div id="archive-badge" style="font-size: 10px; font-weight: 700; color: #e879f9; letter-spacing: 0.5px; margin-bottom: 2px">ARCHIVO COMPRIMIDO</div>
-                  <div id="archive-title" style="font-size: 15px; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">materiales.zip</div>
-                  <div id="archive-subtitle" style="font-size: 12px; color: var(--text-secondary); margin-top: 2px">Listo para descargar</div>
+                  <div id="archive-title" class="archive-title">materiales.zip</div>
+                  <div id="archive-subtitle" class="archive-subtitle">Listo para descargar</div>
                 </div>
               </div>
-              <button id="archive-main-download-btn" type="button" class="tool-btn tool-btn-primary" style="height: 38px; padding: 0 14px">
-                <span class="material-symbols-outlined" style="font-size: 18px">download</span>
-                <span>Descargar todo</span>
+              <button id="archive-main-download-btn" type="button" class="tool-btn tool-btn-primary" title="Descargar paquete completo">
+                <span class="material-symbols-outlined">download</span>
+                <span class="btn-text">Descargar todo</span>
               </button>
             </div>
             <div id="archive-list-container" class="archive-list"></div>
@@ -1266,14 +1303,13 @@
                 <span class="material-symbols-outlined" style="font-size: 26px">folder_zip</span>
               </div>
               <div style="min-width: 0">
-                <div style="font-size: 10px; font-weight: 700; color: #e879f9; letter-spacing: 0.5px; margin-bottom: 2px">PAQUETE ZIP</div>
-                <div style="font-size: 15px; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">MATERIALES_COMPLEMENTARIOS_2026.zip</div>
-                <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px">5 archivos (14.2 MB)</div>
+                <div class="archive-title">MATERIALES_COMPLEMENTARIOS_2026.zip</div>
+                <div class="archive-subtitle">5 archivos • 14.2 MB</div>
               </div>
             </div>
-            <button type="button" class="tool-btn tool-btn-primary" style="height: 38px; padding: 0 14px">
-              <span class="material-symbols-outlined" style="font-size: 18px">download</span>
-              <span>Descargar todo</span>
+            <button type="button" class="tool-btn tool-btn-primary" title="Descargar paquete completo">
+              <span class="material-symbols-outlined">download</span>
+              <span class="btn-text">Descargar todo</span>
             </button>
           </div>
           <div class="archive-list">
@@ -1282,13 +1318,12 @@
                 <span class="material-symbols-outlined" style="color: #f87171; font-size: 22px">picture_as_pdf</span>
                 <div style="min-width: 0">
                   <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis">01_GUIA_METODOLOGICA_COMPLETA.pdf</div>
-                  <div style="font-size: 11px; color: var(--text-secondary)">2.4 MB</div>
+                  <div style="font-size: 11px; color: var(--text-secondary); text-wrap: pretty">2.4 MB</div>
                 </div>
               </div>
               <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0">
-                <button type="button" class="tool-btn btn-preview-entry" style="width: auto; padding: 0 10px; font-size: 12px; gap: 4px; background: var(--accent-subtle); color: var(--accent)">
-                  <span class="material-symbols-outlined" style="font-size: 16px">visibility</span>
-                  <span>Ver</span>
+                <button type="button" class="tool-btn btn-preview-entry" title="Ver documento">
+                  <span class="material-symbols-outlined" style="font-size: 18px">visibility</span>
                 </button>
                 <button type="button" class="tool-btn btn-download-entry" title="Descargar archivo">
                   <span class="material-symbols-outlined" style="font-size: 18px">download</span>
@@ -1413,7 +1448,7 @@
       <div style="min-height: 180px; display: flex; align-items: center; justify-content: center; width: 100%; padding: 40px 20px; border-bottom: 1px solid var(--border-color)">
         <div class="caja-estado">
           <div class="spinner"></div>
-          <p class="descripcion-estado">Abriendo documento…</p>
+          <p class="titulo-estado">Abriendo documento…</p>
         </div>
       </div>
 
@@ -1475,7 +1510,6 @@
       const officeIframe = document.getElementById("office-iframe");
 
       const archiveCard = document.getElementById("archive-card");
-      const archiveBadge = document.getElementById("archive-badge");
       const archiveTitle = document.getElementById("archive-title");
       const archiveSubtitle = document.getElementById("archive-subtitle");
       const archiveListContainer = document.getElementById("archive-list-container");
@@ -2186,17 +2220,26 @@
       if (fitToggleBtn) {
         fitToggleBtn.addEventListener("click", () => {
           if (!pdfDoc) return;
-          if (fitMode === "page") {
+          if (window.innerWidth < 768) {
+            // En móvil: resetea exclusivamente al estado inicial de ajuste al ancho
             fitMode = "width";
-            if (fitIcon) animarCambioIcono(fitIcon, "fit_page_height");
-            fitToggleBtn.title = "Ajustar a la página";
-          } else {
-            fitMode = "page";
-            if (fitIcon) animarCambioIcono(fitIcon, "fit_page_width");
+            if (fitIcon) animarPresionIcono(fitIcon, "fit_page_width");
             fitToggleBtn.title = "Ajustar al ancho";
+          } else {
+            // En escritorio: alterna entre ancho y página completa
+            if (fitMode === "page") {
+              fitMode = "width";
+              if (fitIcon) animarCambioIcono(fitIcon, "fit_page_height");
+              fitToggleBtn.title = "Ajustar a la página";
+            } else {
+              fitMode = "page";
+              if (fitIcon) animarCambioIcono(fitIcon, "fit_page_width");
+              fitToggleBtn.title = "Ajustar al ancho";
+            }
           }
           calcularEscalaBase();
           actualizarDimensionesYRenderVisible(true);
+          viewportEl.scrollLeft = 0;
         });
       }
 
@@ -2237,7 +2280,17 @@
       let startMouseY = 0;
 
       viewportEl.addEventListener("mousedown", (e) => {
-        if (!pdfDoc || e.target.closest("a") || e.target.closest("button") || e.target.closest("input")) return;
+        if (
+          !pdfDoc ||
+          canvasCard.style.display === "none" ||
+          e.target.closest(".archive-holder") ||
+          e.target.closest(".office-holder") ||
+          e.target.closest("a") ||
+          e.target.closest("button") ||
+          e.target.closest("input")
+        ) {
+          return;
+        }
         isDraggingStage = true;
         startMouseX = e.clientX;
         startMouseY = e.clientY;
@@ -2397,28 +2450,27 @@
         return { icon: "insert_drive_file", color: "#9ba1ab" };
       }
 
-      function mostrarTarjetaComprimidoSimple(extLabel) {
+      function mostrarTarjetaComprimidoSimple() {
         loadingState.style.display = "none";
         toolbarEl.style.display = "flex";
-        archiveBadge.textContent = `PAQUETE .${extLabel.toUpperCase()}`;
         archiveTitle.textContent = activeFileName;
-        archiveSubtitle.textContent = "Archivo comprimido listo para descargar";
-        archiveListContainer.innerHTML = `
-        <div style="padding: 28px 16px; text-align: center; color: var(--text-secondary); font-size: 13px;">
-          Este paquete está en formato <strong>.${extLabel.toUpperCase()}</strong>. Usa el botón <strong>Descargar todo</strong> para guardarlo en tu equipo.
-        </div>
-      `;
+        archiveSubtitle.textContent = "Listo para descargar";
+        archiveListContainer.innerHTML = "";
+        archiveListContainer.style.display = "none";
+        archiveCard.classList.add("simple-archive");
         archiveCard.style.display = "flex";
       }
 
       async function loadArchive(targetUrl, ext) {
         pdfDoc = null;
-        viewportEl.classList.remove("no-padding");
+        isDraggingStage = false;
+        viewportEl.classList.remove("no-padding", "grab-mode", "grabbing");
         loadingState.style.display = "flex";
         contenidoError.style.display = "none";
         canvasCard.style.display = "none";
         officeCard.style.display = "none";
         archiveCard.style.display = "none";
+        archiveCard.classList.remove("simple-archive");
         sidebarEl.classList.remove("open");
         sidebarToggleBtn.style.display = "none";
         pdfToolsCenter.style.display = "none";
@@ -2430,7 +2482,7 @@
           try {
             const checkRes = await fetch(targetUrl, { method: "HEAD" });
             if (!checkRes.ok) throw new Error("No encontrado");
-            mostrarTarjetaComprimidoSimple(ext);
+            mostrarTarjetaComprimidoSimple();
           } catch {
             if (fallbackFileUrl && targetUrl !== fallbackFileUrl) {
               activeFileUrl = fallbackFileUrl;
@@ -2455,9 +2507,10 @@
             }
           });
 
-          archiveBadge.textContent = "PAQUETE ZIP";
+          archiveCard.classList.remove("simple-archive");
+          archiveListContainer.style.display = "flex";
           archiveTitle.textContent = activeFileName;
-          archiveSubtitle.textContent = `${entries.length} ${entries.length === 1 ? "archivo" : "archivos"} (${formatearBytes(blob.size)})`;
+          archiveSubtitle.textContent = `${entries.length} ${entries.length === 1 ? "archivo" : "archivos"} • ${formatearBytes(blob.size)}`;
           archiveListContainer.innerHTML = "";
 
           entries.forEach((entry) => {
@@ -2473,15 +2526,14 @@
               <span class="material-symbols-outlined" style="color: ${color}; font-size: 22px;">${icon}</span>
               <div style="min-width: 0;">
                 <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${cleanEntryName}</div>
-                <div style="font-size: 11px; color: var(--text-secondary);">${sizeStr || entry.name}</div>
+                <div style="font-size: 11px; color: var(--text-secondary); text-wrap: pretty;">${sizeStr || entry.name}</div>
               </div>
             </div>
             <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
               ${
                 isPdf
-                  ? `<button type="button" class="tool-btn btn-preview-entry" style="width: auto; padding: 0 10px; font-size: 12px; gap: 4px; background: var(--accent-subtle); color: var(--accent);">
-                      <span class="material-symbols-outlined" style="font-size: 16px;">visibility</span>
-                      <span>Ver</span>
+                  ? `<button type="button" class="tool-btn btn-preview-entry" title="Ver documento">
+                      <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
                     </button>`
                   : ""
               }
@@ -2536,6 +2588,9 @@
         sidebarToggleBtn.style.display = "none";
         pdfToolsCenter.style.display = "none";
         backToZipBtn.style.display = "none";
+        pdfDoc = null;
+        viewportEl.classList.remove("grab-mode", "grabbing");
+        isDraggingStage = false;
         configurarEncabezadoArchivo(activeFileName, "ZIP", "#c026d3");
         archiveCard.style.display = "flex";
       });
