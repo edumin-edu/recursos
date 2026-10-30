@@ -415,13 +415,16 @@
       .reader-stage {
         flex: 1;
         height: 100%;
-        overflow: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        overflow-y: auto;
+        overflow-x: hidden;
         padding: 20px;
         position: relative;
         background-color: var(--bg-app);
+        box-sizing: border-box;
+      }
+
+      .reader-stage.can-scroll-x {
+        overflow-x: auto;
       }
 
       .reader-stage.no-padding {
@@ -444,7 +447,9 @@
         flex-direction: column;
         align-items: center;
         gap: 16px;
-        margin: auto;
+        margin: 0 auto;
+        width: fit-content;
+        min-width: 0;
         box-shadow: none;
         background-color: transparent;
       }
@@ -507,7 +512,7 @@
         display: none;
         flex-direction: column;
         overflow: hidden;
-        margin: auto;
+        margin: 20px auto;
       }
 
       .archive-top {
@@ -576,8 +581,12 @@
         justify-content: center;
         text-align: center;
         gap: 14px;
-        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         max-width: 380px;
+        width: calc(100% - 32px);
       }
 
       #contenido-error {
@@ -708,42 +717,16 @@
           gap: 16px;
         }
 
-        .toolbar-left {
-          flex: 1;
-          min-width: 0;
-          gap: 6px;
-        }
-
-        .toolbar-right {
-          flex-shrink: 0;
-          width: auto;
-          gap: 6px;
-        }
-
         .doc-title-wrap {
-          display: flex;
-          align-items: center;
           gap: 6px;
-          min-width: 0;
-          flex: 1;
         }
 
         .doc-badge {
-          font-size: 10px;
-          font-weight: 700;
-          padding: 2px 5px;
-          letter-spacing: 0.4px;
-          flex-shrink: 0;
+          font-size: 9px;
         }
 
         .doc-title {
           font-size: 13px;
-          font-weight: 600;
-          min-width: 0;
-          flex: 1;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
         }
 
         /* En móvil, la barra de herramientas PDF flota en la esquina inferior derecha */
@@ -1561,6 +1544,7 @@
       const pageInfoMap = new Map();
       let intersectionObserver = null;
       let zoomDebounceTimer = null;
+      let prevAppliedScale = 1.0;
 
       function loadPdf(targetUrlOrData, fromZip = false) {
         if (!targetUrlOrData) return;
@@ -1623,17 +1607,18 @@
               rendered: false,
             });
 
+            // Mostrar el visor para que viewportEl tenga su ancho real de renderizado
+            loadingState.style.display = "none";
+            toolbarEl.style.display = "flex";
+            canvasCard.style.display = "flex";
+
             // Calcular escala inicial de ajuste
             calcularEscalaBase();
+            prevAppliedScale = currentScale;
             actualizarEtiquetaZoom();
 
             // Construir todos los contenedores de páginas con sus tamaños exactos
             construirSheets(unscaled.width, unscaled.height);
-
-            // ¡MOSTRAR EL VISOR DE INMEDIATO! Nunca congelar en "Abriendo documento"
-            loadingState.style.display = "none";
-            toolbarEl.style.display = "flex";
-            canvasCard.style.display = "flex";
 
             // Iniciar IntersectionObserver para renderizado bajo demanda
             iniciarObserver();
@@ -1657,7 +1642,7 @@
         const w = (info && info.unscaledWidth) || 600;
         const h = (info && info.unscaledHeight) || 800;
 
-        const padX = window.innerWidth < 768 ? 20 : 56;
+        const padX = window.innerWidth < 768 ? 24 : 56;
         const padY = window.innerWidth < 768 ? 20 : 48;
         const availW = Math.max(viewportEl.clientWidth - padX, 180);
         const availH = Math.max(viewportEl.clientHeight - padY, 180);
@@ -1836,14 +1821,23 @@
         sheets.forEach((s) => intersectionObserver.observe(s));
       }
 
-      // Aplica zoom instantáneo a 60 FPS por CSS, anclando la posición de lectura y re-renderizando con nitidez
-      function actualizarDimensionesYRenderVisible(inmediato = false) {
+      // Aplica zoom instantáneo a 60 FPS por CSS, anclando el punto focal donde el usuario interactúa
+      function actualizarDimensionesYRenderVisible(inmediato = false, focalPoint = null) {
         actualizarEtiquetaZoom();
 
-        // Anclaje de posición: guardar distancia relativa de la página actual antes del cambio de tamaño
-        const activeSheet = canvasCard.querySelector(`[data-page="${pageNum}"]`);
-        const stageTop = viewportEl.getBoundingClientRect().top;
-        const prevOffset = activeSheet ? (activeSheet.getBoundingClientRect().top - stageTop) : 0;
+        const stageRect = viewportEl.getBoundingClientRect();
+        const originX = focalPoint && typeof focalPoint.x === "number"
+          ? focalPoint.x
+          : (stageRect.left + stageRect.width / 2);
+        const originY = focalPoint && typeof focalPoint.y === "number"
+          ? focalPoint.y
+          : (stageRect.top + stageRect.height / 2);
+
+        // Medir el contenedor de diapositivas antes del reescalado
+        const cardRect = canvasCard.getBoundingClientRect();
+        const cardPointX = Math.max(0, Math.min(originX - cardRect.left, cardRect.width || 1));
+        const cardPointY = Math.max(0, Math.min(originY - cardRect.top, cardRect.height || 1));
+        const factor = prevAppliedScale > 0 ? (currentScale / prevAppliedScale) : 1;
 
         // Cancelar renders anteriores que quedaron desfasados por el nuevo zoom
         pageInfoMap.forEach((info) => {
@@ -1859,6 +1853,7 @@
 
         // 1. Escalar instantáneamente por CSS todas las páginas (0 milisegundos, 60fps)
         const sheets = canvasCard.querySelectorAll(".pdf-page-sheet");
+        let maxSheetWidth = 0;
         sheets.forEach((sheet) => {
           const pNum = Number(sheet.dataset.page);
           const info = pageInfoMap.get(pNum);
@@ -1866,6 +1861,7 @@
           const baseH = (info && info.unscaledHeight) || 800;
           const w = Math.floor(baseW * currentScale);
           const h = Math.floor(baseH * currentScale);
+          if (w > maxSheetWidth) maxSheetWidth = w;
 
           sheet.style.width = w + "px";
           sheet.style.height = h + "px";
@@ -1876,20 +1872,34 @@
           }
         });
 
-        // Restaurar posición de anclaje: la página en la que estaba el usuario no se mueve de su vista
-        if (activeSheet) {
-          const newOffset = activeSheet.getBoundingClientRect().top - stageTop;
-          viewportEl.scrollTop += (newOffset - prevOffset);
+        // Verificar si el ancho real de las hojas excede el ancho disponible del visor
+        const availWidth = viewportEl.clientWidth - (window.innerWidth < 768 ? 20 : 40);
+        const requiresScrollX = maxSheetWidth > availWidth;
+
+        // Anclaje focal exacto: mantener el punto exacto bajo los dedos o el cursor
+        const newCardRect = canvasCard.getBoundingClientRect();
+        if (requiresScrollX) {
+          viewportEl.classList.add("can-scroll-x");
+          const newScreenX = newCardRect.left + (cardPointX * factor);
+          viewportEl.scrollLeft = Math.max(0, viewportEl.scrollLeft + (newScreenX - originX));
+        } else {
+          viewportEl.classList.remove("can-scroll-x");
+          viewportEl.scrollLeft = 0;
         }
+
+        const newScreenY = newCardRect.top + (cardPointY * factor);
+        viewportEl.scrollTop = Math.max(0, viewportEl.scrollTop + (newScreenY - originY));
+
+        prevAppliedScale = currentScale;
 
         // 2. Re-renderizar páginas visibles con alta nitidez
         clearTimeout(zoomDebounceTimer);
         const ejecutarRenderVisibles = () => {
-          const stageRect = viewportEl.getBoundingClientRect();
+          const stageRectVisible = viewportEl.getBoundingClientRect();
           sheets.forEach((sheet) => {
             const rect = sheet.getBoundingClientRect();
             // Visible si intersecta con la ventana con margen de 350px
-            if (rect.bottom >= stageRect.top - 350 && rect.top <= stageRect.bottom + 350) {
+            if (rect.bottom >= stageRectVisible.top - 350 && rect.top <= stageRectVisible.bottom + 350) {
               const pNum = Number(sheet.dataset.page);
               if (pNum) renderPageSheet(pNum);
             }
@@ -1903,14 +1913,15 @@
         }
       }
 
-      function cambiarZoomManual(factor) {
+      function cambiarZoomManual(factor, focalPoint = null) {
         if (!pdfDoc) return;
         fitMode = "custom";
         const minScale = (baseFitScale || 1) * 0.25;
         const maxScale = (baseFitScale || 1) * 5.0;
         const nuevoScale = Math.min(Math.max(currentScale * factor, minScale), maxScale);
+        if (Math.abs(nuevoScale - currentScale) < 0.001) return;
         currentScale = nuevoScale;
-        actualizarDimensionesYRenderVisible(false);
+        actualizarDimensionesYRenderVisible(false, focalPoint);
       }
 
       function renderAnnotations(page, pageViewport, targetLayer = annotationLayer) {
@@ -2260,7 +2271,7 @@
           fitToggleBtn.title = "Ajustar a la página (pantalla completa)";
         } else {
           fitMode = "custom";
-          cambiarZoomManual(1.4);
+          cambiarZoomManual(1.4, { x: e.clientX, y: e.clientY });
         }
       });
 
@@ -2283,7 +2294,7 @@
           if (!pdfDoc || canvasCard.style.display === "none") return;
           fitMode = "custom";
           const factor = e.deltaY < 0 ? 1.15 : 0.87;
-          cambiarZoomManual(factor);
+          cambiarZoomManual(factor, { x: e.clientX, y: e.clientY });
         }
       }, { passive: false });
 
@@ -2312,6 +2323,8 @@
             e.touches[0].clientX - e.touches[1].clientX,
             e.touches[0].clientY - e.touches[1].clientY
           );
+          const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+          const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
           fitMode = "custom";
           // Control de sensibilidad: amortigua la distancia de los dedos para mayor precisión
           const rawRatio = dist / touchInitialDist;
@@ -2319,7 +2332,7 @@
           const minScale = (baseFitScale || 1) * 0.25;
           const maxScale = (baseFitScale || 1) * 5.0;
           currentScale = Math.min(Math.max(touchInitialScale * ratio, minScale), maxScale);
-          actualizarDimensionesYRenderVisible(false);
+          actualizarDimensionesYRenderVisible(false, { x: midX, y: midY });
         }
       }, { passive: false });
 
