@@ -512,7 +512,7 @@
         display: none;
         flex-direction: column;
         overflow: hidden;
-        margin: 20px auto;
+        margin: 0 auto;
       }
 
       .archive-holder.simple-archive .archive-top {
@@ -816,15 +816,34 @@
           padding: 10px;
         }
 
-        .tool-btn-primary span.btn-text {
+        .reader-toolbar .tool-btn-primary span.btn-text {
           display: none;
         }
 
-        .tool-btn-primary {
+        .reader-toolbar .tool-btn-primary {
           padding: 0;
           width: 34px;
           min-width: 34px;
           aspect-ratio: 1 / 1;
+        }
+
+        .archive-top {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 14px;
+          padding: 16px;
+        }
+
+        .archive-top .tool-btn-primary {
+          width: 100%;
+          height: 38px;
+          justify-content: center;
+          aspect-ratio: auto;
+          padding: 0 16px;
+        }
+
+        .archive-top .tool-btn-primary span.btn-text {
+          display: inline;
         }
 
         /* Estados de carga y error en móvil */

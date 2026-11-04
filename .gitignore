@@ -1,0 +1,21 @@
+.env
+.env.example
+__pycache__/
+*.session.json
+descargas_q10/
+debug_*.png
+
+# Scripts de Python y temporales de soporte
+*.py
+*.pyc
+*.jsonl
+*.log
+course_loaded.html
+q10_session.json
+scripts/comparar_cursos.py
+
+# Dependencias locales y logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
