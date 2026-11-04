@@ -978,7 +978,7 @@
             </div>
             <div class="textos-error">
               <h3 class="titulo-estado">Contenido no disponible</h3>
-              <p class="descripcion-estado">El diplomado o la clase solicitada no existe. Verifica que el enlace sea correcto.</p>
+              <p class="descripcion-estado">El diplomado, curso o material solicitado no existe. Verifica que el enlace sea correcto.</p>
             </div>
           </div>
 
@@ -1479,7 +1479,7 @@
           </div>
           <div class="textos-error">
             <h3 class="titulo-estado">Contenido no disponible</h3>
-            <p class="descripcion-estado">El diplomado o la clase solicitada no existe. Verifica que el enlace sea correcto.</p>
+            <p class="descripcion-estado">El diplomado, curso o material solicitado no existe. Verifica que el enlace sea correcto.</p>
           </div>
         </div>
       </div>
@@ -2776,19 +2776,31 @@
       // =========================================================
       // 5. INICIALIZACIÓN Y PARÁMETROS URL
       // =========================================================
-      function abrirRecursoResuelto(diplomadoSlug, fileName, customRuta) {
-        const cleanFile = decodeURIComponent(fileName).trim();
+      function asegurarRutaCodificada(ruta) {
+        if (!ruta) return "";
+        if (ruta.startsWith("http://") || ruta.startsWith("https://")) {
+          return encodeURI(decodeURI(ruta));
+        }
+        return ruta.split("/").map((segment) => encodeURIComponent(decodeURIComponent(segment))).join("/");
+      }
+
+      function abrirRecursoResuelto(folderPath, fileName, customRuta) {
+        const cleanFile = decodeURIComponent(fileName || "").trim();
         activeFileName = cleanFile.split("/").pop() || "documento.pdf";
 
         const encodedFile = encodeURIComponent(activeFileName);
-        const relativePath = customRuta || (diplomadoSlug ? `archivos/${diplomadoSlug}/${encodedFile}` : `archivos/${encodedFile}`);
+        const cleanFolder = (folderPath || "").replace(/\.json$/i, "").replace(/^\/+|\/+$/g, "");
+        const encodedFolder = cleanFolder ? cleanFolder.split("/").map(encodeURIComponent).join("/") : "";
+        const relativePath = customRuta || (encodedFolder ? `archivos/${encodedFolder}/${encodedFile}` : `archivos/${encodedFile}`);
 
         if (relativePath.startsWith("http://") || relativePath.startsWith("https://")) {
           activeFileUrl = relativePath;
           fallbackFileUrl = relativePath;
         } else {
-          activeFileUrl = `${GITHUB_PAGES_BASE}${relativePath}`;
-          fallbackFileUrl = diplomadoSlug ? `./${diplomadoSlug}/${encodedFile}` : `./${encodedFile}`;
+          const cleanRelPath = relativePath.startsWith("archivos/") ? relativePath : `archivos/${relativePath}`;
+          const encodedRelPath = asegurarRutaCodificada(cleanRelPath);
+          activeFileUrl = `${GITHUB_PAGES_BASE}${encodedRelPath}`;
+          fallbackFileUrl = `./${asegurarRutaCodificada(cleanRelPath.replace(/^archivos\//, ""))}`;
         }
 
         const lowerName = activeFileName.toLowerCase();
@@ -2954,56 +2966,43 @@
         }
 
         const params = new URLSearchParams(window.location.search);
-        const diplomadoRaw = params.get("diplomado") ? params.get("diplomado").trim() : "";
-        const archivoRaw = params.get("archivo") ? params.get("archivo").trim() : "";
-        const numRaw = (params.get("diapositiva") || params.get("clase") || "").trim();
 
-        const diplomadoClean = diplomadoRaw.replace(/\.json$/i, "").replace(/^\/+|\/+$/g, "");
+        const diplomado = (params.get("diplomado") || "").trim();
+        const curso = (params.get("curso") || "").trim();
+        const taller = (params.get("taller") || "").trim();
+        const archivo = (params.get("archivo") || "").trim();
 
-        if (archivoRaw) {
-          if (!diplomadoClean && archivoRaw.includes("/")) {
-            const parts = archivoRaw.split("/").filter(Boolean);
-            const filePart = parts.pop();
-            const folderPart = parts.pop();
-            abrirRecursoResuelto(folderPart, filePart, null);
-            return;
-          }
-          if (!diplomadoClean) {
-            mostrarError();
-            return;
-          }
-          abrirRecursoResuelto(diplomadoClean, archivoRaw, null);
+        // 1. Si no hay archivo especificado, no se puede abrir nada
+        if (!archivo) {
+          mostrarError();
           return;
         }
 
-        if (diplomadoClean && /^\d+$/.test(numRaw)) {
-          const numItem = parseInt(numRaw, 10);
-          if (numItem < 1) {
-            mostrarError();
-            return;
-          }
+        // 2. Si viene por curso: ?curso=slug-curso&archivo=nombre-archivo
+        if (curso) {
+          abrirRecursoResuelto(`cursos-talleres/${curso}`, archivo, null);
+          return;
+        }
 
-          fetch(`./${diplomadoClean}.json`)
-            .then((res) => {
-              if (!res.ok) throw new Error("Catálogo no encontrado");
-              return res.json();
-            })
-            .then((data) => {
-              const lista = data.archivos || data.diapositivas || data.clases || data.mapas || [];
-              if (!Array.isArray(lista) || lista.length === 0) {
-                mostrarError();
-                return;
-              }
-              const item = lista.find((d) => d.numero === numItem) || lista[numItem - 1];
-              if (!item || (!item.archivo && !item.ruta)) {
-                mostrarError();
-                return;
-              }
-              abrirRecursoResuelto(diplomadoClean, item.archivo || item.ruta, item.ruta || null);
-            })
-            .catch(() => {
-              mostrarError();
-            });
+        // 3. Si viene por taller: ?taller=slug-taller&archivo=nombre-archivo
+        if (taller) {
+          abrirRecursoResuelto(`cursos-talleres/${taller}`, archivo, null);
+          return;
+        }
+
+        // 4. Si viene por diplomado: ?diplomado=slug-diplomado&archivo=nombre-archivo
+        if (diplomado) {
+          const diplomadoClean = diplomado.replace(/\.json$/i, "").replace(/^\/+|\/+$/g, "");
+          abrirRecursoResuelto(diplomadoClean, archivo, null);
+          return;
+        }
+
+        // 5. Si archivo ya trae ruta completa (ej: cursos-talleres/slug/archivo.pdf)
+        if (archivo.includes("/")) {
+          const parts = archivo.split("/").filter(Boolean);
+          const filePart = parts.pop();
+          const folderPart = parts.join("/");
+          abrirRecursoResuelto(folderPart, filePart, null);
           return;
         }
 
