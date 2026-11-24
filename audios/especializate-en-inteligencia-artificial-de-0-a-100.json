@@ -1,0 +1,68 @@
+{
+  "nombre_curso": "ESPECIALÍZATE EN INTELIGENCIA ARTIFICIAL DE 0 A 100",
+  "color": "#005971",
+  "podcast_url": "https://open.spotify.com/show/033DoFfPIFbwYzmSEh2I2q?si=2fbf9af1350c4918",
+  "drive_folder_url": "https://drive.google.com/open?id=17GN_DRFCWFwCTYMkvX71TWRkpNYX6dnL&usp=drive_fs",
+  "audios": [
+    {
+      "titulo": "TEMA 01",
+      "url_spotify": "https://open.spotify.com/episode/3F9baq3fJryxwlcnPjKURu",
+      "url_drive": "https://drive.google.com/file/d/1p-kjVbnz_29MXDp2jm_Cp_vhkYweAX5v/view"
+    },
+    {
+      "titulo": "TEMA 02",
+      "url_spotify": "https://open.spotify.com/episode/1BP7FFTz3LxM089Ijf3zg2",
+      "url_drive": "https://drive.google.com/file/d/1U-KHUWQ8b1yjPsxseucwW3u8EsnWqfYF/view"
+    },
+    {
+      "titulo": "TEMA 03",
+      "url_spotify": "https://open.spotify.com/episode/2bVc4TP1g4PLWMgedUnSJP",
+      "url_drive": "https://drive.google.com/file/d/1EZ0G55ZwBzD7mMyDxcbI3Gffhh0wXGKj/view"
+    },
+    {
+      "titulo": "TEMA 04",
+      "url_spotify": "https://open.spotify.com/episode/7Ayxw3EaQTa3DijfzsvuQT",
+      "url_drive": "https://drive.google.com/file/d/16ARCkkHsuChJNE6EgrmxcfydRTEkS4Mn/view"
+    },
+    {
+      "titulo": "TEMA 05",
+      "url_spotify": "https://open.spotify.com/episode/1D68B5j24f42BK0MPIZ0bb",
+      "url_drive": "https://drive.google.com/file/d/10e7-ftfI0b1c-mIKzCc_xfILIN-X8CcZ/view"
+    },
+    {
+      "titulo": "TEMA 06",
+      "url_spotify": "https://open.spotify.com/episode/3Y8rXkH4UK749kOx6ckV44",
+      "url_drive": "https://drive.google.com/file/d/1jEVG3GauN2vwqwP4-Rgc13LDIXfSlkGB/view"
+    },
+    {
+      "titulo": "TEMA 07",
+      "url_spotify": "https://open.spotify.com/episode/2AjgTvzOXK3tIk13Zm6xs6",
+      "url_drive": "https://drive.google.com/file/d/1cM1JKwZcOddrIMXzz6I4DBQOlyqk8ls6/view"
+    },
+    {
+      "titulo": "TEMA 08",
+      "url_spotify": "https://open.spotify.com/episode/0oAtfWdHtF7F9WaV5jwzxE",
+      "url_drive": "https://drive.google.com/file/d/1Rr9CqyfEitvar1kReMF1Tko8UZg28qHJ/view"
+    },
+    {
+      "titulo": "TEMA 09",
+      "url_spotify": "https://open.spotify.com/episode/6bwPk4Ui1B7FBu8U1IH9gR",
+      "url_drive": "https://drive.google.com/file/d/1WFP99-XgRnUKQJbBbifjVTg-s7dTuReb/view"
+    },
+    {
+      "titulo": "TEMA 10",
+      "url_spotify": "https://open.spotify.com/episode/2vXQ9dvcWDt4hnMT0ggeo5",
+      "url_drive": "https://drive.google.com/file/d/1H-rN__oKd_zB2zDkSQi0gDoyPPqKlCsM/view"
+    },
+    {
+      "titulo": "TEMA 11",
+      "url_spotify": "https://open.spotify.com/episode/4JyIUw6cOnC9YGEDiEFE5M",
+      "url_drive": "https://drive.google.com/file/d/1a5Oa-3qwy_T8rpyZiWFBFOUvWytpOBp-/view"
+    },
+    {
+      "titulo": "TEMA 12",
+      "url_spotify": "https://open.spotify.com/episode/6UmsBAT30jQk921pMdBDJc",
+      "url_drive": "https://drive.google.com/file/d/1hKRmRVS5BTXUmZWDe5_brLyFoWFRywLe/view"
+    }
+  ]
+}

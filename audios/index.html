@@ -622,7 +622,7 @@
         <div id="contenido-error" class="caja-error">
           <div class="icono-error">⚠️</div>
           <div class="titulo-error">Contenido no disponible</div>
-          <div class="descripcion-error">El diplomado o la clase solicitada no existe. Verifica que el enlace sea correcto.</div>
+          <div class="descripcion-error">El diplomado, curso o la clase solicitada no existe. Verifica que el enlace sea correcto.</div>
         </div>
       </div>
     </div>
@@ -692,20 +692,24 @@
         }
 
         // Validación estricta de parámetros:
-        // Deben existir únicamente y de forma exacta 'diplomado' y 'audio'
+        // Deben existir únicamente y de forma exacta ('diplomado' o 'curso') y 'audio'
         const paramKeys = Array.from(params.keys());
-        const tieneParametrosExactos = paramKeys.length === 2 && params.has("diplomado") && params.has("audio");
+        const esDiplomado = params.has("diplomado");
+        const esCurso = params.has("curso");
+        const tieneAudio = params.has("audio");
+
+        const tieneParametrosExactos = paramKeys.length === 2 && (esDiplomado || esCurso) && tieneAudio && !(esDiplomado && esCurso);
 
         if (!tieneParametrosExactos) {
           mostrarError();
           return;
         }
 
-        const diplomado = params.get("diplomado") ? params.get("diplomado").trim() : "";
+        const slugParam = esDiplomado ? params.get("diplomado").trim() : params.get("curso").trim();
         const audioParam = params.get("audio") ? params.get("audio").trim() : "";
 
-        // El diplomado no debe estar vacío y el audio debe ser un entero positivo válido
-        if (!diplomado || !/^\d+$/.test(audioParam)) {
+        // El diplomado o curso no debe estar vacío y el audio debe ser un entero positivo válido
+        if (!slugParam || !/^\d+$/.test(audioParam)) {
           mostrarError();
           return;
         }
@@ -716,9 +720,9 @@
           return;
         }
 
-        const diplomadoClean = diplomado.replace(/\.json$/, "");
+        const slugClean = slugParam.replace(/\.json$/, "");
 
-        fetch("./" + diplomadoClean + ".json")
+        fetch("./" + slugClean + ".json")
           .then((res) => {
             if (!res.ok) throw new Error("Archivo no encontrado");
             return res.json();
