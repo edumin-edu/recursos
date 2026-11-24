@@ -1,0 +1,54 @@
+{
+  "nombre_curso": "ESPECIALÍZATE EN INTELIGENCIA ARTIFICIAL DE 0 A 100",
+  "playlist_url": "https://www.youtube.com/playlist?list=PLLq0zV2goR_AMRwI4HMtjq9t7E1rl4stI",
+  "videos": [
+    {
+      "titulo": "TEMA 01",
+      "url": "https://www.youtube.com/watch?v=8eEsGqwUAIY"
+    },
+    {
+      "titulo": "TEMA 02",
+      "url": "https://www.youtube.com/watch?v=3LV8etKT9hA"
+    },
+    {
+      "titulo": "TEMA 03",
+      "url": "https://www.youtube.com/watch?v=8yCI9n2v1Sg"
+    },
+    {
+      "titulo": "TEMA 04",
+      "url": "https://www.youtube.com/watch?v=TqpXYcXFS3E"
+    },
+    {
+      "titulo": "TEMA 05",
+      "url": "https://www.youtube.com/watch?v=xKI7XvnwV54"
+    },
+    {
+      "titulo": "TEMA 06",
+      "url": "https://www.youtube.com/watch?v=Rhh7ByfyvL0"
+    },
+    {
+      "titulo": "TEMA 07",
+      "url": "https://www.youtube.com/watch?v=RJGHQuRS51w"
+    },
+    {
+      "titulo": "TEMA 08",
+      "url": "https://www.youtube.com/watch?v=aRvX0eyIXg8"
+    },
+    {
+      "titulo": "TEMA 09",
+      "url": "https://www.youtube.com/watch?v=ppaL0NK5p70"
+    },
+    {
+      "titulo": "TEMA 10",
+      "url": "https://www.youtube.com/watch?v=yC8G_oKQhm4"
+    },
+    {
+      "titulo": "TEMA 11",
+      "url": "https://www.youtube.com/watch?v=7TGshsUagPk"
+    },
+    {
+      "titulo": "TEMA 12",
+      "url": "https://www.youtube.com/watch?v=4niZ_qe8ZeE"
+    }
+  ]
+}

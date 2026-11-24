@@ -557,40 +557,40 @@
           return match && match[2].length === 11 ? match[2] : null;
         }
 
-        // 1. MODO CURSO O TALLER (1 BOTÓN)
-        // Estructura obligatoria y estricta: ?curso={numero}&video={nro} o ?taller={numero}&video={nro}
+        const paramKeys = Array.from(params.keys());
+        const tieneVideo = params.has("video");
+        const videoParam = tieneVideo ? params.get("video").trim() : "";
+        const esVideoValido = /^\d+$/.test(videoParam);
+
+        if (!esVideoValido || parseInt(videoParam, 10) < 1) {
+          mostrarError();
+          return;
+        }
+
+        const numVideo = parseInt(videoParam, 10);
         const esCurso = params.has("curso");
         const esTaller = params.has("taller");
+        const esDiplomado = params.has("diplomado");
 
-        if (esCurso || esTaller) {
+        // 1. MODO CURSO O TALLER NUMÉRICO (1 BOTÓN - cursos-talleres.json)
+        // Estructura: ?curso={numero}&video={nro} o ?taller={numero}&video={nro}
+        const idCursoOTaller = esCurso ? params.get("curso").trim() : (esTaller ? params.get("taller").trim() : "");
+        const esNumericoCursoOTaller = (esCurso || esTaller) && /^\d+$/.test(idCursoOTaller);
+
+        if (esNumericoCursoOTaller) {
           if (esCurso && esTaller) {
             mostrarError();
             return;
           }
 
           const tipo = esCurso ? "curso" : "taller";
-          const paramKeys = Array.from(params.keys());
-
-          // Validación estricta: deben existir de forma única y obligatoria ?{tipo}={numero}&video={nro}
-          const clavesValidas = paramKeys.length === 2 && params.has(tipo) && params.has("video");
-
-          if (!clavesValidas) {
+          if (paramKeys.length !== 2 || !params.has(tipo)) {
             mostrarError();
             return;
           }
 
-          const idParam = params.get(tipo) ? params.get(tipo).trim() : "";
-          const videoParam = params.get("video") ? params.get("video").trim() : "";
-
-          if (!/^\d+$/.test(idParam) || !/^\d+$/.test(videoParam)) {
-            mostrarError();
-            return;
-          }
-
-          const numItem = parseInt(idParam, 10);
-          const numVideo = parseInt(videoParam, 10);
-
-          if (numItem < 1 || numVideo < 1) {
+          const numItem = parseInt(idCursoOTaller, 10);
+          if (numItem < 1) {
             mostrarError();
             return;
           }
@@ -635,33 +635,23 @@
           return;
         }
 
-        // 2. MODO DIPLOMADO (2 BOTONES)
-        // Validación estricta original de diplomados: deben existir únicamente 'diplomado' y 'video'
-        const paramKeys = Array.from(params.keys());
-        const tieneParametrosDiplomado = paramKeys.length === 2 && params.has("diplomado") && params.has("video");
-
-        if (!tieneParametrosDiplomado) {
+        // 2. MODO DIPLOMADO O CURSO POR SLUG (2 BOTONES)
+        // Estructura: ?diplomado={slug}&video={nro} o ?curso={slug}&video={nro}
+        const esSlugDiplomadoOCurso = (esDiplomado || esCurso) && !esTaller;
+        if (!esSlugDiplomadoOCurso || paramKeys.length !== 2) {
           mostrarError();
           return;
         }
 
-        const diplomado = params.get("diplomado") ? params.get("diplomado").trim() : "";
-        const videoParam = params.get("video") ? params.get("video").trim() : "";
-
-        if (!diplomado || !/^\d+$/.test(videoParam)) {
+        const slugParam = esDiplomado ? params.get("diplomado").trim() : params.get("curso").trim();
+        if (!slugParam) {
           mostrarError();
           return;
         }
 
-        const numVideo = parseInt(videoParam, 10);
-        if (numVideo < 1) {
-          mostrarError();
-          return;
-        }
+        const slugClean = slugParam.replace(/\.json$/, "");
 
-        const diplomadoClean = diplomado.replace(/\.json$/, "");
-
-        fetch(`./${diplomadoClean}.json`)
+        fetch(`./${slugClean}.json`)
           .then((res) => {
             if (!res.ok) throw new Error("Archivo no encontrado");
             return res.json();
@@ -700,7 +690,7 @@
               btnLista.href = data.playlist_url;
             }
 
-            // Asegurar texto original completo con resaltados para diplomados
+            // Asegurar texto original completo con resaltados
             const textoInfo = document.getElementById("texto-info");
             if (textoInfo) {
               textoInfo.innerHTML = 'Repasa a tu manera: mira el resumen <b>aquí</b>, ábrelo en <b>YouTube</b> o revisa la <b>lista completa</b>. ¡Elige la opción que prefieras y listo!';
